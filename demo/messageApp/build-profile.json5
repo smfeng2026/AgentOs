@@ -1,0 +1,56 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/sumi/.ohos/config/default_messageAppSecond_hvgZiOSYmMmUqH4Q1lb7B8MMMS9_ul4qmuBWU8wp6Hc=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BE21590F61BC9D1496A28FAB8087FA287ED3AFF05AFA606FD37C686060BFC58C111EBF5934C1E24",
+          "profile": "/Users/sumi/.ohos/config/default_messageAppSecond_hvgZiOSYmMmUqH4Q1lb7B8MMMS9_ul4qmuBWU8wp6Hc=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/sumi/.ohos/config/default_messageAppSecond_hvgZiOSYmMmUqH4Q1lb7B8MMMS9_ul4qmuBWU8wp6Hc=.p12",
+          "storePassword": "0000001BE092D00E0CBF2D6249C3DA1BF046BEFE6B75CC86C4415BAE8B4EC274C6D366DE8498812091ED4A"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "6.0.2(22)",
+        "compatibleSdkVersion": "6.0.2(22)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

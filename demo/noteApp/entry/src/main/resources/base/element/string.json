@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "记录和整理读书笔记"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "读书笔记"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "读书笔记"
+    }
+  ]
+}
