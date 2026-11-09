@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>laya 决策模型测试</title>
+<style>
+:root { --bg:#0f1115; --panel:#171a21; --line:#2a2f3a; --txt:#e8eaf0; --dim:#9aa3b2; --acc:#6ea8fe; --good:#4ade80; --bad:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--txt); font:14px/1.6 "PingFang SC","Microsoft YaHei",system-ui,sans-serif; padding:24px; }
+.wrap { max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+h1 { grid-column:1/-1; font-size:20px; font-weight:600; }
+h1 small { color:var(--dim); font-size:12px; font-weight:400; margin-left:10px; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; }
+.panel h2 { font-size:13px; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
+label { display:block; color:var(--dim); font-size:12px; margin:10px 0 4px; }
+textarea, input[type=text] { width:100%; background:#0d0f13; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:8px 10px; font:inherit; resize:vertical; }
+textarea { min-height:110px; }
+.btn { display:inline-block; background:var(--acc); color:#08111f; border:none; border-radius:6px; padding:9px 22px; font:600 14px/1 inherit; cursor:pointer; margin-top:14px; }
+.btn:disabled { opacity:.45; cursor:wait; }
+.btn.sub { background:transparent; color:var(--dim); border:1px solid var(--line); margin-left:8px; }
+.qcard { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:10px; position:relative; }
+.qcard .del { position:absolute; top:8px; right:8px; color:var(--dim); cursor:pointer; background:none; border:none; font-size:16px; }
+.qcard .del:hover { color:var(--bad); }
+.addq { color:var(--acc); cursor:pointer; font-size:13px; display:inline-block; margin-top:4px; }
+select { background:#0d0f13; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:6px 8px; }
+.crits { display:flex; gap:6px; flex-wrap:wrap; }
+.crits input { flex:1; min-width:110px; }
+.crits .rm { color:var(--dim); cursor:pointer; align-self:center; }
+.crits .rm:hover { color:var(--bad); }
+.bar { background:#0d0f13; border-radius:5px; height:22px; position:relative; overflow:hidden; margin:4px 0 10px; }
+.bar i { position:absolute; inset:0 auto 0 0; background:linear-gradient(90deg,#3b6fd4,#6ea8fe); border-radius:5px; }
+.bar b { position:absolute; left:9px; top:0; font:600 12px/22px monospace; color:#fff; text-shadow:0 1px 2px #0008; }
+.bar.top i { background:linear-gradient(90deg,#22c55e,#4ade80); }
+.row { display:flex; justify-content:space-between; font-size:13px; }
+.ans { border-top:1px solid var(--line); padding:12px 0; }
+.ans .choice { font-size:18px; font-weight:700; color:var(--good); }
+.ans .noul { font-size:18px; font-weight:700; }
+.ans .score { font-size:18px; font-weight:700; color:var(--good); }
+.meta { color:var(--dim); font-size:12px; }
+.err { color:var(--bad); background:#2a1215; border:1px solid #5c1f26; border-radius:6px; padding:10px; margin-top:12px; }
+.loading { color:var(--acc); margin-top:14px; }
+pre { background:#0d0f13; border:1px solid var(--line); border-radius:6px; padding:10px; font:12px/1.5 monospace; overflow:auto; margin-top:10px; color:var(--dim); }
+@media (max-width:860px){ .wrap{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>laya 决策模型测试台 <small id="info"></small></h1>
+
+  <div class="panel">
+    <h2>输入</h2>
+    <label>状态文本(state)—— 描述场景或上下文</label>
+    <textarea id="state" placeholder="例如:Hi, we were billed twice for March. Please refund the duplicate…"></textarea>
+
+    <h2 style="margin-top:18px">决策问题</h2>
+    <div id="questions"></div>
+    <span class="addq" onclick="addQuestion()">+ 添加问题</span>
+
+    <div>
+      <button class="btn" id="go" onclick="run()">运行预测</button>
+      <button class="btn sub" onclick="fillDemo()">填充示例</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>结果</h2>
+    <div id="out"><div class="meta">尚未运行。左侧填好后点「运行预测」。</div></div>
+    <div id="raw"></div>
+  </div>
+</div>
+
+<script>
+const QTYPES = { choice: '单选(choice)', score: '评分(score)', noul: '是/否(noul)' };
+
+function info() {
+  fetch('/api/info').then(r => r.json()).then(d => {
+    document.getElementById('info').textContent = `${d.model} · ${d.engine} · ${d.device} · ${d.dtype}`;
+  }).catch(() => {});
+}
+info();
+
+function addQuestion(type = 'choice', ins = '', crits = []) {
+  const wrap = document.getElementById('questions');
+  const card = document.createElement('div');
+  card.className = 'qcard';
+  card.innerHTML = `
+    <button class="del" title="删除">×</button>
+    <label>问题类型</label>
+    <select class="qtype">
+      ${Object.entries(QTYPES).map(([k, v]) => `<option value="${k}" ${k === type ? 'selected' : ''}>${v}</option>`).join('')}
+    </select>
+    <label>问题指令(instructions)</label>
+    <input type="text" class="qins" value="${ins.replace(/"/g, '&quot;')}" placeholder="例如:Which department should handle this?">
+    <label class="critlabel">候选(criteria)</label>
+    <div class="crits"></div>
+    <span class="addq critadd">+ 候选</span>`;
+  card.querySelector('.del').onclick = () => card.remove();
+  const critsEl = card.querySelector('.crits');
+  const addCrit = (v = '') => {
+    const row = document.createElement('span');
+    row.style.display = 'flex'; row.style.gap = '4px'; row.style.flex = '1 1 140px';
+    row.innerHTML = `<input type="text" class="crit" value="${v.replace(/"/g, '&quot;')}" placeholder="候选">`;
+    const rm = document.createElement('span');
+    rm.className = 'rm'; rm.textContent = '×';
+    rm.onclick = () => row.remove();
+    row.appendChild(rm);
+    critsEl.appendChild(row);
+  };
+  card.querySelector('.critadd').onclick = () => addCrit();
+  crits.forEach(c => addCrit(c));
+  if (!crits.length) addCrit('');
+  const syncCritUi = () => {
+    const isNoul = card.querySelector('.qtype').value === 'noul';
+    card.querySelector('.critlabel').style.display = isNoul ? '' : '';
+    critsEl.style.display = 'none';
+    card.querySelector('.critadd').style.display = 'none';
+    if (isNoul) { critsEl.innerHTML = ''; }
+    else if (!critsEl.children.length) addCrit('');
+    critsEl.style.display = isNoul ? 'none' : 'flex';
+    card.querySelector('.critadd').style.display = isNoul ? 'none' : 'inline-block';
+  };
+  card.querySelector('.qtype').onchange = syncCritUi;
+  syncCritUi();
+  wrap.appendChild(card);
+}
+
+function collect() {
+  const questions = {};
+  for (const card of document.querySelectorAll('.qcard')) {
+    const ins = card.querySelector('.qins').value.trim();
+    if (!ins) throw new Error('有问题未填写指令');
+    const type = card.querySelector('.qtype').value;
+    const qid = 'q' + (Object.keys(questions).length + 1);
+    if (type === 'noul') { questions[qid] = { type, instructions: ins }; continue; }
+    const crits = [...card.querySelectorAll('.crit')].map(c => c.value.trim()).filter(Boolean);
+    if (type === 'choice' && crits.length < 2) throw new Error(`「${ins}」至少需要 2 个候选`);
+    if (type === 'score' && crits.length < 2) throw new Error(`「${ins}」至少需要 2 个等级`);
+    questions[qid] = { type, instructions: ins, criteria: crits };
+  }
+  if (!Object.keys(questions).length) throw new Error('至少添加一个问题');
+  return questions;
+}
+
+async function run() {
+  const out = document.getElementById('out'), raw = document.getElementById('raw'), btn = document.getElementById('go');
+  let questions;
+  try { questions = collect(); }
+  catch (e) { out.innerHTML = `<div class="err">${e.message}</div>`; return; }
+  const fd = new FormData();
+  fd.append('state', document.getElementById('state').value);
+  fd.append('questions', JSON.stringify(questions));
+  btn.disabled = true;
+  out.innerHTML = '<div class="loading">推理中…(CPU 上约需数秒)</div>';
+  raw.innerHTML = '';
+  try {
+    const r = await fetch('/api/predict', { method: 'POST', body: fd });
+    const d = await r.json();
+    if (!r.ok) throw new Error(typeof d.detail === 'string' ? d.detail : JSON.stringify(d.detail));
+    render(d);
+  } catch (e) {
+    out.innerHTML = `<div class="err">${e.message}</div>`;
+  } finally { btn.disabled = false; }
+}
+
+function render(d) {
+  const answers = d.result.answers || {};
+  let html = `<div class="meta">耗时 ${d.ms}ms · tokens ${JSON.stringify(d.result.usage || {})}</div>`;
+  for (const [qid, a] of Object.entries(answers)) {
+    html += `<div class="ans"><div class="row"><span>`;
+    if (a.type === 'choice') html += `选择:<span class="choice">${esc(a.choice)}</span>`;
+    else if (a.type === 'score') html += `评分:<span class="score">${a.score}</span> <span class="meta">/${Object.keys(a.legend || {}).length - 1}</span>`;
+    else html += `是/否:<span class="noul ${a.noul > .5 ? '' : '" style="color:var(--bad)'}">${a.noul > .5 ? '是' : '否'}</span> <span class="meta">(p=${a.noul})</span>`;
+    const conf = a.answer_confidence ?? a.confidence;
+    html += `</span><span>置信度 ${conf ?? '-'}</span></div>`;
+    const probs = Object.entries(a.probabilities || {}).sort((x, y) => y[1] - x[1]);
+    const legend = a.legend || {};
+    const top = probs[0] && probs[0][0];
+    for (const [k, v] of probs) {
+      const label = a.type === 'score' ? (legend[k] || k) : k;
+      html += bar(label, v, k === top);
+    }
+    html += `</div>`;
+  }
+  document.getElementById('out').innerHTML = html;
+  document.getElementById('raw').innerHTML = `<details><summary>原始 JSON</summary><pre>${esc(JSON.stringify(d, null, 2))}</pre></details>`;
+}
+
+function bar(label, v, isTop) {
+  const pct = Math.round(v * 1000) / 10;
+  return `<div class="bar ${isTop ? 'top' : ''}"><i style="width:${Math.max(pct, 0.5)}%"></i><b>${esc(label)} ${pct}%</b></div>`;
+}
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+function fillDemo() {
+  document.getElementById('state').value = 'Hi, we were billed twice for March. Please refund the duplicate today or we will cancel our plan.';
+  document.getElementById('questions').innerHTML = '';
+  addQuestion('choice', 'Which department should handle this?', ['billing', 'technical', 'other']);
+  addQuestion('score', 'How urgent is this?', ['not urgent', 'soon', 'blocking']);
+  addQuestion('noul', 'Does the user threaten to cancel or leave?', []);
+}
+
+addQuestion('choice', '', []);
+</script>
+</body>
+</html>
