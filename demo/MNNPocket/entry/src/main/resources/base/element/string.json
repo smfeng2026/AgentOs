@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "端侧大模型对话"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "MNN-Pocket-0.3B 本地对话"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Pocket 对话"
+    }
+  ]
+}

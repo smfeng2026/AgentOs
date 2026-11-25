@@ -1,0 +1,19 @@
+/node_modules
+/oh_modules
+/local.properties
+/.idea
+**/build
+/.hvigor
+.cxx
+/.clangd
+/.clang-format
+/.clang-tidy
+**/.test
+/.appanalyzer
+# local build/dev caches
+/.mnn-build
+/.buildcheck
+/.mnn-build-script.log
+
+# 模型权重超过 GitHub 单文件 100MB 限制，不入库；用 scripts/fetch_model.sh 下载（见 SETUP.md）
+/entry/src/main/resources/rawfile/model/llm.mnn.weight

@@ -1,0 +1,6 @@
+{
+  "name": "libllmbridge.so",
+  "types": "./index.d.ts",
+  "version": "1.0.0",
+  "description": "MNN Pocket LLM native bridge"
+}
