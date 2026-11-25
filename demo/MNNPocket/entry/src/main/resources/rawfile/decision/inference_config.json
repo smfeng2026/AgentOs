@@ -1,0 +1,92 @@
+{
+  "format": "mnn-pocket-decision-v1",
+  "base_model": "taobao-mnn/MNN-Pocket-0.3B-Dec",
+  "source_revision": "dfbe0aed3abd4caed175b883a4b462ed35184fad",
+  "mnn_version": "3.6.2",
+  "tokenizer_file": "tokenizer.json",
+  "temperature": 1.1111832893308136,
+  "max_length": 32768,
+  "special_tokens": {
+    "<|fim_prefix|>": 65526,
+    "<|fim_middle|>": 65527,
+    "<|box_start|>": 65515,
+    "<|box_end|>": 65516,
+    "<|fim_suffix|>": 65528
+  },
+  "lora_merged": true,
+  "inference": "single_forward",
+  "batch_size": 1,
+  "variants": {
+    "decision-fp16.mnn": {
+      "body_weights": "float16",
+      "embedding_weights": "float16",
+      "pointer_weights": "float16"
+    },
+    "decision-fp16-q8-embedding.mnn": {
+      "body_weights": "float16",
+      "embedding_weights": "int8_group32",
+      "pointer_weights": "float16"
+    },
+    "decision-w8-q8-embedding.mnn": {
+      "body_weights": "hqq_int8_group64",
+      "embedding_weights": "int8_group32",
+      "pointer_weights": "float32"
+    }
+  },
+  "inputs": {
+    "input_ids": {
+      "dtype": "int32",
+      "shape": [
+        1,
+        "L"
+      ]
+    },
+    "position_ids": {
+      "dtype": "int32",
+      "shape": [
+        1,
+        "L"
+      ]
+    },
+    "attention_mask": {
+      "dtype": "float32",
+      "shape": [
+        1,
+        1,
+        "L",
+        "L"
+      ]
+    },
+    "decide_positions": {
+      "dtype": "int32",
+      "shape": [
+        1,
+        "Q"
+      ]
+    },
+    "option_positions": {
+      "dtype": "int32",
+      "shape": [
+        1,
+        "Q",
+        "C"
+      ]
+    }
+  },
+  "outputs": {
+    "logits": {
+      "dtype": "float32",
+      "shape": [
+        1,
+        "Q",
+        "C"
+      ]
+    }
+  },
+  "mask_sentinel": -3.3895313892515355e+38,
+  "recommended_cpu": {
+    "threads": 4,
+    "precision": "Normal",
+    "memory": "Normal"
+  }
+}

@@ -1,10 +1,12 @@
 # MNN Pocket · 模型下载与运行说明
 
-> **仓库不包含大权重文件。** `entry/src/main/resources/rawfile/model/llm.mnn.weight`（约 163.5 MB）超过 GitHub 单文件 100 MB 限制，已在 `.gitignore` 中排除。全新 clone 后必须先下载权重，否则无法构建出可运行的 HAP。其余 4 个模型文件（`llm.mnn` / `config.json` / `llm_config.json` / `tokenizer.mtok`）已随仓库提供。
+> **仓库不包含大权重文件。** `entry/src/main/resources/rawfile/model/llm.mnn.weight`（约 163.5 MB）与 `entry/src/main/resources/rawfile/decision/decision-w8-q8-embedding.mnn`（约 341 MB）超过 GitHub 单文件 100 MB 限制，已在 `.gitignore` 中排除。全新 clone 后必须先下载权重，否则无法构建出可运行的 HAP。其余模型文件（聊天包 4 个 + 决策包 `inference_config.json` / `tokenizer.mtok`）已随仓库提供。
 
 ---
 
 ## 1. 模型信息
+
+**对话包**
 
 | 项 | 值 |
 | --- | --- |
@@ -14,6 +16,18 @@
 | 文件大小 | 171,481,330 字节（约 163.5 MB） |
 | MD5 | `6bb79e589438a30eb20a68e80344d600` |
 | 放置路径 | `entry/src/main/resources/rawfile/model/llm.mnn.weight` |
+
+**决策包**
+
+| 项 | 值 |
+| --- | --- |
+| 模型 | MNN-Pocket-0.3B-Dec（LoRA 已合并；W8 主干 group64 + Q8 词表 group32 + FP32 指针头） |
+| 上游仓库 | [alivecat/MNN-Pocket-0.3B-Dec-MNN](https://huggingface.co/alivecat/MNN-Pocket-0.3B-Dec-MNN) |
+| 缺失文件 | `decision-w8-q8-embedding.mnn` |
+| 文件大小 | 341,250,856 字节（约 341 MB） |
+| MD5 | `b8805738832e969a4a8c0f438ede9526` |
+| 放置路径 | `entry/src/main/resources/rawfile/decision/decision-w8-q8-embedding.mnn` |
+| 随包文件 | `inference_config.json`（张量协议）、`tokenizer.mtok`（与聊天包同一 tokenizer） |
 
 ## 2. 下载方式
 
@@ -25,7 +39,7 @@
 scripts/fetch_model.sh
 ```
 
-- 默认从 **hf-mirror.com**（HuggingFace 国内镜像）下载全部 5 个模型文件到 `entry/src/main/resources/rawfile/model/`，已存在的文件会被覆盖为上游最新版。
+- 默认从 **hf-mirror.com**（HuggingFace 国内镜像）下载两个模型包：聊天包 5 个文件到 `rawfile/model/`，决策包（341 MB 图 + 协议配置）到 `rawfile/decision/`。已存在的文件会被覆盖为上游最新版。
 - 可指定其他 endpoint，例如官方源：
 
 ```bash
@@ -82,7 +96,7 @@ export PATH=/Applications/DevEco-Studio.app/Contents/tools/node/bin:$JAVA_HOME/b
   --mode module -p product=default assembleHap --no-daemon
 ```
 
-产物：`entry/build/default/outputs/default/entry-default-unsigned.hap`（约 172 MB，含模型与 .so）。命令行只能产出 unsigned 包，需签名后安装：
+产物：`entry/build/default/outputs/default/entry-default-unsigned.hap`（约 525 MB，含两个模型包与 .so）。命令行只能产出 unsigned 包，需签名后安装：
 
 ```bash
 hdc install entry-default-signed.hap

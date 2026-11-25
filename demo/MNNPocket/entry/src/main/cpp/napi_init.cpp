@@ -18,6 +18,7 @@
 #include <string>
 #include <thread>
 
+#include "decision_engine.h"
 #include "llm_engine.h"
 
 #undef LOG_DOMAIN
@@ -35,11 +36,17 @@ namespace {
 // ---------------------------------------------------------------------------
 
 struct Task {
-    enum Kind { INIT, CHAT, RESET } kind = INIT;
+    enum Kind { INIT, CHAT, RESET, DEC_INIT, DECIDE, DEC_UNLOAD } kind = INIT;
     std::string configPath;
     std::string tmpDir;
     std::string prompt;
     int maxTokens = 512;
+    // decision tasks
+    std::string modelDir;
+    std::string modelFile;
+    std::string requestJson;
+    int threads = 4;
+    int decMaxTokens = 2048;
 };
 
 std::mutex g_queueMutex;
@@ -53,8 +60,13 @@ pocket::ChatEngine* g_engine = nullptr; // owned by the worker thread
 std::atomic<bool> g_ready{false};
 std::atomic<bool> g_generating{false};
 
+pocket::DecisionEngine* g_decEngine = nullptr; // owned by the worker thread
+std::atomic<bool> g_decReady{false};
+std::atomic<bool> g_decRunning{false};
+
 std::mutex g_infoMutex;
 std::string g_infoJson = "{\"model\":\"MNN-Pocket-0.3B\",\"loaded\":false}";
+std::string g_decInfoJson = "{\"model\":\"MNN-Pocket-0.3B-Dec\",\"loaded\":false}";
 
 napi_threadsafe_function g_tsfn = nullptr;
 
@@ -164,6 +176,79 @@ void handleReset() {
     emitEvent("reset_done", "{}");
 }
 
+// ---------------------------------------------------------------------------
+// decision handlers (same worker thread: chat and decide never run at once)
+// ---------------------------------------------------------------------------
+
+void handleDecInit(const Task& task) {
+    emitEvent("dec_progress", "{\"stage\":\"创建决策引擎\"}");
+    if (g_decEngine != nullptr) {
+        delete g_decEngine;
+        g_decEngine = nullptr;
+        g_decReady = false;
+    }
+    g_decEngine = new pocket::DecisionEngine();
+    std::string error;
+    if (!g_decEngine->load(task.modelDir, task.modelFile, task.threads, task.decMaxTokens, &error)) {
+        POCKET_LOGE("decision model load failed: %{public}s", error.c_str());
+        emitEvent("dec_error", "{\"stage\":\"init\",\"message\":\"" + pocket::jsonEscape(error) + "\"}");
+        return;
+    }
+    {
+        std::lock_guard<std::mutex> lock(g_infoMutex);
+        g_decInfoJson = g_decEngine->describe();
+    }
+    g_decReady = true;
+    POCKET_LOGI("decision model ready, load %{public}lld ms", g_decEngine->loadMs());
+    emitEvent("dec_ready", g_decEngine->describe());
+}
+
+void handleDecide(const Task& task) {
+    if (g_decEngine == nullptr || !g_decEngine->loaded()) {
+        emitEvent("dec_error",
+                  "{\"stage\":\"decide\",\"message\":\"" +
+                      pocket::jsonEscape("决策模型尚未加载完成，请稍候") + "\"}");
+        return;
+    }
+    g_decRunning = true;
+    emitEvent("dec_start", "{}");
+
+    std::string result;
+    pocket::DecisionStats stats;
+    std::string error;
+    const bool ok = g_decEngine->predict(task.requestJson, &result, &stats, &error);
+    g_decRunning = false;
+
+    if (!ok) {
+        POCKET_LOGE("decide failed: %{public}s", error.c_str());
+        emitEvent("dec_error", "{\"stage\":\"decide\",\"message\":\"" + pocket::jsonEscape(error) + "\"}");
+        return;
+    }
+    POCKET_LOGI("decide done: input=%{public}d tok forward=%{public}lld ms",
+                stats.inputTokens, stats.forwardMs);
+
+    // Merge the engine timing report into the result JSON (which already ends
+    // with '}'), mirroring how chat 'done' carries its stats.
+    std::string body = result;
+    body.pop_back();
+    char extra[256];
+    std::snprintf(extra, sizeof(extra),
+                  ",\"encodeMs\":%lld,\"forwardMs\":%lld,\"loadMs\":%lld,\"questionCount\":%d}",
+                  stats.encodeMs, stats.forwardMs, stats.loadMs, stats.questionCount);
+    body += extra;
+    emitEvent("dec_done", body);
+}
+
+void handleDecUnload() {
+    if (g_decEngine != nullptr) {
+        g_decEngine->unload();
+        g_decReady = false;
+        std::lock_guard<std::mutex> lock(g_infoMutex);
+        g_decInfoJson = g_decEngine->describe();
+    }
+    emitEvent("dec_unloaded", "{}");
+}
+
 void workerMain() {
     for (;;) {
         Task task;
@@ -189,12 +274,24 @@ void workerMain() {
             case Task::RESET:
                 handleReset();
                 break;
+            case Task::DEC_INIT:
+                handleDecInit(task);
+                break;
+            case Task::DECIDE:
+                handleDecide(task);
+                break;
+            case Task::DEC_UNLOAD:
+                handleDecUnload();
+                break;
         }
     }
-    // Free the model on the thread that created it.
+    // Free the models on the thread that created them.
     delete g_engine;
     g_engine = nullptr;
     g_ready = false;
+    delete g_decEngine;
+    g_decEngine = nullptr;
+    g_decReady = false;
 }
 
 void ensureWorker() {
@@ -306,6 +403,10 @@ napi_value chat(napi_env env, napi_callback_info info) {
         emitEvent("error", "{\"stage\":\"chat\",\"message\":\"上一轮回答仍在生成中\"}");
         return nullptr;
     }
+    if (g_decRunning) {
+        emitEvent("error", "{\"stage\":\"chat\",\"message\":\"决策推理进行中，请稍候\"}");
+        return nullptr;
+    }
     enqueue(std::move(task));
     return nullptr;
 }
@@ -351,6 +452,89 @@ napi_value shutdown(napi_env env, napi_callback_info /*info*/) {
     return nullptr;
 }
 
+// ---------------------------------------------------------------------------
+// decision entry points
+// ---------------------------------------------------------------------------
+
+napi_value initDecision(napi_env env, napi_callback_info info) {
+    size_t argc = 4;
+    napi_value args[4] = {nullptr, nullptr, nullptr, nullptr};
+    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+    Task task;
+    task.kind = Task::DEC_INIT;
+    if (argc >= 1) {
+        readString(env, args[0], &task.modelDir);
+    }
+    task.modelFile = "decision-w8-q8-embedding.mnn";
+    if (argc >= 2) {
+        readString(env, args[1], &task.modelFile);
+    }
+    if (argc >= 3) {
+        int32_t threads = 4;
+        napi_get_value_int32(env, args[2], &threads);
+        task.threads = threads;
+    }
+    if (argc >= 4) {
+        int32_t maxTokens = 2048;
+        napi_get_value_int32(env, args[3], &maxTokens);
+        task.decMaxTokens = maxTokens;
+    }
+    POCKET_LOGI("decision init requested: %{public}s", task.modelDir.c_str());
+    ensureWorker();
+    enqueue(std::move(task));
+    return nullptr;
+}
+
+napi_value decide(napi_env env, napi_callback_info info) {
+    size_t argc = 1;
+    napi_value args[1] = {nullptr};
+    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+    Task task;
+    task.kind = Task::DECIDE;
+    if (argc >= 1) {
+        readString(env, args[0], &task.requestJson);
+    }
+    if (task.requestJson.empty()) {
+        return nullptr;
+    }
+    if (g_decRunning) {
+        emitEvent("dec_error", "{\"stage\":\"decide\",\"message\":\"上一次决策仍在推理中\"}");
+        return nullptr;
+    }
+    if (g_generating) {
+        emitEvent("dec_error", "{\"stage\":\"decide\",\"message\":\"对话生成进行中，请稍候\"}");
+        return nullptr;
+    }
+    ensureWorker();
+    enqueue(std::move(task));
+    return nullptr;
+}
+
+napi_value unloadDecision(napi_env env, napi_callback_info /*info*/) {
+    if (g_decEngine != nullptr && !g_decRunning) {
+        Task task;
+        task.kind = Task::DEC_UNLOAD;
+        ensureWorker();
+        enqueue(std::move(task));
+    }
+    return nullptr;
+}
+
+napi_value isDecisionReady(napi_env env, napi_callback_info /*info*/) {
+    return makeBool(env, g_decReady.load());
+}
+
+napi_value decisionInfo(napi_env env, napi_callback_info /*info*/) {
+    std::string json;
+    {
+        std::lock_guard<std::mutex> lock(g_infoMutex);
+        json = g_decInfoJson;
+    }
+    napi_value result = nullptr;
+    napi_create_string_utf8(env, json.c_str(), NAPI_AUTO_LENGTH, &result);
+    return result;
+}
+
 napi_value Init(napi_env env, napi_value exports) {
     napi_property_descriptor desc[] = {
         {"setEventCallback", nullptr, setEventCallback, nullptr, nullptr, nullptr, napi_default, nullptr},
@@ -361,6 +545,11 @@ napi_value Init(napi_env env, napi_value exports) {
         {"isGenerating", nullptr, isGenerating, nullptr, nullptr, nullptr, napi_default, nullptr},
         {"modelInfo", nullptr, modelInfo, nullptr, nullptr, nullptr, napi_default, nullptr},
         {"shutdown", nullptr, shutdown, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"initDecision", nullptr, initDecision, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"decide", nullptr, decide, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"unloadDecision", nullptr, unloadDecision, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"isDecisionReady", nullptr, isDecisionReady, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"decisionInfo", nullptr, decisionInfo, nullptr, nullptr, nullptr, napi_default, nullptr},
     };
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     return exports;

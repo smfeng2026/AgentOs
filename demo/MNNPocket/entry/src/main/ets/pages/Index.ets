@@ -12,8 +12,11 @@ import {
 } from '../model/ChatTypes';
 import { LlmRuntime } from '../model/LlmRuntime';
 import { ModelManager } from '../model/ModelManager';
+import { DecisionViewModel } from '../model/DecisionViewModel';
 import { MessageBubble, StreamingBubble } from '../view/MessageBubble';
 import { InputBar } from '../view/InputBar';
+import { ModeSwitch } from '../view/ModeSwitch';
+import { DecisionPage } from './DecisionPage';
 import { Palette } from '../common/Theme';
 
 enum Stage {
@@ -38,6 +41,8 @@ struct Index {
   @State streamingElapsed: number = 0;
   @State loadMs: number = 0;
   @State sessionTokens: number = 0;
+  @State mode: string = 'chat'; // chat | decide
+  @State decVm: DecisionViewModel = DecisionViewModel.get();
 
   private scroller: Scroller = new Scroller();
   private runtime: LlmRuntime = LlmRuntime.get();
@@ -106,6 +111,10 @@ struct Index {
   }
 
   private onNativeEvent(name: string, payload: string): void {
+    if (name.startsWith('dec_')) {
+      this.decVm.handleEvent(name, payload);
+      return;
+    }
     switch (name) {
       case 'init_progress':
         this.stageText = '正在初始化推理引擎…';
@@ -226,6 +235,9 @@ struct Index {
   }
 
   private headerSubtitle(): string {
+    if (this.mode === 'decide') {
+      return '决策模式 · 单次前向 · 概率输出';
+    }
     if (this.stage !== Stage.READY) {
       return this.stageText;
     }
@@ -283,8 +295,8 @@ struct Index {
     Column() {
       Row({ space: 10 }) {
         Stack() {
-          Text('P')
-            .fontSize(16)
+          Text('MNN')
+            .fontSize(11)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.White)
         }
@@ -293,7 +305,9 @@ struct Index {
         .borderRadius(12)
         .linearGradient({
           angle: 135,
-          colors: [[Palette.AVATAR_AI_START, 0.0], [Palette.AVATAR_AI_END, 1.0]]
+          colors: this.mode === 'chat'
+            ? [[Palette.AVATAR_AI_START, 0.0], [Palette.AVATAR_AI_END, 1.0]]
+            : [[Palette.DEC_GRADIENT_START, 0.0], [Palette.DEC_GRADIENT_END, 1.0]]
         })
 
         Column({ space: 2 }) {
@@ -302,11 +316,11 @@ struct Index {
               .fontSize(17)
               .fontWeight(FontWeight.Bold)
               .fontColor(Palette.TEXT_PRIMARY)
-            Text('0.3B')
+            Text(this.mode === 'chat' ? '0.3B' : '0.3B-Dec')
               .fontSize(9)
               .fontColor(Color.White)
               .padding({ left: 4, right: 4, top: 1, bottom: 1 })
-              .backgroundColor('#7C5CFF')
+              .backgroundColor(this.mode === 'chat' ? '#7C5CFF' : Palette.DEC_ACCENT)
               .borderRadius(4)
           }
 
@@ -319,28 +333,50 @@ struct Index {
         .alignItems(HorizontalAlign.Start)
         .layoutWeight(1)
 
-        this.statusPill()
+        if (this.mode === 'chat') {
+          this.statusPill()
 
-        Button({ type: ButtonType.Circle }) {
-          Image($r('app.media.icon_clear'))
-            .width(18)
-            .height(18)
-            .objectFit(ImageFit.Contain)
+          Button({ type: ButtonType.Circle }) {
+            Image($r('app.media.icon_clear'))
+              .width(18)
+              .height(18)
+              .objectFit(ImageFit.Contain)
+          }
+          .width(34)
+          .height(34)
+          .backgroundColor(Palette.CHIP_BG)
+          .enabled(this.stage === Stage.READY && this.messages.length > 0)
+          .onClick(() => {
+            this.clearChat();
+          })
         }
-        .width(34)
-        .height(34)
-        .backgroundColor(Palette.CHIP_BG)
-        .enabled(this.stage === Stage.READY && this.messages.length > 0)
-        .onClick(() => {
-          this.clearChat();
+      }
+      .width('100%')
+      .padding({ left: 14, right: 14, top: 8, bottom: 8 })
+
+      Row() {
+        ModeSwitch({
+          mode: this.mode,
+          onSwitch: (next: string) => {
+            this.mode = next;
+          }
         })
       }
       .width('100%')
-      .padding({ left: 14, right: 14, top: 8, bottom: 10 })
+      .justifyContent(FlexAlign.Center)
+      .padding({ bottom: 9 })
 
-      Divider()
-        .strokeWidth(0.5)
-        .color(Palette.DIVIDER)
+      // Mode accent hairline: green for chat, indigo for decision.
+      Row()
+        .width('100%')
+        .height(2)
+        .linearGradient({
+          angle: 90,
+          colors: this.mode === 'chat'
+            ? [[Palette.ACCENT, 0.0], ['#95EC69', 1.0]]
+            : [[Palette.DEC_GRADIENT_START, 0.0], [Palette.DEC_GRADIENT_END, 1.0]]
+        })
+        .opacity(0.55)
     }
     .width('100%')
     .backgroundColor(Palette.HEADER_BG)
@@ -496,7 +532,9 @@ struct Index {
     Column() {
       this.header()
 
-      if (this.stage === Stage.READY) {
+      if (this.mode === 'decide') {
+        DecisionPage({ vm: this.decVm })
+      } else if (this.stage === Stage.READY) {
         if (this.messages.length === 0 && !this.streaming) {
           this.welcome()
         } else {

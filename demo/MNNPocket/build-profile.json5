@@ -2,9 +2,11 @@
   "app": {
     // signingConfigs 不入库：每位开发者在 DevEco Studio 的
     // Project Structure → Signing Configs 勾选 Automatically generate signature 自动生成。
+    // product 必须通过 signingConfig 绑定，否则 hvigor 只产 unsigned 包。
     "products": [
       {
         "name": "default",
+        "signingConfig": "default",
         "targetSdkVersion": "6.0.2(22)",
         "compatibleSdkVersion": "6.0.2(22)",
         "runtimeOS": "HarmonyOS",

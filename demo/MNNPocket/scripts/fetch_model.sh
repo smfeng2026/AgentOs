@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 #
-# (Re)downloads the MNN-Pocket-0.3B INT4 package into
-# entry/src/main/resources/rawfile/model so the app can bundle it.
+# (Re)downloads the model packages into entry/src/main/resources/rawfile so
+# the app can bundle them:
+#   model/     MNN-Pocket-0.3B INT4 chat package
+#   decision/  MNN-Pocket-0.3B-Dec W8 decision graph + tokenizer + config
 #
-# The repository ships all model files EXCEPT llm.mnn.weight (163.5 MB, over
+# The repository ships all model files EXCEPT the large weights (over
 # GitHub's 100 MB limit). Run this script after a fresh checkout, or to switch
 # model revisions. See SETUP.md for details.
 #
@@ -13,6 +15,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TARGET="${REPO_ROOT}/entry/src/main/resources/rawfile/model"
+DEC_TARGET="${REPO_ROOT}/entry/src/main/resources/rawfile/decision"
 ENDPOINT="${1:-https://hf-mirror.com}"
 
 mkdir -p "${TARGET}"
@@ -41,3 +44,22 @@ fi
 
 du -sh "${TARGET}"
 ls -la "${TARGET}"
+
+# ---------------------------------------------------------------------------
+# decision package (alivecat/MNN-Pocket-0.3B-Dec-MNN, W8 variant)
+# tokenizer.mtok is the same tokenizer as the chat package (identical backbone).
+# ---------------------------------------------------------------------------
+mkdir -p "${DEC_TARGET}"
+cd "${DEC_TARGET}"
+
+echo "==> decision-w8-q8-embedding.mnn (341 MB)"
+curl -fL --retry 3 -O "${ENDPOINT}/alivecat/MNN-Pocket-0.3B-Dec-MNN/resolve/main/decision-w8-q8-embedding.mnn"
+echo "==> inference_config.json"
+curl -fL --retry 3 -O "${ENDPOINT}/alivecat/MNN-Pocket-0.3B-Dec-MNN/resolve/main/inference_config.json"
+if [[ ! -f tokenizer.mtok ]]; then
+    echo "==> tokenizer.mtok (shared with chat package)"
+    cp "${TARGET}/tokenizer.mtok" tokenizer.mtok
+fi
+
+du -sh "${DEC_TARGET}"
+ls -la "${DEC_TARGET}"

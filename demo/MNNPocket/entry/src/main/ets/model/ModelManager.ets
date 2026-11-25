@@ -30,6 +30,13 @@ export class ModelManager {
     new ModelFile('llm.mnn.weight', 171481330)
   ];
 
+  /** Decision package: w8 graph + the shared tokenizer + protocol config. */
+  static readonly DECISION_FILES: ModelFile[] = [
+    new ModelFile('inference_config.json', 1935),
+    new ModelFile('tokenizer.mtok', 1710861),
+    new ModelFile('decision-w8-q8-embedding.mnn', 341250856)
+  ];
+
   static readonly CHUNK_SIZE: number = 2 * 1024 * 1024;
 
   static totalBytes(): number {
@@ -40,8 +47,20 @@ export class ModelManager {
     return total;
   }
 
+  static decisionTotalBytes(): number {
+    let total = 0;
+    for (const file of ModelManager.DECISION_FILES) {
+      total += file.size;
+    }
+    return total;
+  }
+
   static modelDir(context: common.UIAbilityContext): string {
     return `${context.filesDir}/model`;
+  }
+
+  static decisionDir(context: common.UIAbilityContext): string {
+    return `${context.filesDir}/decision`;
   }
 
   static configPath(context: common.UIAbilityContext): string {
@@ -60,8 +79,8 @@ export class ModelManager {
     }
   }
 
-  private static isComplete(dir: string): boolean {
-    for (const file of ModelManager.FILES) {
+  private static isComplete(dir: string, files: ModelFile[]): boolean {
+    for (const file of files) {
       if (ModelManager.fileSize(`${dir}/${file.name}`) !== file.size) {
         return false;
       }
@@ -74,9 +93,22 @@ export class ModelManager {
    * config.json, ready to be handed to the inference engine.
    */
   static async ensure(context: common.UIAbilityContext, onProgress: CopyProgress): Promise<string> {
-    const dir = ModelManager.modelDir(context);
-    const total = ModelManager.totalBytes();
+    await ModelManager.ensurePackage(context, 'model', ModelManager.modelDir(context),
+      ModelManager.FILES, ModelManager.totalBytes(), onProgress);
+    return ModelManager.configPath(context);
+  }
 
+  /** Same one-off copy for the decision package; returns its directory. */
+  static async ensureDecision(context: common.UIAbilityContext, onProgress: CopyProgress): Promise<string> {
+    const dir = ModelManager.decisionDir(context);
+    await ModelManager.ensurePackage(context, 'decision', dir,
+      ModelManager.DECISION_FILES, ModelManager.decisionTotalBytes(), onProgress);
+    return dir;
+  }
+
+  private static async ensurePackage(context: common.UIAbilityContext,
+    rawSubDir: string, dir: string, files: ModelFile[], total: number,
+    onProgress: CopyProgress): Promise<void> {
     if (!fileIo.accessSync(dir)) {
       fileIo.mkdirSync(dir, true);
     }
@@ -85,20 +117,20 @@ export class ModelManager {
       fileIo.mkdirSync(tmp, true);
     }
 
-    if (ModelManager.isComplete(dir)) {
+    if (ModelManager.isComplete(dir, files)) {
       onProgress(total, total);
-      return ModelManager.configPath(context);
+      return;
     }
 
     let copied = 0;
-    for (const file of ModelManager.FILES) {
+    for (const file of files) {
       const target = `${dir}/${file.name}`;
       if (ModelManager.fileSize(target) === file.size) {
         copied += file.size;
         onProgress(copied, total);
         continue;
       }
-      await ModelManager.copyOne(context, file.name, target, (bytes: number) => {
+      await ModelManager.copyOne(context, `${rawSubDir}/${file.name}`, target, (bytes: number) => {
         copied += bytes;
         onProgress(copied, total);
       });
@@ -107,14 +139,12 @@ export class ModelManager {
         throw new Error(`模型文件 ${file.name} 复制不完整（${actual}/${file.size} 字节）`);
       }
     }
-    return ModelManager.configPath(context);
   }
 
   private static async copyOne(context: common.UIAbilityContext,
-    name: string,
+    rawPath: string,
     target: string,
     onBytes: (bytes: number) => void): Promise<void> {
-    const rawPath = `model/${name}`;
     try {
       // Preferred path: stream straight out of the HAP, no big allocation.
       await ModelManager.copyViaDescriptor(context, rawPath, target, onBytes);
@@ -122,7 +152,7 @@ export class ModelManager {
       // Fallback for packed rawfiles that cannot be mapped as a descriptor.
       // The descriptor attempt may have left a partial file behind, so the
       // fallback re-opens the target with TRUNC and writes from offset 0.
-      console.warn(`getRawFd failed for ${name}, falling back to getRawFileContent: ${JSON.stringify(error)}`);
+      console.warn(`getRawFd failed for ${rawPath}, falling back to getRawFileContent: ${JSON.stringify(error)}`);
       await ModelManager.copyViaContent(context, rawPath, target, onBytes);
     }
   }

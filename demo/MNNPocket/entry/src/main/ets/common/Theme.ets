@@ -21,4 +21,27 @@ export class Palette {
   static readonly AVATAR_AI_START: string = '#8B5CF6';
   static readonly AVATAR_AI_END: string = '#4F46E5';
   static readonly AVATAR_USER: string = '#4C9AFF';
+
+  // Decision mode: indigo accent family, same card language as chat.
+  static readonly DEC_ACCENT: string = '#4F46E5';
+  static readonly DEC_ACCENT_SOFT: string = '#EEF0FF';
+  static readonly DEC_ACCENT_DISABLED: string = '#C9CDF5';
+  static readonly DEC_BAR_TRACK: string = '#ECEEF3';
+  static readonly DEC_WINNER_BG: string = '#F0F1FF';
+  static readonly DEC_GRADIENT_START: string = '#6366F1';
+  static readonly DEC_GRADIENT_END: string = '#4338CA';
+  static readonly TAG_CHOICE: string = '#4F46E5';
+  static readonly TAG_NOUL: string = '#0E9F6E';
+  static readonly TAG_SCORE: string = '#D97706';
+}
+
+/** Tag color for a question type badge. */
+export function typeTagColor(type: string): string {
+  if (type === 'choice') {
+    return Palette.TAG_CHOICE;
+  }
+  if (type === 'noul') {
+    return Palette.TAG_NOUL;
+  }
+  return Palette.TAG_SCORE;
 }

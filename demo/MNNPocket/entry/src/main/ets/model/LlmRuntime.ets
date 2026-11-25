@@ -5,7 +5,18 @@
  * single event callback; this class just forwards those events to the page.
  */
 
-import { setEventCallback, initModel, chat, resetSession, isGenerating, isReady } from 'libllmbridge.so';
+import {
+  setEventCallback,
+  initModel,
+  chat,
+  resetSession,
+  isGenerating,
+  isReady,
+  initDecision,
+  decide,
+  unloadDecision,
+  isDecisionReady
+} from 'libllmbridge.so';
 
 export type BridgeEvent = (name: string, payload: string) => void;
 
@@ -55,5 +66,27 @@ export class LlmRuntime {
 
   busy(): boolean {
     return isGenerating();
+  }
+
+  // -------------------------------------------------------------------------
+  // decision mode (same native worker; events dec_*)
+  // -------------------------------------------------------------------------
+
+  /** Kicks off decision-graph loading; completion arrives as "dec_ready". */
+  loadDecision(modelDir: string, threads: number, maxTokens: number): void {
+    initDecision(modelDir, 'decision-w8-q8-embedding.mnn', threads, maxTokens);
+  }
+
+  /** Single-forward decision; result arrives as "dec_done". */
+  runDecision(requestJson: string): void {
+    decide(requestJson);
+  }
+
+  releaseDecision(): void {
+    unloadDecision();
+  }
+
+  decisionReady(): boolean {
+    return isDecisionReady();
   }
 }

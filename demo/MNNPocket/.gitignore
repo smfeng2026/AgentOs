@@ -12,8 +12,15 @@
 /.appanalyzer
 # local build/dev caches
 /.mnn-build
+/.mnn-src
+/.venv-dec
 /.buildcheck
 /.mnn-build-script.log
+__pycache__/
+/tools/engine_cli/engine_cli
 
 # 模型权重超过 GitHub 单文件 100MB 限制，不入库；用 scripts/fetch_model.sh 下载（见 SETUP.md）
 /entry/src/main/resources/rawfile/model/llm.mnn.weight
+/entry/src/main/resources/rawfile/decision/decision-w8-q8-embedding.mnn
+# 本地指向上面权重的软链接，其他机器上会是断链
+/tools/dec_ref/model/decision-w8-q8-embedding.mnn

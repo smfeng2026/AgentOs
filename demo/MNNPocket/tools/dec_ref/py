@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# venv python wrapper: the copied interpreter needs PYTHONHOME to find the
+# bundled stdlib (see SETUP notes about the resigned MNN wheel).
+export PYTHONHOME=/Users/sumi/.dsh/dsh-runtimes/dsh-primary-runtime/dependencies/python
+exec "$(dirname "$0")/../../.venv-dec/bin/python" "$@"

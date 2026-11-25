@@ -72,6 +72,7 @@ export struct MessageBubble {
           .borderRadius(this.isUser()
             ? { topLeft: 16, topRight: 5, bottomLeft: 16, bottomRight: 16 }
             : { topLeft: 5, topRight: 16, bottomLeft: 16, bottomRight: 16 })
+          .shadow({ radius: 6, color: '#0A000000', offsetX: 0, offsetY: 1 })
           .constraintSize({ maxWidth: '78%' })
         if (!this.isUser() && this.stats.outputTokens > 0) {
           this.metrics()
@@ -140,6 +141,7 @@ export struct StreamingBubble {
             .padding({ left: 13, right: 13, top: 10, bottom: 10 })
             .backgroundColor(Palette.BUBBLE_AI)
             .borderRadius({ topLeft: 5, topRight: 16, bottomLeft: 16, bottomRight: 16 })
+            .shadow({ radius: 6, color: '#0A000000', offsetX: 0, offsetY: 1 })
             .constraintSize({ maxWidth: '78%' })
             .copyOption(CopyOptions.LocalDevice)
         }
