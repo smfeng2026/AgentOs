@@ -2,12 +2,34 @@
 基于鸿蒙框架做的 一些场景 demo 原型
 
 ## 目录
-- `demo/` 鸿蒙应用原型(noteApp、messageApp)
+- `demo/` 鸿蒙应用原型(noteApp、messageApp、[MNNPocket](demo/MNNPocket/README.md) 端侧大模型对话)
 - `models/` 决策模型
   - `laya/` [NandhaKishorM/laya](https://github.com/NandhaKishorM/laya) 上游源码副本(pip 包 `laya` 同源)
   - `laya-en/` 英文 checkpoint([convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya),权重需单独下载,见下)
   - 规划中:laya-omni / laya-multilingual / siglip2-base-patch16-256
 - `web/` laya 决策模型测试网站(FastAPI + 网页)
+
+## 部分下载(只拉取某个目录)
+
+仓库入库文件共约 77MB(git 压缩数据约 19MB);大体积模型权重与构建产物均不入库。若只想要某个子工程(如 `demo/MNNPocket`,约 15MB),用**稀疏克隆**,未选目录的文件内容完全不下载:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse https://github.com/smfeng2026/AgentOs.git
+cd AgentOs
+git sparse-checkout set demo/MNNPocket    # 工作区只落地该目录 + 根目录文件
+```
+
+- 追加目录:`git sparse-checkout add web`;恢复全量:`git sparse-checkout disable`
+- `--filter=blob:none` 文件内容按需下载;`--depth 1` 不带历史
+- 连不上 GitHub 时走本地代理(端口按实际调整):`git -c http.proxy=http://127.0.0.1:7890 clone ...`,详见下方常见问题
+- 子工程的模型权重仍需按其文档单独下载,如 MNNPocket 执行 `scripts/fetch_model.sh`(见 [demo/MNNPocket/SETUP.md](demo/MNNPocket/SETUP.md))
+
+不需要 git 历史时,也可下载整包压缩档(约 20MB)只解压某个目录:
+
+```bash
+curl -L https://github.com/smfeng2026/AgentOs/archive/refs/heads/main.tar.gz \
+  | tar xz --strip-components=2 AgentOs-main/demo/MNNPocket
+```
 
 ## 运行 web 测试站(laya 决策模型)
 
@@ -111,3 +133,5 @@ done
 1. 用 DevEco Studio 打开 `demo/messageApp` 或 `demo/noteApp` 目录
 2. 等待 Sync 自动安装 `oh_modules` 依赖
 3. Previewer(预览器)/ 模拟器 / 真机 Run ▶ 运行
+
+`demo/MNNPocket`(端侧大模型对话)需先下载模型权重并配置签名,见其 [README](demo/MNNPocket/README.md) 与 [SETUP](demo/MNNPocket/SETUP.md)。
