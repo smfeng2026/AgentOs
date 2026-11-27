@@ -1,0 +1,215 @@
+{
+  "sample_id": "c06-s01-139648a9",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:33:15+08:00",
+  "task": {
+    "scenario_category": "learning",
+    "template_id": "C06-S01",
+    "subscenario": "考试准备",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-17T09:45:00+08:00",
+    "window_end": "2026-12-17T15:45:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 174955329
+  },
+  "spec_summary": {
+    "title": "六级考试前两天的冲刺备考",
+    "intent_names": [
+      "六级考前冲刺备考"
+    ],
+    "intent_categories": [
+      "learning"
+    ],
+    "key_entities": {
+      "home_city": "西安",
+      "destinations": [
+        "长安大学渭水校区考点"
+      ],
+      "products": [
+        "大学英语六级冲刺课",
+        "六级真题试卷"
+      ],
+      "people": [
+        "同学李婷"
+      ],
+      "dates": [
+        "12月19日"
+      ],
+      "other": [
+        "大学英语六级考试",
+        "六级准考证"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 4,
+    "gold_related_interest": 11,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "exam_prep": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "learning": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "fin_balance",
+      "map_commute",
+      "comm_subway",
+      "food_history",
+      "news_share",
+      "pay_bill",
+      "cal_view",
+      "hn_course_other_subject",
+      "work_industry_news",
+      "sys_update",
+      "video_search",
+      "im_friend_reply",
+      "shop_order",
+      "read_article",
+      "weather_now"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "exam_prep": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "learning": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 2807,
+      "total_tokens": 4664,
+      "latency_s": 28.94,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1772,
+      "completion_tokens": 5821,
+      "total_tokens": 7593,
+      "latency_s": 114.12,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3448,
+      "completion_tokens": 7021,
+      "total_tokens": 10469,
+      "latency_s": 53.08,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5996,
+      "completion_tokens": 7442,
+      "total_tokens": 13438,
+      "latency_s": 62.0,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10549,
+      "completion_tokens": 5425,
+      "total_tokens": 15974,
+      "latency_s": 35.85,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 294.01,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c06-s01-139648a9.json",
+      "sha256": "e0f8c25dfc6cbd69a1ca6b5d5d1bf59b9ed9ad7d853fc9c622e2c6ba1228735a"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c06-s01-139648a9.json",
+      "sha256": "79017a27a9a966792556ccb53340cbef011c6155173c07dc13c9cc8bd92ebde7"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c06-s01-139648a9.json",
+      "sha256": "86688b40a155f7da270f8fcc5a5d0062e7e0fd6e632ac4d8e09127cc241d82a5"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c06-s01-139648a9.json",
+      "sha256": "c7e6601fb5d0f23d7d44d8c0b382d907090e2c239d6ba1fa72341777e29e878b"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c06-s01-139648a9.json",
+      "sha256": "86e05e5eef62976ee94f0df76c17e324fcbb7a747301b4fdc5ce28571954bbc7"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "西安",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

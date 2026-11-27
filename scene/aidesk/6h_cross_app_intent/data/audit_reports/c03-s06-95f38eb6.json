@@ -1,0 +1,828 @@
+{
+  "sample_id": "c03-s06-95f38eb6",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "reviewer_critical_issue"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "已修正关系极性与状态：搜索/收藏/看评价/比价/查看物流等动作按 related_interest；下单、支付和向妻子确认购买信息按 supporting；妻子反对、取消订单、退款按 contradicting。因取消后仍出现迷你/便携咖啡机搜索比较和咖啡内容浏览，保留单一“家用咖啡机购置”意图但将状态由 cancelled 改为 considering，避免把同一家庭咖啡机购置目的拆成重复意图；物流与取消退款之间的状态缺口及聊天链接缺失已记录为冲突，但事件仍足以支持场景，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "social_feed_pets",
+        "hn_product_other",
+        "hn_product_compare_other",
+        "photo_album",
+        "comm_bike",
+        "health_article",
+        "cal_view",
+        "video_watch",
+        "fit_steps",
+        "hn_product_wishlist_other",
+        "work_tool_article",
+        "pay_card_bill",
+        "mail_cleanup",
+        "weather_now",
+        "music_playlist"
+      ],
+      "hard_negative_ids": [
+        "hn_product_other",
+        "hn_product_compare_other",
+        "hn_product_wishlist_other"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "购买适合家庭厨房的胶囊咖啡机",
+        "category": "shopping",
+        "purpose": "household",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e009",
+          "e010",
+          "e011"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e006",
+          "e008",
+          "e013",
+          "e024",
+          "e025",
+          "e030"
+        ],
+        "contradicting_event_ids": [
+          "e018",
+          "e019",
+          "e020"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户创建了订单 SO202612211648，商品为全自动胶囊咖啡机 奶泡一体款，数量1，金额1299元，订单状态为待支付。",
+            "source_event_ids": [
+              "e009"
+            ]
+          },
+          {
+            "fact": "用户使用银行卡支付该订单1299元，支付成功。",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户告知妻子咖啡机已拍好，1299元，预计23号送到家。",
+            "source_event_ids": [
+              "e011"
+            ]
+          },
+          {
+            "fact": "该订单已取消，取消原因为商品尺寸与厨房台面不匹配，退款金额1299元。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "该订单退款成功，原路退回银行卡。",
+            "source_event_ids": [
+              "e020"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户购买咖啡机主要用于家庭厨房，因为收货地址为家庭住址且与妻子讨论到货和拆箱使用。",
+            "source_event_ids": [
+              "e003",
+              "e009",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户在购买前查看了该款咖啡机的评测并比较了不同平台价格。",
+            "source_event_ids": [
+              "e005",
+              "e006"
+            ]
+          },
+          {
+            "fact": "因厨房台面空间限制，用户取消原全自动咖啡机订单后转而搜索和比较更小尺寸的迷你胶囊咖啡机。",
+            "source_event_ids": [
+              "e018",
+              "e019",
+              "e024",
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户对咖啡制作内容有兴趣，浏览过咖啡冲调分类和手冲咖啡教程。",
+            "source_event_ids": [
+              "e008",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户最终是否会购买迷你胶囊咖啡机或其他型号",
+          "用户对咖啡机品牌、胶囊系统或具体预算上限的偏好",
+          "厨房台面可放置咖啡机的确切尺寸上限"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e007",
+      "e012",
+      "e014",
+      "e015",
+      "e016",
+      "e017",
+      "e021",
+      "e022",
+      "e023",
+      "e026",
+      "e027",
+      "e028",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c03-s06-95f38eb6",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "relation_label_inconsistency",
+        "severity": "critical",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e011",
+          "e013",
+          "e018",
+          "e019",
+          "e020"
+        ],
+        "description": "Gold labeled_events 的 relation 与事件语义/盲标大量相反：e001/e003/e011/e013 是搜索、收藏、告知妻子、物流查看等正向或中性购买链路证据，却标为 contradicting；e018/e019/e020 是家人反对、取消订单、退款到账，却标为 supporting。e005/e006/e024/e025 等研究行为又被标 supporting。关系极性不稳定，导致 supporting/contradicting 计数不可信。",
+        "suggested_action": "先明确意图是“原订单已取消”还是“仍在选购家用咖啡机”，再按语义重标 relation；正向购买/研究行为应为 supporting 或 related_interest，家人反对/取消/退款对购买意图应为 contradicting，若作为取消子意图证据则应归入该子意图 supporting。"
+      },
+      {
+        "issue_type": "intent_status_mismatch",
+        "severity": "high",
+        "event_ids": [
+          "e019",
+          "e020",
+          "e024",
+          "e025",
+          "e030"
+        ],
+        "description": "Gold 将 i001 状态定为 cancelled，但取消和退款后仍出现 e024 搜索迷你胶囊咖啡机、e025 比较迷你/便携咖啡机、e030 浏览手冲咖啡教程，表明“家用咖啡机购置计划”并未终止，而是转向替代选型。盲标改为 considering 更贴近后段行为；当前样本把原订单取消与替代品再选型合并成一个 cancelled 意图，状态表达不清。",
+        "suggested_action": "拆分意图：原全自动胶囊咖啡机订单取消（cancelled）与替代机型选购（considering/active）分别建意图；或若保留单意图，应将状态改为 considering，并把取消/退款作为状态变化子事件，而不是最终 cancelled。"
+      },
+      {
+        "issue_type": "state_change_incomplete",
+        "severity": "high",
+        "event_ids": [
+          "e013",
+          "e019",
+          "e020"
+        ],
+        "description": "e013 显示订单已“运输中/已从杭州转运中心发出”，随后 e019 取消订单并 e020 全额退款到账，但没有任何物流拦截、退回、拒收或配送终止事件。已发货包裹与订单取消/退款状态未闭环，存在状态冲突。",
+        "suggested_action": "将 e013 改为取消前“待发货/已接单”状态，或补充取消后的物流拦截/退回/拒收事件；否则不应在运输中直接以已取消且全额退款闭环。"
+      },
+      {
+        "issue_type": "supporting_evidence_overreach",
+        "severity": "high",
+        "event_ids": [
+          "e005",
+          "e006",
+          "e024",
+          "e025"
+        ],
+        "description": "Gold 将看评价、比价、替代品搜索/比较标为 supporting，但这些行为只能证明购前/替代研究兴趣，不能直接证明“已支付订单、取消、退款到账”等 required_evidence；盲标多降为 related_interest 更合理。用它们充当 supporting 会夸大证据强度。",
+        "suggested_action": "将 e005/e006/e024/e025 改为 related_interest，除非它们被明确绑定到某个已确认的购买/取消事实；supporting 保留给 e009/e010/e019/e020 等直接证据。"
+      },
+      {
+        "issue_type": "blind_annotation_evidence_omission",
+        "severity": "high",
+        "event_ids": [
+          "e018",
+          "e019",
+          "e020"
+        ],
+        "description": "盲标把 e018/e019/e020 全部列为 contradicting，并把状态改为 considering，导致取消订单和退款到账这两个关键状态变化没有归入任何 supporting 证据；但 confirmed_facts 又依赖 e019/e020。若最终要表达“原订单已取消”，盲标遗漏了取消子意图的证据归属。",
+        "suggested_action": "在拆分意图或保留 cancelled 子状态时，将 e018/e019/e020 归入“原订单取消”子意图的 supporting，并在主购买意图中作为 contradicting/状态变化；不要只在 confirmed_facts 中使用却不在意图证据中体现。"
+      },
+      {
+        "issue_type": "minor_logic_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e011",
+          "e018"
+        ],
+        "description": "e018 中妻子说“刚点开你发的链接看了”，但 e011 的消息内容只有文本“咖啡机拍好了……”，没有链接或链接预览。聊天上下文缺少被点击的链接。",
+        "suggested_action": "在 e011 中补充商品链接/链接预览，或把 e018 改为“看了商品详情/你拍的那台”。"
+      }
+    ],
+    "summary": "样本核心问题是关系标签极性和意图状态表达不可靠：Gold 的 supporting/contradicting 多处与语义相反，盲标虽纠正了多数事件但把取消/退款排除在 supporting 之外；Gold 将仍有替代选型行为的购置计划定为 cancelled，且运输中订单取消退款后缺少物流闭环。未发现 noise 事件实际相关，事实证据 ID 基本可追溯；但因存在 critical/high 问题，样本不应通过。"
+  },
+  "adjudication": {
+    "sample_id": "c03-s06-95f38eb6",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "家用咖啡机购置计划",
+          "category": "shopping",
+          "purpose": "household",
+          "status": "considering",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e009",
+            "e010",
+            "e011"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e006",
+            "e008",
+            "e013",
+            "e024",
+            "e025",
+            "e030"
+          ],
+          "contradicting_event_ids": [
+            "e018",
+            "e019",
+            "e020"
+          ],
+          "confirmed_facts": [
+            {
+              "fact": "用户创建了全自动胶囊咖啡机订单 SO202612211648，数量1，金额1299元，订单状态为待支付。",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户使用银行卡支付该订单1299元，支付成功。",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户告知妻子咖啡机已拍好，1299元，预计12月23日送到家。",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "妻子指出该咖啡机宽30多厘米，厨房台面放不下。",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "该订单因商品尺寸与厨房台面不匹配被取消，退款金额1299元。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "退款1299元已原路退回原支付银行卡，退款成功。",
+              "source_event_ids": [
+                "e020"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "购买用途为家庭厨房，因为收货地址为家庭住址，且用户与妻子讨论到货拆箱及厨房台面摆放。",
+              "source_event_ids": [
+                "e009",
+                "e011",
+                "e018"
+              ]
+            },
+            {
+              "fact": "下单前用户对全自动胶囊咖啡机进行了搜索、收藏、看评价和跨平台比价。",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e005",
+                "e006"
+              ]
+            },
+            {
+              "fact": "原订单取消后，用户基于台面尺寸限制转向搜索和比较迷你/便携咖啡机，但尚未看到新下单记录。",
+              "source_event_ids": [
+                "e018",
+                "e019",
+                "e024",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户对咖啡冲调内容保持兴趣，浏览过咖啡分类和手冲咖啡教程。",
+              "source_event_ids": [
+                "e008",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "最终会改选哪个替代型号",
+            "是否会在近期重新下单以及新订单金额",
+            "厨房台面可放置咖啡机的确切尺寸上限",
+            "对胶囊系统、品牌或预算上限的最终偏好"
+          ],
+          "conflicts": [
+            "e013显示订单已从杭州转运中心发出、处于运输中，但e019/e020随后直接取消并全额退款成功，缺少物流拦截、退回或拒收等状态闭环事件。",
+            "e018提到“你发的链接”，但e011消息内容中未出现链接或链接预览。"
+          ]
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e007",
+        "e012",
+        "e014",
+        "e015",
+        "e016",
+        "e017",
+        "e021",
+        "e022",
+        "e023",
+        "e026",
+        "e027",
+        "e028",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c03-s06-95f38eb6"
+    },
+    "rationale": "已修正关系极性与状态：搜索/收藏/看评价/比价/查看物流等动作按 related_interest；下单、支付和向妻子确认购买信息按 supporting；妻子反对、取消订单、退款按 contradicting。因取消后仍出现迷你/便携咖啡机搜索比较和咖啡内容浏览，保留单一“家用咖啡机购置”意图但将状态由 cancelled 改为 considering，避免把同一家庭咖啡机购置目的拆成重复意图；物流与取消退款之间的状态缺口及聊天链接缺失已记录为冲突，但事件仍足以支持场景，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 3,
+      "related_interest": 9,
+      "contradicting": 3,
+      "purposes": {
+        "household": 1
+      },
+      "statuses": {
+        "considering": 1
+      },
+      "categories": {
+        "shopping": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 2512,
+      "total_tokens": 4369,
+      "latency_s": 25.94,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1749,
+      "completion_tokens": 15018,
+      "total_tokens": 16767,
+      "latency_s": 148.08,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3562,
+      "completion_tokens": 9711,
+      "total_tokens": 13273,
+      "latency_s": 83.33,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5995,
+      "completion_tokens": 9877,
+      "total_tokens": 15872,
+      "latency_s": 76.02,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10554,
+      "completion_tokens": 10819,
+      "total_tokens": 21373,
+      "latency_s": 74.52,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 407.9
+}

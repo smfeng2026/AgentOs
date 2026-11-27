@@ -1,0 +1,202 @@
+{
+  "sample_id": "c05-s01-81ece03a",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:31:38+08:00",
+  "task": {
+    "scenario_category": "health_service",
+    "template_id": "C05-S01",
+    "subscenario": "体检预约",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-01T17:25:00+08:00",
+    "window_end": "2026-12-01T23:25:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 1254412296
+  },
+  "spec_summary": {
+    "title": "年底为自己安排一次全面体检",
+    "intent_names": [
+      "年度健康检查安排"
+    ],
+    "intent_categories": [
+      "health_service"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "市一医院国际保健中心"
+      ],
+      "products": [
+        "入职周年健康体检套餐"
+      ],
+      "people": [],
+      "dates": [
+        "12月12日"
+      ],
+      "other": [
+        "体检中心",
+        "空腹抽血"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 5,
+    "gold_related_interest": 10,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "checkup": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "health_service": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "work_industry_news",
+      "news_share",
+      "music_search",
+      "sys_wallpaper",
+      "map_nearby",
+      "read_science",
+      "fin_news",
+      "food_lunch",
+      "photo_album",
+      "cal_view",
+      "ent_ranking",
+      "fit_steps",
+      "im_family_reply",
+      "mail_cleanup",
+      "pay_balance"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "checkup": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "health_service": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1858,
+      "completion_tokens": 1753,
+      "total_tokens": 3611,
+      "latency_s": 18.02,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1786,
+      "completion_tokens": 7060,
+      "total_tokens": 8846,
+      "latency_s": 125.94,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3532,
+      "completion_tokens": 6019,
+      "total_tokens": 9551,
+      "latency_s": 50.66,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6034,
+      "completion_tokens": 5278,
+      "total_tokens": 11312,
+      "latency_s": 42.84,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10776,
+      "completion_tokens": 3664,
+      "total_tokens": 14440,
+      "latency_s": 23.83,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 261.29,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c05-s01-81ece03a.json",
+      "sha256": "ce053467621e9d15befadec30a39172eb478ed98c4066d52786d9d318f26f975"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c05-s01-81ece03a.json",
+      "sha256": "18ba39e198303bbac3b52c8dfd24f0d6de68a045b4f17e4623fbe8cf207524ad"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c05-s01-81ece03a.json",
+      "sha256": "20a342aadcfb136b9538886815d13dad38502cd1ab8078356c8f77cedf6a37e8"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c05-s01-81ece03a.json",
+      "sha256": "07eb13ca090b8958b1070bfaac7efe697566b6204bd02b45d5914399f15635a1"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c05-s01-81ece03a.json",
+      "sha256": "d8197bc8fcc9dc83d9dbde1cc7b1bc1cf811f2f3b2baccc90a6224109641fed0"
+    }
+  },
+  "updated_at": "2026-11-27T11:31:38+08:00"
+}

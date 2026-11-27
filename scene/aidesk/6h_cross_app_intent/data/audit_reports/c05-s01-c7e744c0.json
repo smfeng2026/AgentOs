@@ -1,0 +1,773 @@
+{
+  "sample_id": "c05-s01-c7e744c0",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "核心意图可确认：e017下单、e019支付成功、e020预约成功通知、e028日历建程、e029空腹提醒构成决定性证据链，purpose=checkup、status=confirmed、confidence=high 成立。审查报告指出的 supporting 过度使用属实：e004收藏科普文章、e005查看套餐详情、e009套餐比较、e011路线搜索均属 collect/view/compare/search 类动作，按规则应标为 related_interest，已改为 related_interest，并将 supporting 由9修正为5、related_interest 由6修正为10；15条 noise 事件语义上确与本意图无关，保持 unrelated。盲标 inferred_facts 中把 e016（报告出具与复查科普）归入“空腹准备”存在证据外推，已拆分：e016单独支撑“关注报告出具与复查间隔”这一推断，空腹准备事实不再引用 e016。事件本身充分支持场景，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "fin_points",
+        "mail_cleanup",
+        "map_nearby",
+        "music_play",
+        "read_article",
+        "photo_album",
+        "game_play",
+        "comm_subway",
+        "learn_video",
+        "food_lunch",
+        "pay_transfer",
+        "ent_ranking",
+        "fit_steps",
+        "cal_birthday",
+        "video_watch"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "预约滨江分院体检中心全面健康体检套餐B",
+        "category": "health_service",
+        "purpose": "checkup",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e017",
+          "e019",
+          "e020",
+          "e028",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e005",
+          "e008",
+          "e009",
+          "e011",
+          "e013",
+          "e016",
+          "e026"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户于12月6日14:48创建了滨江分院体检中心全面健康体检套餐B订单，预约12月20日08:00-09:00，金额1280元，订单状态为待支付。",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户于12月6日14:57向滨江分院体检中心支付1280元，支付成功，关联订单HP20261206144823。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户收到体检预约成功提醒，预约日期为12月20日08:00-09:00，订单状态为已支付，并提示检前一晚22点后勿进食。",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户创建日历事件：12月20日08:00-10:00在滨江分院体检中心进行体检（套餐B），备注带身份证、早上空腹。",
+            "source_event_ids": [
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户设置12月19日21:00的体检空腹提醒，关联该体检日历事件。",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户在预约前搜索体检套餐、查看套餐B详情、比较套餐、浏览体检中心评价，并查看检前科普与注意事项，显示其在为体检做选择与准备。",
+            "source_event_ids": [
+              "e001",
+              "e002",
+              "e004",
+              "e005",
+              "e008",
+              "e009",
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户查询从家到滨江分院体检中心的驾车路线，预计35分钟，计划12月20日07:20出发。",
+            "source_event_ids": [
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户查询12月20日杭州天气，可能用于体检当天的出行安排。",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户向同事询问体检是自行预约还是单位统一安排、费用能否报销，显示其对体检费用承担方式存在关注。",
+            "source_event_ids": [
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户已了解体检前空腹要求，并通过收藏文章、查看预约提醒和设置日历提醒来记录检前准备事项。",
+            "source_event_ids": [
+              "e002",
+              "e004",
+              "e016",
+              "e020",
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "体检费用是否可以报销以及具体报销方式",
+          "此次体检是个人自行安排还是与单位安排有关",
+          "体检套餐B是否完全满足用户全部检查需求",
+          "体检当天是否有人陪同前往"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e006",
+      "e007",
+      "e010",
+      "e012",
+      "e014",
+      "e015",
+      "e018",
+      "e021",
+      "e022",
+      "e023",
+      "e024",
+      "e025",
+      "e027",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c05-s01-c7e744c0",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_overused",
+        "severity": "high",
+        "event_ids": [
+          "e004",
+          "e005",
+          "e009",
+          "e011"
+        ],
+        "description": "内部 relation 将收藏检前文章、查看套餐详情、套餐比较和查询路线均标为 supporting，但盲标均判为 related_interest。这些事件属于预约前的浏览、比较或准备行为，不是创建订单、支付成功、预约成功通知或日历建程等决定性证据；其中 e004、e009 尤其偏弱，e005、e011 也只是准备性行为。该错误使 supporting_event_count 从盲标的 5 个虚增到 9 个。",
+        "suggested_action": "按严格语义将 e004、e005、e009、e011 改为 related_interest，并同步修正 supporting_event_count/related_interest_event_count；保留 e017、e019、e020、e028、e029 为 supporting，不要用这些弱证据替代 required_evidence。"
+      },
+      {
+        "issue_type": "fact_evidence_overreach",
+        "severity": "low",
+        "event_ids": [
+          "e016"
+        ],
+        "description": "盲标 inferred_fact 关于“已了解体检前空腹要求并记录检前准备事项”引用了 e016，但 e016 是体检报告出具时长/复查间隔科普，不直接支持空腹要求或准备事项记录。",
+        "suggested_action": "从该 inferred_fact 的 source_event_ids 移除 e016，或将 e016 单独用于“报告/复查”相关事实。"
+      }
+    ],
+    "summary": "核心预约链路（下单、支付、预约成功通知、日历建程、空腹提醒）证据充分，purpose=checkup 可确认；但内部 supporting 标签对 4 个弱证据过度使用，与盲标不一致，属高等级标签问题，建议修正后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c05-s01-c7e744c0",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "年度个人体检预约（滨江分院全面健康体检套餐B）",
+          "category": "health_service",
+          "purpose": "checkup",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e017",
+            "e019",
+            "e020",
+            "e028",
+            "e029"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e005",
+            "e008",
+            "e009",
+            "e011",
+            "e013",
+            "e016",
+            "e026"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户在滨江分院体检中心创建全面健康体检套餐B订单（订单号HP20261206144823），预约12月20日08:00-09:00，金额1280元，初始状态为待支付。",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "用户向滨江分院体检中心支付1280元，支付状态为成功，关联订单号HP20261206144823。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户收到体检预约成功提醒，预约日期12月20日08:00-09:00，订单状态为已支付，并提示检前一晚22点后请勿进食。",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户在日历中创建12月20日08:00-10:00的体检日程，地点为滨江分院体检中心，备注带身份证、早上空腹。",
+              "source_event_ids": [
+                "e028"
+              ]
+            },
+            {
+              "fact": "用户为12月19日21:00设置了体检空腹提醒，且关联该体检日历事件。",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在预约前搜索体检套餐、查看套餐B详情、比较套餐A与B、浏览体检中心评价并阅读检前空腹与注意事项科普，显示其正在选择并准备体检。",
+              "source_event_ids": [
+                "e001",
+                "e002",
+                "e004",
+                "e005",
+                "e008",
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户查询从家（西湖区文三路）到滨江分院体检中心的驾车路线，预计35分钟，计划12月20日07:20出发，用于体检当天出行安排。",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户查询12月20日杭州天气（晴，4℃~13℃），服务于体检当天的出行安排。",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户向同事询问体检是自行预约还是单位统一安排、费用能否报销，显示其对体检费用承担方式存在关注。",
+              "source_event_ids": [
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户关注体检报告出具时长与指标异常后的复查间隔，为体检后结果跟进做准备。",
+              "source_event_ids": [
+                "e016"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "体检费用是否可以报销以及具体报销方式",
+            "此次体检是个人自行安排还是与单位安排有关",
+            "体检套餐B是否完全满足用户全部检查需求",
+            "体检后是否需要加做复查项目",
+            "体检当天是否有人陪同前往"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e006",
+        "e007",
+        "e010",
+        "e012",
+        "e014",
+        "e015",
+        "e018",
+        "e021",
+        "e022",
+        "e023",
+        "e024",
+        "e025",
+        "e027",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c05-s01-c7e744c0"
+    },
+    "rationale": "核心意图可确认：e017下单、e019支付成功、e020预约成功通知、e028日历建程、e029空腹提醒构成决定性证据链，purpose=checkup、status=confirmed、confidence=high 成立。审查报告指出的 supporting 过度使用属实：e004收藏科普文章、e005查看套餐详情、e009套餐比较、e011路线搜索均属 collect/view/compare/search 类动作，按规则应标为 related_interest，已改为 related_interest，并将 supporting 由9修正为5、related_interest 由6修正为10；15条 noise 事件语义上确与本意图无关，保持 unrelated。盲标 inferred_facts 中把 e016（报告出具与复查科普）归入“空腹准备”存在证据外推，已拆分：e016单独支撑“关注报告出具与复查间隔”这一推断，空腹准备事实不再引用 e016。事件本身充分支持场景，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "checkup": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "health_service": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1860,
+      "completion_tokens": 869,
+      "total_tokens": 2729,
+      "latency_s": 9.88,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1682,
+      "completion_tokens": 7998,
+      "total_tokens": 9680,
+      "latency_s": 68.47,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3574,
+      "completion_tokens": 3664,
+      "total_tokens": 7238,
+      "latency_s": 26.02,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6066,
+      "completion_tokens": 12007,
+      "total_tokens": 18073,
+      "latency_s": 90.77,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9885,
+      "completion_tokens": 2798,
+      "total_tokens": 12683,
+      "latency_s": 15.68,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 210.83
+}

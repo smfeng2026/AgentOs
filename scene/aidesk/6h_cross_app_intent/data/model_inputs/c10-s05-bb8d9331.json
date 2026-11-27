@@ -1,0 +1,329 @@
+{
+  "sample_id": "c10-s05-bb8d9331",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-02T12:25:00+08:00",
+    "end": "2026-12-02T18:25:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-02T12:25:38+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "会议纪要模板分享"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-02T12:38:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "零基础居家训练",
+        "sort_filter": "综合排序",
+        "result_count": 48
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-02T12:46:15+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "给绿植浇水"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-02T12:52:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "零基础居家徒手训练｜15分钟全身跟练",
+        "uploader": "健身博主 每日燃脂计划",
+        "duration": "15:32",
+        "play_progress": "观看至4分10秒"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-02T13:07:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "客厅就能练：新手居家核心训练第一课",
+        "uploader": "健身博主 小满爱运动",
+        "views": "36.2万",
+        "danmaku_count": 1203,
+        "duration": "18:05"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-02T13:08:09+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "北京"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-02T13:21:43+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "传统茶具介绍"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-02T13:29:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "无器械居家训练 20分钟HIIT入门",
+        "uploader": "健身博主 阿凯健身笔记",
+        "duration": "20:44",
+        "play_progress": "观看至6分30秒"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-02T13:58:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "course_name": "居家零基础 · 7天唤醒训练",
+        "course_type": "录播跟练课",
+        "difficulty": "入门",
+        "single_duration": "20分钟",
+        "equipment": "无需器械"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-02T13:59:40+08:00",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "阳台种菜"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-02T14:31:00+08:00",
+      "app": "fitness_app",
+      "action": "collect",
+      "content": {
+        "item_type": "训练课程",
+        "course_name": "居家零基础 · 7天唤醒训练",
+        "folder_name": "我的收藏"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-02T14:46:20+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-02T14:57:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "article_title": "健身新手一周训练频率怎么安排",
+        "topic": "训练知识",
+        "read_progress": "浏览约2分钟"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-02T15:05:23+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-02T15:21:00+08:00",
+      "app": "map_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "健身房",
+        "search_scope": "附近3公里",
+        "location_city": "北京",
+        "result_count": 12
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-02T15:43:00+08:00",
+      "app": "map_app",
+      "action": "view_detail",
+      "content": {
+        "poi_name": "乐刻运动健身(望京SOHO店)",
+        "poi_type": "健身房",
+        "address": "北京市朝阳区望京街10号望京SOHO T1",
+        "business_hours": "07:00-23:00",
+        "rating": "4.6",
+        "distance": "850米"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-02T15:51:41+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "睡前放松"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-02T16:14:47+08:00",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "待凑单"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-02T16:16:00+08:00",
+      "app": "venue_booking_app",
+      "action": "browse_content",
+      "content": {
+        "list_name": "周末健身体验课",
+        "filter_condition": "12月06日 · 北京",
+        "course_count": 9
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-02T16:22:35+08:00",
+      "app": "sports_app",
+      "action": "read_match_news",
+      "content": {
+        "league": "电竞比赛"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-02T16:42:00+08:00",
+      "app": "venue_booking_app",
+      "action": "view_detail",
+      "content": {
+        "course_name": "新人一站式健身体验课(60分钟)",
+        "venue_name": "超级猩猩 三元桥全能店",
+        "available_date": "12月06日",
+        "available_time": "10:00、15:00",
+        "price": "29.9元",
+        "booking_status": "未预约"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-02T17:04:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "瑜伽垫 加厚 防滑",
+        "price_range": "80-150元",
+        "result_count": 156
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-02T17:12:33+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-02T17:26:00+08:00",
+      "app": "shopping_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "TPE双面防滑加厚瑜伽垫 8mm",
+        "price": "109元",
+        "monthly_sales": "2.1万+",
+        "spec_options": "183×61cm · 雾霾蓝/樱花粉"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-02T17:33:05+08:00",
+      "app": "commute_app",
+      "action": "check_subway_crowding",
+      "content": {
+        "line": "早晚高峰线路"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-02T17:44:47+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "工位绿植领养"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-02T17:47:27+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "洗衣店"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-02T17:53:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "category": "运动服饰 · 速干训练套装",
+        "sort_by": "综合",
+        "result_count": 300
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-02T18:12:00+08:00",
+      "app": "sports_app",
+      "action": "browse_content",
+      "content": {
+        "article_title": "冬季居家锻炼指南：热身、补水与恢复",
+        "topic": "运动资讯",
+        "read_progress": "已浏览"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-02T18:15:31+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "即将上映的喜剧片"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "title": "深夜比价后下单换新手机",
+  "scenario_category": "shopping",
+  "subscenario": "手机购买",
+  "template_id": "C03-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "星曜X7 Pro手机",
+      "手机保护壳",
+      "钢化膜"
+    ],
+    "people": [
+      "同事小周"
+    ],
+    "dates": [
+      "12月16日"
+    ],
+    "other": [
+      "旧手机电池老化",
+      "旧机回收估价",
+      "品牌线下体验店"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "换购旗舰手机自用",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "购物App中创建的星曜X7 Pro手机订单（预计12月16日送达）",
+        "支付App中与订单金额一致的支付成功记录",
+        "价格比较App中对星曜X7 Pro的多平台比价记录",
+        "即时通讯中提及自己旧手机电池老化需要换机的消息"
+      ],
+      "optional_evidence": [
+        "评论App中浏览该机型用户评价",
+        "购物App中的加购与收藏记录",
+        "配送App的商家发货通知"
+      ],
+      "unknown_information": [
+        "是否叠加使用了平台优惠券之外的赠品",
+        "是否打算之后办理旧机回收"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "18:10-19:40 为搜索与比价阶段（shopping_app、price_compare_app），此时只能判断在考虑换机；19:40-21:00 浏览评论与向同事抱怨旧机电池（review_app、im_app），purpose 线索出现；21:00-22:30 出现加购、下单、支付的决定性强证据（shopping_app、payment_app）；23:00 后仅剩发货通知与订单查看，整条链路需跨购物、比价、支付三类App融合才能确认购买意图",
+  "variant_note": "本样本使用虚构机型星曜X7 Pro，App 组合为 shopping_app + price_compare_app + review_app + im_app + payment_app + delivery_app，并加入 video_app 与 map_app（查线下体验店）作为干扰性兴趣事件；purpose 依赖 im_app 中关于自用旧机电池老化的对话推断，下单发生在深夜时段且支付记录与订单金额可对账，与其他同模板样本在机型、下单时间、比价平台数量和是否有旧机回收线索上形成差异",
+  "scenario_id": "c03-s01-b2ab5b74"
+}

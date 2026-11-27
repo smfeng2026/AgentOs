@@ -1,0 +1,366 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "深圳客户签约商务出差",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e004",
+        "e007",
+        "e009",
+        "e010",
+        "e011"
+      ],
+      "related_interest_event_ids": [
+        "e005",
+        "e012",
+        "e014"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "陈总监发来“签约会议邀请确认”邮件，会议日期为12月17日10:00-11:30，地点在深圳湾科技园A栋12层，参会人包括陈总监和用户。",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "上海-深圳往返机票已支付：去程为12月16日MU2357浦东T1 09:30-12:05，返程为12月18日MU2338宝安T3 18:20-20:55，总价2240元。",
+          "source_event_ids": [
+            "e007"
+          ]
+        },
+        {
+          "fact": "深圳湾科技园亚朵酒店已预订，12月16日入住、12月18日退房，共2晚，786元/晚。",
+          "source_event_ids": [
+            "e009"
+          ]
+        },
+        {
+          "fact": "日历中已创建12月17日“客户签约会议（陈总监）”日程，时间为10:00-11:30，地点为深圳湾科技园A栋12层，参与人包括陈总监、李工和用户。",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户向同事李工发送消息确认行程已定：16日飞深圳、18日返回，机票和酒店都已订好，17日上午10点与陈总监当面签约。",
+          "source_event_ids": [
+            "e011"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "本次深圳行程的主要目的为商务签约，即赴客户现场完成合同签署。",
+          "source_event_ids": [
+            "e004",
+            "e010",
+            "e011"
+          ]
+        },
+        {
+          "fact": "行程时间与签约会议时间相匹配：用户12月16-18日在深圳，会议安排在12月17日上午。",
+          "source_event_ids": [
+            "e005",
+            "e007",
+            "e009",
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户已规划从深圳湾科技园亚朵酒店步行前往会议地点，预计约8分钟，住宿地点与会议地点同园区。",
+          "source_event_ids": [
+            "e014",
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户已查看深圳12月16-18日天气预报，用于出行准备。",
+          "source_event_ids": [
+            "e012"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "签约会议是否最终按计划举行",
+        "合同最终签署结果",
+        "酒店具体房型偏好",
+        "返程航班是否会发生变更"
+      ],
+      "conflicts": []
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "旗舰手机采购",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "completed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e025",
+        "e026"
+      ],
+      "related_interest_event_ids": [
+        "e015",
+        "e016",
+        "e018",
+        "e019",
+        "e022"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已创建订单：新款旗舰手机12GB+256GB黑色，数量1，单价5699元，配送至上海市浦东新区，创建时订单状态为待支付。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户已通过官方商城完成支付5699元，支付状态为成功，订单号 SO20261205133402。",
+          "source_event_ids": [
+            "e026"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户比价后在官方商城以最低价5699元下单并完成支付。",
+          "source_event_ids": [
+            "e018",
+            "e025",
+            "e026"
+          ]
+        },
+        {
+          "fact": "仅购买1台黑色手机，收货地址为上海居住地，并浏览适配手机壳与钢化贴膜，推测为个人自用。",
+          "source_event_ids": [
+            "e015",
+            "e019",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户在下单前查看了该机型用户评价中的续航、屏幕素质、系统流畅度等热点信息。",
+          "source_event_ids": [
+            "e022",
+            "e026"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "商品实际物流与收货状态",
+        "是否额外购买手机配件",
+        "是否使用旧机以旧换新",
+        "购买后的实际使用情况"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e003",
+    "e006",
+    "e008",
+    "e013",
+    "e017",
+    "e020",
+    "e021",
+    "e023",
+    "e024",
+    "e027",
+    "e028",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 2,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c12-m01-ef9e300c"
+}

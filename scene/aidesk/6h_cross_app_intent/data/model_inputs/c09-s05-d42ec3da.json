@@ -1,0 +1,330 @@
+{
+  "sample_id": "c09-s05-d42ec3da",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-02T16:00:00+08:00",
+    "end": "2026-12-02T22:00:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-02T16:01:52+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "信用卡积分兑换攻略"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-02T16:09:50+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "街景与天空"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-02T16:29:46+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "居家拉伸跟练",
+        "duration_min": 10
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-02T16:35:18+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "充电宝租借"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-02T17:27:31+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "化学小实验",
+        "duration_min": 9
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-02T18:24:36+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "预约理发"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-02T18:56:36+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-02T19:09:57+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "杭州"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-02T19:17:02+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "90年代金曲"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-02T19:38:04+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "休闲益智",
+        "duration_min": 10
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-02T19:41:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "财经",
+        "article_title": "多家银行下调定期存款挂牌利率，储户如何应对",
+        "topic": "存款利率",
+        "read_progress_percent": 85
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-02T19:53:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "财经",
+        "article_title": "年末资金配置指南：稳健仍是普通家庭的主线",
+        "topic": "年末资金配置",
+        "read_progress_percent": 70
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-02T20:08:00+08:00",
+      "app": "banking_app",
+      "action": "browse_content",
+      "content": {
+        "page": "理财产品列表",
+        "filter_risk_level": "R2稳健型",
+        "sort_by": "业绩比较基准",
+        "products_viewed_count": 12
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-02T20:17:00+08:00",
+      "app": "banking_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "安稳盈90天持有期稳健型理财产品",
+        "product_type": "稳健型理财产品",
+        "risk_level": "R2中低风险",
+        "performance_benchmark": "2.60%",
+        "min_purchase_amount": "1元",
+        "view_duration_seconds": 143
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-02T20:21:47+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本月"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-02T20:26:00+08:00",
+      "app": "banking_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "2026年第二十四期大额存单（3年期）",
+        "product_type": "大额存单",
+        "term": "3年",
+        "interest_rate": "2.15%",
+        "min_purchase_amount": "20万元",
+        "view_duration_seconds": 118
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-02T20:32:11+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-02T20:35:00+08:00",
+      "app": "banking_app",
+      "action": "compare",
+      "content": {
+        "compare_type": "理财产品对比",
+        "product_a": "安稳盈90天持有期稳健型理财产品",
+        "product_b": "2026年第二十四期大额存单（3年期）",
+        "compare_dimensions": [
+          "业绩比较基准",
+          "风险等级",
+          "起购金额",
+          "流动性"
+        ]
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-02T20:43:00+08:00",
+      "app": "reader_app",
+      "action": "browse_content",
+      "content": {
+        "column_name": "个人理财入门专栏",
+        "article_count": 24,
+        "browse_duration_seconds": 65
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-02T20:51:00+08:00",
+      "app": "reader_app",
+      "action": "collect",
+      "content": {
+        "article_title": "存款利率走低后，闲钱还能放在哪里",
+        "topic": "理财科普",
+        "collection_folder": "待读"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-02T21:02:00+08:00",
+      "app": "reader_app",
+      "action": "collect",
+      "content": {
+        "article_title": "稳健型理财产品挑选指南：看懂风险等级与业绩比较基准",
+        "topic": "理财科普",
+        "collection_folder": "待读"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-02T21:10:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "财经",
+        "article_title": "货币基金七日年化收益率回暖，流动性管理受关注",
+        "topic": "理财收益",
+        "read_progress_percent": 100
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-02T21:18:00+08:00",
+      "app": "news_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "货币基金 七日年化收益率 排名",
+        "result_count": 38
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-02T21:20:55+08:00",
+      "app": "shopping_app",
+      "action": "browse_category",
+      "content": {
+        "category": "宠物用品"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-02T21:24:13+08:00",
+      "app": "video_app",
+      "action": "watch_short_video",
+      "content": {
+        "topic": "变装挑战"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-02T21:27:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "3分钟看懂大额存单和定期的区别",
+        "category": "理财科普",
+        "watch_duration_seconds": 172
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-02T21:36:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "年末发奖金了？闲钱打理的三个稳健思路",
+        "category": "理财科普",
+        "watch_duration_seconds": 148
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-02T21:43:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "妈妈",
+        "message_content": "年终奖快到账了，闲钱是买点稳健理财还是存大额存单呀？我在看利率",
+        "message_type": "text"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-02T21:46:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "chat_with": "妈妈",
+        "message_content": "先别急着买，等利率稳一点再说，别碰风险高的",
+        "message_type": "text"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-02T21:54:49+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "Excel快捷键技巧"
+      }
+    }
+  ]
+}

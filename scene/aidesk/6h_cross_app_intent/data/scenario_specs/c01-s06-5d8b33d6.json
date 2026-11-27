@@ -1,0 +1,64 @@
+{
+  "title": "三亚度假行程临时取消",
+  "scenario_category": "travel",
+  "subscenario": "计划取消或改变",
+  "template_id": "C01-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "三亚"
+    ],
+    "products": [
+      "杭州往返三亚机票",
+      "三亚海景酒店"
+    ],
+    "people": [
+      "同伴小林"
+    ],
+    "dates": [
+      "12月12日",
+      "12月15日",
+      "12月19日"
+    ],
+    "other": [
+      "目的地持续降雨预报"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "三亚海边度假出行",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "查看已支付的杭州往返三亚机票订单",
+        "机票退票操作与退款到账记录",
+        "酒店订单被取消",
+        "日历中原定行程事件被删除",
+        "向同伴发送行程取消的消息"
+      ],
+      "optional_evidence": [
+        "查询三亚未来几天天气显示持续降雨",
+        "浏览其他日期机票但未下单"
+      ],
+      "unknown_information": [
+        "后续是否会改期重新预订",
+        "同伴方是否另有安排"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 4
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 5,
+    "contradicting": 4
+  },
+  "time_profile": "前两小时以查看既有机票与酒店订单、目的地天气和攻略浏览等原计划证据为主；中段出现与同伴的沟通和搜索其他日期的犹豫行为；最后约一小时集中出现退票、退款到账、取消酒店与删除日历行程等决定性反向证据，结论明确指向整单取消。",
+  "variant_note": "本样本为整单取消型（机票+酒店+日程全部撤销），取消决定集中在窗口末段，诱因线索为目的地降雨预报与同伴消息，与同模板中改期型或更换目的地型样本区分；无任何新的预订行为，避免与新意图混淆；支付类App承担退款到账证据角色。",
+  "scenario_id": "c01-s06-5d8b33d6"
+}

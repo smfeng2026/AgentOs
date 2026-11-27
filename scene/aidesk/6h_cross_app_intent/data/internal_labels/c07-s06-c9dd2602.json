@@ -1,0 +1,578 @@
+{
+  "sample_id": "c07-s06-c9dd2602",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "观演计划落空",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的12月19日现场演出门票订单",
+        "主办方发布的演出取消公告",
+        "退票申请记录与退款到账通知",
+        "日历中12月19日观演日程被取消"
+      ],
+      "optional_evidence": [
+        "与朋友沟通退票的消息",
+        "此前查询场馆路线与天气的记录"
+      ],
+      "unknown_information": [
+        "演出是否会改期补办",
+        "同行朋友是否也完成退票"
+      ],
+      "supporting_event_count": 7,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 2
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_subway",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:05:45+08:00",
+      "app": "commute_app",
+      "action": "check_subway_crowding",
+      "content": {
+        "line": "早晚高峰线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:12:00+08:00",
+      "app": "ticket_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "TK202612190031",
+        "show_name": "夜航电台「午夜航行」巡演·杭州站",
+        "venue": "滨江MAO Livehouse",
+        "show_date": "12月19日",
+        "show_time": "20:00",
+        "ticket_type": "预售票",
+        "ticket_count": 2,
+        "total_price": "¥560",
+        "order_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "exam_driving_license_bank",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:23:35+08:00",
+      "app": "exam_app",
+      "action": "view_detail",
+      "content": {
+        "exam": "驾照科目四题库",
+        "progress": "30%"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:38:00+08:00",
+      "app": "ticket_app",
+      "action": "view_detail",
+      "content": {
+        "show_name": "夜航电台「午夜航行」巡演·杭州站",
+        "venue": "滨江MAO Livehouse",
+        "show_date": "12月19日",
+        "open_time": "19:00",
+        "lineup": "夜航电台及特邀嘉宾",
+        "entry_note": "一人一票，凭订单码与身份证入场"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "clinic_vaccine_notice",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:43:43+08:00",
+      "app": "clinic_app",
+      "action": "browse_content",
+      "content": {
+        "service": "疫苗接种预约须知"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:06:00+08:00",
+      "app": "music_app",
+      "action": "browse_content",
+      "content": {
+        "band_name": "夜航电台",
+        "album_name": "《午夜航行》",
+        "track_count": 11,
+        "play_mode": "专辑循环"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:27:00+08:00",
+      "app": "shopping_app",
+      "action": "collect",
+      "content": {
+        "product_name": "夜航电台巡演应援手幅套装",
+        "shop_name": "夜航电台官方周边店",
+        "price": "¥45",
+        "collect_status": "已收藏"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:58:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "西湖区文三路",
+        "destination": "滨江MAO Livehouse",
+        "planned_date": "12月19日",
+        "route_preference": "地铁加步行",
+        "estimated_duration": "42分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_cart",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:01:51+08:00",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "日常补货"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "car_rental_browse_other_city",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:08:20+08:00",
+      "app": "car_rental_app",
+      "action": "search",
+      "content": {
+        "pickup_city": "珠海",
+        "car_type": "经济型",
+        "pickup_date": "01月07日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:16:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "杭州",
+        "query_date": "12月19日",
+        "weather": "多云",
+        "temperature_range": "5℃至12℃",
+        "precipitation_probability": "10%"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:28:00+08:00",
+      "app": "music_app",
+      "action": "collect",
+      "content": {
+        "playlist_name": "夜航电台现场必听歌单",
+        "band_name": "夜航电台",
+        "song_count": 18,
+        "collect_status": "已收藏"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:44:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "account_name": "回声现场主办方官方账号",
+        "post_title": "关于12月19日「午夜航行」杭州站演出取消的公告",
+        "publish_time": "17:40",
+        "notice_type": "取消公告",
+        "refund_note": "已购门票票款将于7个工作日内原路退回"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:47:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "小柯",
+        "chat_type": "单聊",
+        "message_content": "主办方刚发公告了，19号那场演出取消了，票钱可以退，你看到了吗？"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:56:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "夜航电台杭州歌迷群",
+        "chat_type": "群聊",
+        "message_content": "群里有人传演出照常举行，只是换了隔壁厅，说现在退票的会亏，先别急着退"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_storage",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:02:35+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:08:00+08:00",
+      "app": "ticket_app",
+      "action": "browse_content",
+      "content": {
+        "page_title": "购票退改政策",
+        "policy_item": "演出门票属特殊商品，不支持用户单方原因自愿退票",
+        "applicable_scope": "所有已支付订单"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "home_ac_cleaning_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:11:12+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:12:36+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "基金定投入门"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_backup",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:30:44+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:32:00+08:00",
+      "app": "ticket_app",
+      "action": "refund",
+      "content": {
+        "order_id": "TK202612190031",
+        "show_name": "夜航电台「午夜航行」巡演·杭州站",
+        "ticket_count": 2,
+        "refund_amount": "¥560",
+        "refund_reason": "主办方取消演出",
+        "refund_status": "申请已提交",
+        "apply_time": "18:32"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "parking_fee_standard",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:35:15+08:00",
+      "app": "parking_app",
+      "action": "view_detail",
+      "content": {
+        "parking_lot": "公司楼下停车场",
+        "section": "收费标准"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:51:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "小柯",
+        "message_content": "我这边两张票都提交退票了，走的是主办方取消全额退的通道，你那边也退了吗？"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:31:29+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_movie_schedule",
+      "hard_negative": true,
+      "timestamp": "2026-12-03T19:38:24+08:00",
+      "app": "ticket_app",
+      "action": "browse_movie_schedules",
+      "content": {
+        "movie": "艺术片放映",
+        "date": "工作日晚"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_like",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:11:48+08:00",
+      "app": "social_app",
+      "action": "like_post",
+      "content": {
+        "topic": "城市夜景摄影"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "contacts_search_repair",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:15:03+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:18:00+08:00",
+      "app": "payment_app",
+      "action": "receive_message",
+      "content": {
+        "message_type": "到账通知",
+        "transaction_type": "退款",
+        "amount": "¥560.00",
+        "source": "票务平台退款",
+        "related_order": "TK202612190031",
+        "arrival_status": "已到账",
+        "arrival_time": "20:16"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "gov_residence_progress",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:36:33+08:00",
+      "app": "government_app",
+      "action": "view_progress",
+      "content": {
+        "item": "居住证办理进度",
+        "status": "审核中"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:46:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title": "夜航电台Livehouse观演",
+        "event_date": "12月19日",
+        "event_time": "19:30",
+        "location": "滨江MAO Livehouse",
+        "participants": "我、小柯",
+        "update_type": "取消日程"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ]
+}

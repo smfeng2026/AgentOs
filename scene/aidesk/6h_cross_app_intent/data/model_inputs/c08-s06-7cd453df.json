@@ -1,0 +1,338 @@
+{
+  "sample_id": "c08-s06-7cd453df",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-06T07:35:00+08:00",
+    "end": "2026-12-06T13:35:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-06T07:52:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "老房改造",
+        "post_titles": [
+          "住了十年的老公寓焕新记",
+          "老破小改造前后对比",
+          "旧房刷漆翻新省预算心得"
+        ],
+        "feed_section": "推荐"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-06T07:57:18+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "去除背景"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-06T08:09:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "55平老房全屋翻新vlog｜前后对比太治愈",
+        "category": "家居改造",
+        "play_duration": "8分12秒"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-06T08:12:33+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "陶艺"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-06T08:20:05+08:00",
+      "app": "commute_app",
+      "action": "find_shared_bike",
+      "content": {
+        "area": "地铁口"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-06T08:28:01+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "熬夜后如何恢复"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-06T08:36:17+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "行业季度报告摘要"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-06T08:41:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "小户型收纳技巧",
+        "post_title": "老房子也能越住越大：低成本收纳改造",
+        "feed_type": "图文"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-06T08:46:14+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "十分钟核心训练",
+        "duration_min": 12
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-06T08:57:25+08:00",
+      "app": "payment_app",
+      "action": "view_credit_card_bill",
+      "content": {
+        "month": "本月"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-06T09:23:00+08:00",
+      "app": "social_app",
+      "action": "search",
+      "content": {
+        "keyword": "老房翻新 预算清单",
+        "result_type": "攻略笔记",
+        "top_result_titles": [
+          "上海老房翻新预算清单模板",
+          "旧房翻新每平米多少钱"
+        ]
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-06T09:37:00+08:00",
+      "app": "furniture_app",
+      "action": "search",
+      "content": {
+        "keyword": "实木置物架",
+        "sort_by": "销量优先",
+        "result_count": "约300件"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-06T09:46:00+08:00",
+      "app": "furniture_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "橡木多层落地置物架",
+        "spec": "四层 宽80厘米",
+        "price": "¥359",
+        "shop_name": "木作人家居旗舰店"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-06T09:48:26+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-06T10:15:41+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-06T10:18:00+08:00",
+      "app": "review_app",
+      "action": "search",
+      "content": {
+        "keyword": "上海 老房翻新 口碑",
+        "category_filter": "装修公司",
+        "rating_filter": "4.5分以上"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-06T10:24:47+08:00",
+      "app": "news_app",
+      "action": "browse_headlines",
+      "content": {
+        "section": "财经"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-06T10:49:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "抽屉式收纳盒",
+        "sort_by": "综合排序",
+        "result_count": "约1200件"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-06T10:58:00+08:00",
+      "app": "shopping_app",
+      "action": "collect",
+      "content": {
+        "product_name": "透明抽屉式收纳盒三件套",
+        "price": "¥69",
+        "collect_folder": "家居好物"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-06T10:59:07+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-06T11:24:03+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "下个月"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-06T11:26:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "product_category": "扫地机器人",
+        "compared_models": [
+          "石头P20 Pro ¥2199",
+          "科沃斯T30 Pro ¥2499",
+          "云鲸J5 ¥2399"
+        ],
+        "compare_dimensions": [
+          "价格",
+          "吸力",
+          "续航"
+        ]
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-06T11:39:00+08:00",
+      "app": "home_service_app",
+      "action": "browse_content",
+      "content": {
+        "service_type": "开荒保洁",
+        "city": "上海",
+        "price_range": "每平米6至8元",
+        "service_note": "翻新后除尘除胶"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-06T11:45:51+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "上海"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-06T12:07:00+08:00",
+      "app": "map_app",
+      "action": "search",
+      "content": {
+        "keyword": "附近家居卖场",
+        "city": "上海",
+        "results": [
+          "宜家家居徐汇商场 距离3.2公里",
+          "红星美凯龙真北店 距离5.6公里"
+        ]
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-06T12:17:54+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本月"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-06T12:34:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "group_name": "相亲相爱一家人",
+        "sender": "姐姐",
+        "message_summary": "红星美凯龙周末建材满减，活动到12月20日，有空一起去逛",
+        "message_type": "文本消息"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-06T12:51:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "10件软装好物让老房子秒变样板间",
+        "category": "家居生活",
+        "play_duration": "4分18秒"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-06T13:13:18+08:00",
+      "app": "game_app",
+      "action": "browse_game_store",
+      "content": {
+        "category": "限时免费"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-06T13:19:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "软装搭配",
+        "post_titles": [
+          "冬日氛围感窗帘怎么选",
+          "老房软装焕新清单"
+        ],
+        "feed_type": "图文"
+      }
+    }
+  ]
+}

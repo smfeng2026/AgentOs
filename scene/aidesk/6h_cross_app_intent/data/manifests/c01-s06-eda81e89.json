@@ -1,0 +1,206 @@
+{
+  "sample_id": "c01-s06-eda81e89",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:20:29+08:00",
+  "task": {
+    "scenario_category": "travel",
+    "template_id": "C01-S06",
+    "subscenario": "计划取消或改变",
+    "difficulty": "D6_conflict_state_change",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-02T12:50:00+08:00",
+    "window_end": "2026-12-02T18:50:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3466182223
+  },
+  "spec_summary": {
+    "title": "台风来袭取消三亚度假行程",
+    "intent_names": [
+      "三亚度假行程取消"
+    ],
+    "intent_categories": [
+      "travel"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "三亚"
+      ],
+      "products": [
+        "三亚湾海景度假酒店",
+        "杭州至三亚往返机票"
+      ],
+      "people": [
+        "朋友李婷"
+      ],
+      "dates": [
+        "12月20日",
+        "12月23日"
+      ],
+      "other": [
+        "台风预警",
+        "refund amount 2860"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 4,
+    "gold_related_interest": 6,
+    "gold_contradicting": 5,
+    "gold_purposes": {
+      "tourism": 1
+    },
+    "gold_statuses": {
+      "cancelled": 1
+    },
+    "gold_categories": {
+      "travel": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "hn_guide_other_city",
+      "fit_water",
+      "read_novel",
+      "game_play",
+      "mail_cleanup",
+      "photo_backup",
+      "sys_update",
+      "fin_points",
+      "music_search",
+      "video_playlist",
+      "hn_map_other_city",
+      "hn_train_other_city",
+      "work_tool_article",
+      "map_nearby",
+      "cal_birthday"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 6,
+      "contradicting": 5,
+      "purposes": {
+        "tourism": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "travel": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1864,
+      "completion_tokens": 1358,
+      "total_tokens": 3222,
+      "latency_s": 15.1,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1775,
+      "completion_tokens": 8463,
+      "total_tokens": 10238,
+      "latency_s": 78.37,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3640,
+      "completion_tokens": 5745,
+      "total_tokens": 9385,
+      "latency_s": 44.35,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6334,
+      "completion_tokens": 16270,
+      "total_tokens": 22604,
+      "latency_s": 132.12,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11054,
+      "completion_tokens": 25463,
+      "total_tokens": 36517,
+      "latency_s": 176.7,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 446.65,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c01-s06-eda81e89.json",
+      "sha256": "e1a275da9f7ca340b1f196777dfc84fb4e6f4017afbaa9160307489ebcfd82c7"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c01-s06-eda81e89.json",
+      "sha256": "f33abf8b5505f1bc869cccac090aab6eb55ef63a4e06d622d4aa0ffda57f8632"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c01-s06-eda81e89.json",
+      "sha256": "042bf068688e14f2b9a593ebf68203d5e8525787b3aff1aee0b7fceb8bbed04a"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c01-s06-eda81e89.json",
+      "sha256": "2ca5065f0271add9cec1f54377b195dc236142451965949efbd3fdc4055e59f9"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c01-s06-eda81e89.json",
+      "sha256": "5ee959f16c8b9b4fe3bc913b384ad3a6a64477441c65492fea7ae3aca7752cf1"
+    }
+  },
+  "updated_at": "2026-11-27T11:20:29+08:00"
+}

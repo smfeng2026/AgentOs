@@ -1,0 +1,789 @@
+{
+  "sample_id": "c05-s05-2a633e7a",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标将弱浏览/搜索/收藏信号拔高为 fitness/training 高置信意图，并把全部 required_evidence 降级为 related_interest，导致高置信度与空支持集矛盾；同时把噪声池中的单次电费缴纳和余额查看升格为第二个高置信度意图，属于过度切分。按事件证据和规则10，search/view/browse/collect 均只能标为 related_interest，不能作为 supporting；因此恢复为 health_service、purpose=unknown、status=emerging、confidence=low 的单一颈肩健康关注意图，删除 i002，e010/e026 维持 unrelated。最终 15 条相关兴趣、15 条无关，事件标签与意图证据列表完全镜像。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "work_tool_article",
+        "news_share",
+        "shop_cart",
+        "learn_video",
+        "fin_balance",
+        "video_search",
+        "map_traffic",
+        "photo_backup",
+        "read_novel",
+        "fit_steps",
+        "weather_now",
+        "game_store",
+        "pay_utility",
+        "sys_storage",
+        "comm_bike"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "通过拉伸和跟练缓解颈肩酸痛",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e007",
+          "e009",
+          "e011",
+          "e012",
+          "e014",
+          "e016",
+          "e018",
+          "e021",
+          "e022",
+          "e024",
+          "e027",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户可能正经历颈肩酸痛或僵硬，并主动查找缓解方法",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e005",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户倾向通过拉伸、工间操和跟练视频进行自我调理",
+            "source_event_ids": [
+              "e005",
+              "e009",
+              "e016",
+              "e018",
+              "e021",
+              "e022",
+              "e024",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户收藏了肩颈拉伸图文教程，并在之后再次查看",
+            "source_event_ids": [
+              "e009",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户查询了附近拉伸瑜伽馆，存在了解线下课程的可能",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "用户还浏览了久坐相关健康隐患和腰背酸痛内容，关注久坐健康影响",
+            "source_event_ids": [
+              "e012",
+              "e014"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "颈肩不适的具体诊断、严重程度和持续时间",
+          "是否计划报名线下瑜伽或拉伸课程",
+          "是否已采取就医、用药等医疗措施",
+          "锻炼是用于治疗、康复还是日常健身"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "缴纳电费并查看账户余额",
+        "category": "finance_admin",
+        "purpose": "personal_admin",
+        "status": "completed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e026"
+        ],
+        "related_interest_event_ids": [
+          "e010"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户于 2026-12-20 11:20:41 支付电费 ¥112.00",
+            "source_event_ids": [
+              "e026"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户查看账户余额并完成电费缴纳，可能在进行个人账单或财务日常管理",
+            "source_event_ids": [
+              "e010",
+              "e026"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否还有其他待缴账单",
+          "是否设置了自动缴费或预算管理"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e006",
+      "e008",
+      "e013",
+      "e015",
+      "e017",
+      "e019",
+      "e020",
+      "e023",
+      "e025",
+      "e028",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 13
+    }
+  },
+  "review": {
+    "sample_id": "c05-s05-2a633e7a",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "intent_purpose_overclaim",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e007",
+          "e009",
+          "e011",
+          "e016",
+          "e018",
+          "e021",
+          "e022",
+          "e024",
+          "e027",
+          "e030"
+        ],
+        "description": "盲标将 i001 重写为『通过拉伸和跟练缓解颈肩酸痛』，类别改为 fitness、purpose=training、status=considering、confidence=high。但全部证据只是 health_app 浏览文章、搜索『颈肩酸痛怎么缓解』『肩颈劳损和落枕的区别』、收藏图文教程、查看跟练视频详情、搜索附近场馆，全程无报名、无购课、无跟练打卡、无日历/预约动作，也没有任何『已开始训练』的行为信号。场景规格明确为 D3 弱证据、purpose=unknown、status=emerging、confidence=low，且备注要求『确保意图停留在 emerging、purpose 无法判定』。把浏览型健康关注拔高为『训练』目的属于超出证据的目的判定，同时 category 从 health_service 改为 fitness 也改变了意图语义（证据更指向健康困扰/自我调理关注而非健身训练）。此外盲标自身 unknown_information 仍写『锻炼是用于治疗、康复还是日常健身』，与 purpose=training 自相矛盾。",
+        "suggested_action": "将 i001 的 purpose 改回 unknown（或仅表述为健康信息了解），category 保持 health_service（颈肩/久坐健康关注），status 置为 emerging、confidence 置为 low/medium；不得以浏览、收藏、搜索类弱信号确认 training 目的。"
+      },
+      {
+        "issue_type": "supporting_evidence_misuse",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e007",
+          "e009",
+          "e030"
+        ],
+        "description": "盲标把 Gold 中 6 条 supporting（e001 搜索症状缓解关键词、e003/e005/e007 连续浏览颈肩放松与久坐缓解文章、e009 收藏工间拉伸教程、e030 回看收藏）全部改标为 related_interest，导致 i001 的 supporting_event_ids 为空，与『confidence=high、status=considering』严重不匹配：既声称高置信度的明确意图，又拿不出任何一条支持性证据，评估口径内部不自洽。这些事件正是场景规格 required_evidence 列举的内容，全部降级后该意图只剩外围相关兴趣。",
+        "suggested_action": "二选一：保留 e001/e003/e005/e007/e009（必要时含 e030）为 supporting，并将 confidence 降至 low/medium、status=emerging；或维持全部 related_interest，但必须把 confidence 降为 low 且不得表述为『considering』的明确意图。"
+      },
+      {
+        "issue_type": "spurious_intent_oversegmentation",
+        "severity": "medium",
+        "event_ids": [
+          "e010",
+          "e026"
+        ],
+        "description": "盲标新增 i002『缴纳电费并查看账户余额』（finance_admin，status=completed，confidence=high，supporting=e026、related=e010）。但这两条均为程序注入的噪声池事件：e010 是 08:11 查看账户余额（常规使用记录），e026 是 11:20 单次电费缴费，两者相隔约 3 小时、无先后因果，也无账单清单核对、自动缴费设置、预算管理等后续动作，属于一次性日常事务而非可画像的用户意图。把单次缴费升格为高置信度、已完成状态的双事件意图，属于过度切分/把噪声当意图；同时 e010 与 e026 的关联也很弱。",
+        "suggested_action": "删除 i002，将 e010、e026 维持 unrelated（噪声）；若评估框架要求保留一次性事务，应标注为低置信度、incidental 的单事件记录，且不得把 e010 余额查看作为其相关证据。"
+      },
+      {
+        "issue_type": "inferred_fact_overreach",
+        "severity": "low",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e011"
+        ],
+        "description": "盲标推断『用户可能正经历颈肩酸痛或僵硬』，来源为 e001/e003/e005/e011。搜索与浏览缓解类内容只能说明关注，不能证明本人存在症状（也可能是为家人查资料或泛化健康兴趣）。推断虽已用『可能』措辞，但证据链偏弱，且与 purpose=training 的高置信判定相互强化，容易放大成事实。",
+        "suggested_action": "将该条保留为低置信度的可能推断，或在证据不足时移入 unknown_information，表述为『关注颈肩/久坐不适话题，是否本人有症状未知』。"
+      }
+    ],
+    "summary": "样本事件链本身自然、时序连贯、无答案泄露，Gold 的单意图划分与 6 supporting + 9 related_interest 预算吻合。主要问题集中在盲标：把弱证据的『颈肩健康关注』拔高为 fitness/training、high confidence、considering，并把全部 required_evidence 降级为 related_interest 造成 supporting 空集与高置信度自相矛盾；同时将噪声池的单次电费缴费与余额查看升格为第二个高置信度意图，属过度切分。建议 i001 恢复 purpose=unknown、category=health_service、status=emerging、confidence=low，并删除 i002（e010/e026 维持 unrelated）；存在 high 级问题，样本不通过。"
+  },
+  "adjudication": {
+    "sample_id": "c05-s05-2a633e7a",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "颈肩劳损自我调理关注",
+          "category": "health_service",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e007",
+            "e009",
+            "e011",
+            "e012",
+            "e014",
+            "e016",
+            "e018",
+            "e021",
+            "e022",
+            "e024",
+            "e027",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户连续搜索和浏览颈肩酸痛缓解、久坐颈肩放松、颈椎保养、肩颈劳损与落枕区别等内容，表现出对颈肩及久坐健康话题的持续关注。",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e005",
+                "e007",
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户收藏了工间拉伸教程，并在之后再次从收藏夹查看该教程。",
+              "source_event_ids": [
+                "e009",
+                "e030"
+              ]
+            },
+            {
+              "fact": "用户还浏览了久坐健康隐患和腰背酸痛相关内容，关注范围涉及久坐带来的肌肉骨骼不适。",
+              "source_event_ids": [
+                "e012",
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户在 fitness_app 搜索肩颈拉伸课程、在 video_app 搜索并观看肩颈操/工间放松操、在 map_app 搜索附近拉伸瑜伽馆，显示跨 App 了解相关放松或训练资源。",
+              "source_event_ids": [
+                "e016",
+                "e018",
+                "e021",
+                "e022",
+                "e024",
+                "e027"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否计划前往医院或体检机构检查",
+            "症状持续时间和严重程度",
+            "是否打算购买按摩或理疗器材",
+            "是否计划报名线下瑜伽或拉伸课程",
+            "是否本人存在颈肩不适，还是为他人查询资料",
+            "锻炼是用于治疗、康复还是日常健身"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e006",
+        "e008",
+        "e010",
+        "e013",
+        "e015",
+        "e017",
+        "e019",
+        "e020",
+        "e023",
+        "e025",
+        "e026",
+        "e028",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c05-s05-2a633e7a"
+    },
+    "rationale": "盲标将弱浏览/搜索/收藏信号拔高为 fitness/training 高置信意图，并把全部 required_evidence 降级为 related_interest，导致高置信度与空支持集矛盾；同时把噪声池中的单次电费缴纳和余额查看升格为第二个高置信度意图，属于过度切分。按事件证据和规则10，search/view/browse/collect 均只能标为 related_interest，不能作为 supporting；因此恢复为 health_service、purpose=unknown、status=emerging、confidence=low 的单一颈肩健康关注意图，删除 i002，e010/e026 维持 unrelated。最终 15 条相关兴趣、15 条无关，事件标签与意图证据列表完全镜像。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "health_service": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.933,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1861,
+      "completion_tokens": 1587,
+      "total_tokens": 3448,
+      "latency_s": 15.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1729,
+      "completion_tokens": 5224,
+      "total_tokens": 6953,
+      "latency_s": 44.32,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3259,
+      "completion_tokens": 6489,
+      "total_tokens": 9748,
+      "latency_s": 49.45,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5701,
+      "completion_tokens": 5101,
+      "total_tokens": 10802,
+      "latency_s": 41.75,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10031,
+      "completion_tokens": 4485,
+      "total_tokens": 14516,
+      "latency_s": 32.4,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 183.87
+}

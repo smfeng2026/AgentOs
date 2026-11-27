@@ -1,0 +1,60 @@
+{
+  "title": "平板电脑下单后取消并重新比价",
+  "scenario_category": "shopping",
+  "subscenario": "取消购买",
+  "template_id": "C03-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [
+      "星曜Pad11平板电脑",
+      "灵犀TabS平板",
+      "云驰PadPro平板"
+    ],
+    "people": [],
+    "dates": [
+      "12月05日",
+      "12月07日"
+    ],
+    "other": [
+      "订单金额2899元",
+      "预计送达12月07日"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "平板电脑购置计划撤销",
+      "category": "shopping",
+      "purpose": "unknown",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付2899元的星曜Pad11订单",
+        "订单取消操作记录",
+        "2899元原路退款到账记录"
+      ],
+      "optional_evidence": [
+        "取消前浏览该型号差评",
+        "取消后重新比较其他型号价格",
+        "取消后收藏替代型号"
+      ],
+      "unknown_information": [
+        "取消是否还受预算变化影响",
+        "是否打算在大促时重新下单"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 4,
+      "contradicting_event_count": 5
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 4,
+    "contradicting": 5
+  },
+  "time_profile": "窗口前约两小时完成搜索、比价、下单并支付，属于购买推进阶段；第三小时在评价应用浏览到续航差评后，出现取消订单与退款到账两条决定性反向证据；最后约两小时仅在比价应用与购物应用中重新比较和收藏，未再下单，窗口结束时状态停留在已取消。",
+  "variant_note": "取消诱因是负面评价而非价格或预算，退款到账形成完整状态变化闭环；取消后用户转为重新比较并收藏替代型号但没有二次下单，使最终状态清晰为 cancelled 而非 considering；与同模板其他样本相比，本样本交叉使用了购物、支付、比价、评价四类应用，且决定性证据集中在窗口中段。",
+  "scenario_id": "c03-s06-a409425d"
+}

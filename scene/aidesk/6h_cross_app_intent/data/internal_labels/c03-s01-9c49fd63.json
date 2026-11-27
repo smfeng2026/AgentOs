@@ -1,0 +1,574 @@
+{
+  "sample_id": "c03-s01-9c49fd63",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "更换新手机",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "购物App中已创建的星耀X7 Pro订单",
+        "支付App的4299元支付成功记录",
+        "比价App中星耀X7 Pro与麒麟G12的横向比较",
+        "查看订单预计12月23日送达"
+      ],
+      "optional_evidence": [
+        "银行消费提醒通知",
+        "与朋友讨论换机建议的聊天记录"
+      ],
+      "unknown_information": [
+        "是否加购碎屏保障服务",
+        "旧手机是否走以旧换新回收"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "im_work_reply",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:17:07+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "同事群",
+        "topic": "下午茶拼单"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_cleanup",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:18:35+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:23:00+08:00",
+      "app": "settings_app",
+      "action": "view_detail",
+      "content": {
+        "page": "电池健康",
+        "device": "当前使用的手机",
+        "battery_health": "78%",
+        "max_capacity_note": "电池已出现明显老化，续航缩短"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_tool_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:34:55+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "会议纪要模板分享"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:41:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "星耀X7 Pro 评测",
+        "category": "数码科技",
+        "sort_by": "综合排序"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:47:34+08:00",
+      "app": "music_app",
+      "action": "search_song",
+      "content": {
+        "keyword": "电影主题曲"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "title": "旗舰续航横评：星耀X7 Pro 对决麒麟G12",
+        "channel": "科技测评室",
+        "duration": "12分36秒",
+        "watch_progress": "看完"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:11:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "星耀X7 Pro手机",
+        "filter": "12GB+256GB",
+        "sort_by": "销量优先"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:14:00+08:00",
+      "app": "shopping_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "星耀X7 Pro手机",
+        "spec": "曜石黑 12GB+256GB",
+        "price": 4299,
+        "stock_status": "现货",
+        "store": "星耀官方旗舰店"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:46:00+08:00",
+      "app": "shopping_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "麒麟G12手机",
+        "spec": "8GB+256GB",
+        "price": 3899,
+        "stock_status": "现货"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:07:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "products": [
+          "星耀X7 Pro手机（曜石黑 12GB+256GB）",
+          "麒麟G12手机"
+        ],
+        "price_result": {
+          "星耀X7 Pro手机": 4299,
+          "麒麟G12手机": 3899
+        },
+        "dimensions": [
+          "价格",
+          "电池续航",
+          "充电功率",
+          "屏幕素质"
+        ]
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:22:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "李娜",
+        "message_text": "旧手机电池健康只剩78%了，一天要充三次电，我在看星耀X7 Pro，你有什么建议？"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:35:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "李娜",
+        "message_text": "星耀X7 Pro续航口碑不错，曜石黑12+256这个配置挺值，下单前可以看看有没有以旧换新补贴"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bus",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:55:29+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:56:29+08:00",
+      "app": "map_app",
+      "action": "view_place_history",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T20:16:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "list_name": "星耀X7系列手机壳",
+        "category": "手机配件",
+        "item_count": 32
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_product_compare_other",
+      "hard_negative": true,
+      "timestamp": "2026-12-21T20:21:36+08:00",
+      "app": "price_compare_app",
+      "action": "compare_prices",
+      "content": {
+        "product": "电子书阅读器",
+        "platforms": 3
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_balance",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T20:38:18+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_product_other",
+      "hard_negative": true,
+      "timestamp": "2026-12-21T21:15:29+08:00",
+      "app": "shopping_app",
+      "action": "view_product_detail",
+      "content": {
+        "product": "电动牙刷"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_points",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T21:20:26+08:00",
+      "app": "banking_app",
+      "action": "view_credit_card_points",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_trailer",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T21:33:48+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "动画电影预告"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T21:40:00+08:00",
+      "app": "shopping_app",
+      "action": "collect",
+      "content": {
+        "product_name": "星耀X7 Pro手机",
+        "spec": "曜石黑 12GB+256GB",
+        "price": 4299,
+        "favorite_folder": "数码心愿单"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_novel",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T21:46:19+08:00",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "都市职场",
+        "chapter": "第103章"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T21:59:45+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T22:20:00+08:00",
+      "app": "shopping_app",
+      "action": "create_order",
+      "content": {
+        "order_id": "XD20261221222001",
+        "product_name": "星耀X7 Pro手机",
+        "spec": "曜石黑 12GB+256GB",
+        "quantity": 1,
+        "amount": 4299,
+        "order_status": "待支付",
+        "expected_delivery": "12月23日",
+        "receiver_city": "上海"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T22:45:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "星耀官方旗舰店",
+        "amount": 4299,
+        "payment_method": "银行卡",
+        "order_id": "XD20261221222001",
+        "payment_status": "支付成功"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T22:47:00+08:00",
+      "app": "banking_app",
+      "action": "receive_message",
+      "content": {
+        "title": "消费提醒",
+        "sender": "银行",
+        "amount": 4299,
+        "merchant": "星耀官方旗舰店",
+        "card_tail": "6688",
+        "time": "22:45"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T22:57:01+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "卡牌对战",
+        "duration_min": 15
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T23:02:00+08:00",
+      "app": "shopping_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "XD20261221222001",
+        "product_name": "星耀X7 Pro手机",
+        "order_status": "已支付",
+        "logistics_status": "商品已从上海仓出库",
+        "expected_delivery": "12月23日",
+        "destination": "上海"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_product_wishlist_other",
+      "hard_negative": true,
+      "timestamp": "2026-12-21T23:04:00+08:00",
+      "app": "shopping_app",
+      "action": "add_to_wishlist",
+      "content": {
+        "product": "路由器"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

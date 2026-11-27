@@ -1,0 +1,62 @@
+{
+  "title": "莫干山周末自驾安排",
+  "scenario_category": "local_transport",
+  "subscenario": "周边自驾",
+  "template_id": "C11-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "莫干山"
+    ],
+    "products": [
+      "紧凑型SUV租车"
+    ],
+    "people": [
+      "朋友小林",
+      "朋友阿哲"
+    ],
+    "dates": [
+      "12月12日",
+      "12月13日"
+    ],
+    "other": [
+      "莫干山民宿",
+      "山顶停车场"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "莫干山周末自驾游",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "12月12日至13日两天一晚的租车订单且已支付",
+        "搜索杭州到莫干山的自驾路线",
+        "与朋友小林商定周六出发同行的聊天记录"
+      ],
+      "optional_evidence": [
+        "查看莫干山12月12日周末天气",
+        "浏览莫干山民宿评价",
+        "搜索莫干山景区停车场"
+      ],
+      "unknown_information": [
+        "最终入住哪家民宿"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前段以天气查询、地图路线搜索和即时通讯商量为主；中段浏览民宿评价与停车场信息；决定性的租车下单与支付行为集中在窗口最后一小时出现",
+  "variant_note": "与同模板其他样本相比：出发地为杭州、目的地为莫干山山区，App 组合为 car_rental_app + map_app + weather_app + im_app + review_app + parking_app 融合；证据顺序为天气与沟通先行、租车支付收尾，强度为已支付订单级别；同行人为两位朋友而非家人，含一条同时涉及路线与集合时间的交叉聊天",
+  "scenario_id": "c11-s01-1f504b29"
+}

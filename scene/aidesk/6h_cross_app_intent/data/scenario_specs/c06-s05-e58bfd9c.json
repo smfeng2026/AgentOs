@@ -1,0 +1,55 @@
+{
+  "title": "深夜刷天文科普内容的兴趣萌芽",
+  "scenario_category": "learning",
+  "subscenario": "学习兴趣",
+  "template_id": "C06-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [],
+    "products": [],
+    "people": [],
+    "dates": [
+      "12月14日"
+    ],
+    "other": [
+      "天文观测",
+      "星空摄影",
+      "双子座流星雨"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "天文科普内容兴趣探索",
+      "category": "learning",
+      "purpose": "hobby",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "video_app 连续观看多条天文科普视频",
+        "learning_app 搜索星座辨认与望远镜入门关键词但未报名任何课程",
+        "reader_app 收藏天文科普文章"
+      ],
+      "optional_evidence": [
+        "news_app 浏览流星雨预报新闻",
+        "social_app 关注天文摄影话题"
+      ],
+      "unknown_information": [
+        "是否打算购买望远镜或报名课程",
+        "是否有线下观测计划"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "18:10–19:30 无相关行为；19:40 起零星出现科普视频浏览；21:30–23:40 出现主题一致的连续观看、搜索与收藏，为最集中的证据簇；全程无下单、报名、日程创建或提醒设置",
+  "variant_note": "与同模板其他样本的差异：主题为天文观测与星空摄影（而非语言、编程等技能类），兴趣指向休闲爱好；App 组合为 video_app、learning_app、reader_app、news_app、social_app；证据全部为 search、browse_content、view_detail、collect 等弱信号，收藏行为集中在窗口后段，前段混有新闻与短视频干扰浏览",
+  "scenario_id": "c06-s05-e58bfd9c"
+}

@@ -1,0 +1,346 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "三亚海边度假行程（12月12日—15日）",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e001",
+        "e004",
+        "e006",
+        "e009",
+        "e030"
+      ],
+      "related_interest_event_ids": [
+        "e003",
+        "e005",
+        "e008",
+        "e010",
+        "e015",
+        "e019"
+      ],
+      "contradicting_event_ids": [
+        "e024",
+        "e026",
+        "e027",
+        "e029"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "存在一笔已支付的杭州—三亚往返机票订单F2026120501，12月12日出发、12月15日返回，乘客本人和小林，总价¥2,980。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "存在已预订的三亚海景酒店订单H2026112801，高级海景双床房，12月12日入住、12月15日退房，共3晚。",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "日历中已有“三亚度假（杭州—三亚）”日程，日期12月12日至15日，并设置12月12日06:30出发去萧山机场提醒。",
+          "source_event_ids": [
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户与小林确认12号早上7点萧山机场T4集合，并由用户办理网上值机。",
+          "source_event_ids": [
+            "e009"
+          ]
+        },
+        {
+          "fact": "机票订单F2026120501已提交退票申请，手续费¥330，退款金额¥2,650，订单状态为退票处理中。",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "机票退票款¥2,650已到账，来源为杭州往返三亚机票退票款，关联订单F2026120501。",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "三亚海景酒店订单H2026112801已取消，入住前免费取消，退款状态为原路退回。",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "日历中的“三亚度假（杭州—三亚）”事件已删除，出发提醒同步移除。",
+          "source_event_ids": [
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户已向小林发送行程取消通知：机票退款到账、酒店取消，本次不去，天气好再约。",
+          "source_event_ids": [
+            "e030"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "该行程目的为海边度假/旅游，而非商务出行。",
+          "source_event_ids": [
+            "e003",
+            "e004",
+            "e005",
+            "e006",
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户关注三亚海边攻略、海鲜餐饮和海棠湾餐饮，体现度假兴趣。",
+          "source_event_ids": [
+            "e003",
+            "e005",
+            "e010"
+          ]
+        },
+        {
+          "fact": "12月12日至15日三亚预报持续降雨且概率80%以上，是取消行程的重要背景。",
+          "source_event_ids": [
+            "e008",
+            "e015",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户曾搜索12月19日杭州—三亚经济舱机票（最低¥760），可能考虑改期，但仅浏览未下单。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户因天气原因决定取消本次三亚行程，并已完成机票退票、酒店取消、日历删除及同伴通知。",
+          "source_event_ids": [
+            "e008",
+            "e015",
+            "e024",
+            "e027",
+            "e029",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否会在12月19日或其他日期重新预订三亚行程",
+        "酒店退款实际到账时间（仅显示原路退回）",
+        "小林是否已回复确认接受取消决定",
+        "退票处理中状态与退款已到账的异步更新是否最终完成",
+        "是否有其他未展示的改期或补偿安排"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e007",
+    "e011",
+    "e012",
+    "e013",
+    "e014",
+    "e016",
+    "e017",
+    "e018",
+    "e020",
+    "e021",
+    "e022",
+    "e023",
+    "e025",
+    "e028"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c01-s06-5d8b33d6"
+}

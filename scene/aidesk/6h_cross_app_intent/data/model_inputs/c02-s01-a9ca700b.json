@@ -1,0 +1,367 @@
+{
+  "sample_id": "c02-s01-a9ca700b",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-15T12:35:00+08:00",
+    "end": "2026-12-15T18:35:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-15T12:37:36+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-15T13:01:37+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "上海"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-15T13:02:39+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "传统茶具介绍"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-15T13:05:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "客户方项目经理刘总",
+        "subject": "确认：12月18日需求评审会安排",
+        "meeting_date": "12月18日",
+        "meeting_time": "14:00-16:00",
+        "location": "浦东张江张江路88号华信科技3楼会议室",
+        "attendees": [
+          "刘总",
+          "客户方产品代表",
+          "客户方研发代表"
+        ],
+        "attachment": "会议议程.pdf"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-15T13:22:00+08:00",
+      "app": "mail_app",
+      "action": "view_detail",
+      "content": {
+        "subject": "确认：12月18日需求评审会安排",
+        "meeting_date": "12月18日",
+        "meeting_time": "14:00-16:00",
+        "agenda": [
+          "项目背景介绍",
+          "需求方案演示",
+          "评审意见讨论"
+        ],
+        "attendees": [
+          "刘总",
+          "客户方产品代表",
+          "客户方研发代表"
+        ],
+        "location": "张江路88号华信科技3楼会议室",
+        "read_duration": "约3分钟"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-15T13:36:29+08:00",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "待凑单"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-15T13:47:00+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "华信科技 刘总",
+        "result": "刘总 - 华信科技项目经理",
+        "result_count": 1,
+        "detail_fields_shown": [
+          "手机号",
+          "邮箱",
+          "公司地址"
+        ]
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-15T13:58:10+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "街景与天空"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-15T14:10:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "同事陈晓",
+        "topic": "评审会分工",
+        "message_content": "12月18日客户需求评审会刘总已确认，演示材料你负责更新，我整理需求文档，周四前互相过一遍",
+        "meeting_date": "12月18日"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-15T14:14:45+08:00",
+      "app": "game_app",
+      "action": "browse_game_store",
+      "content": {
+        "category": "新游推荐"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-15T14:26:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "同事陈晓",
+        "topic": "评审会材料",
+        "message_content": "收到，演示材料今晚改完发你，周经理那边要不要也确认下参会时间",
+        "meeting_date": "12月18日"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-15T14:40:20+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-15T14:52:00+08:00",
+      "app": "docs_app",
+      "action": "browse_content",
+      "content": {
+        "document_title": "客户需求评审演示材料V3",
+        "file_type": "pptx",
+        "folder": "华信科技项目",
+        "last_modified_by": "陈晓",
+        "version_count": 3
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-15T15:04:51+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "熬夜后如何恢复"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-15T15:15:00+08:00",
+      "app": "docs_app",
+      "action": "view_detail",
+      "content": {
+        "document_title": "客户需求评审演示材料V3",
+        "page_count": 28,
+        "focus_section": "需求方案演示",
+        "comment_count": 6,
+        "view_duration": "约12分钟"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-15T15:31:00+08:00",
+      "app": "meeting_app",
+      "action": "browse_content",
+      "content": {
+        "content_type": "线上会议接入方案",
+        "viewed_items": [
+          "会议室投屏连接说明",
+          "线上会议入会设置指南"
+        ],
+        "browse_duration": "约4分钟"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-15T15:48:00+08:00",
+      "app": "docs_app",
+      "action": "collect",
+      "content": {
+        "document_title": "客户需求评审汇报模板（通用）",
+        "action_result": "已加入收藏",
+        "source_folder": "团队模板库"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-15T16:12:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "category": "科技资讯",
+        "article_title": "浦东张江科技园区企业数字化转型动态盘点",
+        "source": "科技日报",
+        "read_progress": "浏览约5分钟"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-15T16:20:51+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-15T16:27:44+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-15T16:42:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "华信科技需求评审会",
+        "start_time": "12月18日 14:00",
+        "end_time": "12月18日 16:00",
+        "location": "浦东张江张江路88号华信科技3楼会议室",
+        "participants": [
+          "刘总",
+          "陈晓",
+          "周经理"
+        ],
+        "reminder": "提前1小时提醒",
+        "calendar": "工作日程"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-15T16:43:33+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "厨房节奏"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-15T16:58:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "公司（南京西路办公点）",
+        "destination": "张江路88号华信科技",
+        "travel_mode": "驾车",
+        "estimated_duration": "42分钟",
+        "planned_date": "12月18日",
+        "alternative_route": "地铁2号线转张江有轨电车"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-15T16:59:59+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "鸡蛋和牛奶"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-15T17:20:00+08:00",
+      "app": "restaurant_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "张江路88号附近咖啡厅",
+        "sort_by": "距离优先",
+        "result_count": 8,
+        "usage_scenario": "会后商务洽谈",
+        "top_result": "张江高科园区星巴克（步行约5分钟）"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-15T17:26:23+08:00",
+      "app": "map_app",
+      "action": "view_commute_traffic",
+      "content": {
+        "road": "常走的环线"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-15T17:43:00+08:00",
+      "app": "taxi_app",
+      "action": "book",
+      "content": {
+        "pickup_time": "12月18日 12:30",
+        "pickup_location": "南京西路公司楼下",
+        "destination": "张江路88号华信科技",
+        "car_type": "舒适型",
+        "estimated_fare": "86元",
+        "order_status": "已预订"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-15T18:06:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "上海",
+        "query_date": "12月18日",
+        "forecast": "多云转阴",
+        "temperature_range": "6℃~11℃",
+        "precipitation_probability": "20%",
+        "wind": "东北风3级"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-15T18:08:17+08:00",
+      "app": "payment_app",
+      "action": "view_bill",
+      "content": {
+        "bill_type": "上月话费账单"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-15T18:14:32+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      }
+    }
+  ]
+}

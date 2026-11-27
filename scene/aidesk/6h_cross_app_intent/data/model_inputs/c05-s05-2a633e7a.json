@@ -1,0 +1,316 @@
+{
+  "sample_id": "c05-s05-2a633e7a",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-20T07:05:00+08:00",
+    "end": "2026-12-20T13:05:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-20T07:12:00+08:00",
+      "app": "health_app",
+      "action": "search",
+      "content": {
+        "keyword": "颈肩酸痛怎么缓解",
+        "result_count": 42
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-20T07:14:56+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "键盘快捷键大全"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-20T07:21:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "久坐族颈肩放松指南：办公室里的自我调理",
+        "category": "肌肉骨骼",
+        "read_progress": "已读完"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-20T07:29:29+08:00",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "新型电池技术突破",
+        "shared_to": "家人群"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-20T07:33:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "十分钟缓解肩颈僵硬的拉伸动作",
+        "category": "运动康复",
+        "read_progress": "已读完"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-20T07:42:46+08:00",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "日常补货"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-20T07:47:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "颈椎保养的五个日常习惯",
+        "category": "日常保健",
+        "read_progress": "浏览过半"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-20T07:55:49+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 9
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-20T08:05:00+08:00",
+      "app": "health_app",
+      "action": "collect",
+      "content": {
+        "item_title": "工间拉伸教程：八个动作放松肩颈",
+        "item_type": "图文教程",
+        "folder": "默认收藏夹"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-20T08:11:19+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-20T08:22:00+08:00",
+      "app": "health_app",
+      "action": "search",
+      "content": {
+        "keyword": "肩颈劳损和落枕的区别",
+        "result_count": 18
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-20T08:40:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "久坐一族常见的健康隐患",
+        "category": "健康科普",
+        "read_progress": "已读完"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-20T08:50:50+08:00",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "旧物改造"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-20T09:05:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "腰背酸痛自救手册：从坐姿开始调整",
+        "category": "肌肉骨骼",
+        "read_progress": "快速略读"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-20T09:10:35+08:00",
+      "app": "map_app",
+      "action": "view_commute_traffic",
+      "content": {
+        "road": "常走的环线"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-20T09:38:00+08:00",
+      "app": "fitness_app",
+      "action": "search",
+      "content": {
+        "keyword": "肩颈拉伸",
+        "filter": "室内跟练课程",
+        "result_count": 12
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-20T09:39:09+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-20T09:52:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "course_title": "办公室肩颈放松 15分钟跟练",
+        "difficulty": "零基础",
+        "duration": "15分钟",
+        "coach": "李教练"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-20T09:54:34+08:00",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "历史武侠",
+        "chapter": "第48章"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-20T10:09:55+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 7890
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-20T10:15:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "肩颈操",
+        "sort_by": "最热"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-20T10:28:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "康复师示范：3分钟肩颈操",
+        "uploader": "康复小课堂",
+        "duration": "03:12",
+        "play_progress": "完整观看"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-20T10:39:40+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "杭州"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-20T10:46:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "工间放松操·跟练版（无需器械）",
+        "duration": "05:40",
+        "play_progress": "观看至中途"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-20T11:07:42+08:00",
+      "app": "game_app",
+      "action": "browse_game_store",
+      "content": {
+        "category": "新游推荐"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-20T11:20:41+08:00",
+      "app": "payment_app",
+      "action": "pay_utility_bill",
+      "content": {
+        "bill_type": "电费",
+        "amount": "¥112.00"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-20T11:22:00+08:00",
+      "app": "map_app",
+      "action": "search",
+      "content": {
+        "keyword": "附近拉伸瑜伽馆",
+        "location": "杭州·西湖区文三路",
+        "result_count": 8
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-20T11:47:29+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-20T11:54:15+08:00",
+      "app": "commute_app",
+      "action": "find_shared_bike",
+      "content": {
+        "area": "地铁口"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-20T12:18:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "entry": "收藏夹",
+        "title": "工间拉伸教程：八个动作放松肩颈",
+        "read_progress": "再次完整查看"
+      }
+    }
+  ]
+}

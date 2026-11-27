@@ -1,0 +1,967 @@
+{
+  "sample_id": "c12-m01-21852408",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "reviewer_critical_issue"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "已修正并采用：1) 按场景规格重新对齐意图 ID：i001=杭州客户方案评审行程（travel/business），i002=更换星耀X7 Pro新手机（shopping/personal_use）；盲标把两者名称与 ID 对调，重新对齐后 event_labels 全部按语义正确挂载，不存在 ID 互换导致的错挂。2) 按规则10重新定级：e002（单次关键词搜索）与 e005（多平台比价）属 search/compare，降为 related_interest；购机意图的决定性证据仅为 e021（下单）与 e022（已支付），e009/e011（评测浏览）、e023（配件收藏）、e015（换机讨论）为相关兴趣；出差意图支撑证据为 e014（客户邮件确认会议）、e016（机票下单）、e017（机票已支付）、e018（酒店已预订）、e019（已创建会议日程），e015/e024/e025 为相关兴趣，两端事件簇无重叠交叉。3) 购机状态由盲标的 completed 修正为 confirmed：仅有下单+支付，无发货/签收/用机证据，不构成 completed。4) e015 同时提及出差与换机，双挂 i001/i002，并在两个意图的 related_interest_event_ids 与 inferred_facts 中互为镜像。5) 保留 e006（打印店）、e013（维修师傅）、e020（日历月视图）为 unrelated：语义过泛、缺乏与任一意图的明确指向，不为凑数强行关联；其余 noise 与 hard_negative（乌鲁木齐地图、微单相机、呼伦贝尔酒店等）均为无关，unrelated_event_count=15，与事件集一致。6) 行程时间线存在真实性缺陷（e016 去程为12月22日、e019 会议为12月22日14:00，而 e024 的机场→酒店路线出发时间为12月22日15:30），已在 i001 的 unknown_information 中如实登记；该缺陷只影响行程可行性细节，不影响两个意图的证据充分性，故不触发重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "game_play",
+        "pet_vaccine_schedule",
+        "mail_cleanup",
+        "map_nearby",
+        "hn_map_other_city",
+        "pharmacy_bandaid_search",
+        "work_industry_news",
+        "im_work_reply",
+        "contacts_search_repair",
+        "cal_view",
+        "ent_ranking",
+        "read_science",
+        "hn_product_other",
+        "hn_hotel_other_city",
+        "tax_deduction_guide"
+      ],
+      "hard_negative_ids": [
+        "hn_map_other_city",
+        "hn_product_other",
+        "hn_hotel_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "购买星耀X7 Pro手机",
+        "category": "shopping",
+        "purpose": "personal_use",
+        "status": "completed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e021",
+          "e022"
+        ],
+        "related_interest_event_ids": [
+          "e002",
+          "e005",
+          "e009",
+          "e011",
+          "e015",
+          "e023"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户创建了星耀X7 Pro（12GB+256GB，曜石黑）订单，金额3899元，订单状态为待支付。",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户已支付该手机订单3899元，支付方式为银行卡尾号6688，订单状态为已支付。",
+            "source_event_ids": [
+              "e022"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户此前搜索、比价并浏览星耀X7 Pro的评测内容，表现出对该机型的购买兴趣。",
+            "source_event_ids": [
+              "e002",
+              "e005",
+              "e009",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户计划在出差前用星耀X7 Pro替换旧手机，购买目的偏向个人使用。",
+            "source_event_ids": [
+              "e015",
+              "e021",
+              "e022"
+            ]
+          },
+          {
+            "fact": "用户收藏了星耀X7 Pro磁吸保护壳，可能考虑购买配件。",
+            "source_event_ids": [
+              "e023"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "手机订单是否已发货或收货未知",
+          "是否最终会购买收藏的保护壳未知",
+          "购买是否完全因出差需要而触发未知，现有证据更支持个人换机需求"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "赴杭州商务出差",
+        "category": "travel",
+        "purpose": "business",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e014",
+          "e016",
+          "e017",
+          "e018",
+          "e019"
+        ],
+        "related_interest_event_ids": [
+          "e015",
+          "e024",
+          "e025"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "客户刘总发来消息，确认12月22日下午14:00在公司会议室召开方案评审会。",
+            "source_event_ids": [
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户创建武汉往返杭州机票订单（12月22日去程MU2581、12月24日返程MU2586，经济舱1280元），订单状态为待支付。",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户已支付武汉往返杭州机票订单1280元，订单状态为已支付。",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户预订杭州滨江开元名都大酒店大床房，入住12月22日、退房12月24日，价格856元，状态为已预订。",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户在日历中创建“客户方案评审会”日程，时间为12月22日14:00-16:00，地点为杭州客户公司3楼会议室，参与人包括客户刘总。",
+            "source_event_ids": [
+              "e019"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户此行的目的是赴杭州拜访客户刘总并参加方案评审会，属于商务出差。",
+            "source_event_ids": [
+              "e014",
+              "e015",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户计划从萧山机场T4航站楼乘地铁前往杭州滨江开元名都大酒店，预计55分钟。",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户关注杭州12月22日至24日的天气，预报多云转小雨、5℃~12℃。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户已安排12月22日至24日的往返机票和酒店住宿。",
+            "source_event_ids": [
+              "e016",
+              "e017",
+              "e018"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "航班具体起降时间未知",
+          "酒店房费是否已支付未知",
+          "e024中15:30从机场到酒店的路线与12月22日14:00会议的时间安排是否冲突、实际行程顺序待确认",
+          "出差期间除客户会议外的其他安排未知"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001",
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e003",
+      "e004",
+      "e006",
+      "e007",
+      "e008",
+      "e010",
+      "e012",
+      "e013",
+      "e020",
+      "e026",
+      "e027",
+      "e028",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c12-m01-21852408",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "blind_intent_id_mismatch",
+        "severity": "critical",
+        "event_ids": [
+          "e002",
+          "e005",
+          "e009",
+          "e011",
+          "e014",
+          "e015",
+          "e016",
+          "e017",
+          "e018",
+          "e019",
+          "e021",
+          "e022",
+          "e023",
+          "e024",
+          "e025"
+        ],
+        "description": "盲标结果的意图 ID 与场景规格完全对调：spec 中 i001=杭州客户方案评审行程(travel)、i002=更换星耀X7 Pro手机(shopping)，盲标却把 i001 命名为“购买星耀X7 Pro手机”、i002 命名为“赴杭州商务出差”。由于盲标的 event_labels 也沿用了这套对调后的 ID（如 e002 标 related_interest→i001、e014 标 supporting→i002），一旦与 Gold 按 ID 合并，搜索/比价/收藏事件会被错误挂到出差意图、邮件/机票/酒店/日程会被错误挂到购机意图，错误放大到全部 30 条事件。",
+        "suggested_action": "在裁决前先把盲标意图按语义重新对齐到 spec 的意图 ID（travel=i001 行程、shopping=i002 手机），同步修正 event_labels 的 intent_ids；若为自动盲标输出，建议重新生成一次并校验 ID 一致性。"
+      },
+      {
+        "issue_type": "temporal_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e016",
+          "e019",
+          "e024",
+          "e018"
+        ],
+        "description": "行程时间线自相矛盾，导致商务出行链条在业务上不成立：e019 日程为 12月22日14:00-16:00 在杭州客户公司 3 楼会议室开会，e016 机票去程为 12月22日武汉→杭州，而 e024 的路线搜索出发时间是 12月22日15:30，从萧山机场 T4 到酒店预计 55 分钟（约 16:25 到酒店）。按此用户 16:25 才到酒店、15:30 才从机场出发，不可能赶上 14:00 的会议；且 12月22日当天才飞抵即开会，行程口径也需明确是上午航班还是 12月21日抵杭。盲标已在 unknown_information 中察觉“15:30路线与14:00会议是否冲突”，说明这不是审查者的过度解读。",
+        "suggested_action": "重生成 e024（把 departure_time 改为 12月22日上午、与会前抵达一致），或把去程机票改为 12月21日，或把会议日期/时间后移；三者择一，保证“机场→酒店→客户公司”的顺序在时间上可行。不要仅靠 unknown_information 兜底。"
+      },
+      {
+        "issue_type": "status_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e021",
+          "e022",
+          "e023"
+        ],
+        "description": "盲标把购机意图 status 定为 completed，但证据只有下单（e021 待支付）与支付（e022 已支付），没有任何发货、签收或用机证据（e023 仅是配件收藏）。Gold 的 confirmed 更贴合证据；completed 属于对状态的过度断言。",
+        "suggested_action": "将购机意图状态改为 confirmed（或 in_progress），并在 unknown_information 保留“是否发货/收货未知”；若确要 completed，需补发货/签收类事件，不得补造。"
+      },
+      {
+        "issue_type": "supporting_strength_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e002",
+          "e005"
+        ],
+        "description": "对同一组强/弱证据的判定在 Gold 与盲标之间冲突，且两边各有薄弱点：Gold 把 e002（单次关键词搜索“星耀X7 Pro手机”，综合排序）与 e005（多平台比价）都记为 supporting，但 e002 只是泛搜索，弱证据被拔高；盲标反向把 e005 降为 related_interest，可 spec 的 required_evidence 明确写了“多平台比价行为”，等于盲标把必需要素降级，两处标注口径不一致会导致同一模板样本的标签不可复用。",
+        "suggested_action": "统一口径：e005（多平台比价）按 spec 定为 supporting；e002（单次泛搜索）下调为 related_interest；或反过来修改 spec 的 required_evidence，只保留“商城订单+支付记录”为必需，把比价写入 optional_evidence。二者只能选一。"
+      },
+      {
+        "issue_type": "intent_leakage",
+        "severity": "medium",
+        "event_ids": [
+          "e015"
+        ],
+        "description": "e015 的消息文本“22号要去杭州见刘总，想赶在出差前把旧手机换成星耀X7 Pro，你觉得现在入手合适吗？”几乎逐字复述了两个 intent_name（“杭州客户方案评审行程/赴杭州见刘总”“更换星耀X7 Pro新手机”），把两个意图同时说穿，属于关键词直给式泄漏，会让意图识别退化为文本匹配，削弱样本评测价值。",
+        "suggested_action": "改写为更含蓄的自然表达（如“出差前想换个新手机，最近这台电池不太行”），保留跨意图交叉属性但去掉意图名与“星耀X7 Pro”全名同时出现的直给式表述；至少不要让两个意图名在同一句里同时出现。"
+      },
+      {
+        "issue_type": "generator_id_namespace_collision",
+        "severity": "medium",
+        "event_ids": [
+          "e002",
+          "e005",
+          "e009",
+          "e011",
+          "e014",
+          "e015",
+          "e016",
+          "e017",
+          "e018",
+          "e019",
+          "e021",
+          "e022",
+          "e023",
+          "e024",
+          "e025"
+        ],
+        "description": "origin=related 事件的 generator_event_id 与 event_id 共用“e###”命名空间，形成伪引用：e002 指向 e001（实际是游戏噪声事件）、e009→e003（宠物疫苗）、e011→e004（删促销邮件）、e016→e007（乌鲁木齐咖啡馆）、e017→e008（创可贴）、e022→e012（周报模板）、e023→e013（维修师傅）。实际规律是 related 流内部序号偏移一位，但字段肉眼读起来像是“相关事件由无关噪声事件生成”，与 spec 声称“两个证据簇 App 组合不重叠”的口径也相互矛盾，容易误导下游做因果/依赖分析。",
+        "suggested_action": "把 generator_event_id 改为独立命名空间（如 gen_e001）或改为真实来源模板种子事件 ID，并补充字段说明；至少不要让 related 事件引用 noise 事件的 ID。"
+      },
+      {
+        "issue_type": "noise_relatedness_review",
+        "severity": "low",
+        "event_ids": [
+          "e006",
+          "e013",
+          "e020"
+        ],
+        "description": "三条 noise 事件存在与意图的弱语义关联，需裁决器按真实语义判断而非直接丢弃：e013 通讯录搜“维修师傅”可能与旧机维修/换机动机相关（购机意图的弱相关兴趣）；e006 地图搜附近“打印店”可能是为 12月22日方案评审会打印材料（出差意图的弱相关）；e020 日历查看月视图发生在建立会议日程之后，可能是在核对 12月22-24 的行程档期。三者均不足以支撑意图，但语义上不是纯噪声。",
+        "suggested_action": "保持 unrelated 也可以，但建议在裁决说明中登记为“疑似弱相关、证据不足”；若后续补齐上下文（如维修师傅对应旧机、打印店对应会议材料），应按真实语义改标为 related_interest 并保留样本，不要因此丢弃整条样本。"
+      },
+      {
+        "issue_type": "evidence_gap_note",
+        "severity": "low",
+        "event_ids": [
+          "e015",
+          "e016",
+          "e017",
+          "e018",
+          "e019"
+        ],
+        "description": "e015 中“22号要去杭州见刘总”是用户自述出行计划，时间上早于机票下单（e016，21:08），Gold 将其定为 related_interest 尚可接受，但它实际上是对出差意图的直接口头声明，与 e014/e019 的客户会议证据叠加后更接近 supporting；两种标法都能自圆其说，需要明确规则以免同模板样本间漂移。",
+        "suggested_action": "明确“用户自述计划但无落地动作”的定级规则：统一记为 related_interest；仅当伴随可核验的预订/支付/日程动作时才升为 supporting。"
+      }
+    ],
+    "summary": "双意图结构完整、无反向或取消证据；商务出行目的有直证（e014 客户确认邮件+e019 日历+e016/e017 已支付机票+e018 酒店），并非仅凭机票酒店推断，手机意图有下单+支付闭环，盲标也正确识别出两个意图、无新增或漏识别意图。但样本不可直接通过：首要问题是盲标的意图 ID 与 spec 完全对调（i001/i002 名称互换，critical），会导致合并后全量事件挂错意图；其次是行程时间线自相矛盾（12月22日14:00 杭州开会 vs 15:30 才从萧山机场出发、16:25 到酒店，high），必须重生成路线/机票日期之一。另有购机状态被盲标过度断定为 completed、e002/e005 的 supporting 定级在 Gold 与盲标间冲突且 spec 把比价列为必需证据、e015 近乎逐字复述两个意图名造成泄漏、generator_event_id 与 event_id 命名空间冲突形成伪引用等中等问题；e006/e013/e020 为可保留的弱相关噪声，建议登记而非丢弃。修复上述 critical/high 后可重新提交审查。"
+  },
+  "adjudication": {
+    "sample_id": "c12-m01-21852408",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "杭州客户方案评审行程",
+          "category": "travel",
+          "purpose": "business",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e014",
+            "e016",
+            "e017",
+            "e018",
+            "e019"
+          ],
+          "related_interest_event_ids": [
+            "e015",
+            "e024",
+            "e025"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "客户刘总发来邮件，确认12月22日下午14:00在杭州公司会议室召开方案评审会，并要求准时出席。",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户创建了武汉往返杭州的机票订单（12月22日去程MU2581、12月24日返程MU2586，经济舱，1280元），订单状态为待支付。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户已支付该武汉往返杭州机票订单1280元（订单号FB-20261218-6632），支付方式为银行卡尾号6688，订单状态为已支付。",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "用户预订杭州滨江开元名都大酒店大床房，入住12月22日、退房12月24日，价格856元，状态为已预订。",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户在日历中创建“客户方案评审会”日程：12月22日14:00-16:00，地点为杭州客户公司3楼会议室，参与人为客户刘总，并设置提前1小时提醒。",
+              "source_event_ids": [
+                "e019"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户向同事陈晨提到22号要去杭州见客户刘总，说明该出行计划已在同事间沟通。",
+              "source_event_ids": [
+                "e015"
+              ]
+            },
+            {
+              "fact": "用户计划12月22日15:30从萧山机场T4航站楼乘地铁前往杭州滨江开元名都大酒店，预计耗时55分钟。",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "用户查询了杭州12月22日至24日的天气，预报为多云转小雨，气温5℃~12℃，为出行做准备。",
+              "source_event_ids": [
+                "e025"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否有其他同事同行未知",
+            "客户晚宴是否需要出席未知",
+            "航班具体起降时间未知",
+            "酒店房费是否已在线支付未知",
+            "e024中12月22日15:30从机场出发前往酒店的路线，与e019中12月22日14:00的会议时间可能冲突，实际“抵杭—入住—参会”的先后顺序待确认"
+          ],
+          "conflicts": []
+        },
+        {
+          "intent_id": "i002",
+          "intent_name": "更换星耀X7 Pro新手机",
+          "category": "shopping",
+          "purpose": "personal_use",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e021",
+            "e022"
+          ],
+          "related_interest_event_ids": [
+            "e002",
+            "e005",
+            "e009",
+            "e011",
+            "e015",
+            "e023"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户在商城创建星耀X7 Pro手机订单（12GB+256GB，曜石黑，3899元），订单状态为待支付。",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户已支付该星耀X7 Pro手机订单3899元（订单号SO-20261218-8837），支付方式为银行卡尾号6688，订单状态为已支付。",
+              "source_event_ids": [
+                "e022"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在商城搜索星耀X7 Pro手机，并在比价工具中对比品牌官方商城、京选自营和猫淘旗舰店的价格，其中京选自营3899元最低。",
+              "source_event_ids": [
+                "e002",
+                "e005"
+              ]
+            },
+            {
+              "fact": "用户浏览了星耀X7 Pro的深度使用报告和上手评测视频，关注续航、影像与充电表现。",
+              "source_event_ids": [
+                "e009",
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户向同事陈晨表示想赶在出差前把旧手机换成星耀X7 Pro，说明换机动机偏向个人使用，并且与出差时间相关联。",
+              "source_event_ids": [
+                "e015"
+              ]
+            },
+            {
+              "fact": "用户收藏了星耀X7 Pro磁吸保护壳（雾灰，79元）至“手机配件清单”，可能在考虑购买配件。",
+              "source_event_ids": [
+                "e023"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否办理旧机以旧换新未知",
+            "是否加购碎屏保障服务未知",
+            "手机是否已发货或签收未知",
+            "收藏的保护壳是否最终购买未知"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001",
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e003",
+        "e004",
+        "e006",
+        "e007",
+        "e008",
+        "e010",
+        "e012",
+        "e013",
+        "e020",
+        "e026",
+        "e027",
+        "e028",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 2,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c12-m01-21852408"
+    },
+    "rationale": "已修正并采用：1) 按场景规格重新对齐意图 ID：i001=杭州客户方案评审行程（travel/business），i002=更换星耀X7 Pro新手机（shopping/personal_use）；盲标把两者名称与 ID 对调，重新对齐后 event_labels 全部按语义正确挂载，不存在 ID 互换导致的错挂。2) 按规则10重新定级：e002（单次关键词搜索）与 e005（多平台比价）属 search/compare，降为 related_interest；购机意图的决定性证据仅为 e021（下单）与 e022（已支付），e009/e011（评测浏览）、e023（配件收藏）、e015（换机讨论）为相关兴趣；出差意图支撑证据为 e014（客户邮件确认会议）、e016（机票下单）、e017（机票已支付）、e018（酒店已预订）、e019（已创建会议日程），e015/e024/e025 为相关兴趣，两端事件簇无重叠交叉。3) 购机状态由盲标的 completed 修正为 confirmed：仅有下单+支付，无发货/签收/用机证据，不构成 completed。4) e015 同时提及出差与换机，双挂 i001/i002，并在两个意图的 related_interest_event_ids 与 inferred_facts 中互为镜像。5) 保留 e006（打印店）、e013（维修师傅）、e020（日历月视图）为 unrelated：语义过泛、缺乏与任一意图的明确指向，不为凑数强行关联；其余 noise 与 hard_negative（乌鲁木齐地图、微单相机、呼伦贝尔酒店等）均为无关，unrelated_event_count=15，与事件集一致。6) 行程时间线存在真实性缺陷（e016 去程为12月22日、e019 会议为12月22日14:00，而 e024 的机场→酒店路线出发时间为12月22日15:30），已在 i001 的 unknown_information 中如实登记；该缺陷只影响行程可行性细节，不影响两个意图的证据充分性，故不触发重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 2,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "business": 1,
+        "personal_use": 1
+      },
+      "statuses": {
+        "confirmed": 2
+      },
+      "categories": {
+        "travel": 1,
+        "shopping": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1895,
+      "completion_tokens": 3796,
+      "total_tokens": 5691,
+      "latency_s": 83.47,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1962,
+      "completion_tokens": 4559,
+      "total_tokens": 6521,
+      "latency_s": 94.73,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3595,
+      "completion_tokens": 9578,
+      "total_tokens": 13173,
+      "latency_s": 94.3,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6619,
+      "completion_tokens": 6834,
+      "total_tokens": 13453,
+      "latency_s": 90.1,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 12232,
+      "completion_tokens": 5133,
+      "total_tokens": 17365,
+      "latency_s": 95.7,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 458.3
+}

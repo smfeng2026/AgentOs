@@ -1,0 +1,330 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "奶奶生日家宴安排",
+      "category": "family",
+      "purpose": "family_gathering",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e004",
+        "e014",
+        "e016",
+        "e017",
+        "e018"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e002",
+        "e008",
+        "e010",
+        "e011",
+        "e019",
+        "e022",
+        "e023",
+        "e024",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "二姨在家庭群确认一家三口参加，聚餐人数调整为8人，需要大包间",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "已在聚福楼餐厅（徐汇滨江店）预订12月26日18:30的8人包间，订单状态为已预订",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "已支付200元包间预订订金，支付成功",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "已创建12月26日18:30-20:30的日历日程，地点为聚福楼餐厅（徐汇滨江店）8人包间",
+          "source_event_ids": [
+            "e017"
+          ]
+        },
+        {
+          "fact": "已在家庭群发送预订完成通知，含餐厅、日期时间、8人包间和订金已付",
+          "source_event_ids": [
+            "e018"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "聚餐目的是为奶奶庆祝生日",
+          "source_event_ids": [
+            "e001",
+            "e014",
+            "e017",
+            "e018"
+          ]
+        },
+        {
+          "fact": "人数从初步提到的6人调整为8人，最终按8人包间执行",
+          "source_event_ids": [
+            "e002",
+            "e004",
+            "e008",
+            "e014",
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户主动承担查找和预订餐厅的角色",
+          "source_event_ids": [
+            "e002",
+            "e008",
+            "e014"
+          ]
+        },
+        {
+          "fact": "用餐地点选在上海徐汇滨江区域的本帮菜餐厅，评价适合家庭聚餐",
+          "source_event_ids": [
+            "e002",
+            "e008",
+            "e010",
+            "e011"
+          ]
+        },
+        {
+          "fact": "考虑驾车前往，计划12月26日17:45出发，车程约25分钟，并设置出发提醒",
+          "source_event_ids": [
+            "e019",
+            "e028"
+          ]
+        },
+        {
+          "fact": "在挑选低糖8寸生日蛋糕，并收藏了一款可在12月26日送达的蛋糕",
+          "source_event_ids": [
+            "e022",
+            "e023",
+            "e024"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "最终实际到场人数是否确为8人",
+        "是否安排接送奶奶",
+        "是否最终下单购买生日蛋糕",
+        "订金外的餐费结算方式与最终消费金额",
+        "备注的长寿面是否会被餐厅提供",
+        "当日实际出行方式与停车安排"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e005",
+    "e006",
+    "e007",
+    "e009",
+    "e012",
+    "e013",
+    "e015",
+    "e020",
+    "e021",
+    "e025",
+    "e026",
+    "e027",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c08-s03-86cfa2cb"
+}

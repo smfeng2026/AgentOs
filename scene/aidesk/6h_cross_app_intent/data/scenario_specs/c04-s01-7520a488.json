@@ -1,0 +1,64 @@
+{
+  "title": "周六老友聚餐定店订座",
+  "scenario_category": "social_dining",
+  "subscenario": "朋友聚餐",
+  "template_id": "C04-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "湖滨银泰附近日料店"
+    ],
+    "products": [
+      "四人座位"
+    ],
+    "people": [
+      "老周",
+      "阿蕾",
+      "大鹏"
+    ],
+    "dates": [
+      "12月19日"
+    ],
+    "other": [
+      "周六18:30",
+      "人均150元左右",
+      "包间需求"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周六老友饭局定店安排",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "即时通讯三人小群中约定周六晚上一起吃饭并敲定18:30",
+        "餐厅应用完成四人桌预订并收到预订成功通知",
+        "日历应用创建周六聚餐日程提醒"
+      ],
+      "optional_evidence": [
+        "点评应用浏览候选餐厅评分",
+        "地图应用查询到餐厅的路线",
+        "支付应用支付订座押金"
+      ],
+      "unknown_information": [
+        "聚餐总预算由谁结算",
+        "饭后是否有第二场活动"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "上午9点前后群里发起周六吃饭的提议并来回讨论时间；11点到12点半集中出现餐厅搜索、比看评分和地图路线查询；13点前后完成订座并支付押金，随后建日历提醒，决定性证据集中在窗口后半段",
+  "variant_note": "本样本餐饮类型为日料而非火锅烧烤，订座通过餐厅应用下单并用支付应用付押金形成双强证据；时间线上先在群里否决了周日的备选方案（弱干扰但不构成反向证据），最终证据链分散在即时通讯、餐厅、点评、地图、日历、支付六类应用中",
+  "scenario_id": "c04-s01-7520a488"
+}

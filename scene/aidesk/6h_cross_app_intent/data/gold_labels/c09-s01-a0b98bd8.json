@@ -1,0 +1,311 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "护照换发办理",
+      "category": "finance_admin",
+      "purpose": "personal_admin",
+      "status": "planned",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e016",
+        "e019",
+        "e025",
+        "e027",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e006",
+        "e007",
+        "e012",
+        "e014",
+        "e017",
+        "e018",
+        "e021",
+        "e024"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已支付星光影像证件照馆的出入境证件照拍摄及回执费用55元，支付状态为已支付。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "母亲回复确认12月18日上午陪同用户前往市民中心出入境大厅换新护照，并表示会帮忙找旧护照。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户已成功预约普通护照换发，时间为12月18日上午09:30-10:00，地点为杭州市民中心出入境办证大厅，申请人1人。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户收到杭州公安出入境发送的“出入境证件预约成功通知”邮件，预约号为HZCRJ20261218-0930。",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户已创建12月18日08:30-11:00“去市民中心办护照换发”的日历日程，地点为杭州市民中心出入境办证大厅，参与人为我及母亲。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户正在筹备普通护照换发：在政务App搜索换发所需材料与办理指南、查询出入境证件照采集点，并浏览了个人证件材料文件夹中的身份证、户口簿与旧护照扫描件。",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e006",
+            "e007",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户已完成出入境证件照拍摄并取得采集回执（签发商家为星光影像证件照馆，有效期6个月），且在相册查看过白底证件照文件。",
+          "source_event_ids": [
+            "e014",
+            "e016",
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户计划12月18日上午前往杭州市民中心出入境办证大厅办理换发，已查看当天空闲时段并查询08:30出发的地铁出行路线（约32分钟）。",
+          "source_event_ids": [
+            "e021",
+            "e024",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户邀请母亲陪同办理，母亲同意并表示会协助寻找旧护照。",
+          "source_event_ids": [
+            "e017",
+            "e019"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否选择加急办理",
+        "旧护照原件是否已找到",
+        "护照换发是否已实际到场办理并最终领取新护照",
+        "办理护照的真实用途及是否有后续出境计划",
+        "12月18日是否携带齐全材料并按时到达"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e005",
+    "e008",
+    "e009",
+    "e010",
+    "e011",
+    "e013",
+    "e015",
+    "e020",
+    "e022",
+    "e023",
+    "e026",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c09-s01-a0b98bd8"
+}

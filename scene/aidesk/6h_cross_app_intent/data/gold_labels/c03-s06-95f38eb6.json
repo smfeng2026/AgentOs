@@ -1,0 +1,320 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "家用咖啡机购置计划",
+      "category": "shopping",
+      "purpose": "household",
+      "status": "considering",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e009",
+        "e010",
+        "e011"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e005",
+        "e006",
+        "e008",
+        "e013",
+        "e024",
+        "e025",
+        "e030"
+      ],
+      "contradicting_event_ids": [
+        "e018",
+        "e019",
+        "e020"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "用户创建了全自动胶囊咖啡机订单 SO202612211648，数量1，金额1299元，订单状态为待支付。",
+          "source_event_ids": [
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户使用银行卡支付该订单1299元，支付成功。",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户告知妻子咖啡机已拍好，1299元，预计12月23日送到家。",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "妻子指出该咖啡机宽30多厘米，厨房台面放不下。",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "该订单因商品尺寸与厨房台面不匹配被取消，退款金额1299元。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "退款1299元已原路退回原支付银行卡，退款成功。",
+          "source_event_ids": [
+            "e020"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "购买用途为家庭厨房，因为收货地址为家庭住址，且用户与妻子讨论到货拆箱及厨房台面摆放。",
+          "source_event_ids": [
+            "e009",
+            "e011",
+            "e018"
+          ]
+        },
+        {
+          "fact": "下单前用户对全自动胶囊咖啡机进行了搜索、收藏、看评价和跨平台比价。",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e006"
+          ]
+        },
+        {
+          "fact": "原订单取消后，用户基于台面尺寸限制转向搜索和比较迷你/便携咖啡机，但尚未看到新下单记录。",
+          "source_event_ids": [
+            "e018",
+            "e019",
+            "e024",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户对咖啡冲调内容保持兴趣，浏览过咖啡分类和手冲咖啡教程。",
+          "source_event_ids": [
+            "e008",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "最终会改选哪个替代型号",
+        "是否会在近期重新下单以及新订单金额",
+        "厨房台面可放置咖啡机的确切尺寸上限",
+        "对胶囊系统、品牌或预算上限的最终偏好"
+      ],
+      "conflicts": [
+        "e013显示订单已从杭州转运中心发出、处于运输中，但e019/e020随后直接取消并全额退款成功，缺少物流拦截、退回或拒收等状态闭环事件。",
+        "e018提到“你发的链接”，但e011消息内容中未出现链接或链接预览。"
+      ]
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e007",
+    "e012",
+    "e014",
+    "e015",
+    "e016",
+    "e017",
+    "e021",
+    "e022",
+    "e023",
+    "e026",
+    "e027",
+    "e028",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c03-s06-95f38eb6"
+}

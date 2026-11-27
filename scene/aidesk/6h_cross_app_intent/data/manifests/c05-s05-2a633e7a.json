@@ -1,0 +1,209 @@
+{
+  "sample_id": "c05-s05-2a633e7a",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:30:50+08:00",
+  "task": {
+    "scenario_category": "health_service",
+    "template_id": "C05-S05",
+    "subscenario": "健康兴趣",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-20T07:05:00+08:00",
+    "window_end": "2026-12-20T13:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 408339675
+  },
+  "spec_summary": {
+    "title": "久坐颈肩健康内容浏览",
+    "intent_names": [
+      "颈肩劳损自我调理关注"
+    ],
+    "intent_categories": [
+      "health_service"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [],
+      "products": [],
+      "people": [],
+      "dates": [],
+      "other": [
+        "颈肩拉伸",
+        "工间放松操",
+        "久坐不适"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 0,
+    "gold_related_interest": 15,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "unknown": 1
+    },
+    "gold_statuses": {
+      "emerging": 1
+    },
+    "gold_categories": {
+      "health_service": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "work_tool_article",
+      "news_share",
+      "shop_cart",
+      "learn_video",
+      "fin_balance",
+      "video_search",
+      "map_traffic",
+      "photo_backup",
+      "read_novel",
+      "fit_steps",
+      "weather_now",
+      "game_store",
+      "pay_utility",
+      "sys_storage",
+      "comm_bike"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "health_service": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1861,
+      "completion_tokens": 1587,
+      "total_tokens": 3448,
+      "latency_s": 15.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1729,
+      "completion_tokens": 5224,
+      "total_tokens": 6953,
+      "latency_s": 44.32,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3259,
+      "completion_tokens": 6489,
+      "total_tokens": 9748,
+      "latency_s": 49.45,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5701,
+      "completion_tokens": 5101,
+      "total_tokens": 10802,
+      "latency_s": 41.75,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10031,
+      "completion_tokens": 4485,
+      "total_tokens": 14516,
+      "latency_s": 32.4,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 183.87,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c05-s05-2a633e7a.json",
+      "sha256": "6b0270eaeab9909a47869876e20d998da3b891253b181caa56a0c0e7bf530af3"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c05-s05-2a633e7a.json",
+      "sha256": "70cb6317e6c2d84ad6b6eb54ace3264b3ee6ac1afb6612cfdbd99986474e1a05"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c05-s05-2a633e7a.json",
+      "sha256": "4002440b8574d8593de525c7d1b643d38f5ad8948f9fc604ebc953004e098ff3"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c05-s05-2a633e7a.json",
+      "sha256": "8bab66dd10b87865ea18cc65de6168356bb7200cd94cfa0d4f64cdda7303f9fd"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c05-s05-2a633e7a.json",
+      "sha256": "34284c453f68bed2692d84e3f9abb194a874cd92bfe0ecb1f2ec2ac50d1fb8ac"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "杭州",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

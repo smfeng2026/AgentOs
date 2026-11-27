@@ -1,0 +1,338 @@
+{
+  "sample_id": "c10-s05-094df8f3",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-12T14:35:00+08:00",
+    "end": "2026-12-12T20:35:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-12T14:38:02+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "咖啡消费趋势报道",
+        "source": "都市频道"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-12T14:45:10+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-12T15:12:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic_title": "零基础徒手训练经验分享",
+        "author": "健身博主_阿岚",
+        "browse_duration_sec": 47
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-12T15:25:19+08:00",
+      "app": "sports_app",
+      "action": "read_match_news",
+      "content": {
+        "league": "电竞比赛"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-12T15:37:34+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-12T15:47:10+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "公交"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-12T15:56:29+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "北京"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-12T16:34:00+08:00",
+      "app": "fitness_app",
+      "action": "search",
+      "content": {
+        "keyword": "新手训练课程",
+        "filters": {
+          "difficulty": "入门",
+          "scene": "居家"
+        },
+        "result_count": 36
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-12T16:41:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "course_name": "零基础徒手入门课",
+        "difficulty": "入门",
+        "duration_min": 15,
+        "equipment_required": "无需器械"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-12T16:42:37+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "会议室投影仪报修"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-12T16:53:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "健身教程视频",
+        "sort_by": "综合排序",
+        "result_count": 120
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-12T16:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "15分钟新手全身跟练教程",
+        "uploader": "教练Kevin",
+        "duration_min": 15,
+        "views": "28.6万"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-12T17:06:00+08:00",
+      "app": "video_app",
+      "action": "collect",
+      "content": {
+        "video_title": "15分钟新手全身跟练教程",
+        "collection_folder": "健身教程",
+        "uploader": "教练Kevin"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-12T17:07:29+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "刺绣"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-12T17:19:05+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "老屋改造vlog",
+        "duration_min": 3
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-12T17:24:00+08:00",
+      "app": "fitness_app",
+      "action": "view_detail",
+      "content": {
+        "plan_name": "21天训练计划",
+        "difficulty": "新手",
+        "per_day_minutes": 20,
+        "equipment": "瑜伽垫",
+        "enrolled_count": "1.2万人"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-12T17:38:31+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-12T17:47:00+08:00",
+      "app": "video_app",
+      "action": "collect",
+      "content": {
+        "video_title": "弹力带全身塑形跟练视频",
+        "collection_folder": "健身教程",
+        "uploader": "FitLab体能站"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-12T18:12:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "category": "动作库",
+        "section": "核心训练",
+        "items_viewed": [
+          "平板支撑",
+          "卷腹",
+          "俄罗斯转体"
+        ]
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-12T18:44:06+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "键盘快捷键大全"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-12T18:50:22+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "睡前放松"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-12T19:04:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "瑜伽垫",
+        "filters": {
+          "thickness": "8mm",
+          "sort": "销量优先"
+        },
+        "result_count": 210
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-12T19:16:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "product_name": "加厚防滑瑜伽垫+弹力带套装",
+        "price": "¥89",
+        "shop": "运动户外旗舰店",
+        "rating": "4.8"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-12T19:27:17+08:00",
+      "app": "shopping_app",
+      "action": "browse_category",
+      "content": {
+        "category": "日常清洁用品"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-12T19:31:00+08:00",
+      "app": "sports_app",
+      "action": "search",
+      "content": {
+        "keyword": "附近健身房",
+        "location": "北京",
+        "filters": {
+          "distance_km": 3
+        },
+        "result_count": 8
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-12T19:40:55+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-12T19:42:00+08:00",
+      "app": "venue_booking_app",
+      "action": "browse_content",
+      "content": {
+        "venue_name": "燃动健身(望京店)",
+        "venue_type": "健身房",
+        "distance_km": 1.2,
+        "day_pass_price": "¥49"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-12T19:58:00+08:00",
+      "app": "music_app",
+      "action": "search",
+      "content": {
+        "keyword": "运动歌单",
+        "scene": "健身",
+        "result_count": 64
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-12T20:06:00+08:00",
+      "app": "music_app",
+      "action": "collect",
+      "content": {
+        "playlist_name": "燃脂运动BGM·节奏加速",
+        "track_count": 50,
+        "duration_min": 178,
+        "play_count": "320万"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-12T20:31:48+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      }
+    }
+  ]
+}

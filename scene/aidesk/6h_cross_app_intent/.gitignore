@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+logs/
+data/splits/*.jsonl
+
+# review / eval outputs
+data/review/
+data/eval/
+data/reports/
+logs/batch_*.json

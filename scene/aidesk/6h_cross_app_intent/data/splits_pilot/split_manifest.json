@@ -1,0 +1,755 @@
+{
+  "builder_version": "1.1.0",
+  "generated_at": "2026-11-27T12:29:02+08:00",
+  "allow_unapproved": true,
+  "n_records": 48,
+  "skipped": [],
+  "files": {
+    "train": {
+      "path": "data/splits_pilot/train.jsonl",
+      "rows": 32
+    },
+    "validation": {
+      "path": "data/splits_pilot/validation.jsonl",
+      "rows": 4
+    },
+    "test": {
+      "path": "data/splits_pilot/test.jsonl",
+      "rows": 6
+    },
+    "challenge_test": {
+      "path": "data/splits_pilot/challenge_test.jsonl",
+      "rows": 6
+    }
+  },
+  "assignment": {
+    "c01-s04-7f2e82ab": {
+      "split": "test",
+      "group": "C01-S04",
+      "category": "travel",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c01-s04-b3e0a654": {
+      "split": "test",
+      "group": "C01-S04",
+      "category": "travel",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c01-s06-5d8b33d6": {
+      "split": "train",
+      "group": "C01-S06",
+      "category": "travel",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c01-s06-eda81e89": {
+      "split": "train",
+      "group": "C01-S06",
+      "category": "travel",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c02-s01-68d56630": {
+      "split": "train",
+      "group": "C02-S01",
+      "category": "work",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c02-s01-a9ca700b": {
+      "split": "train",
+      "group": "C02-S01",
+      "category": "work",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c02-s05-df12f707": {
+      "split": "train",
+      "group": "C02-S05",
+      "category": "work",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c02-s05-f11f9cc3": {
+      "split": "train",
+      "group": "C02-S05",
+      "category": "work",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c03-s01-9c49fd63": {
+      "split": "train",
+      "group": "C03-S01",
+      "category": "shopping",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c03-s01-b2ab5b74": {
+      "split": "train",
+      "group": "C03-S01",
+      "category": "shopping",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c03-s06-95f38eb6": {
+      "split": "train",
+      "group": "C03-S06",
+      "category": "shopping",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c03-s06-a409425d": {
+      "split": "train",
+      "group": "C03-S06",
+      "category": "shopping",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c04-s01-7520a488": {
+      "split": "test",
+      "group": "C04-S01",
+      "category": "social_dining",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c04-s01-9e1006a1": {
+      "split": "test",
+      "group": "C04-S01",
+      "category": "social_dining",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c04-s05-883c47a7": {
+      "split": "train",
+      "group": "C04-S05",
+      "category": "social_dining",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c04-s05-d387a41f": {
+      "split": "train",
+      "group": "C04-S05",
+      "category": "social_dining",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c05-s01-81ece03a": {
+      "split": "train",
+      "group": "C05-S01",
+      "category": "health_service",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c05-s01-c7e744c0": {
+      "split": "train",
+      "group": "C05-S01",
+      "category": "health_service",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c05-s05-2a633e7a": {
+      "split": "challenge_test",
+      "group": "C05-S05",
+      "category": "health_service",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c05-s05-89eb7071": {
+      "split": "challenge_test",
+      "group": "C05-S05",
+      "category": "health_service",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c06-s01-139648a9": {
+      "split": "train",
+      "group": "C06-S01",
+      "category": "learning",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c06-s01-a6082189": {
+      "split": "train",
+      "group": "C06-S01",
+      "category": "learning",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c06-s05-6dc0e110": {
+      "split": "train",
+      "group": "C06-S05",
+      "category": "learning",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c06-s05-e58bfd9c": {
+      "split": "train",
+      "group": "C06-S05",
+      "category": "learning",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c07-s01-7c145e01": {
+      "split": "validation",
+      "group": "C07-S01",
+      "category": "entertainment",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c07-s01-b12855b4": {
+      "split": "validation",
+      "group": "C07-S01",
+      "category": "entertainment",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c07-s06-22cb643d": {
+      "split": "train",
+      "group": "C07-S06",
+      "category": "entertainment",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c07-s06-c9dd2602": {
+      "split": "train",
+      "group": "C07-S06",
+      "category": "entertainment",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c08-s03-2b914f19": {
+      "split": "test",
+      "group": "C08-S03",
+      "category": "family",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c08-s03-86cfa2cb": {
+      "split": "test",
+      "group": "C08-S03",
+      "category": "family",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c08-s06-2fde485e": {
+      "split": "train",
+      "group": "C08-S06",
+      "category": "family",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c08-s06-7cd453df": {
+      "split": "train",
+      "group": "C08-S06",
+      "category": "family",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c09-s01-18124adb": {
+      "split": "train",
+      "group": "C09-S01",
+      "category": "finance_admin",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c09-s01-a0b98bd8": {
+      "split": "train",
+      "group": "C09-S01",
+      "category": "finance_admin",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c09-s05-8dfdef5c": {
+      "split": "validation",
+      "group": "C09-S05",
+      "category": "finance_admin",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c09-s05-d42ec3da": {
+      "split": "validation",
+      "group": "C09-S05",
+      "category": "finance_admin",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c10-s01-d11fc556": {
+      "split": "train",
+      "group": "C10-S01",
+      "category": "fitness",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c10-s01-e664230d": {
+      "split": "train",
+      "group": "C10-S01",
+      "category": "fitness",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c10-s05-094df8f3": {
+      "split": "train",
+      "group": "C10-S05",
+      "category": "fitness",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c10-s05-bb8d9331": {
+      "split": "train",
+      "group": "C10-S05",
+      "category": "fitness",
+      "difficulty": "D3_weak_evidence"
+    },
+    "c11-s01-1f504b29": {
+      "split": "train",
+      "group": "C11-S01",
+      "category": "local_transport",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c11-s01-688fa56f": {
+      "split": "train",
+      "group": "C11-S01",
+      "category": "local_transport",
+      "difficulty": "D2_multi_app_fusion"
+    },
+    "c11-s06-4476d3fc": {
+      "split": "challenge_test",
+      "group": "C11-S06",
+      "category": "local_transport",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c11-s06-9b9b5104": {
+      "split": "challenge_test",
+      "group": "C11-S06",
+      "category": "local_transport",
+      "difficulty": "D6_conflict_state_change"
+    },
+    "c12-m01-21852408": {
+      "split": "challenge_test",
+      "group": "C12-M01",
+      "category": "multi_intent",
+      "difficulty": "D5_multi_intent"
+    },
+    "c12-m01-ef9e300c": {
+      "split": "challenge_test",
+      "group": "C12-M01",
+      "category": "multi_intent",
+      "difficulty": "D5_multi_intent"
+    },
+    "c12-m05-4002cdaf": {
+      "split": "train",
+      "group": "C12-M05",
+      "category": "multi_intent",
+      "difficulty": "D5_multi_intent"
+    },
+    "c12-m05-df2dd78e": {
+      "split": "train",
+      "group": "C12-M05",
+      "category": "multi_intent",
+      "difficulty": "D5_multi_intent"
+    }
+  },
+  "split_info": {
+    "group_split": {
+      "C01-S04": "test",
+      "C01-S06": "train",
+      "C02-S01": "train",
+      "C02-S05": "train",
+      "C03-S01": "train",
+      "C03-S06": "train",
+      "C04-S01": "test",
+      "C04-S05": "train",
+      "C05-S01": "train",
+      "C05-S05": "test",
+      "C06-S01": "train",
+      "C06-S05": "train",
+      "C07-S01": "validation",
+      "C07-S06": "train",
+      "C08-S03": "test",
+      "C08-S06": "train",
+      "C09-S01": "train",
+      "C09-S05": "validation",
+      "C10-S01": "train",
+      "C10-S05": "train",
+      "C11-S01": "train",
+      "C11-S06": "test",
+      "C12-M01": "test",
+      "C12-M05": "train"
+    },
+    "components": {
+      "C01-S04": [
+        "C01-S04",
+        "C12-M01"
+      ],
+      "C01-S06": [
+        "C01-S06"
+      ],
+      "C02-S01": [
+        "C02-S01"
+      ],
+      "C02-S05": [
+        "C02-S05"
+      ],
+      "C03-S01": [
+        "C03-S01"
+      ],
+      "C03-S06": [
+        "C03-S06"
+      ],
+      "C04-S01": [
+        "C04-S01"
+      ],
+      "C04-S05": [
+        "C04-S05"
+      ],
+      "C05-S01": [
+        "C05-S01"
+      ],
+      "C05-S05": [
+        "C05-S05"
+      ],
+      "C06-S01": [
+        "C06-S01"
+      ],
+      "C06-S05": [
+        "C06-S05"
+      ],
+      "C07-S01": [
+        "C07-S01"
+      ],
+      "C07-S06": [
+        "C07-S06"
+      ],
+      "C08-S03": [
+        "C08-S03"
+      ],
+      "C08-S06": [
+        "C08-S06"
+      ],
+      "C09-S01": [
+        "C09-S01"
+      ],
+      "C09-S05": [
+        "C09-S05"
+      ],
+      "C10-S01": [
+        "C10-S01",
+        "C10-S05"
+      ],
+      "C11-S01": [
+        "C11-S01"
+      ],
+      "C11-S06": [
+        "C11-S06"
+      ],
+      "C12-M05": [
+        "C12-M05"
+      ]
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "leakage": {
+    "errors": [],
+    "warnings": [],
+    "info": {
+      "entity_overlap_top": [],
+      "apps_only_in_holdout": [
+        "pharmacy_app"
+      ],
+      "apps_only_in_train": [
+        "delivery_app",
+        "docs_app",
+        "exam_app",
+        "furniture_app",
+        "hospital_app",
+        "learning_app",
+        "meeting_app",
+        "sports_app",
+        "venue_booking_app"
+      ],
+      "app_frequency": {
+        "train": {
+          "video_app": 93,
+          "shopping_app": 69,
+          "im_app": 62,
+          "map_app": 54,
+          "calendar_app": 52,
+          "news_app": 42,
+          "payment_app": 40,
+          "mail_app": 36,
+          "weather_app": 31,
+          "reader_app": 31,
+          "social_app": 31,
+          "health_app": 30,
+          "food_delivery_app": 29,
+          "music_app": 25,
+          "gallery_app": 23,
+          "settings_app": 21,
+          "banking_app": 20,
+          "learning_app": 20,
+          "fitness_app": 19,
+          "restaurant_app": 17,
+          "commute_app": 17,
+          "price_compare_app": 15,
+          "review_app": 15,
+          "game_app": 14,
+          "travel_guide_app": 13,
+          "docs_app": 12,
+          "ticket_app": 12,
+          "job_app": 11,
+          "government_app": 11,
+          "hospital_app": 10,
+          "venue_booking_app": 9,
+          "hotel_app": 8,
+          "flight_booking_app": 7,
+          "car_rental_app": 7,
+          "furniture_app": 7,
+          "sports_app": 7,
+          "rail_ticket_app": 6,
+          "home_service_app": 6,
+          "contacts_app": 5,
+          "parking_app": 5,
+          "exam_app": 4,
+          "meeting_app": 3,
+          "pet_app": 3,
+          "taxi_app": 2,
+          "delivery_app": 2,
+          "tax_app": 2,
+          "clinic_app": 2
+        },
+        "validation": {
+          "banking_app": 13,
+          "ticket_app": 11,
+          "reader_app": 11,
+          "video_app": 10,
+          "news_app": 10,
+          "im_app": 7,
+          "music_app": 6,
+          "map_app": 5,
+          "calendar_app": 5,
+          "social_app": 4,
+          "commute_app": 4,
+          "weather_app": 4,
+          "food_delivery_app": 3,
+          "gallery_app": 3,
+          "payment_app": 3,
+          "health_app": 3,
+          "shopping_app": 3,
+          "settings_app": 2,
+          "mail_app": 2,
+          "pet_app": 1,
+          "meeting_app": 1,
+          "taxi_app": 1,
+          "tax_app": 1,
+          "price_compare_app": 1,
+          "hospital_app": 1,
+          "contacts_app": 1,
+          "furniture_app": 1,
+          "home_service_app": 1,
+          "job_app": 1,
+          "game_app": 1
+        },
+        "test": {
+          "im_app": 23,
+          "restaurant_app": 18,
+          "calendar_app": 13,
+          "video_app": 12,
+          "map_app": 11,
+          "flight_booking_app": 10,
+          "payment_app": 10,
+          "mail_app": 7,
+          "review_app": 7,
+          "gallery_app": 6,
+          "weather_app": 6,
+          "shopping_app": 6,
+          "music_app": 5,
+          "settings_app": 5,
+          "hotel_app": 5,
+          "news_app": 5,
+          "banking_app": 4,
+          "food_delivery_app": 4,
+          "game_app": 4,
+          "reader_app": 4,
+          "health_app": 3,
+          "commute_app": 3,
+          "social_app": 2,
+          "travel_guide_app": 1,
+          "rail_ticket_app": 1,
+          "fitness_app": 1,
+          "contacts_app": 1,
+          "car_rental_app": 1,
+          "government_app": 1,
+          "parking_app": 1
+        },
+        "challenge_test": {
+          "video_app": 18,
+          "health_app": 17,
+          "shopping_app": 13,
+          "map_app": 10,
+          "reader_app": 8,
+          "news_app": 8,
+          "calendar_app": 8,
+          "fitness_app": 7,
+          "weather_app": 7,
+          "payment_app": 7,
+          "im_app": 7,
+          "rail_ticket_app": 6,
+          "game_app": 5,
+          "travel_guide_app": 5,
+          "car_rental_app": 5,
+          "ticket_app": 5,
+          "gallery_app": 4,
+          "mail_app": 4,
+          "flight_booking_app": 4,
+          "hotel_app": 4,
+          "food_delivery_app": 3,
+          "home_service_app": 3,
+          "contacts_app": 3,
+          "settings_app": 2,
+          "commute_app": 2,
+          "tax_app": 2,
+          "pet_app": 2,
+          "price_compare_app": 2,
+          "review_app": 2,
+          "banking_app": 1,
+          "music_app": 1,
+          "job_app": 1,
+          "clinic_app": 1,
+          "taxi_app": 1,
+          "pharmacy_app": 1,
+          "social_app": 1
+        }
+      }
+    }
+  },
+  "stats": {
+    "by_split": {
+      "test": 6,
+      "train": 32,
+      "challenge_test": 6,
+      "validation": 4
+    },
+    "by_split_category": {
+      "test": {
+        "travel": 2,
+        "social_dining": 2,
+        "family": 2
+      },
+      "train": {
+        "travel": 2,
+        "work": 4,
+        "shopping": 4,
+        "social_dining": 2,
+        "health_service": 2,
+        "learning": 4,
+        "entertainment": 2,
+        "family": 2,
+        "finance_admin": 2,
+        "fitness": 4,
+        "local_transport": 2,
+        "multi_intent": 2
+      },
+      "challenge_test": {
+        "health_service": 2,
+        "local_transport": 2,
+        "multi_intent": 2
+      },
+      "validation": {
+        "entertainment": 2,
+        "finance_admin": 2
+      }
+    },
+    "by_split_difficulty": {
+      "test": {
+        "D2_multi_app_fusion": 6
+      },
+      "train": {
+        "D6_conflict_state_change": 6,
+        "D2_multi_app_fusion": 14,
+        "D3_weak_evidence": 10,
+        "D5_multi_intent": 2
+      },
+      "challenge_test": {
+        "D3_weak_evidence": 2,
+        "D6_conflict_state_change": 2,
+        "D5_multi_intent": 2
+      },
+      "validation": {
+        "D2_multi_app_fusion": 2,
+        "D3_weak_evidence": 2
+      }
+    },
+    "group_counts": {
+      "groups": 24,
+      "groups_per_split": {
+        "train": 16,
+        "validation": 2,
+        "test": 3,
+        "challenge_test": 3
+      }
+    },
+    "intents_per_sample": {
+      "1": 43,
+      "2": 4,
+      "3": 1
+    },
+    "unrelated_per_sample": {
+      "13": 1,
+      "15": 43,
+      "16": 3,
+      "19": 1
+    },
+    "relation_counts": {
+      "related_interest": 513,
+      "unrelated": 725,
+      "supporting": 181,
+      "contradicting": 21
+    },
+    "intent_categories": {
+      "travel": 9,
+      "work": 6,
+      "shopping": 7,
+      "social_dining": 4,
+      "health_service": 4,
+      "learning": 4,
+      "entertainment": 4,
+      "family": 4,
+      "finance_admin": 4,
+      "fitness": 4,
+      "local_transport": 4
+    },
+    "purpose_by_category": {
+      "entertainment->fan": 4,
+      "family->family_gathering": 2,
+      "family->renovation": 1,
+      "family->unknown": 1,
+      "finance_admin->banking": 1,
+      "finance_admin->certification": 1,
+      "finance_admin->personal_admin": 1,
+      "finance_admin->unknown": 1,
+      "fitness->training": 2,
+      "fitness->unknown": 2,
+      "health_service->checkup": 2,
+      "health_service->unknown": 2,
+      "learning->exam_prep": 2,
+      "learning->hobby": 1,
+      "learning->unknown": 1,
+      "local_transport->outing": 4,
+      "shopping->household": 1,
+      "shopping->personal_use": 4,
+      "shopping->unknown": 2,
+      "social_dining->socializing": 4,
+      "travel->business": 4,
+      "travel->tourism": 4,
+      "travel->unknown": 1,
+      "work->meeting": 4,
+      "work->unknown": 2
+    },
+    "status": {
+      "confirmed": 26,
+      "cancelled": 5,
+      "emerging": 12,
+      "considering": 4,
+      "planned": 6,
+      "completed": 1
+    },
+    "confidence": {
+      "high": 38,
+      "low": 14,
+      "medium": 2
+    },
+    "length": {
+      "input_chars": {
+        "p50": 5590,
+        "p90": 5947,
+        "max": 6127
+      },
+      "target_chars": {
+        "p50": 3503,
+        "p90": 4032,
+        "max": 4412
+      },
+      "est_tokens_total": {
+        "p50": 3141,
+        "p90": 3469,
+        "max": 3779
+      },
+      "est_tokens_input": {
+        "p50": 2026,
+        "p90": 2204,
+        "max": 2279
+      },
+      "est_tokens_target": {
+        "p50": 1099,
+        "p90": 1304,
+        "max": 1551
+      }
+    },
+    "est_tokens_note": "heuristic estimate (src/utils.estimate_tokens), not a tokenizer count"
+  },
+  "unapproved_included": 48
+}

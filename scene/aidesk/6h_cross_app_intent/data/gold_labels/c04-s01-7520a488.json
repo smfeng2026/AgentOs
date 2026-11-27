@@ -1,0 +1,307 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "老友周末日料聚餐",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e002",
+        "e004",
+        "e021",
+        "e022",
+        "e023",
+        "e025"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e010",
+        "e014",
+        "e016",
+        "e017",
+        "e018",
+        "e020",
+        "e024",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "群内阿蕾与大鹏已明确确认周六12月19日18:30聚餐，并提到日料及包间需求",
+          "source_event_ids": [
+            "e002",
+            "e004"
+          ]
+        },
+        {
+          "fact": "已在鮨风·湖滨银泰店预订12月19日18:30四人包间，预订号RC20261219003，状态为已预订",
+          "source_event_ids": [
+            "e021",
+            "e022"
+          ]
+        },
+        {
+          "fact": "已向鮨风·湖滨银泰店支付100元订座押金，关联订单RC20261219003，状态为已支付",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "已创建12月19日18:30-20:30的老友聚餐日程，地点为湖滨银泰鮨风·湖滨银泰店，参与人包括老周、阿蕾、大鹏，并设置提前1小时提醒",
+          "source_event_ids": [
+            "e025"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "该活动由本人发起，参与者包括老周、阿蕾、大鹏，属于老友社交聚餐",
+          "source_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户在比较鮨风·湖滨银泰店与汐屋日料后偏好鮨风，并最终预订鮨风·湖滨银泰店",
+          "source_event_ids": [
+            "e017",
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户查询从家乘地铁前往鮨风·湖滨银泰店的路线，计划12月19日17:40出发，约28分钟",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户查看了12月19日杭州天气，可能用于聚餐出行参考",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "大鹏询问包间是否订好，并提议饭后去湖边清吧坐坐，是否成行尚未确定",
+          "source_event_ids": [
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "老周本人是否在群内明确回复参加（当前仅见阿蕾、大鹏回复）",
+        "饭后去湖边清吧的安排是否会成行（e028仅为大鹏提议，未见本人响应）",
+        "聚餐总费用如何分摊、订座押金由谁承担",
+        "是否会因天气或交通情况调整到店时间"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e005",
+    "e006",
+    "e007",
+    "e008",
+    "e009",
+    "e011",
+    "e012",
+    "e013",
+    "e015",
+    "e019",
+    "e026",
+    "e027",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c04-s01-7520a488"
+}

@@ -1,0 +1,308 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "购买星曜X7 Pro手机自用",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e013",
+        "e018",
+        "e019",
+        "e024"
+      ],
+      "related_interest_event_ids": [
+        "e003",
+        "e004",
+        "e005",
+        "e006",
+        "e008",
+        "e011",
+        "e014",
+        "e015",
+        "e016",
+        "e017",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户在即时通讯中告知同事旧手机电池老化严重，打算这几天换一台新手机自己用。",
+          "source_event_ids": [
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户创建订单 SO20261214214801，购买星曜X7 Pro手机 12GB+256GB 曜夜黑 1台，金额4899元，订单状态为待支付。",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户支付订单 SO20261214214801，金额4899元，支付成功。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "订单 SO20261214214801 已发货，预计12月16日送达。",
+          "source_event_ids": [
+            "e024"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在购买前对星曜X7 Pro手机进行多平台比价、搜索、参数查看、评价浏览和视频评测浏览，处于购买决策调研阶段。",
+          "source_event_ids": [
+            "e003",
+            "e004",
+            "e005",
+            "e011",
+            "e015"
+          ]
+        },
+        {
+          "fact": "用户还比较和查看了该机型配套的保护壳与钢化膜，可能考虑购买配件。",
+          "source_event_ids": [
+            "e006",
+            "e008"
+          ]
+        },
+        {
+          "fact": "用户考虑去品牌线下体验店查看真机。",
+          "source_event_ids": [
+            "e014",
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户曾将星曜X7 Pro手机加入购物车。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户下单后查看订单，关注订单已发货状态。",
+          "source_event_ids": [
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "手机是否已实际签收",
+        "是否会购买保护壳、钢化膜等配件",
+        "是否最终前往线下体验店",
+        "旧手机的具体型号及后续处理方式（是否回收或折抵）",
+        "是否叠加使用平台优惠券之外的赠品"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e007",
+    "e009",
+    "e010",
+    "e012",
+    "e020",
+    "e021",
+    "e022",
+    "e023",
+    "e025",
+    "e026",
+    "e027",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c03-s01-b2ab5b74"
+}

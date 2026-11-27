@@ -1,0 +1,844 @@
+{
+  "sample_id": "c01-s06-5d8b33d6",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标中的两处关系：e008 为天气搜索/可选诱因，按 search 类动作与弱证据属性改为 related_interest；e030 是“明确取消/拒绝”的通知消息而非退票、退款或改期操作，保留为 supporting，并与 e024/e026/e027/e029 的 contradicting 取消动作区分。已同步镜像 supporting/related_interest/contradicting 列表与 event_labels，计数按真实语义更新。e024“退票处理中”与 e026“退款已到账”可视为异步状态，不构成需重新生成事件链的阻断问题。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "photo_edit",
+        "news_share",
+        "mail_reply",
+        "pay_transfer",
+        "sys_storage",
+        "hn_train_other_city",
+        "fit_water",
+        "video_watch",
+        "music_play",
+        "learn_video",
+        "food_history",
+        "work_industry_news",
+        "health_article",
+        "hn_map_other_city",
+        "hn_hotel_other_city"
+      ],
+      "hard_negative_ids": [
+        "hn_train_other_city",
+        "hn_map_other_city",
+        "hn_hotel_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "三亚海边度假行程（12月12日—15日）",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "cancelled",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e001",
+          "e004",
+          "e006",
+          "e009"
+        ],
+        "related_interest_event_ids": [
+          "e003",
+          "e005",
+          "e008",
+          "e010",
+          "e015",
+          "e019"
+        ],
+        "contradicting_event_ids": [
+          "e024",
+          "e026",
+          "e027",
+          "e029",
+          "e030"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户有一笔已支付的杭州—三亚往返机票订单（订单F2026120501），12月12日出发、12月15日返回，乘客为本人和小林，总价¥2,980。",
+            "source_event_ids": [
+              "e001"
+            ]
+          },
+          {
+            "fact": "用户已预订三亚海景酒店高级海景双床房，12月12日入住、12月15日退房，共3晚。",
+            "source_event_ids": [
+              "e004"
+            ]
+          },
+          {
+            "fact": "日历中已有“三亚度假（杭州—三亚）”日程，日期为12月12日至15日，并设置12月12日06:30出发去萧山机场的提醒。",
+            "source_event_ids": [
+              "e006"
+            ]
+          },
+          {
+            "fact": "用户与小林确认12号早上7点萧山机场T4集合，并由用户办理网上值机。",
+            "source_event_ids": [
+              "e009"
+            ]
+          },
+          {
+            "fact": "用户已对机票订单F2026120501申请退票，手续费¥330，退款金额¥2,650，订单状态为退票处理中。",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "机票退票款¥2,650已到账，来源为杭州往返三亚机票退票款，关联订单F2026120501。",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "三亚海景酒店订单H2026112801已取消，适用入住前免费取消，退款状态为原路退回。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "日历中的“三亚度假（杭州—三亚）”事件已删除，出发提醒同步移除。",
+            "source_event_ids": [
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户已通知小林：机票退款到账、酒店取消，本次不去，天气好再约。",
+            "source_event_ids": [
+              "e030"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "该行程目的是海边度假/旅游，而非单纯商务出行。",
+            "source_event_ids": [
+              "e003",
+              "e004",
+              "e006",
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户关注三亚海边攻略、海鲜餐饮和海棠湾餐饮，显示对三亚度假的兴趣。",
+            "source_event_ids": [
+              "e003",
+              "e005",
+              "e010"
+            ]
+          },
+          {
+            "fact": "12月12日至15日三亚预报持续降雨、降雨概率80%以上，成为取消行程的重要背景。",
+            "source_event_ids": [
+              "e008",
+              "e015",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户曾搜索12月19日杭州—三亚经济舱机票（最低¥760），可能考虑改期，但未下单。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户因天气原因决定取消本次三亚行程，并已通知同行人。",
+            "source_event_ids": [
+              "e008",
+              "e015",
+              "e024",
+              "e027",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否会在12月19日或其他日期重新预订三亚行程",
+          "机票退票流程是否已全部完成（当前为退票处理中，但退款已到账）",
+          "酒店退款是否已实际到账（仅显示原路退回）",
+          "小林是否已确认接受取消决定（仅有用户单方通知）",
+          "是否有其他未展示的改期或补偿安排"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e007",
+      "e011",
+      "e012",
+      "e013",
+      "e014",
+      "e016",
+      "e017",
+      "e018",
+      "e020",
+      "e021",
+      "e022",
+      "e023",
+      "e025",
+      "e028"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c01-s06-5d8b33d6",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "relation_label_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e030"
+        ],
+        "description": "e030 在 labeled_events 中为 supporting，且内容是向同伴发送“机票退好、酒店取消、这次不去”的取消通知，属于 cancelled 状态的直接/必需证据；但 blind_annotation.contradicting_event_ids 和 event_labels 将 e030 标为 contradicting。这造成同一事件标签冲突，并使 supporting/contradicting 计数与 spec 的 6/4 预算不一致。",
+        "suggested_action": "统一 e030 的关系标签；按 spec required_evidence 和 labeled_events 应改为 supporting（或若采用“取消动作均算 contradicting”的 taxonomy，则需同步调整 e024/e026/e027/e029 及预算，不能只把通知消息单独改掉）。"
+      },
+      {
+        "issue_type": "weak_evidence_as_supporting",
+        "severity": "medium",
+        "event_ids": [
+          "e008"
+        ],
+        "description": "e008 是三亚未来一周降雨预报，属于 spec 的 optional_evidence，只能说明取消诱因/背景，不能直接证明已支付的度假行程存在或取消完成；labeled_events 将其标为 supporting，而 blind/event_labels 标为 related_interest，存在不一致并可能高估弱证据。",
+        "suggested_action": "将 e008 统一为 related_interest，并同步更新 supporting/related_interest 计数；若保留 supporting，需在标注规范中明确天气诱因可作为 supporting，并与 blind 标签对齐。"
+      },
+      {
+        "issue_type": "unnatural_business_logic",
+        "severity": "medium",
+        "event_ids": [
+          "e024",
+          "e026"
+        ],
+        "description": "e024 机票订单状态仍为“退票处理中”，但 e026 在 14 分钟后显示退票款 ¥2,650 已到账。虽然异步通知可能发生，但同一订单“处理中”与“已到账”并存容易造成状态逻辑不自然，blind 也将其列为 unknown。",
+        "suggested_action": "将 e024 状态改为“已退票/退款完成”，或将 e026 改为“退款处理中/预计到账”，或补充说明退款到账与订单状态异步更新，以保证状态链一致。"
+      }
+    ],
+    "summary": "样本核心事实（机票/酒店/日历取消及退款）较完整，但存在高严重度的 e030 关系标签冲突：labeled_events 为 supporting，blind/event_labels 为 contradicting，且与 spec 支持/反向证据预算不匹配；e008 天气作为 optional 弱证据被 labeled_events 标为 supporting；e024/e026 的退票处理中与退款已到账状态略不自然。建议修正标签一致性和状态逻辑后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c01-s06-5d8b33d6",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "三亚海边度假行程（12月12日—15日）",
+          "category": "travel",
+          "purpose": "tourism",
+          "status": "cancelled",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e001",
+            "e004",
+            "e006",
+            "e009",
+            "e030"
+          ],
+          "related_interest_event_ids": [
+            "e003",
+            "e005",
+            "e008",
+            "e010",
+            "e015",
+            "e019"
+          ],
+          "contradicting_event_ids": [
+            "e024",
+            "e026",
+            "e027",
+            "e029"
+          ],
+          "confirmed_facts": [
+            {
+              "fact": "存在一笔已支付的杭州—三亚往返机票订单F2026120501，12月12日出发、12月15日返回，乘客本人和小林，总价¥2,980。",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "存在已预订的三亚海景酒店订单H2026112801，高级海景双床房，12月12日入住、12月15日退房，共3晚。",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "日历中已有“三亚度假（杭州—三亚）”日程，日期12月12日至15日，并设置12月12日06:30出发去萧山机场提醒。",
+              "source_event_ids": [
+                "e006"
+              ]
+            },
+            {
+              "fact": "用户与小林确认12号早上7点萧山机场T4集合，并由用户办理网上值机。",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "机票订单F2026120501已提交退票申请，手续费¥330，退款金额¥2,650，订单状态为退票处理中。",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "机票退票款¥2,650已到账，来源为杭州往返三亚机票退票款，关联订单F2026120501。",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "三亚海景酒店订单H2026112801已取消，入住前免费取消，退款状态为原路退回。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "日历中的“三亚度假（杭州—三亚）”事件已删除，出发提醒同步移除。",
+              "source_event_ids": [
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户已向小林发送行程取消通知：机票退款到账、酒店取消，本次不去，天气好再约。",
+              "source_event_ids": [
+                "e030"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "该行程目的为海边度假/旅游，而非商务出行。",
+              "source_event_ids": [
+                "e003",
+                "e004",
+                "e005",
+                "e006",
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户关注三亚海边攻略、海鲜餐饮和海棠湾餐饮，体现度假兴趣。",
+              "source_event_ids": [
+                "e003",
+                "e005",
+                "e010"
+              ]
+            },
+            {
+              "fact": "12月12日至15日三亚预报持续降雨且概率80%以上，是取消行程的重要背景。",
+              "source_event_ids": [
+                "e008",
+                "e015",
+                "e030"
+              ]
+            },
+            {
+              "fact": "用户曾搜索12月19日杭州—三亚经济舱机票（最低¥760），可能考虑改期，但仅浏览未下单。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户因天气原因决定取消本次三亚行程，并已完成机票退票、酒店取消、日历删除及同伴通知。",
+              "source_event_ids": [
+                "e008",
+                "e015",
+                "e024",
+                "e027",
+                "e029",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否会在12月19日或其他日期重新预订三亚行程",
+            "酒店退款实际到账时间（仅显示原路退回）",
+            "小林是否已回复确认接受取消决定",
+            "退票处理中状态与退款已到账的异步更新是否最终完成",
+            "是否有其他未展示的改期或补偿安排"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e007",
+        "e011",
+        "e012",
+        "e013",
+        "e014",
+        "e016",
+        "e017",
+        "e018",
+        "e020",
+        "e021",
+        "e022",
+        "e023",
+        "e025",
+        "e028"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c01-s06-5d8b33d6"
+    },
+    "rationale": "修正盲标中的两处关系：e008 为天气搜索/可选诱因，按 search 类动作与弱证据属性改为 related_interest；e030 是“明确取消/拒绝”的通知消息而非退票、退款或改期操作，保留为 supporting，并与 e024/e026/e027/e029 的 contradicting 取消动作区分。已同步镜像 supporting/related_interest/contradicting 列表与 event_labels，计数按真实语义更新。e024“退票处理中”与 e026“退款已到账”可视为异步状态，不构成需重新生成事件链的阻断问题。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 6,
+      "contradicting": 4,
+      "purposes": {
+        "tourism": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "travel": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1867,
+      "completion_tokens": 2407,
+      "total_tokens": 4274,
+      "latency_s": 25.15,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1715,
+      "completion_tokens": 8173,
+      "total_tokens": 9888,
+      "latency_s": 151.59,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3698,
+      "completion_tokens": 9227,
+      "total_tokens": 12925,
+      "latency_s": 67.69,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6401,
+      "completion_tokens": 6271,
+      "total_tokens": 12672,
+      "latency_s": 50.8,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10554,
+      "completion_tokens": 8028,
+      "total_tokens": 18582,
+      "latency_s": 57.18,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 352.43
+}

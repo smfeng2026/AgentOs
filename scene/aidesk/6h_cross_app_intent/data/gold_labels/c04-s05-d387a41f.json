@@ -1,0 +1,286 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与老同学的小聚计划",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "considering",
+      "confidence_level": "low",
+      "supporting_event_ids": [
+        "e003",
+        "e004"
+      ],
+      "related_interest_event_ids": [
+        "e006",
+        "e009",
+        "e011",
+        "e013",
+        "e015",
+        "e019",
+        "e022",
+        "e024",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "周悦在私聊中提出“好久没见了，改天一起吃个饭吧？”，未提及具体时间。",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户回复周悦“好啊，到时候约”，同意改天一起吃饭但未约定具体时间。",
+          "source_event_ids": [
+            "e004"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在杭州搜索适合聚餐的餐厅，并筛选有包厢、人均100-200元的条件。",
+          "source_event_ids": [
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户将青叶日料、拾光小馆、南山里火锅收藏到“想去的店”，人均约120-150元。",
+          "source_event_ids": [
+            "e009",
+            "e013",
+            "e015"
+          ]
+        },
+        {
+          "fact": "用户查看青叶日料的评分及环境/包厢评价。",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户将青叶日料主页链接分享给周悦并询问意见，但未提出具体时间。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户继续浏览杭州安静小馆、多人聚会餐厅和热门餐厅榜，显示仍在筛选聚餐地点。",
+          "source_event_ids": [
+            "e022",
+            "e024",
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "具体聚餐日期和时段",
+        "参与人数",
+        "最终选定的餐厅",
+        "邀约是否会落实或是否预订",
+        "费用承担方式"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e005",
+    "e007",
+    "e008",
+    "e010",
+    "e012",
+    "e014",
+    "e016",
+    "e017",
+    "e018",
+    "e020",
+    "e021",
+    "e023",
+    "e025",
+    "e026",
+    "e027",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 19
+  },
+  "sample_id": "c04-s05-d387a41f"
+}

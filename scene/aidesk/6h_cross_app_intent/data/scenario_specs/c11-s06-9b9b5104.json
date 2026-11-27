@@ -1,0 +1,64 @@
+{
+  "title": "租车取消后改乘滑雪场直通车",
+  "scenario_category": "local_transport",
+  "subscenario": "行程变化",
+  "template_id": "C11-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [
+      "南山滑雪场",
+      "密云"
+    ],
+    "products": [
+      "SUV租车订单",
+      "滑雪场直通车车票"
+    ],
+    "people": [
+      "朋友小周"
+    ],
+    "dates": [
+      "12月26日",
+      "12月27日"
+    ],
+    "other": [
+      "京承高速"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周末滑雪场出行",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "租车App中已取消的12月26日取车订单及退款到账记录",
+        "地图App中对前往南山滑雪场的公交换乘路线搜索",
+        "已支付的12月26日滑雪场直通车往返车票订单",
+        "日历App中出发时间更新为直通车发车时间的日程"
+      ],
+      "optional_evidence": [
+        "与朋友沟通改乘大巴的聊天消息",
+        "查看京承高速降雪和道路结冰预警",
+        "打车App搜索去往直通车集合点的路线"
+      ],
+      "unknown_information": [
+        "滑雪场门票是否已另行购买",
+        "朋友小周的车票是否由本人代购"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 3,
+      "contradicting_event_count": 4
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 3,
+    "contradicting": 4
+  },
+  "time_profile": "窗口前三分之一是原租车方案的确认与动摇：查看租车订单、收到租车公司取车提醒、看到降雪与道路结冰预警；约15:15在租车App执行取消并收到退款记录；窗口中段集中搜索替代路线并比较直通车班次；约16:40完成直通车购票支付，随后更新日历日程并通知朋友，决定性证据（取消+新订单）集中在中段",
+  "variant_note": "本样本采用租车自驾改滑雪场直通车的组合，而非同模板其他样本的高铁或改期方案；取消动作发生在窗口前三分之一、新方案在中段锁定，形成清晰的状态变化弧线；App组合为 car_rental_app / weather_app / news_app / map_app / commute_app / ticket_app / payment_app / calendar_app / im_app / taxi_app，取消类反向证据与新订单正向证据各占一簇，天气预警作为含蓄诱因不直接点明结论",
+  "scenario_id": "c11-s06-9b9b5104"
+}

@@ -1,0 +1,56 @@
+{
+  "title": "老同学口头约饭未定档期",
+  "scenario_category": "social_dining",
+  "subscenario": "模糊邀约",
+  "template_id": "C04-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [],
+    "people": [
+      "老同学周悦"
+    ],
+    "dates": [],
+    "other": [
+      "收藏的三家餐厅：青叶日料、拾光小馆、南山里火锅",
+      "未确定聚餐时间"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与老同学的小聚计划",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "considering",
+      "confidence_level": "low",
+      "required_evidence": [
+        "im_app 中收到对方发来的改天一起吃饭的口头邀约且未提具体时间",
+        "restaurant_app 中搜索并收藏多家适合聚餐的餐厅",
+        "review_app 中查看候选餐厅的评价详情"
+      ],
+      "optional_evidence": [
+        "map_app 查看某家餐厅的位置",
+        "im_app 中把餐厅链接分享给对方但对方未确认时间"
+      ],
+      "unknown_information": [
+        "具体聚餐日期和时段",
+        "参与人数",
+        "最终选定的餐厅",
+        "邀约是否会落实"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "模糊邀约出现在窗口开始后约半小时（对方主动提出改天吃饭，用户只回了到时候约）；随后两小时分散出现餐厅搜索、收藏和看评价；窗口后段只剩美食内容浏览等弱相关行为，全程没有预订、支付或日历创建，也没有确定时间",
+  "variant_note": "本样本邀约由对方发起而非用户发起，用户态度是模糊应允；证据全部为消息、搜索、浏览、收藏，无任何下单类动作；App 组合为 im_app + restaurant_app + review_app + map_app，并以 food_delivery_app 点午餐、social_app 探店笔记等弱相关内容作为 related_interest 区分项，confidence 定为 low",
+  "scenario_id": "c04-s05-d387a41f"
+}

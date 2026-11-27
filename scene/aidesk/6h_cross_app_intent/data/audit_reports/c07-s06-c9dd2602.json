@@ -1,0 +1,827 @@
+{
+  "sample_id": "c07-s06-c9dd2602",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_low_agreement",
+    "reviewer_critical_issue"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标将取消公告、退票申请、退款到账、告知朋友、取消日程等核心状态变化证据误标为 related_interest 或 contradicting，导致 cancelled 状态缺乏 supporting 证据；已按证据链修正为 supporting。e015 的“演出照常/换厅”传言与官方取消信息冲突，保留为 contradicting。e017 是退改政策浏览，条款针对用户单方自愿退票，不直接否定主办方取消退款，因此改标 related_interest。最终形成 1 个意图，supporting 7 条、related_interest 7 条、contradicting 1 条、unrelated 15 条。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "comm_subway",
+        "exam_driving_license_bank",
+        "clinic_vaccine_notice",
+        "shop_cart",
+        "car_rental_browse_other_city",
+        "sys_storage",
+        "home_ac_cleaning_search",
+        "fin_news",
+        "photo_backup",
+        "parking_fee_standard",
+        "food_history",
+        "hn_movie_schedule",
+        "social_like",
+        "contacts_search_repair",
+        "gov_residence_progress"
+      ],
+      "hard_negative_ids": [
+        "hn_movie_schedule"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "观看夜航电台「午夜航行」巡演·杭州站",
+        "category": "entertainment",
+        "purpose": "fan",
+        "status": "cancelled",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002"
+        ],
+        "related_interest_event_ids": [
+          "e004",
+          "e006",
+          "e007",
+          "e008",
+          "e011",
+          "e012",
+          "e013",
+          "e015",
+          "e017"
+        ],
+        "contradicting_event_ids": [
+          "e014",
+          "e021",
+          "e023",
+          "e028",
+          "e030"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户已支付两张12月19日20:00夜航电台「午夜航行」巡演·杭州站预售票，订单号TK202612190031，总价¥560",
+            "source_event_ids": [
+              "e002"
+            ]
+          },
+          {
+            "fact": "用户于18:32提交订单TK202612190031的退款申请，退款金额¥560，退款原因为主办方取消演出，状态为申请已提交",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户向小柯发送消息称两张票均已提交退票，走主办方取消全额退的通道",
+            "source_event_ids": [
+              "e023"
+            ]
+          },
+          {
+            "fact": "退款¥560已于20:16到账，关联订单TK202612190031",
+            "source_event_ids": [
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户取消12月19日夜航电台Livehouse观演日程，参与人为我、小柯",
+            "source_event_ids": [
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户收到小柯消息称19号演出取消、票钱可退",
+            "source_event_ids": [
+              "e014"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户原计划参加12月19日夜航电台杭州站Livehouse演出，并关注演出详情、当天天气与出行路线",
+            "source_event_ids": [
+              "e002",
+              "e004",
+              "e008",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户具有夜航电台粉丝行为：循环专辑、收藏现场歌单、收藏应援周边",
+            "source_event_ids": [
+              "e006",
+              "e007",
+              "e012"
+            ]
+          },
+          {
+            "fact": "演出取消信息出现后，用户选择退票并已完成退款到账",
+            "source_event_ids": [
+              "e013",
+              "e014",
+              "e021",
+              "e023",
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户可能计划与小柯一同观演",
+            "source_event_ids": [
+              "e014",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户收到过演出照常举行或换厅的群聊传言，但后续仍按取消公告提交退款",
+            "source_event_ids": [
+              "e015",
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户查看了购票退改政策以了解退票规则",
+            "source_event_ids": [
+              "e017"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否相信群聊中“演出照常举行、只是换厅”的传言",
+          "用户是否考虑改期、换厅或另选娱乐活动",
+          "两张票的实际使用人是否包含小柯",
+          "用户参加演出的具体目的更偏向粉丝追星、社交还是休闲"
+        ],
+        "conflicts": [
+          "e015 群聊传言称演出照常举行或换厅，与 e013、e014 的取消信息存在冲突"
+        ]
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e003",
+      "e005",
+      "e009",
+      "e010",
+      "e016",
+      "e018",
+      "e019",
+      "e020",
+      "e022",
+      "e024",
+      "e025",
+      "e026",
+      "e027",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c07-s06-c9dd2602",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "blind_annotation_relation_inversion",
+        "severity": "critical",
+        "event_ids": [
+          "e013",
+          "e014",
+          "e021",
+          "e023",
+          "e028",
+          "e030"
+        ],
+        "description": "盲标把核心状态变化证据整体标错：e013（主办方取消公告）被放入 related_interest，e014（朋友转告取消）、e021（提交退票申请）、e023（告知朋友已退票）、e028（退款到账）、e030（日历取消观演日程）被放入 contradicting；同时 supporting_event_ids 只剩 e002。这样无法支持 i001 的 cancelled 状态，反而把“取消—退票—退款—日程取消”的决定性证据误读为反证。",
+        "suggested_action": "将 e013/e014/e021/e023/e028/e030 全部改标为 i001 的 supporting，并加入 supporting_event_ids；e002 保留。e015 保留为 contradicting，不要把这些退款与取消证据计入 contradicting。"
+      },
+      {
+        "issue_type": "blind_conflict_label_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e015",
+          "e013",
+          "e014"
+        ],
+        "description": "盲标的 conflicts 明确写到 e015“演出照常/换厅”传言与 e013、e014 的取消信息冲突，但 event_labels 却把 e015 标为 related_interest，未放入 contradicting_event_ids。这是盲标内部不一致，导致冲突状态没有被正确表达。",
+        "suggested_action": "将 e015 的 event_labels relation 改为 contradicting，并同步更新 contradicting_event_ids 与 conflicts 说明。"
+      },
+      {
+        "issue_type": "questionable_contradicting_label",
+        "severity": "medium",
+        "event_ids": [
+          "e017"
+        ],
+        "description": "e017 是“购票退改政策”页，条款适用范围是“用户单方原因自愿退票”；本单退款原因是主办方取消演出，因此该条款不直接否定本次退款，也不直接否定“观演计划落空”。Gold 标为 contradicting、盲标标为 related_interest 都不够准确，容易把政策干扰项误当成事实矛盾。",
+        "suggested_action": "建议将 e017 标为 related_interest 或 hard_negative distractor，不计入 contradicting；若坚持标 contradicting，需要明确它只与“自愿退票”语境冲突，而不是与本次主办方取消退票冲突。"
+      },
+      {
+        "issue_type": "blind_intent_name_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e002",
+          "e013",
+          "e021",
+          "e028",
+          "e030"
+        ],
+        "description": "盲标 intent_name 写成“观看夜航电台「午夜航行」巡演·杭州站”，更接近原始正向计划，未体现场景预设的“观演计划落空”；同时 status 又是 cancelled，且支持证据被严重削弱，语义上容易混淆“原计划观看”和“计划已取消/退款完成”这两种状态。",
+        "suggested_action": "将盲标 intent_name 改为“观演计划落空（夜航电台「午夜航行」巡演·杭州站取消）”或直接对齐场景 intent_name；并配合修正 supporting_event_ids，确保 cancelled 状态有 e013/e021/e028/e030 等直接证据支撑。"
+      }
+    ],
+    "summary": "生成器标注整体与证据链一致，i001 的 fan 目的由听专辑、收藏周边和歌单等行为支撑，取消、退票、到账、日程取消均有直接证据。主要问题在盲标：把取消公告、退票申请、退款到账和日历取消错误标为 related_interest/contradicting，导致 cancelled 状态几乎失去 supporting 证据；此外 e015 冲突标签自相矛盾，e017 的 contradicting 关系也过强。建议修正盲标关系与意图名称后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c07-s06-c9dd2602",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "夜航电台杭州站观演计划落空",
+          "category": "entertainment",
+          "purpose": "fan",
+          "status": "cancelled",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e013",
+            "e014",
+            "e021",
+            "e023",
+            "e028",
+            "e030"
+          ],
+          "related_interest_event_ids": [
+            "e004",
+            "e006",
+            "e007",
+            "e008",
+            "e011",
+            "e012",
+            "e017"
+          ],
+          "contradicting_event_ids": [
+            "e015"
+          ],
+          "confirmed_facts": [
+            {
+              "fact": "用户已支付两张12月19日20:00夜航电台「午夜航行」巡演·杭州站预售票，订单号TK202612190031，总价¥560",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "主办方官方账号发布12月19日「午夜航行」杭州站演出取消公告，并说明已购门票票款将于7个工作日内原路退回",
+              "source_event_ids": [
+                "e013"
+              ]
+            },
+            {
+              "fact": "小柯转告用户19号演出取消、票钱可以退",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户于18:32提交订单TK202612190031的退款申请，退款金额¥560，退款原因为主办方取消演出，状态为申请已提交",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户向小柯发送消息称两张票都已提交退票，走主办方取消全额退通道",
+              "source_event_ids": [
+                "e023"
+              ]
+            },
+            {
+              "fact": "退款¥560已于20:16到账，关联订单TK202612190031",
+              "source_event_ids": [
+                "e028"
+              ]
+            },
+            {
+              "fact": "用户取消12月19日夜航电台Livehouse观演日程，参与人为我、小柯",
+              "source_event_ids": [
+                "e030"
+              ]
+            },
+            {
+              "fact": "用户收到群聊消息称有人传言演出照常举行、只是换到隔壁厅，并称现在退票会亏",
+              "source_event_ids": [
+                "e015"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户具有夜航电台粉丝行为：循环专辑《午夜航行》、收藏现场必听歌单与应援周边",
+              "source_event_ids": [
+                "e006",
+                "e007",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户提前查看演出详情、规划前往滨江MAO Livehouse的路线，并关注12月19日杭州天气",
+              "source_event_ids": [
+                "e004",
+                "e008",
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户查看购票退改政策以了解退票规则",
+              "source_event_ids": [
+                "e017"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "演出是否会改期补办",
+            "同行朋友小柯是否也完成退票",
+            "用户是否相信群聊中“演出照常举行、只是换厅”的传言",
+            "用户后续是否会安排替代娱乐活动"
+          ],
+          "conflicts": [
+            "e015群聊传言称演出照常举行/换厅，与e013、e014的主办方取消信息以及e021、e028的实际退款完成相冲突"
+          ]
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e003",
+        "e005",
+        "e009",
+        "e010",
+        "e016",
+        "e018",
+        "e019",
+        "e020",
+        "e022",
+        "e024",
+        "e025",
+        "e026",
+        "e027",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c07-s06-c9dd2602"
+    },
+    "rationale": "盲标将取消公告、退票申请、退款到账、告知朋友、取消日程等核心状态变化证据误标为 related_interest 或 contradicting，导致 cancelled 状态缺乏 supporting 证据；已按证据链修正为 supporting。e015 的“演出照常/换厅”传言与官方取消信息冲突，保留为 contradicting。e017 是退改政策浏览，条款针对用户单方自愿退票，不直接否定主办方取消退款，因此改标 related_interest。最终形成 1 个意图，supporting 7 条、related_interest 7 条、contradicting 1 条、unrelated 15 条。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 7,
+      "contradicting": 1,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.767,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 2670,
+      "total_tokens": 4526,
+      "latency_s": 60.43,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1802,
+      "completion_tokens": 6333,
+      "total_tokens": 8135,
+      "latency_s": 117.73,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3693,
+      "completion_tokens": 10911,
+      "total_tokens": 14604,
+      "latency_s": 79.69,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6333,
+      "completion_tokens": 7319,
+      "total_tokens": 13652,
+      "latency_s": 97.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10722,
+      "completion_tokens": 6584,
+      "total_tokens": 17306,
+      "latency_s": 78.34,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 433.3
+}

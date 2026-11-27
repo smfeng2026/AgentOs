@@ -1,0 +1,569 @@
+{
+  "sample_id": "c10-s05-094df8f3",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "开始尝试居家健身",
+      "category": "fitness",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在fitness_app搜索并浏览新手训练课程",
+        "在video_app搜索健身教程视频并收藏",
+        "在fitness_app查看21天训练计划详情页"
+      ],
+      "optional_evidence": [
+        "在shopping_app搜索瑜伽垫",
+        "在sports_app搜索附近健身房",
+        "在music_app搜索运动歌单"
+      ],
+      "unknown_information": [
+        "是否打算实际开始训练或购买器械",
+        "是否考虑去线下健身房",
+        "具体训练目标"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_read",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T14:38:02+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "咖啡消费趋势报道",
+        "source": "都市频道"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_ranking",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T14:45:10+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T15:12:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic_title": "零基础徒手训练经验分享",
+        "author": "健身博主_阿岚",
+        "browse_duration_sec": 47
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_match_news",
+      "hard_negative": true,
+      "timestamp": "2026-12-12T15:25:19+08:00",
+      "app": "sports_app",
+      "action": "read_match_news",
+      "content": {
+        "league": "电竞比赛"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_update",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T15:37:34+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_commute",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T15:47:10+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "公交"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_forecast",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T15:56:29+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T16:34:00+08:00",
+      "app": "fitness_app",
+      "action": "search",
+      "content": {
+        "keyword": "新手训练课程",
+        "filters": {
+          "difficulty": "入门",
+          "scene": "居家"
+        },
+        "result_count": 36
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T16:41:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "course_name": "零基础徒手入门课",
+        "difficulty": "入门",
+        "duration_min": 15,
+        "equipment_required": "无需器械"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_reply",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T16:42:37+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "会议室投影仪报修"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T16:53:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "健身教程视频",
+        "sort_by": "综合排序",
+        "result_count": 120
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T16:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "15分钟新手全身跟练教程",
+        "uploader": "教练Kevin",
+        "duration_min": 15,
+        "views": "28.6万"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T17:06:00+08:00",
+      "app": "video_app",
+      "action": "collect",
+      "content": {
+        "video_title": "15分钟新手全身跟练教程",
+        "collection_folder": "健身教程",
+        "uploader": "教练Kevin"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_handmade",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T17:07:29+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "刺绣"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_watch",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T17:19:05+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "老屋改造vlog",
+        "duration_min": 3
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T17:24:00+08:00",
+      "app": "fitness_app",
+      "action": "view_detail",
+      "content": {
+        "plan_name": "21天训练计划",
+        "difficulty": "新手",
+        "per_day_minutes": 20,
+        "equipment": "瑜伽垫",
+        "enrolled_count": "1.2万人"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_balance",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T17:38:31+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T17:47:00+08:00",
+      "app": "video_app",
+      "action": "collect",
+      "content": {
+        "video_title": "弹力带全身塑形跟练视频",
+        "collection_folder": "健身教程",
+        "uploader": "FitLab体能站"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T18:12:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "category": "动作库",
+        "section": "核心训练",
+        "items_viewed": [
+          "平板支撑",
+          "卷腹",
+          "俄罗斯转体"
+        ]
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_tool_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T18:44:06+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "键盘快捷键大全"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_playlist",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T18:50:22+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "睡前放松"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:04:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "瑜伽垫",
+        "filters": {
+          "thickness": "8mm",
+          "sort": "销量优先"
+        },
+        "result_count": 210
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:16:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "product_name": "加厚防滑瑜伽垫+弹力带套装",
+        "price": "¥89",
+        "shop": "运动户外旗舰店",
+        "rating": "4.8"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_browse",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:27:17+08:00",
+      "app": "shopping_app",
+      "action": "browse_category",
+      "content": {
+        "category": "日常清洁用品"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:31:00+08:00",
+      "app": "sports_app",
+      "action": "search",
+      "content": {
+        "keyword": "附近健身房",
+        "location": "北京",
+        "filters": {
+          "distance_km": 3
+        },
+        "result_count": 8
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_lunch",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:40:55+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:42:00+08:00",
+      "app": "venue_booking_app",
+      "action": "browse_content",
+      "content": {
+        "venue_name": "燃动健身(望京店)",
+        "venue_type": "健身房",
+        "distance_km": 1.2,
+        "day_pass_price": "¥49"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:58:00+08:00",
+      "app": "music_app",
+      "action": "search",
+      "content": {
+        "keyword": "运动歌单",
+        "scene": "健身",
+        "result_count": 64
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T20:06:00+08:00",
+      "app": "music_app",
+      "action": "collect",
+      "content": {
+        "playlist_name": "燃脂运动BGM·节奏加速",
+        "track_count": 50,
+        "duration_min": 178,
+        "play_count": "320万"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_view",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T20:31:48+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

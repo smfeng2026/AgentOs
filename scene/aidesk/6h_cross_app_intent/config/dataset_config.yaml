@@ -1,0 +1,20 @@
+dataset_name: 6H-CrossApp-Intent
+timezone: Asia/Shanghai
+window_hours: 6
+total_events: 30
+related_events: 15
+unrelated_events: 15        # TARGET composition (soft) — labels follow real event semantics
+min_unrelated_events: 10    # hard bounds: outside → NEEDS_HUMAN_REVIEW
+max_unrelated_events: 20
+max_regeneration_attempts: 2
+human_review_required: true
+window_day_jitter: 21        # random day offset (0..N) per sample unless the window is fixed
+# Per-sample window start hours (local time) when jittering
+window_start_hours: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+# dataset_builder split ratios (applied to whole template groups; remainder → test)
+split_ratios:
+  train: 0.70
+  validation: 0.10
+  test: 0.20
+# Samples in the test split with these difficulties go to challenge_test instead
+challenge_difficulties: [D3_weak_evidence, D5_multi_intent, D6_conflict_state_change]

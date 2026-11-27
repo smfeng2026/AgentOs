@@ -1,0 +1,65 @@
+{
+  "title": "六级冲刺备考计划",
+  "scenario_category": "learning",
+  "subscenario": "考试准备",
+  "template_id": "C06-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "南京",
+    "destinations": [],
+    "products": [
+      "大学英语六级真题套卷",
+      "六级听力冲刺网课"
+    ],
+    "people": [
+      "同学林晓",
+      "室友陈悦"
+    ],
+    "dates": [
+      "12月19日",
+      "12月6日",
+      "12月12日"
+    ],
+    "other": [
+      "大学英语六级考试",
+      "考点：南京师范大学仙林校区"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "大学英语六级冲刺备考",
+      "category": "learning",
+      "purpose": "exam_prep",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "exam_app中12月19日六级考试提醒与报名信息",
+        "calendar_app创建多条12月5日至12月18日的复习日程事件",
+        "learning_app中六级真题搜索与练习记录",
+        "shopping_app中已支付的六级真题套卷订单",
+        "im_app中与同学约定12月12日一起进行全真模考"
+      ],
+      "optional_evidence": [
+        "video_app观看六级听力技巧视频",
+        "map_app查看考点位置与路线",
+        "calendar_app设置12月19日考试当日提醒"
+      ],
+      "unknown_information": [
+        "是否还报名了其他科目考试",
+        "是否参加线下培训班"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "前两小时（14:35-16:35）只有真题搜索、课程浏览与资料收藏等弱信号；决定性融合证据集中在后三小时：约17:20 exam_app推送考试提醒，约18:05完成真题订单支付，约19:40在日历中批量创建复习计划，最后是im中与同学敲定12月12日模考安排",
+  "variant_note": "考试实体为大学英语六级（12月19日开考），App组合为exam_app+learning_app+calendar_app+shopping_app+im_app+video_app；决定性证据（考试提醒、付费订单、日历计划）全部后置到窗口后半段，需要跨5类App融合；与同模板的考研、教资样本在考试类型、资料商品、考点与模考日期上均不同",
+  "scenario_id": "c06-s01-a6082189"
+}

@@ -1,0 +1,824 @@
+{
+  "sample_id": "c04-s05-d387a41f",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "composition_deviation",
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标问题：仅保留有直接消息证据的 social_dining 意图 i001，状态为 considering、置信度 low；e003/e004 是邀约与模糊应允的直接消息，可作为 supporting，搜索/收藏/查看/浏览类按规则归为 related_interest。盲标新增的“工作日午餐外卖订购”本质是 routine 午餐订单，与老同学小聚无直接关系，且 taxonomy 中无匹配的外卖/午餐类别，不应硬塞为 social_dining 高置信意图；因此 e016/e017/e018/e021/e030 标为 unrelated。场景无预订、支付、日历创建或时间确认，不构成需要重新生成的事件问题。",
+      "errors": [],
+      "warnings": [
+        "unrelated count 19 differs from target 15"
+      ],
+      "noise_pool_ids": [
+        "music_search",
+        "news_health",
+        "weather_now",
+        "photo_edit",
+        "read_bookmark",
+        "pay_card_bill",
+        "map_history",
+        "mail_reply",
+        "hn_restaurant_lunch",
+        "ent_ranking",
+        "sys_wallpaper",
+        "social_feed_photo",
+        "video_watch",
+        "learn_video",
+        "shop_coupon"
+      ],
+      "hard_negative_ids": [
+        "hn_restaurant_lunch"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "与朋友周悦约饭聚餐",
+        "category": "social_dining",
+        "purpose": "socializing",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [
+          "e004"
+        ],
+        "related_interest_event_ids": [
+          "e003",
+          "e006",
+          "e009",
+          "e011",
+          "e013",
+          "e015",
+          "e019",
+          "e022",
+          "e024",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户回复周悦“好啊，到时候约”，同意改天一起吃饭，但消息中未约定具体时间。",
+            "source_event_ids": [
+              "e004"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "周悦提出“改天一起吃个饭”，用户已积极回应，双方存在约饭意向。",
+            "source_event_ids": [
+              "e003",
+              "e004"
+            ]
+          },
+          {
+            "fact": "用户在杭州搜索适合聚餐的餐厅，并关注有包厢、人均100-200元的条件。",
+            "source_event_ids": [
+              "e006"
+            ]
+          },
+          {
+            "fact": "用户将青叶日料、拾光小馆、南山里火锅等杭州餐厅收藏到“想去的店”，人均约120-150元。",
+            "source_event_ids": [
+              "e009",
+              "e013",
+              "e015"
+            ]
+          },
+          {
+            "fact": "用户查看青叶日料的评分及包厢/环境评价，并将该餐厅主页分享给周悦参考。",
+            "source_event_ids": [
+              "e011",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户继续浏览杭州安静小馆、多人聚会餐厅和热门餐厅榜，显示仍在筛选聚餐地点。",
+            "source_event_ids": [
+              "e022",
+              "e024",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "聚餐的具体日期和时间",
+          "参与聚餐的人数",
+          "最终选定的餐厅",
+          "是否已进行餐厅预订或最终成行",
+          "聚餐费用承担方式"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "工作日午餐外卖订购",
+        "category": "social_dining",
+        "purpose": "unknown",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e017"
+        ],
+        "related_interest_event_ids": [
+          "e016",
+          "e018",
+          "e021"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户创建了“张记双拼快餐”的外卖订单，包含“香辣鸡双拼套餐”，金额28元，配送至公司前台，订单状态为已提交。",
+            "source_event_ids": [
+              "e017"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户先浏览公司附近的工作日午餐餐厅，并在公司周边2公里范围查看餐饮商圈。",
+            "source_event_ids": [
+              "e016",
+              "e021"
+            ]
+          },
+          {
+            "fact": "该订单的收货地点为公司前台，用餐场景与工作地点相关。",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "订单后续状态为配送中，骑手距收货点约800米。",
+            "source_event_ids": [
+              "e018"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "订单是否已支付",
+          "订单是否最终送达并完成",
+          "用户是否还有下午茶或其他餐饮需求",
+          "这是否为固定工作日午餐习惯"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e005",
+      "e007",
+      "e008",
+      "e010",
+      "e012",
+      "e014",
+      "e020",
+      "e023",
+      "e025",
+      "e026",
+      "e027",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c04-s05-d387a41f",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_evidence_misclassified",
+        "severity": "high",
+        "event_ids": [
+          "e003",
+          "e006",
+          "e009",
+          "e011",
+          "e013",
+          "e015",
+          "e019"
+        ],
+        "description": "盲标只把 e004 列为 i001 的 supporting，但 e003 是周悦发来的“改天一起吃饭”口头邀约（required evidence 第1项），e006 是在杭州搜索适合聚餐的餐厅并加包厢/人均筛选（required evidence 第2项），e009/e013/e015 是连续收藏三家候选餐厅（required evidence 第2项），e011 是查看青叶日料评价详情（required evidence 第3项）。这些不是弱相关兴趣，而是直接构成“小聚计划”的证据；仅用 e004 支撑会把 required evidence 错误降级。",
+        "suggested_action": "将 e003、e006、e009、e011、e013、e015 至少移入 i001 supporting_event_ids；e019 作为 optional 分享链接可保留 related_interest 或 supporting，但不能只留 e004 作为唯一 supporting。"
+      },
+      {
+        "issue_type": "confidence_miscalibration",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e004",
+          "e019"
+        ],
+        "description": "i001 仍处于模糊邀约：用户只回复“好啊，到时候约”，e019 分享餐厅链接后对方未确认时间，全程无日期、人数、预订或日历。盲标把 confidence 提到 medium，超过证据强度。",
+        "suggested_action": "将 i001 confidence_level 调回 low；若保留 medium，需补充对方确认时间/人数/餐厅等直接证据。"
+      },
+      {
+        "issue_type": "gold_related_interest_mislabel",
+        "severity": "high",
+        "event_ids": [
+          "e017",
+          "e018",
+          "e021",
+          "e030"
+        ],
+        "description": "生成器把 e017（工作日午餐外卖下单）、e018（查看该外卖配送状态）、e021（公司周边2公里餐饮商圈）、e030（下午茶甜品浏览）挂到 i001 related_interest，但这些不是与老同学晚餐小聚的直接或弱相关证据；e017/e018 是独立的工作日午餐交易，e021 更贴近公司午餐/日常餐饮，e030 是下午茶。",
+        "suggested_action": "从 i001 移除 e017、e018、e021、e030；e017/e018 若要保留只能作为独立日常午餐意图（需另行建意图并改 category），否则标 unrelated；e021/e030 按语义标 unrelated 或低信号 related_interest，并说明理由。"
+      },
+      {
+        "issue_type": "over_split_false_intent",
+        "severity": "high",
+        "event_ids": [
+          "e016",
+          "e017",
+          "e018",
+          "e021"
+        ],
+        "description": "盲标新增 i002“工作日午餐外卖订购”，把 hard_negative e016（公司附近工作日午餐浏览）和一次 28 元午餐外卖订单提升为高置信、confirmed、social_dining 意图。即使将其视为独立外卖事件，也不属于 social_dining，且与场景唯一规划意图 i001 无直接关系；在未明确允许日常午餐意图的情况下，这是把 routine/hard-negative 行为过度拆分。",
+        "suggested_action": "删除 i002，恢复 e016 为 unrelated hard negative，e017/e018 标 unrelated 或独立 meal_delivery 意图但 category 不能是 social_dining；若裁决器认为 i002 是 Gold 漏掉的意图，则必须改 category 为 food_delivery/meal_ordering，降低/重新定义 status，并保留 e016 仅作相关浏览而非 supporting。"
+      },
+      {
+        "issue_type": "event_label_disagreement",
+        "severity": "medium",
+        "event_ids": [
+          "e030"
+        ],
+        "description": "e030 在 Gold 中是 i001 related_interest，但盲标把 e030 放入 unrelated。该事件是下午茶甜品浏览，既不是老同学晚餐的直接证据，也不是完全无关；当前处理在“弱相关美食探索”和“无关”之间不一致。",
+        "suggested_action": "裁决器明确 e030 语义：若按低信号美食探索保留，标 i001 related_interest；若认为与老同学晚餐无关，标 unrelated，并在全局观察中说明。"
+      },
+      {
+        "issue_type": "spec_event_contradiction",
+        "severity": "high",
+        "event_ids": [
+          "e017"
+        ],
+        "description": "variant_note 明确写“证据全部为消息、搜索、浏览、收藏，无任何下单类动作”，但事件流中 e017 是 food_delivery_app create_order（28元午餐外卖，已提交），e018 还有配送状态。这直接违背场景规格，也会影响“无交易动作”的样本定位。",
+        "suggested_action": "修正 variant_note/time_profile，或删除/改标 e017/e018；不能同时保留“无下单类动作”的说明和 create_order 事件。"
+      }
+    ],
+    "summary": "样本存在多项高严重度问题：i001 的 required evidence 被盲标降级为 related_interest，导致仅 e004 支撑却给出 medium 置信；盲标把工作日午餐外卖拆成高置信、social_dining 的 i002，疑似将 hard negative/routine 行为过度意图化；Gold 又把午餐外卖、公司周边餐饮商圈和下午茶浏览挂到 i001；此外 variant_note 宣称无下单动作，但 e017 实际是 create_order。建议重新裁决/修订标签，不能直接通过。"
+  },
+  "adjudication": {
+    "sample_id": "c04-s05-d387a41f",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "与老同学的小聚计划",
+          "category": "social_dining",
+          "purpose": "socializing",
+          "status": "considering",
+          "confidence_level": "low",
+          "supporting_event_ids": [
+            "e003",
+            "e004"
+          ],
+          "related_interest_event_ids": [
+            "e006",
+            "e009",
+            "e011",
+            "e013",
+            "e015",
+            "e019",
+            "e022",
+            "e024",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "周悦在私聊中提出“好久没见了，改天一起吃个饭吧？”，未提及具体时间。",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "用户回复周悦“好啊，到时候约”，同意改天一起吃饭但未约定具体时间。",
+              "source_event_ids": [
+                "e004"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在杭州搜索适合聚餐的餐厅，并筛选有包厢、人均100-200元的条件。",
+              "source_event_ids": [
+                "e006"
+              ]
+            },
+            {
+              "fact": "用户将青叶日料、拾光小馆、南山里火锅收藏到“想去的店”，人均约120-150元。",
+              "source_event_ids": [
+                "e009",
+                "e013",
+                "e015"
+              ]
+            },
+            {
+              "fact": "用户查看青叶日料的评分及环境/包厢评价。",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户将青叶日料主页链接分享给周悦并询问意见，但未提出具体时间。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户继续浏览杭州安静小馆、多人聚会餐厅和热门餐厅榜，显示仍在筛选聚餐地点。",
+              "source_event_ids": [
+                "e022",
+                "e024",
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "具体聚餐日期和时段",
+            "参与人数",
+            "最终选定的餐厅",
+            "邀约是否会落实或是否预订",
+            "费用承担方式"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e005",
+        "e007",
+        "e008",
+        "e010",
+        "e012",
+        "e014",
+        "e016",
+        "e017",
+        "e018",
+        "e020",
+        "e021",
+        "e023",
+        "e025",
+        "e026",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 19
+      },
+      "sample_id": "c04-s05-d387a41f"
+    },
+    "rationale": "修正盲标问题：仅保留有直接消息证据的 social_dining 意图 i001，状态为 considering、置信度 low；e003/e004 是邀约与模糊应允的直接消息，可作为 supporting，搜索/收藏/查看/浏览类按规则归为 related_interest。盲标新增的“工作日午餐外卖订购”本质是 routine 午餐订单，与老同学小聚无直接关系，且 taxonomy 中无匹配的外卖/午餐类别，不应硬塞为 social_dining 高置信意图；因此 e016/e017/e018/e021/e030 标为 unrelated。场景无预订、支付、日历创建或时间确认，不构成需要重新生成的事件问题。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 19 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 19,
+      "supporting": 2,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "considering": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.833,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1865,
+      "completion_tokens": 1768,
+      "total_tokens": 3633,
+      "latency_s": 19.69,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1728,
+      "completion_tokens": 6073,
+      "total_tokens": 7801,
+      "latency_s": 115.2,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3372,
+      "completion_tokens": 9056,
+      "total_tokens": 12428,
+      "latency_s": 80.79,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5955,
+      "completion_tokens": 9358,
+      "total_tokens": 15313,
+      "latency_s": 75.12,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10388,
+      "completion_tokens": 8526,
+      "total_tokens": 18914,
+      "latency_s": 66.07,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 537.98
+}

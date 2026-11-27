@@ -1,0 +1,937 @@
+{
+  "sample_id": "c12-m01-ef9e300c",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "两条意图均成立、证据链闭合，但需按规则 10 统一 supporting/related_interest 口径并做少量修订，故输出 revise_label。主要修正：①e005（机票搜索）、e015（商品搜索）、e016（商品详情浏览）、e018（比价）均属 search/compare 类动作，按规则 10 一律降为 related_interest，原 Gold 将 e005/e015/e016 标为 supporting 属弱证据升格，已纠正；审查报告虽建议将 e018 升为 supporting，但规则 10 明确 compare 为 related_interest，场景规格的 required_evidence 不能凌驾于标签规则之上，故维持 related_interest（其证据价值通过 inferred_fact ‘比价后以最低价5699元在官方商城下单’ 保留）。②修正后 i001 supporting=[e004,e007,e009,e010,e011]、related=[e005,e012,e014]；i002 supporting=[e025,e026]、related=[e015,e016,e018,e019,e022]，supporting/related_interest/contradicting 三组与 event_labels 完全互为镜像。③i002 命名去掉‘换新’（无任何以旧换新动作，且原文已在 unknown_information 中列为未知），改为‘旗舰手机采购’，避免名称暗示未发生的行为。④i002 状态取 completed：订单已创建且支付成功，采购交易已达成；物流/收货状态仍列入 unknown_information。⑤personal_use 由“仅购1台+收货地址为上海居住地+浏览手机壳/贴膜”推断，已在 inferred_facts 中标注为推断，同时保留 high（支付完成对意图存在性是决定性证据）。⑥盲标未发现需新增的独立意图，两条意图未被错误拆分/合并；hard negative（合肥交通卡 e006、济南酒店 e024、上海-郑州车票 e029、粤语老歌 e027）与关键词噪音均维持 unrelated，未为凑配比而误标。最终 15 条相关（5 supporting + 10 related_interest）与 15 条 unrelated，与目标配比一致且为真实语义结果。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "work_industry_news",
+        "photo_album",
+        "social_feed_handmade",
+        "hn_guide_other_city",
+        "ent_ranking",
+        "contacts_search_repair",
+        "sys_storage",
+        "game_daily",
+        "cal_view",
+        "read_bookmark",
+        "hn_hotel_other_city",
+        "video_playlist",
+        "fit_steps",
+        "hn_train_other_city",
+        "home_ac_cleaning_search"
+      ],
+      "hard_negative_ids": [
+        "hn_guide_other_city",
+        "hn_hotel_other_city",
+        "hn_train_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "深圳客户签约商务出差",
+        "category": "travel",
+        "purpose": "business",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e004",
+          "e007",
+          "e009",
+          "e010",
+          "e011"
+        ],
+        "related_interest_event_ids": [
+          "e005",
+          "e012",
+          "e014"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "陈总监发来“签约会议邀请确认”，会议日期为12月17日10:00-11:30，地点在深圳湾科技园A栋12层，参会人包括陈总监和用户。",
+            "source_event_ids": [
+              "e004"
+            ]
+          },
+          {
+            "fact": "上海-深圳往返机票已支付：去程12月16日MU2357浦东T1 09:30-12:05，返程12月18日MU2338宝安T3 18:20-20:55，总价2240元。",
+            "source_event_ids": [
+              "e007"
+            ]
+          },
+          {
+            "fact": "深圳湾科技园亚朵酒店已预订，12月16日入住、12月18日退房，共2晚，786元/晚。",
+            "source_event_ids": [
+              "e009"
+            ]
+          },
+          {
+            "fact": "日历已创建12月17日“客户签约会议（陈总监）”，时间为10:00-11:30，地点在深圳湾科技园A栋12层，参与人包括陈总监、李工和用户。",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户向李工发送消息称行程已定：16日飞深圳、18日返回，机票和酒店都已订好，17日上午10点和陈总监当面签约。",
+            "source_event_ids": [
+              "e011"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "此次深圳行程的主要目的为商务签约。",
+            "source_event_ids": [
+              "e004",
+              "e010",
+              "e011"
+            ]
+          },
+          {
+            "fact": "行程时间与签约会议时间相匹配：12月16-18日在深圳，12月17日开会。",
+            "source_event_ids": [
+              "e005",
+              "e007",
+              "e009",
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户已规划从深圳湾科技园亚朵酒店步行前往会议地点，预计约8分钟。",
+            "source_event_ids": [
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户已关注深圳12月16-18日天气，用于出行安排。",
+            "source_event_ids": [
+              "e012"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "签约会议是否最终按计划举行",
+          "合同最终签署结果",
+          "用户是否还有其他深圳行程安排",
+          "返程航班是否会发生变更"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "购买新款旗舰手机",
+        "category": "shopping",
+        "purpose": "personal_use",
+        "status": "completed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e025",
+          "e026"
+        ],
+        "related_interest_event_ids": [
+          "e015",
+          "e016",
+          "e018",
+          "e019",
+          "e022"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已创建订单：新款旗舰手机12GB+256GB黑色，数量1，单价5699元，配送至上海市浦东新区，订单状态为待支付。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户已通过官方商城完成支付5699元，支付成功，订单号为SO20261205133402。",
+            "source_event_ids": [
+              "e026"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户通过比价后选择官方商城最低价5699元下单并支付。",
+            "source_event_ids": [
+              "e018",
+              "e025",
+              "e026"
+            ]
+          },
+          {
+            "fact": "购买1台黑色手机并浏览适配手机壳、钢化膜，推测为个人自用。",
+            "source_event_ids": [
+              "e015",
+              "e019",
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户关注用户评价中的续航、屏幕、系统流畅度等信息后作出购买决策。",
+            "source_event_ids": [
+              "e022",
+              "e026"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "商品实际物流与收货状态",
+          "是否额外购买手机配件",
+          "购买后的实际使用情况"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e006",
+      "e008",
+      "e013",
+      "e017",
+      "e020",
+      "e021",
+      "e023",
+      "e024",
+      "e027",
+      "e028",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c12-m01-ef9e300c",
+    "passed": true,
+    "issues": [
+      {
+        "issue_type": "label_inconsistency_supporting_vs_interest",
+        "severity": "medium",
+        "event_ids": [
+          "e005",
+          "e015",
+          "e016",
+          "e018"
+        ],
+        "description": "Gold 内部标签将 e005(机票搜索)、e015(商品搜索)、e016(商品详情浏览)、e018(比价) 全部标为 supporting；盲标则将这 4 条全部降级为 related_interest。二者口径系统性不一致。按语义，e015/e016 属于下单前的搜索/浏览弱证据，标 supporting 有‘弱证据当强证据’之嫌；而 e018(比价记录)是场景规格明确列为 i002 的 required_evidence，盲标将其降为 related_interest 又属漏判强证据。",
+        "suggested_action": "统一 supporting/related_interest 判定规范：搜索、详情浏览类归 related_interest；比价记录、下单、支付归 supporting。据此复核 i002 的 supporting_event_count（当前 5 依赖 e015/e016 计入），并修正盲标对 e018 的降级。"
+      },
+      {
+        "issue_type": "status_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e025",
+          "e026"
+        ],
+        "description": "i002 状态 Gold 标 confirmed，盲标标 completed。订单已支付(e026 支付成功)，但物流/收货未知(盲标自身 unknown 也写明‘商品实际物流与收货状态’未知)，completed 略有过度声称。",
+        "suggested_action": "统一状态口径：若 completed 指‘已下单支付’则可保留并注明；否则 i002 应为 confirmed，待收货后再置 completed。"
+      },
+      {
+        "issue_type": "metadata_anomaly",
+        "severity": "low",
+        "event_ids": [
+          "e004",
+          "e005",
+          "e007",
+          "e009",
+          "e010",
+          "e011",
+          "e012",
+          "e014",
+          "e015",
+          "e016",
+          "e018",
+          "e019",
+          "e022",
+          "e025",
+          "e026"
+        ],
+        "description": "所有 origin=related 事件的 generator_event_id 均指向 origin=noise 的事件 ID（如 e004→e001、e005→e002、e025→e014），related 事件的溯源引用与 noise 事件重号冲突，属元数据/溯源不一致，虽不影响语义判定但会污染来源审计。",
+        "suggested_action": "修正 generator_event_id 映射，使其指向生成器原始事件而非最终 noise 槽位，或移除非必要的内部溯源字段。"
+      },
+      {
+        "issue_type": "intent_name_overclaim",
+        "severity": "low",
+        "event_ids": [
+          "e015",
+          "e019",
+          "e025"
+        ],
+        "description": "i002 intent_name 为‘旗舰手机换新采购’，‘换新’易被理解为以旧换新，但全事件中无任何回收/以旧换新动作，且 unknown_information 明列‘是否使用旧机以旧换新’。名称暗示了未发生的行为，也接近对未知信息的提示。",
+        "suggested_action": "将 intent_name 改为‘旗舰手机采购’，避免‘换新’暗示；若确需体现换新，应补以旧换新事件（但不应为凑名而补造）。"
+      },
+      {
+        "issue_type": "purpose_inference_weak",
+        "severity": "low",
+        "event_ids": [
+          "e019",
+          "e025"
+        ],
+        "description": "i002 purpose=personal_use 系由‘购买 1 部 + 浏览手机壳/贴膜’推断，事件中无显式‘自用’声明，赋予 high 置信度略显偏高。推断合理但应视为推断事实。",
+        "suggested_action": "保留 personal_use 但标注为推断，或将 i002 置信度下调为 medium，避免以推断充当直证。"
+      },
+      {
+        "issue_type": "hard_negative_review",
+        "severity": "low",
+        "event_ids": [
+          "e006",
+          "e024",
+          "e027",
+          "e029"
+        ],
+        "description": "hard negative 均为异地/异类内容：e006 合肥交通卡、e024 济南酒店、e029 上海-郑州车票（虽 12月17日 与会议同日但目的地不符）；e027‘粤语老歌’可能诱导与深圳粤语文化做弱关联。均无行为证据支撑与意图相关，判 unrelated 合理，体现了正确的目的地/品类区分。",
+        "suggested_action": "维持 unrelated 判定；建议在标注说明中记录此类地域文化/同日异地的负例，防止后续误升为 related。"
+      }
+    ],
+    "summary": "样本整体质量较好：两条意图均成立且证据链完整——i001 商务目的有邮件邀请(e004)、已支付往返机票(e007)、酒店(e009)、日历签约日程(e010)、同事沟通(e011) 直接锚定，非仅凭机票/酒店推断；i002 有下单(e025)+支付(e026)+比价(e018)，采购过程闭环。未发现答案原样泄露、关键词堆叠、业务逻辑矛盾或意图错误合并/拆分；noise 事件未被错标为相关，意图数量与盲标一致，无盲标漏掉/新增意图。主要问题为 Gold 与盲标在 supporting/related_interest 上口径不一致（e005/e015/e016/e018），存在弱浏览证据被标 supporting、比价强证据被盲标降级的情况，属中等问题需统一规范，会牵动 i002 的 supporting_event_count。另有若干低风险项：i002 状态 confirmed/completed 不一致、generator_event_id 溯源重号、intent_name‘换新’过度暗示、personal_use 属推断且置信偏高。无 critical/high 问题，故 passed=true，但建议在发布前统一 supporting 判定口径并修正 e018 的盲标降级。"
+  },
+  "adjudication": {
+    "sample_id": "c12-m01-ef9e300c",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "深圳客户签约商务出差",
+          "category": "travel",
+          "purpose": "business",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e004",
+            "e007",
+            "e009",
+            "e010",
+            "e011"
+          ],
+          "related_interest_event_ids": [
+            "e005",
+            "e012",
+            "e014"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "陈总监发来“签约会议邀请确认”邮件，会议日期为12月17日10:00-11:30，地点在深圳湾科技园A栋12层，参会人包括陈总监和用户。",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "上海-深圳往返机票已支付：去程为12月16日MU2357浦东T1 09:30-12:05，返程为12月18日MU2338宝安T3 18:20-20:55，总价2240元。",
+              "source_event_ids": [
+                "e007"
+              ]
+            },
+            {
+              "fact": "深圳湾科技园亚朵酒店已预订，12月16日入住、12月18日退房，共2晚，786元/晚。",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "日历中已创建12月17日“客户签约会议（陈总监）”日程，时间为10:00-11:30，地点为深圳湾科技园A栋12层，参与人包括陈总监、李工和用户。",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户向同事李工发送消息确认行程已定：16日飞深圳、18日返回，机票和酒店都已订好，17日上午10点与陈总监当面签约。",
+              "source_event_ids": [
+                "e011"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "本次深圳行程的主要目的为商务签约，即赴客户现场完成合同签署。",
+              "source_event_ids": [
+                "e004",
+                "e010",
+                "e011"
+              ]
+            },
+            {
+              "fact": "行程时间与签约会议时间相匹配：用户12月16-18日在深圳，会议安排在12月17日上午。",
+              "source_event_ids": [
+                "e005",
+                "e007",
+                "e009",
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户已规划从深圳湾科技园亚朵酒店步行前往会议地点，预计约8分钟，住宿地点与会议地点同园区。",
+              "source_event_ids": [
+                "e014",
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户已查看深圳12月16-18日天气预报，用于出行准备。",
+              "source_event_ids": [
+                "e012"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "签约会议是否最终按计划举行",
+            "合同最终签署结果",
+            "酒店具体房型偏好",
+            "返程航班是否会发生变更"
+          ],
+          "conflicts": []
+        },
+        {
+          "intent_id": "i002",
+          "intent_name": "旗舰手机采购",
+          "category": "shopping",
+          "purpose": "personal_use",
+          "status": "completed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e025",
+            "e026"
+          ],
+          "related_interest_event_ids": [
+            "e015",
+            "e016",
+            "e018",
+            "e019",
+            "e022"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户已创建订单：新款旗舰手机12GB+256GB黑色，数量1，单价5699元，配送至上海市浦东新区，创建时订单状态为待支付。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户已通过官方商城完成支付5699元，支付状态为成功，订单号 SO20261205133402。",
+              "source_event_ids": [
+                "e026"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户比价后在官方商城以最低价5699元下单并完成支付。",
+              "source_event_ids": [
+                "e018",
+                "e025",
+                "e026"
+              ]
+            },
+            {
+              "fact": "仅购买1台黑色手机，收货地址为上海居住地，并浏览适配手机壳与钢化贴膜，推测为个人自用。",
+              "source_event_ids": [
+                "e015",
+                "e019",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户在下单前查看了该机型用户评价中的续航、屏幕素质、系统流畅度等热点信息。",
+              "source_event_ids": [
+                "e022",
+                "e026"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "商品实际物流与收货状态",
+            "是否额外购买手机配件",
+            "是否使用旧机以旧换新",
+            "购买后的实际使用情况"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e006",
+        "e008",
+        "e013",
+        "e017",
+        "e020",
+        "e021",
+        "e023",
+        "e024",
+        "e027",
+        "e028",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 2,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c12-m01-ef9e300c"
+    },
+    "rationale": "两条意图均成立、证据链闭合，但需按规则 10 统一 supporting/related_interest 口径并做少量修订，故输出 revise_label。主要修正：①e005（机票搜索）、e015（商品搜索）、e016（商品详情浏览）、e018（比价）均属 search/compare 类动作，按规则 10 一律降为 related_interest，原 Gold 将 e005/e015/e016 标为 supporting 属弱证据升格，已纠正；审查报告虽建议将 e018 升为 supporting，但规则 10 明确 compare 为 related_interest，场景规格的 required_evidence 不能凌驾于标签规则之上，故维持 related_interest（其证据价值通过 inferred_fact ‘比价后以最低价5699元在官方商城下单’ 保留）。②修正后 i001 supporting=[e004,e007,e009,e010,e011]、related=[e005,e012,e014]；i002 supporting=[e025,e026]、related=[e015,e016,e018,e019,e022]，supporting/related_interest/contradicting 三组与 event_labels 完全互为镜像。③i002 命名去掉‘换新’（无任何以旧换新动作，且原文已在 unknown_information 中列为未知），改为‘旗舰手机采购’，避免名称暗示未发生的行为。④i002 状态取 completed：订单已创建且支付成功，采购交易已达成；物流/收货状态仍列入 unknown_information。⑤personal_use 由“仅购1台+收货地址为上海居住地+浏览手机壳/贴膜”推断，已在 inferred_facts 中标注为推断，同时保留 high（支付完成对意图存在性是决定性证据）。⑥盲标未发现需新增的独立意图，两条意图未被错误拆分/合并；hard negative（合肥交通卡 e006、济南酒店 e024、上海-郑州车票 e029、粤语老歌 e027）与关键词噪音均维持 unrelated，未为凑配比而误标。最终 15 条相关（5 supporting + 10 related_interest）与 15 条 unrelated，与目标配比一致且为真实语义结果。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 2,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "business": 1,
+        "personal_use": 1
+      },
+      "statuses": {
+        "confirmed": 1,
+        "completed": 1
+      },
+      "categories": {
+        "travel": 1,
+        "shopping": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1896,
+      "completion_tokens": 1810,
+      "total_tokens": 3706,
+      "latency_s": 81.07,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1925,
+      "completion_tokens": 5151,
+      "total_tokens": 7076,
+      "latency_s": 103.53,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3695,
+      "completion_tokens": 6404,
+      "total_tokens": 10099,
+      "latency_s": 73.53,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6659,
+      "completion_tokens": 10471,
+      "total_tokens": 17130,
+      "latency_s": 89.68,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11480,
+      "completion_tokens": 4613,
+      "total_tokens": 16093,
+      "latency_s": 26.85,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 374.68
+}

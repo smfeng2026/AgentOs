@@ -1,0 +1,2048 @@
+{
+  "version": "2026-11-27.2",
+  "_doc": {
+    "events": "Unrelated-behaviour templates. {slot} placeholders are filled per sample from `slots` (static list) or 'entities.<list>' (distractor entities, excluding the sample's own key_entities).",
+    "avoid_categories": "Template is never used for a sample that has an intent in any of these categories (semantic exclusion).",
+    "hard_negatives": "Confusable distractors (other city / other product / other date). Only used for `applies_to` categories; entity slots always come from distractor entities.",
+    "app_names": "Generic category names on purpose — the generator uses the same convention so app naming cannot leak the label."
+  },
+  "distractor_entities": {
+    "cities": [
+      "杭州",
+      "西安",
+      "青岛",
+      "厦门",
+      "长沙",
+      "昆明",
+      "苏州",
+      "大连",
+      "哈尔滨",
+      "三亚",
+      "桂林",
+      "南京",
+      "重庆",
+      "武汉",
+      "天津",
+      "济南",
+      "郑州",
+      "合肥",
+      "福州",
+      "南昌",
+      "贵阳",
+      "南宁",
+      "兰州",
+      "太原",
+      "石家庄",
+      "洛阳",
+      "无锡",
+      "宁波",
+      "温州",
+      "珠海",
+      "北海",
+      "拉萨",
+      "乌鲁木齐",
+      "呼伦贝尔",
+      "大理",
+      "丽江",
+      "东京",
+      "大阪",
+      "首尔",
+      "新加坡",
+      "曼谷",
+      "吉隆坡",
+      "伦敦",
+      "巴黎"
+    ],
+    "products": [
+      "咖啡机",
+      "投影仪",
+      "空气炸锅",
+      "扫地机器人",
+      "机械键盘",
+      "电竞显示器",
+      "降噪耳机",
+      "电动牙刷",
+      "净水器",
+      "加湿器",
+      "露营灯",
+      "折叠自行车",
+      "筋膜枪",
+      "冲牙器",
+      "扫地机配件",
+      "蒸汽拖把",
+      "烘干机",
+      "洗碗机",
+      "智能门锁",
+      "路由器",
+      "移动硬盘",
+      "微单相机",
+      "无人机",
+      "电子书阅读器",
+      "人体工学椅",
+      "升降桌",
+      "显示器支架",
+      "桌面音响",
+      "车载吸尘器",
+      "宠物自动喂食器",
+      "宠物饮水机",
+      "猫爬架",
+      "儿童滑板车",
+      "乐高积木",
+      "绘本套装",
+      "保湿面膜",
+      "防晒霜",
+      "跑鞋",
+      "瑜伽垫",
+      "哑铃套装"
+    ],
+    "topics": [
+      "手机摄影入门",
+      "咖啡冲煮基础",
+      "Python数据分析",
+      "职场PPT制作",
+      "英语口语陪练",
+      "吉他指弹",
+      "短视频剪辑",
+      "理财规划基础",
+      "烘焙入门",
+      "插花艺术",
+      "书法练习",
+      "粤语入门",
+      "素描基础",
+      "滑雪技巧",
+      "潜水证课程",
+      "公共演讲"
+    ]
+  },
+  "events": [
+    {
+      "id": "news_read",
+      "type": "news",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "{title}",
+        "source": "{source}"
+      },
+      "slots": {
+        "title": [
+          "城市公共交通新闻",
+          "本地民生政策解读",
+          "国际科技新闻",
+          "新能源车市场观察",
+          "老旧小区改造进展",
+          "国产动画电影票房",
+          "咖啡消费趋势报道",
+          "城市马拉松报名启动",
+          "社区图书馆延长开放",
+          "智能手机出货量报告"
+        ],
+        "source": [
+          "本地日报",
+          "财经早报",
+          "科技晚报",
+          "都市频道"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "news_headlines",
+      "type": "news",
+      "app": "news_app",
+      "action": "browse_headlines",
+      "content": {
+        "section": "{section}"
+      },
+      "slots": {
+        "section": [
+          "财经",
+          "科技",
+          "体育",
+          "社会",
+          "国际",
+          "文化"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "news_share",
+      "type": "news",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "{title}",
+        "shared_to": "{to}"
+      },
+      "slots": {
+        "title": [
+          "新型电池技术突破",
+          "城市夜景摄影合集",
+          "周末街头艺术节回顾"
+        ],
+        "to": [
+          "家人群",
+          "朋友圈",
+          "同事"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news_health",
+      "type": "news",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "{title}"
+      },
+      "slots": {
+        "title": [
+          "春季过敏防护指南",
+          "久坐人群拉伸建议",
+          "睡眠质量与饮食关系",
+          "护眼灯选购要点"
+        ]
+      },
+      "avoid_categories": [
+        "health_service",
+        "fitness",
+        "shopping"
+      ]
+    },
+    {
+      "id": "video_watch",
+      "type": "video",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "{title}",
+        "duration_min": "{dur}"
+      },
+      "slots": {
+        "title": [
+          "厨房收纳技巧",
+          "老屋改造vlog",
+          "街头美食探店",
+          "手机摄影入门",
+          "历史纪录片片段",
+          "猫咪日常合集",
+          "桌面整理分享",
+          "城市夜景航拍",
+          "咖啡拉花教程",
+          "古建筑漫游"
+        ],
+        "dur": [
+          3,
+          5,
+          8,
+          12,
+          18
+        ]
+      },
+      "avoid_categories": [
+        "entertainment",
+        "family"
+      ]
+    },
+    {
+      "id": "video_short",
+      "type": "video",
+      "app": "video_app",
+      "action": "watch_short_video",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "搞笑宠物",
+          "街头采访",
+          "手工折纸",
+          "变装挑战",
+          "职场段子",
+          "变魔术教学"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "video_search",
+      "type": "video",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "{query}"
+      },
+      "slots": {
+        "query": [
+          "手工折纸",
+          "阳台种菜",
+          "家常菜做法",
+          "旧物改造",
+          "纸箱收纳"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment",
+        "shopping",
+        "family"
+      ]
+    },
+    {
+      "id": "video_livestream",
+      "type": "video",
+      "app": "video_app",
+      "action": "watch_livestream",
+      "content": {
+        "host": "{host}",
+        "topic": "{topic}"
+      },
+      "slots": {
+        "host": [
+          "美食主播小林",
+          "手工达人阿木",
+          "旅行博主阿May"
+        ],
+        "topic": [
+          "晚餐制作",
+          "木工小凳子",
+          "城市漫步"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment",
+        "shopping",
+        "travel",
+        "social_dining"
+      ]
+    },
+    {
+      "id": "video_playlist",
+      "type": "video",
+      "app": "video_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "{name}"
+      },
+      "slots": {
+        "name": [
+          "轻音乐白噪音",
+          "纪录片合集",
+          "粤语老歌",
+          "雨夜爵士"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment",
+        "learning"
+      ]
+    },
+    {
+      "id": "music_play",
+      "type": "music",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "{genre}"
+      },
+      "slots": {
+        "genre": [
+          "轻音乐",
+          "古典音乐",
+          "民谣",
+          "爵士",
+          "电子",
+          "摇滚"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "music_playlist",
+      "type": "music",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "{name}"
+      },
+      "slots": {
+        "name": [
+          "通勤歌单",
+          "睡前放松",
+          "90年代金曲",
+          "雨天爵士",
+          "厨房节奏"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "music_search",
+      "type": "music",
+      "app": "music_app",
+      "action": "search_song",
+      "content": {
+        "keyword": "{keyword}"
+      },
+      "slots": {
+        "keyword": [
+          "周日晚上的歌",
+          "电影主题曲",
+          "钢琴曲",
+          "下雨天的歌"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "im_family_reply",
+      "type": "social",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "家人群",
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "帮忙代收快递",
+          "家里的绿萝浇水",
+          "表弟升学宴随礼",
+          "周末是否回家吃饭"
+        ]
+      },
+      "avoid_categories": [
+        "family",
+        "social_dining"
+      ]
+    },
+    {
+      "id": "im_friend_reply",
+      "type": "social",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "朋友群",
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "分享一个搞笑视频",
+          "推荐一部剧",
+          "拼单奶茶",
+          "周末羽毛球凑人"
+        ]
+      },
+      "avoid_categories": [
+        "social_dining",
+        "fitness",
+        "entertainment"
+      ]
+    },
+    {
+      "id": "im_work_reply",
+      "type": "social",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "同事群",
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "周报模板格式",
+          "打印机卡纸了",
+          "下午茶拼单"
+        ]
+      },
+      "avoid_categories": [
+        "work",
+        "social_dining"
+      ]
+    },
+    {
+      "id": "social_feed_photo",
+      "type": "social",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "城市街景摄影",
+          "建筑摄影作品",
+          "极简主义设计"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "social_feed_handmade",
+      "type": "social",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "手工作品",
+          "木工制作",
+          "陶艺",
+          "刺绣"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "social_like",
+      "type": "social",
+      "app": "social_app",
+      "action": "like_post",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "城市夜景摄影",
+          "萌宠视频",
+          "手工皮具"
+        ]
+      },
+      "avoid_categories": [
+        "family",
+        "shopping"
+      ]
+    },
+    {
+      "id": "social_feed_pets",
+      "type": "social",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "养猫日常",
+          "狗狗训练小技巧"
+        ]
+      },
+      "avoid_categories": [
+        "family"
+      ]
+    },
+    {
+      "id": "social_feed_parenting",
+      "type": "social",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "亲子手工",
+          "儿童绘本推荐"
+        ]
+      },
+      "avoid_categories": [
+        "family",
+        "learning"
+      ]
+    },
+    {
+      "id": "shop_browse",
+      "type": "shopping",
+      "app": "shopping_app",
+      "action": "browse_category",
+      "content": {
+        "category": "{category}"
+      },
+      "slots": {
+        "category": [
+          "日常清洁用品",
+          "厨房用品",
+          "文具",
+          "宠物用品",
+          "数码配件"
+        ]
+      },
+      "avoid_categories": [
+        "shopping",
+        "family"
+      ]
+    },
+    {
+      "id": "shop_order",
+      "type": "shopping",
+      "app": "shopping_app",
+      "action": "view_order",
+      "content": {
+        "order_type": "{order_type}"
+      },
+      "slots": {
+        "order_type": [
+          "已完成的日用品订单",
+          "上周的纸巾订单",
+          "已签收的文具订单"
+        ]
+      },
+      "avoid_categories": [
+        "shopping",
+        "family"
+      ]
+    },
+    {
+      "id": "shop_coupon",
+      "type": "shopping",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "{promotion}"
+      },
+      "slots": {
+        "promotion": [
+          "平台满减活动",
+          "会员日折扣",
+          "运费券"
+        ]
+      },
+      "avoid_categories": [
+        "shopping"
+      ]
+    },
+    {
+      "id": "shop_cart",
+      "type": "shopping",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "{note}"
+      },
+      "slots": {
+        "note": [
+          "日常补货",
+          "待凑单"
+        ]
+      },
+      "avoid_categories": [
+        "shopping",
+        "family"
+      ]
+    },
+    {
+      "id": "pay_bill",
+      "type": "payment",
+      "app": "payment_app",
+      "action": "view_bill",
+      "content": {
+        "bill_type": "{bill_type}"
+      },
+      "slots": {
+        "bill_type": [
+          "日常水电账单",
+          "上月话费账单",
+          "宽带续费提醒"
+        ]
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ]
+    },
+    {
+      "id": "pay_utility",
+      "type": "payment",
+      "app": "payment_app",
+      "action": "pay_utility_bill",
+      "content": {
+        "bill_type": "{bill_type}",
+        "amount": "{amount}"
+      },
+      "slots": {
+        "bill_type": [
+          "电费",
+          "水费",
+          "燃气费"
+        ],
+        "amount": [
+          "¥86.40",
+          "¥45.20",
+          "¥112.00"
+        ]
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ]
+    },
+    {
+      "id": "pay_transfer",
+      "type": "payment",
+      "app": "payment_app",
+      "action": "transfer",
+      "content": {
+        "to": "{to}",
+        "amount": "{amount}",
+        "note": "{note}"
+      },
+      "slots": {
+        "to": [
+          "室友",
+          "朋友小赵"
+        ],
+        "amount": [
+          "¥35.00",
+          "¥68.00",
+          "¥120.00"
+        ],
+        "note": [
+          "昨天外卖AA",
+          "代付奶茶",
+          "上周超市AA"
+        ]
+      },
+      "avoid_categories": [
+        "finance_admin",
+        "social_dining",
+        "shopping"
+      ]
+    },
+    {
+      "id": "pay_balance",
+      "type": "payment",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ],
+      "slots": {
+        "detail": [
+          "常规使用记录",
+          "本月概览",
+          "最近一条动态"
+        ]
+      }
+    },
+    {
+      "id": "pay_card_bill",
+      "type": "payment",
+      "app": "payment_app",
+      "action": "view_credit_card_bill",
+      "content": {
+        "month": "{month}"
+      },
+      "slots": {
+        "month": [
+          "上月",
+          "本月"
+        ]
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ]
+    },
+    {
+      "id": "weather_now",
+      "type": "weather",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "{home_city}"
+      },
+      "avoid_categories": [
+        "travel",
+        "local_transport"
+      ],
+      "slots": {
+        "home_city": "home_city"
+      }
+    },
+    {
+      "id": "weather_forecast",
+      "type": "weather",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "{home_city}"
+      },
+      "avoid_categories": [
+        "travel",
+        "local_transport"
+      ],
+      "slots": {
+        "home_city": "home_city"
+      }
+    },
+    {
+      "id": "map_commute",
+      "type": "maps",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "{mode}"
+      },
+      "slots": {
+        "mode": [
+          "驾车",
+          "公交",
+          "骑行"
+        ]
+      },
+      "avoid_categories": [
+        "local_transport",
+        "travel"
+      ]
+    },
+    {
+      "id": "map_nearby",
+      "type": "maps",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "{poi_type}"
+      },
+      "slots": {
+        "poi_type": [
+          "便利店",
+          "打印店",
+          "快递柜",
+          "充电宝租借",
+          "洗衣店"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "map_traffic",
+      "type": "maps",
+      "app": "map_app",
+      "action": "view_commute_traffic",
+      "content": {
+        "road": "常走的环线"
+      },
+      "avoid_categories": [
+        "local_transport",
+        "travel"
+      ]
+    },
+    {
+      "id": "map_history",
+      "type": "maps",
+      "app": "map_app",
+      "action": "view_place_history",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "avoid_categories": [
+        "travel",
+        "local_transport"
+      ],
+      "slots": {
+        "detail": [
+          "常规使用记录",
+          "本月概览",
+          "最近一条动态"
+        ]
+      }
+    },
+    {
+      "id": "game_play",
+      "type": "game",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "{game_type}",
+        "duration_min": "{duration_min}"
+      },
+      "slots": {
+        "game_type": [
+          "休闲益智",
+          "卡牌对战",
+          "模拟经营"
+        ],
+        "duration_min": [
+          10,
+          15,
+          25
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "game_daily",
+      "type": "game",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "avoid_categories": [
+        "entertainment"
+      ],
+      "slots": {
+        "detail": [
+          "常规使用记录",
+          "本月概览",
+          "最近一条动态"
+        ]
+      }
+    },
+    {
+      "id": "game_store",
+      "type": "game",
+      "app": "game_app",
+      "action": "browse_game_store",
+      "content": {
+        "category": "{category}"
+      },
+      "slots": {
+        "category": [
+          "新游推荐",
+          "限时免费"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment",
+        "shopping"
+      ]
+    },
+    {
+      "id": "read_novel",
+      "type": "reading",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "{title}",
+        "chapter": "{chapter}"
+      },
+      "slots": {
+        "title": [
+          "科幻连载",
+          "悬疑推理",
+          "都市职场",
+          "历史武侠"
+        ],
+        "chapter": [
+          "第12章",
+          "第48章",
+          "第103章"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment",
+        "learning"
+      ]
+    },
+    {
+      "id": "read_article",
+      "type": "reading",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "植物养护",
+          "历史文化文章",
+          "咖啡豆产地介绍",
+          "摄影构图技巧",
+          "旧书修复技艺"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "read_bookmark",
+      "type": "reading",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "历史文化文章",
+          "世界遗产名录",
+          "传统茶具介绍"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "read_science",
+      "type": "reading",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "宇宙天文科普",
+          "古生物新发现",
+          "材料科学趣闻"
+        ]
+      },
+      "avoid_categories": [
+        "learning"
+      ]
+    },
+    {
+      "id": "mail_newsletter",
+      "type": "mail",
+      "app": "mail_app",
+      "action": "read_newsletter",
+      "content": {
+        "subject": "{subject}"
+      },
+      "slots": {
+        "subject": [
+          "本周科技简报",
+          "会员积分到期提醒",
+          "商场促销活动"
+        ]
+      },
+      "avoid_categories": [
+        "shopping",
+        "work"
+      ]
+    },
+    {
+      "id": "mail_cleanup",
+      "type": "mail",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "mail_reply",
+      "type": "mail",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "会议室投影仪报修",
+          "工位绿植领养",
+          "失物招领"
+        ]
+      },
+      "avoid_categories": [
+        "work"
+      ]
+    },
+    {
+      "id": "fit_steps",
+      "type": "fitness",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": "{steps}"
+      },
+      "slots": {
+        "steps": [
+          4321,
+          5432,
+          7890
+        ]
+      },
+      "avoid_categories": [
+        "fitness"
+      ]
+    },
+    {
+      "id": "fit_water",
+      "type": "fitness",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": "{cups}"
+      },
+      "slots": {
+        "cups": [
+          4,
+          6,
+          8
+        ]
+      },
+      "avoid_categories": [
+        "health_service",
+        "fitness"
+      ]
+    },
+    {
+      "id": "fit_video",
+      "type": "fitness",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "{title}",
+        "duration_min": "{duration_min}"
+      },
+      "slots": {
+        "title": [
+          "居家拉伸跟练",
+          "十分钟核心训练"
+        ],
+        "duration_min": [
+          10,
+          12
+        ]
+      },
+      "avoid_categories": [
+        "fitness",
+        "health_service"
+      ]
+    },
+    {
+      "id": "health_article",
+      "type": "health",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "熬夜后如何恢复",
+          "护眼小贴士",
+          "办公室久坐危害"
+        ]
+      },
+      "avoid_categories": [
+        "health_service"
+      ]
+    },
+    {
+      "id": "fin_balance",
+      "type": "finance",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ],
+      "slots": {
+        "detail": [
+          "常规使用记录",
+          "本月概览",
+          "最近一条动态"
+        ]
+      }
+    },
+    {
+      "id": "fin_news",
+      "type": "finance",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "基金定投入门",
+          "房贷利率解读",
+          "黄金价格走势"
+        ]
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ]
+    },
+    {
+      "id": "fin_points",
+      "type": "finance",
+      "app": "banking_app",
+      "action": "view_credit_card_points",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "avoid_categories": [
+        "finance_admin"
+      ],
+      "slots": {
+        "detail": [
+          "常规使用记录",
+          "本月概览",
+          "最近一条动态"
+        ]
+      }
+    },
+    {
+      "id": "photo_album",
+      "type": "photos",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "{album}"
+      },
+      "slots": {
+        "album": [
+          "日常随手拍",
+          "周末散步照片",
+          "街景与天空"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "photo_edit",
+      "type": "photos",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "{tool}"
+      },
+      "slots": {
+        "tool": [
+          "滤镜与裁剪",
+          "去除背景",
+          "拼图"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "photo_backup",
+      "type": "photos",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "sys_wallpaper",
+      "type": "system",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "{theme}"
+      },
+      "slots": {
+        "theme": [
+          "简约风景",
+          "纯色渐变",
+          "动漫插画"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "sys_update",
+      "type": "system",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "sys_storage",
+      "type": "system",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "cal_view",
+      "type": "calendar",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "{month}"
+      },
+      "slots": {
+        "month": [
+          "下个月",
+          "本月"
+        ]
+      },
+      "avoid_categories": []
+    },
+    {
+      "id": "cal_reminder",
+      "type": "calendar",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "{title}"
+      },
+      "slots": {
+        "title": [
+          "取快递",
+          "给绿植浇水",
+          "预约理发"
+        ]
+      },
+      "avoid_categories": [
+        "shopping",
+        "family",
+        "health_service"
+      ]
+    },
+    {
+      "id": "cal_birthday",
+      "type": "calendar",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      },
+      "avoid_categories": [
+        "family",
+        "shopping",
+        "social_dining"
+      ]
+    },
+    {
+      "id": "food_lunch",
+      "type": "food",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      },
+      "avoid_categories": [
+        "social_dining",
+        "travel"
+      ]
+    },
+    {
+      "id": "food_history",
+      "type": "food",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      },
+      "avoid_categories": [
+        "social_dining"
+      ]
+    },
+    {
+      "id": "food_grocery",
+      "type": "food",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "{keyword}"
+      },
+      "slots": {
+        "keyword": [
+          "鸡蛋和牛奶",
+          "水果",
+          "生抽"
+        ]
+      },
+      "avoid_categories": [
+        "shopping",
+        "family",
+        "social_dining"
+      ]
+    },
+    {
+      "id": "comm_bus",
+      "type": "commute",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      },
+      "avoid_categories": [
+        "local_transport",
+        "travel"
+      ]
+    },
+    {
+      "id": "comm_subway",
+      "type": "commute",
+      "app": "commute_app",
+      "action": "check_subway_crowding",
+      "content": {
+        "line": "早晚高峰线路"
+      },
+      "avoid_categories": [
+        "local_transport",
+        "travel"
+      ]
+    },
+    {
+      "id": "comm_bike",
+      "type": "commute",
+      "app": "commute_app",
+      "action": "find_shared_bike",
+      "content": {
+        "area": "地铁口"
+      },
+      "avoid_categories": [
+        "local_transport",
+        "travel",
+        "fitness"
+      ]
+    },
+    {
+      "id": "work_industry_news",
+      "type": "work",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "行业季度报告摘要",
+          "远程办公效率工具盘点",
+          "职场沟通书籍推荐"
+        ]
+      },
+      "avoid_categories": [
+        "work"
+      ]
+    },
+    {
+      "id": "work_tool_article",
+      "type": "work",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "Excel快捷键技巧",
+          "会议纪要模板分享",
+          "键盘快捷键大全"
+        ]
+      },
+      "avoid_categories": [
+        "work"
+      ]
+    },
+    {
+      "id": "learn_video",
+      "type": "learning",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "{title}",
+        "duration_min": "{duration_min}"
+      },
+      "slots": {
+        "title": [
+          "天文科普短片",
+          "历史冷知识",
+          "化学小实验"
+        ],
+        "duration_min": [
+          6,
+          9
+        ]
+      },
+      "avoid_categories": [
+        "learning"
+      ]
+    },
+    {
+      "id": "ent_ranking",
+      "type": "entertainment",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "{period}"
+      },
+      "slots": {
+        "period": [
+          "本周",
+          "本月"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "ent_trailer",
+      "type": "entertainment",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "{movie}"
+      },
+      "slots": {
+        "movie": [
+          "即将上映的喜剧片",
+          "纪录片预告",
+          "动画电影预告"
+        ]
+      },
+      "avoid_categories": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "car_rental_browse_other_city",
+      "type": "travel_distractor",
+      "app": "car_rental_app",
+      "action": "search",
+      "content": {
+        "pickup_city": "{city}",
+        "car_type": "经济型",
+        "pickup_date": "{other_date}"
+      },
+      "slots": {
+        "city": "entities.cities",
+        "other_date": "window.other_date"
+      },
+      "avoid_categories": [
+        "travel",
+        "local_transport"
+      ]
+    },
+    {
+      "id": "taxi_invoice_history",
+      "type": "admin",
+      "app": "taxi_app",
+      "action": "browse_content",
+      "content": {
+        "section": "电子发票",
+        "month": "上月"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "travel",
+        "local_transport"
+      ]
+    },
+    {
+      "id": "parking_fee_standard",
+      "type": "local",
+      "app": "parking_app",
+      "action": "view_detail",
+      "content": {
+        "parking_lot": "公司楼下停车场",
+        "section": "收费标准"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "travel",
+        "local_transport"
+      ]
+    },
+    {
+      "id": "docs_template_browse",
+      "type": "work",
+      "app": "docs_app",
+      "action": "view_document",
+      "content": {
+        "title": "周会纪要模板",
+        "last_edited": "上周"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "work",
+        "learning"
+      ]
+    },
+    {
+      "id": "contacts_search_repair",
+      "type": "contacts",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "work"
+      ]
+    },
+    {
+      "id": "meeting_app_week_schedule",
+      "type": "work",
+      "app": "meeting_app",
+      "action": "view_schedule",
+      "content": {
+        "date_range": "本周"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "work"
+      ]
+    },
+    {
+      "id": "job_market_salary_report",
+      "type": "work",
+      "app": "job_app",
+      "action": "browse_content",
+      "content": {
+        "keyword": "行业薪资报告",
+        "content_type": "资讯"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "work"
+      ]
+    },
+    {
+      "id": "delivery_past_return",
+      "type": "shopping",
+      "app": "delivery_app",
+      "action": "view_order",
+      "content": {
+        "package": "上个月的网购退货",
+        "status": "已签收"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "shopping",
+        "family"
+      ]
+    },
+    {
+      "id": "review_brunch_browse",
+      "type": "dining",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "target": "周末早午餐店",
+        "city": "{home_city}",
+        "sort": "评分最高"
+      },
+      "slots": {
+        "home_city": "home_city"
+      },
+      "avoid_categories": [
+        "social_dining",
+        "shopping",
+        "entertainment",
+        "local_transport"
+      ]
+    },
+    {
+      "id": "hospital_oral_schedule",
+      "type": "health",
+      "app": "hospital_app",
+      "action": "view_detail",
+      "content": {
+        "section": "门诊排班",
+        "department": "口腔科"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "health_service",
+        "family"
+      ]
+    },
+    {
+      "id": "clinic_vaccine_notice",
+      "type": "health",
+      "app": "clinic_app",
+      "action": "browse_content",
+      "content": {
+        "service": "疫苗接种预约须知"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "health_service",
+        "family"
+      ]
+    },
+    {
+      "id": "pharmacy_bandaid_search",
+      "type": "health",
+      "app": "pharmacy_app",
+      "action": "search",
+      "content": {
+        "keyword": "创可贴",
+        "sort": "销量"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "health_service",
+        "family"
+      ]
+    },
+    {
+      "id": "exam_driving_license_bank",
+      "type": "learning",
+      "app": "exam_app",
+      "action": "view_detail",
+      "content": {
+        "exam": "驾照科目四题库",
+        "progress": "30%"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "learning",
+        "local_transport"
+      ]
+    },
+    {
+      "id": "home_ac_cleaning_search",
+      "type": "home",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "family"
+      ]
+    },
+    {
+      "id": "pet_vaccine_schedule",
+      "type": "family",
+      "app": "pet_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "猫咪疫苗时间表"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "family",
+        "health_service"
+      ]
+    },
+    {
+      "id": "furniture_office_chair",
+      "type": "shopping",
+      "app": "furniture_app",
+      "action": "browse_content",
+      "content": {
+        "category": "办公椅",
+        "sort": "最新"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "shopping",
+        "family",
+        "work"
+      ]
+    },
+    {
+      "id": "gov_residence_progress",
+      "type": "admin",
+      "app": "government_app",
+      "action": "view_progress",
+      "content": {
+        "item": "居住证办理进度",
+        "status": "审核中"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "finance_admin",
+        "local_transport"
+      ]
+    },
+    {
+      "id": "tax_deduction_guide",
+      "type": "admin",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "finance_admin",
+        "work"
+      ]
+    },
+    {
+      "id": "venue_badminton_schedule",
+      "type": "fitness",
+      "app": "venue_booking_app",
+      "action": "view_court_schedule",
+      "content": {
+        "venue": "家附近羽毛球馆",
+        "date": "本周六"
+      },
+      "slots": {},
+      "avoid_categories": [
+        "fitness",
+        "entertainment",
+        "social_dining"
+      ]
+    }
+  ],
+  "hard_negatives": [
+    {
+      "id": "hn_guide_other_city",
+      "applies_to": [
+        "travel",
+        "local_transport"
+      ],
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "{city}",
+        "topic": "{topic}"
+      },
+      "slots": {
+        "city": "entities.cities",
+        "topic": [
+          "美食攻略",
+          "三日游路线",
+          "博物馆预约指南",
+          "本地交通卡使用攻略",
+          "小众咖啡馆地图"
+        ]
+      }
+    },
+    {
+      "id": "hn_flight_other_city",
+      "applies_to": [
+        "travel"
+      ],
+      "app": "flight_booking_app",
+      "action": "search_flight",
+      "content": {
+        "departure": "{home_city}",
+        "destination": "{city}",
+        "departure_date": "{date}"
+      },
+      "slots": {
+        "city": "entities.cities",
+        "date": "window.other_date",
+        "home_city": "home_city"
+      }
+    },
+    {
+      "id": "hn_hotel_other_city",
+      "applies_to": [
+        "travel"
+      ],
+      "app": "hotel_app",
+      "action": "view_hotel_detail",
+      "content": {
+        "city": "{city}",
+        "check_in": "{date}"
+      },
+      "slots": {
+        "city": "entities.cities",
+        "date": "window.other_date"
+      }
+    },
+    {
+      "id": "hn_train_other_city",
+      "applies_to": [
+        "travel",
+        "local_transport"
+      ],
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "{home_city}",
+        "arrival": "{city}",
+        "date": "{date}"
+      },
+      "slots": {
+        "city": "entities.cities",
+        "date": "window.other_date",
+        "home_city": "home_city"
+      }
+    },
+    {
+      "id": "hn_weather_other_city",
+      "applies_to": [
+        "travel",
+        "local_transport"
+      ],
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "{city}"
+      },
+      "slots": {
+        "city": "entities.cities"
+      }
+    },
+    {
+      "id": "hn_map_other_city",
+      "applies_to": [
+        "travel",
+        "local_transport"
+      ],
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "{city}",
+        "query": "{query}"
+      },
+      "slots": {
+        "city": "entities.cities",
+        "query": [
+          "火车站停车场",
+          "机场大巴站点",
+          "老城区咖啡馆"
+        ]
+      }
+    },
+    {
+      "id": "hn_product_other",
+      "applies_to": [
+        "shopping"
+      ],
+      "app": "shopping_app",
+      "action": "view_product_detail",
+      "content": {
+        "product": "{product}"
+      },
+      "slots": {
+        "product": "entities.products"
+      }
+    },
+    {
+      "id": "hn_product_compare_other",
+      "applies_to": [
+        "shopping"
+      ],
+      "app": "price_compare_app",
+      "action": "compare_prices",
+      "content": {
+        "product": "{product}",
+        "platforms": 3
+      },
+      "slots": {
+        "product": "entities.products"
+      }
+    },
+    {
+      "id": "hn_product_wishlist_other",
+      "applies_to": [
+        "shopping"
+      ],
+      "app": "shopping_app",
+      "action": "add_to_wishlist",
+      "content": {
+        "product": "{product}"
+      },
+      "slots": {
+        "product": "entities.products"
+      }
+    },
+    {
+      "id": "hn_restaurant_lunch",
+      "applies_to": [
+        "social_dining"
+      ],
+      "app": "restaurant_app",
+      "action": "browse_restaurants",
+      "content": {
+        "area": "公司附近",
+        "meal": "工作日午餐"
+      },
+      "slots": {}
+    },
+    {
+      "id": "hn_movie_schedule",
+      "applies_to": [
+        "entertainment"
+      ],
+      "app": "ticket_app",
+      "action": "browse_movie_schedules",
+      "content": {
+        "movie": "{movie}",
+        "date": "工作日晚"
+      },
+      "slots": {
+        "movie": [
+          "重映的老电影",
+          "艺术片放映",
+          "儿童动画专场"
+        ]
+      }
+    },
+    {
+      "id": "hn_match_news",
+      "applies_to": [
+        "fitness"
+      ],
+      "app": "sports_app",
+      "action": "read_match_news",
+      "content": {
+        "league": "{league}"
+      },
+      "slots": {
+        "league": [
+          "足球联赛",
+          "篮球联赛",
+          "电竞比赛"
+        ]
+      }
+    },
+    {
+      "id": "hn_course_other_subject",
+      "applies_to": [
+        "learning"
+      ],
+      "app": "learning_app",
+      "action": "browse_course",
+      "content": {
+        "subject": "{subject}"
+      },
+      "slots": {
+        "subject": "entities.topics"
+      }
+    },
+    {
+      "id": "hn_bank_news",
+      "applies_to": [
+        "finance_admin"
+      ],
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "{topic}"
+      },
+      "slots": {
+        "topic": [
+          "信用卡积分兑换攻略",
+          "储蓄险利弊分析",
+          "外汇牌价解读"
+        ]
+      }
+    }
+  ],
+  "changelog": [
+    "2026-11-27.2: weather placeholder → {home_city}; hard-negative dates → {other_date}; +19 templates so every vocabulary app has a noise event (no app is 'related-only' by construction)."
+  ]
+}

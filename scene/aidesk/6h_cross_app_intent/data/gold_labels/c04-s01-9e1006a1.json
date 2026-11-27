@@ -1,0 +1,323 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周六晚四人烤肉局",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e002",
+        "e004",
+        "e005",
+        "e007",
+        "e025",
+        "e026",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e010",
+        "e011",
+        "e013",
+        "e014",
+        "e020",
+        "e023"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "老周在“老友饭搭子群”回复周六晚上可以，几点都行",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "小林回复周六晚上六点以后有空，并认可烤肉",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "阿凯回复算他一个，愿意参加聚餐",
+          "source_event_ids": [
+            "e005"
+          ]
+        },
+        {
+          "fact": "用户发出明确决定：定为周六12月05日晚上6点、静安寺烤肉，并说去找店订四人桌",
+          "source_event_ids": [
+            "e007"
+          ]
+        },
+        {
+          "fact": "用户在炭匠烧肉（静安寺店）创建12月05日18:00、4人、四人桌订单，订金100元，订单号RS202612042142（订单状态为待支付订金）",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户成功支付100.00元“四人桌预订订金”，关联订单RS202612042142",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户创建“老友烤肉聚餐”日历日程：12月05日18:00-20:00，地点炭匠烧肉（静安寺店），参与人老周、小林、阿凯，提前1小时提醒",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户最初在“老友饭搭子群”发起周六晚上到静安寺吃烤肉的邀约",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "用户在找店前查询了从家（静安区）到静安寺的地铁路线，预计25分钟，出发时间17:20",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户在餐厅App搜索12月05日18:00、4人、可订四人桌的静安寺烤肉餐厅",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户浏览静安寺烤肉店热门榜，并查看炭匠烧肉（静安寺店）详情：评分4.7、人均158元、有12月05日18:00四人桌可订",
+          "source_event_ids": [
+            "e013",
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户比较炭匠烧肉（静安寺店）与牛角日式烧肉（静安寺店）的评分、人均价格、四人桌可订时段及距静安寺地铁站距离",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户在等待/犹豫期间还浏览了静安区附近的烤肉外卖推荐",
+          "source_event_ids": [
+            "e023"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "最终到店人数是否会临时变化（是否仍为4人）",
+        "聚餐的具体菜品、预算以及是否叠加使用其他优惠",
+        "预订后餐厅是否另发确认通知"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e006",
+    "e008",
+    "e009",
+    "e012",
+    "e015",
+    "e016",
+    "e017",
+    "e018",
+    "e019",
+    "e021",
+    "e022",
+    "e024",
+    "e027",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 16
+  },
+  "sample_id": "c04-s01-9e1006a1"
+}

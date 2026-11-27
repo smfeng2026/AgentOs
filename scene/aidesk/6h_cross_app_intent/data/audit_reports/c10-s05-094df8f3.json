@@ -1,0 +1,856 @@
+{
+  "sample_id": "c10-s05-094df8f3",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch",
+    "reviewer_critical_issue"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "依规则10，全部15条关联事件均为 search/browse/collect/view_detail 类动作（e008/e009/e011/e012/e013/e016/e018/e019 亦不例外），无订单、支付、报名、预约、日历/提醒等决定性证据，故一律标为 related_interest，supporting 置空，原内部标注的8条 supporting 属误升级。证据仅支持“对居家健身内容的持续浏览收藏”这一新兴兴趣，不足以证明训练、购买器械或考察健身房等目的，故 purpose=unknown、status=emerging、confidence_level=low，意图名中性化为“居家健身兴趣”。盲标拆出的 i002（购买装备）与 i003（考察健身房）各自仅有1次搜索+1次浏览，且本质服务于同一居家健身兴趣，属于对同一意图证据的过度拆分，合并回 i001 的 related_interest。confirmed_facts 为空因无 supporting/contradicting 事件。无关事件判定（含 e021 睡前放松歌单、e024 清洁用品、e030 月视图）语义正确，unrelated 与 related 各15条，配比自然满足。问题为标签层级而非事件本身，故 decision=revise_label，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "news_read",
+        "ent_ranking",
+        "hn_match_news",
+        "sys_update",
+        "map_commute",
+        "weather_forecast",
+        "mail_reply",
+        "social_feed_handmade",
+        "video_watch",
+        "fin_balance",
+        "work_tool_article",
+        "music_playlist",
+        "shop_browse",
+        "food_lunch",
+        "cal_view"
+      ],
+      "hard_negative_ids": [
+        "hn_match_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "新手居家健身训练",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e003",
+          "e008",
+          "e009",
+          "e011",
+          "e012",
+          "e013",
+          "e016",
+          "e018",
+          "e019",
+          "e028",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户对零基础/新手徒手健身内容表现出兴趣",
+            "source_event_ids": [
+              "e003",
+              "e008",
+              "e009",
+              "e011",
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户查看并收藏了15分钟新手全身跟练教程",
+            "source_event_ids": [
+              "e012",
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户查看了21天新手训练计划详情",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户收藏了弹力带全身塑形跟练视频并浏览核心训练动作",
+            "source_event_ids": [
+              "e018",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户搜索并收藏了健身运动歌单",
+            "source_event_ids": [
+              "e028",
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已报名或开始执行任何训练计划",
+          "目标训练频率与周期",
+          "最终选择居家训练还是健身房训练",
+          "是否具备瑜伽垫、弹力带等器械"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "购买居家健身装备（瑜伽垫/弹力带）",
+        "category": "fitness",
+        "purpose": "equipment_purchase",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e022",
+          "e023"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户搜索了8mm厚度、按销量排序的瑜伽垫",
+            "source_event_ids": [
+              "e022"
+            ]
+          },
+          {
+            "fact": "用户浏览了加厚防滑瑜伽垫+弹力带套装商品",
+            "source_event_ids": [
+              "e023"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已下单购买",
+          "预算与品牌/尺寸偏好",
+          "是否需要其他健身装备"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i003",
+        "intent_name": "考察附近健身房",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e025",
+          "e027"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户搜索了北京附近3公里内的健身房",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户浏览了望京燃动健身的单次价格与距离信息",
+            "source_event_ids": [
+              "e027"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已预约体验或办卡",
+          "到店锻炼时间安排",
+          "对价格/距离的最终偏好"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e004",
+      "e005",
+      "e006",
+      "e007",
+      "e010",
+      "e014",
+      "e015",
+      "e017",
+      "e020",
+      "e021",
+      "e024",
+      "e026",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 3,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c10-s05-094df8f3",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "purpose_over_inference",
+        "severity": "critical",
+        "event_ids": [
+          "e003",
+          "e008",
+          "e009",
+          "e011",
+          "e012",
+          "e013",
+          "e016",
+          "e018",
+          "e019",
+          "e028",
+          "e029"
+        ],
+        "description": "盲标将 i001 的 purpose 定为 training、confidence_level 定为 high、status 定为 considering，但全部证据仅为 fitness_app/video_app 的搜索、浏览、收藏与查看计划详情页，没有任何报名、打卡、完成训练、日历/提醒或预约记录（e030 仅为月视图浏览，且被标为 unrelated）。按场景规格这正是 D3 弱证据样本，purpose 应为 unknown。盲标自身也在 unknown_information 中列出“是否已报名或开始执行任何训练计划”，却在 confidence 上给 high，内部自相矛盾，属于把浏览收藏误读为已确立的训练目的。",
+        "suggested_action": "将 i001 的 purpose 改回 unknown，confidence_level 降为 low（或至多 medium），status 保持 emerging/considering；intent_name 不要出现“训练”这类目的化措辞，改为“浏览新手居家健身内容”一类兴趣表述。"
+      },
+      {
+        "issue_type": "over_splitting_with_purpose_inflation",
+        "severity": "high",
+        "event_ids": [
+          "e022",
+          "e023",
+          "e025",
+          "e027"
+        ],
+        "description": "盲标把 gold 中作为 i001 可选证据的四个事件拆成两个独立意图：i002“购买居家健身装备”（purpose=equipment_purchase，confidence=medium）与 i003“考察附近健身房”（purpose=training，confidence=medium）。但证据仅为 1 次瑜伽垫搜索 + 1 次套装商品浏览、1 次附近健身房搜索 + 1 次场馆详情浏览，无加购、比价、收藏商品、预约体验、办卡或到店记录。用两次浏览就断言“购买”和“考察健身房”目的，证据强度不足，属于多意图错误拆分并抬高了 purpose 与置信度。",
+        "suggested_action": "合并回 i001 的 related_interest 证据（与 gold 一致）；若坚持拆分，则 i002/i003 的 purpose 应改为 unknown，confidence 降为 low，并在 unknown_information 中明确“是否有购买或到店计划未知”。"
+      },
+      {
+        "issue_type": "supporting_related_mislabel",
+        "severity": "medium",
+        "event_ids": [
+          "e008",
+          "e011",
+          "e013",
+          "e016",
+          "e012",
+          "e019"
+        ],
+        "description": "gold 标为 supporting 的 8 条事件与盲标将其全部降为 related_interest 存在系统性冲突，两边都需要校正。e008（搜索新手课程并加“居家/入门”筛选）、e011（搜索健身教程视频）、e013（收藏具体跟练教程）、e016（查看 21 天计划详情页）恰好命中规格 required_evidence，标 supporting 可接受，盲标一刀切降级过严；反之 e012（被动浏览视频条目）与 e019（无搜索上下文的动作库浏览）属于弱证据，标 supporting 偏强，盲标降级更合理。当前 gold 与盲标的标签体系互相不可对齐，会影响后续裁决一致性。",
+        "suggested_action": "统一事件标签：e008/e011/e013/e016 保留 supporting；e012/e019 改为 related_interest；并同步更新 i001 的 supporting_event_ids（盲标当前为空）与计数。"
+      },
+      {
+        "issue_type": "provenance_id_collision",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e008",
+          "e009",
+          "e011",
+          "e012",
+          "e013",
+          "e016",
+          "e018",
+          "e019",
+          "e022",
+          "e023",
+          "e025",
+          "e027",
+          "e028",
+          "e029"
+        ],
+        "description": "所有 origin=related 事件的 generator_event_id 取值 'e001'–'e015' 与最终事件集合中的 noise 事件 id 'e001'–'e015' 完全撞名。例如 e003 的 generator_event_id='e001' 指向的却是“咖啡消费趋势报道”，二者并无因果关系；e008 的 generator_event_id='e002' 指向电影榜单事件。这种命名空间冲突会让人误以为关联事件由无关噪声事件派生，破坏可追溯性。",
+        "suggested_action": "为生成器侧 id 使用独立前缀（如 gen_e001）或写入独立字段，避免与最终 event_id 命名空间重叠，并复核每条 origin=related 的派生链。"
+      },
+      {
+        "issue_type": "answer_leakage_template_naturalness",
+        "severity": "low",
+        "event_ids": [
+          "e008",
+          "e011",
+          "e022",
+          "e025",
+          "e028"
+        ],
+        "description": "多条搜索关键词逐字复制规格 key_entities（e011“健身教程视频”、e022“瑜伽垫”、e025“附近健身房”、e028“运动歌单”），e008 还叠加 filters={difficulty:入门, scene:居家} 这类直接点明“居家健身”的元数据，使意图识别几乎无歧义，与本样本声明的 D3 弱证据定位不符，也显得模板化不自然（真实搜索词通常更口语、更短）。",
+        "suggested_action": "改写搜索关键词为更口语化的变体（如“新手 在家 练”“垫子 防滑”“健身房 望京”），减少与 key_entities 的逐字重合；filters 保留一项即可，避免正向叠加关键词。"
+      }
+    ],
+    "summary": "核心问题是盲标把 D3 弱证据样本过度解读：i001 在仅有搜索/浏览/收藏证据的情况下被赋予 purpose=training 与 confidence=high，并额外拆出 i002（装备购买）、i003（考察健身房）两个 purpose 明确的意图，均缺乏加购、预约、打卡等直接证据，建议统一回到 purpose=unknown、低置信度。次要问题是 gold 与盲标对 supporting/related_interest 的判定完全不一致（e012/e019 偏弱应降级，e008/e011/e013/e016 命中 required_evidence 不应降级）、generator_event_id 与事件 id 命名空间撞名、以及搜索词逐字复用 key_entities 造成的轻度答案泄露。噪声事件中未发现实际与健身意图相关的误标（e021“睡前放松”歌单、e024 清洁用品、e030 月视图均正确判为无关）。存在 critical/high 问题，判定不通过。"
+  },
+  "adjudication": {
+    "sample_id": "c10-s05-094df8f3",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "居家健身兴趣",
+          "category": "fitness",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e003",
+            "e008",
+            "e009",
+            "e011",
+            "e012",
+            "e013",
+            "e016",
+            "e018",
+            "e019",
+            "e022",
+            "e023",
+            "e025",
+            "e027",
+            "e028",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户在社交平台浏览零基础徒手训练经验分享内容",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "用户在fitness_app搜索入门、居家场景的新手训练课程并浏览零基础徒手入门课详情",
+              "source_event_ids": [
+                "e008",
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户在video_app搜索健身教程视频，浏览并收藏15分钟新手全身跟练教程",
+              "source_event_ids": [
+                "e011",
+                "e012",
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户查看21天新手训练计划详情页，该计划每天20分钟、需瑜伽垫",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户收藏弹力带全身塑形跟练视频并浏览核心训练动作库",
+              "source_event_ids": [
+                "e018",
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户在购物平台搜索8mm瑜伽垫并浏览瑜伽垫+弹力带套装商品",
+              "source_event_ids": [
+                "e022",
+                "e023"
+              ]
+            },
+            {
+              "fact": "用户搜索北京附近3公里内健身房并浏览望京某健身房单次价格与距离",
+              "source_event_ids": [
+                "e025",
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户搜索健身场景运动歌单并收藏燃脂运动BGM歌单",
+              "source_event_ids": [
+                "e028",
+                "e029"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否已实际开始训练或报名任何训练计划",
+            "是否打算购买瑜伽垫、弹力带等器械",
+            "是否考虑去线下健身房",
+            "具体训练目标、频率与周期"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e005",
+        "e006",
+        "e007",
+        "e010",
+        "e014",
+        "e015",
+        "e017",
+        "e020",
+        "e021",
+        "e024",
+        "e026",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c10-s05-094df8f3"
+    },
+    "rationale": "依规则10，全部15条关联事件均为 search/browse/collect/view_detail 类动作（e008/e009/e011/e012/e013/e016/e018/e019 亦不例外），无订单、支付、报名、预约、日历/提醒等决定性证据，故一律标为 related_interest，supporting 置空，原内部标注的8条 supporting 属误升级。证据仅支持“对居家健身内容的持续浏览收藏”这一新兴兴趣，不足以证明训练、购买器械或考察健身房等目的，故 purpose=unknown、status=emerging、confidence_level=low，意图名中性化为“居家健身兴趣”。盲标拆出的 i002（购买装备）与 i003（考察健身房）各自仅有1次搜索+1次浏览，且本质服务于同一居家健身兴趣，属于对同一意图证据的过度拆分，合并回 i001 的 related_interest。confirmed_facts 为空因无 supporting/contradicting 事件。无关事件判定（含 e021 睡前放松歌单、e024 清洁用品、e030 月视图）语义正确，unrelated 与 related 各15条，配比自然满足。问题为标签层级而非事件本身，故 decision=revise_label，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "fitness": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1849,
+      "completion_tokens": 1978,
+      "total_tokens": 3827,
+      "latency_s": 19.74,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1739,
+      "completion_tokens": 4191,
+      "total_tokens": 5930,
+      "latency_s": 70.15,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3326,
+      "completion_tokens": 10115,
+      "total_tokens": 13441,
+      "latency_s": 72.1,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5908,
+      "completion_tokens": 5677,
+      "total_tokens": 11585,
+      "latency_s": 49.05,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10536,
+      "completion_tokens": 4444,
+      "total_tokens": 14980,
+      "latency_s": 27.18,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 238.24
+}

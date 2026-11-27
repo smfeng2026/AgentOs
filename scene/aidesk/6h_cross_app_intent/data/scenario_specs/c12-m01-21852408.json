@@ -1,0 +1,90 @@
+{
+  "title": "晚间确认杭州客户行程并换新手机",
+  "scenario_category": "multi_intent",
+  "subscenario": "商务出差 + 购买手机",
+  "template_id": "C12-M01",
+  "difficulty": "D5_multi_intent",
+  "key_entities": {
+    "home_city": "武汉",
+    "destinations": [
+      "杭州"
+    ],
+    "products": [
+      "星耀X7 Pro手机"
+    ],
+    "people": [
+      "客户刘总",
+      "同事陈晨"
+    ],
+    "dates": [
+      "12月20日",
+      "12月22日",
+      "12月23日",
+      "12月24日"
+    ],
+    "other": [
+      "客户方案评审会",
+      "萧山机场"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "杭州客户方案评审行程",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的武汉至杭州往返机票订单",
+        "12月22日至24日杭州酒店预订",
+        "日历中12月22日下午客户方案评审会"
+      ],
+      "optional_evidence": [
+        "客户确认会议时间的邮件",
+        "萧山机场到酒店路线搜索",
+        "查询杭州未来天气"
+      ],
+      "unknown_information": [
+        "是否有其他同事同行",
+        "客户晚宴是否需要出席"
+      ],
+      "supporting_event_count": 5,
+      "related_interest_event_count": 3,
+      "contradicting_event_count": 0
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "更换星耀X7 Pro新手机",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "商城中星耀X7 Pro的订单",
+        "该订单的支付记录",
+        "多平台比价行为"
+      ],
+      "optional_evidence": [
+        "手机评测内容浏览",
+        "手机壳商品收藏",
+        "即时通讯中抱怨旧手机电池衰减"
+      ],
+      "unknown_information": [
+        "是否办理旧机以旧换新",
+        "是否加购碎屏保障服务"
+      ],
+      "supporting_event_count": 4,
+      "related_interest_event_count": 4,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "前段（18:45–20:30）以手机搜索、比价和评测浏览为主；中段（20:30–22:00）集中出现出差决定性证据（客户邮件、机票下单并支付、酒店预订、创建日程）；后段（22:00–00:45）出现手机下单支付、配件收藏，以及查天气、搜路线等出行辅助行为；一条同时提及行程与换机的即时通讯消息出现在中段",
+  "variant_note": "与同模板其他样本相比：实体组合为武汉至杭州、星耀X7 Pro；购机兴趣先于出差决定出现（顺序与常见样例相反）；两个意图均以强证据收尾（机票支付+酒店预订、手机订单支付）；含 1 条交叉即时通讯消息（询问同事出差前换机建议），无反向或取消证据，两个证据簇 App 组合不重叠",
+  "scenario_id": "c12-m01-21852408"
+}

@@ -1,0 +1,55 @@
+{
+  "title": "久坐颈肩健康内容浏览",
+  "scenario_category": "health_service",
+  "subscenario": "健康兴趣",
+  "template_id": "C05-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [],
+    "people": [],
+    "dates": [],
+    "other": [
+      "颈肩拉伸",
+      "工间放松操",
+      "久坐不适"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "颈肩劳损自我调理关注",
+      "category": "health_service",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在 health_app 浏览多篇颈肩放松与久坐缓解类文章",
+        "在 health_app 收藏工间拉伸教程",
+        "在 health_app 搜索症状缓解相关关键词"
+      ],
+      "optional_evidence": [
+        "在 fitness_app 浏览拉伸课程页面",
+        "在 video_app 观看肩颈操短视频",
+        "在 map_app 搜索附近运动场馆"
+      ],
+      "unknown_information": [
+        "是否计划前往医院或体检机构检查",
+        "症状持续时间和严重程度",
+        "是否打算购买按摩或理疗器材"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 9,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 9,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前半段（07:10-09:30）集中在 health_app 连续浏览与收藏颈肩类文章并搜索缓解关键词；中段（09:30-11:00）在 fitness_app 和 video_app 查看拉伸课程与肩颈操视频；后两小时仅在 map_app 搜索附近场馆并回看收藏，全程无预约、无下单、无日历创建",
+  "variant_note": "与同模板其他样本相比：本样本聚焦颈肩劳损话题（而非睡眠或饮食），证据全部为浏览、收藏、搜索等弱信号；App 组合为 health_app+fitness_app+video_app+map_app，缺少 hospital_app 与 clinic_app 的任何强动作，确保意图停留在 emerging、purpose 无法判定",
+  "scenario_id": "c05-s05-2a633e7a"
+}

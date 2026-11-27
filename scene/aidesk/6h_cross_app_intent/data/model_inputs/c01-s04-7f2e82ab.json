@@ -1,0 +1,355 @@
+{
+  "sample_id": "c01-s04-7f2e82ab",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-09T15:35:00+08:00",
+    "end": "2026-12-09T21:35:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-09T15:47:00+08:00",
+      "app": "flight_booking_app",
+      "action": "search",
+      "content": {
+        "departure_city": "上海",
+        "destination": "深圳",
+        "departure_date": "2026-12-15",
+        "cabin_class": "经济舱",
+        "passenger_count": 1
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-09T15:58:00+08:00",
+      "app": "flight_booking_app",
+      "action": "compare",
+      "content": {
+        "route": "上海-深圳",
+        "departure_date": "2026-12-15",
+        "compared_flights": [
+          "南航CZ3554 09:15起飞 1150元",
+          "东航MU2337 08:30起飞 1280元",
+          "深航ZH9508 10:05起飞 1420元"
+        ]
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-09T16:00:19+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "电子"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-09T16:17:36+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-09T16:21:00+08:00",
+      "app": "mail_app",
+      "action": "send_message",
+      "content": {
+        "recipient": "客户方陈总监",
+        "subject": "12月15日至17日深圳拜访及签约会谈安排",
+        "body_summary": "拟于12月15日上午抵达深圳，12月16日上午进行年度框架协议签约会谈，请确认时间与地点"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-09T16:28:24+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "黄金价格走势"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-09T16:36:36+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "去除背景"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-09T16:46:43+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "南京",
+        "topic": "小众咖啡馆地图"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-09T17:08:02+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "简约风景"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-09T17:23:00+08:00",
+      "app": "flight_booking_app",
+      "action": "create_order",
+      "content": {
+        "order_id": "F2026121500321",
+        "departure_city": "上海",
+        "destination": "深圳",
+        "departure_date": "2026-12-15",
+        "flight_no": "CZ3554",
+        "departure_time": "09:15",
+        "seat_class": "经济舱",
+        "price": 1150,
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-09T17:31:00+08:00",
+      "app": "flight_booking_app",
+      "action": "pay",
+      "content": {
+        "order_id": "F2026121500321",
+        "flight_no": "CZ3554",
+        "route": "上海-深圳",
+        "departure_date": "2026-12-15",
+        "amount": 1150,
+        "payment_method": "信用卡",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-09T17:43:57+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-09T17:45:53+08:00",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "旧物改造"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-09T17:52:00+08:00",
+      "app": "hotel_app",
+      "action": "book",
+      "content": {
+        "order_id": "H2026121500187",
+        "hotel_name": "深圳福田中心区商务酒店",
+        "city": "深圳",
+        "check_in_date": "2026-12-15",
+        "check_out_date": "2026-12-17",
+        "room_type": "大床房",
+        "price_per_night": 680,
+        "order_status": "已预订"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-09T18:02:06+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "打印店"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-09T18:14:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "客户方陈总监",
+        "subject": "回复：12月15日至17日深圳拜访及签约会谈安排",
+        "body_summary": "确认12月16日上午10:00在公司12楼会议室进行年度框架协议签约会谈，欢迎到访"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-09T18:22:54+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-09T18:37:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "年度框架协议签约会",
+        "event_date": "2026-12-16",
+        "start_time": "10:00",
+        "end_time": "11:30",
+        "location": "客户公司12楼会议室",
+        "participants": [
+          "客户方陈总监",
+          "本人"
+        ]
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-09T18:41:13+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "家人群",
+        "topic": "帮忙代收快递"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-09T18:52:00+08:00",
+      "app": "flight_booking_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "F2026121500321",
+        "flight_no": "CZ3554",
+        "route": "上海-深圳",
+        "departure_date": "2026-12-15",
+        "departure_time": "09:15",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-09T19:20:00+08:00",
+      "app": "hotel_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "H2026121500187",
+        "hotel_name": "深圳福田中心区商务酒店",
+        "check_in_date": "2026-12-15",
+        "check_out_date": "2026-12-17",
+        "room_type": "大床房",
+        "order_status": "已预订"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-09T19:24:00+08:00",
+      "app": "flight_booking_app",
+      "action": "search_flight",
+      "content": {
+        "departure": "上海",
+        "destination": "洛阳",
+        "departure_date": "01月13日"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-09T19:43:16+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "三亚",
+        "query": "机场大巴站点"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-09T19:47:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "event_title": "年度框架协议签约会",
+        "event_date": "2026-12-16",
+        "reminder_offset": "提前1小时",
+        "reminder_time": "2026-12-16T09:00:00+08:00"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-09T20:26:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "深圳",
+        "forecast_date": "2026-12-16",
+        "condition": "多云",
+        "temperature_range": "17℃~24℃",
+        "rain_probability": "10%"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-09T20:39:07+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本月"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-09T20:48:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "origin": "深圳福田中心区商务酒店",
+        "destination": "客户公司（南山区）",
+        "route_type": "驾车",
+        "distance": "约18公里",
+        "duration": "约35分钟"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-09T21:07:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_name": "销售同事周琳",
+        "chat_type": "单聊",
+        "message_text": "我订了15日上午9点15分飞深圳的航班，酒店在福田，16日10点和陈总监开签约会。你那边协议材料都准备好了吗"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-09T21:17:42+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "睡眠质量与饮食关系"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-09T21:24:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "chat_name": "销售同事周琳",
+        "chat_type": "单聊",
+        "message_text": "材料都备好了，我15日坐高铁过去，你到深圳后把酒店位置发我，16日咱们一起过去"
+      }
+    }
+  ]
+}

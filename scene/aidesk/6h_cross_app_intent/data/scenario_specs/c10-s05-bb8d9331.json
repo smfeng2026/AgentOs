@@ -1,0 +1,61 @@
+{
+  "title": "午后的居家健身入门探索",
+  "scenario_category": "fitness",
+  "subscenario": "健身兴趣",
+  "template_id": "C10-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [],
+    "products": [
+      "瑜伽垫",
+      "运动服饰"
+    ],
+    "people": [
+      "健身博主"
+    ],
+    "dates": [
+      "12月06日"
+    ],
+    "other": [
+      "居家训练视频",
+      "附近健身房",
+      "周末体验课"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "居家训练入门探索",
+      "category": "fitness",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在视频应用连续浏览多条零基础居家训练教学视频",
+        "在健身应用浏览并收藏入门训练课程"
+      ],
+      "optional_evidence": [
+        "在地图应用搜索附近健身房",
+        "在场馆应用查看周末体验课介绍但未预约",
+        "在购物应用浏览瑜伽垫和运动服饰"
+      ],
+      "unknown_information": [
+        "目标是减脂还是增肌",
+        "是否打算办卡或购买课程",
+        "是否已有具体训练计划"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 9,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 9,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前半段以视频应用和健身应用的浏览、收藏为主；中段出现地图和场馆应用的附近健身房查看；后半段只有零星的装备浏览和运动资讯，全程无任何下单、预约或课程创建，缺乏决定性强证据",
+  "variant_note": "与同模板其他样本相比，本样本聚焦居家训练视频而非健身房团课，App 组合为 video_app + fitness_app + map_app + venue_booking_app + shopping_app，其中 venue_booking_app 仅承担未预约的查看角色；搜索中提及周末12月06日体验课信息但无任何预订动作，证据强度全程偏弱",
+  "scenario_id": "c10-s05-bb8d9331"
+}

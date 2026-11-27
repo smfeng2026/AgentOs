@@ -1,0 +1,218 @@
+{
+  "sample_id": "c08-s03-86cfa2cb",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:41:22+08:00",
+  "task": {
+    "scenario_category": "family",
+    "template_id": "C08-S03",
+    "subscenario": "家庭聚会",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-18T17:05:00+08:00",
+    "window_end": "2026-12-18T23:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 802197824
+  },
+  "spec_summary": {
+    "title": "奶奶生日前的周六家宴筹备",
+    "intent_names": [
+      "奶奶生日家宴安排"
+    ],
+    "intent_categories": [
+      "family"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [],
+      "products": [
+        "生日蛋糕"
+      ],
+      "people": [
+        "妈妈",
+        "奶奶",
+        "二姨",
+        "表弟",
+        "家庭群"
+      ],
+      "dates": [
+        "12月26日"
+      ],
+      "other": [
+        "聚福楼餐厅（徐汇滨江店）",
+        "8人包间"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 5,
+    "gold_related_interest": 10,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "family_gathering": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "family": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "food_lunch",
+      "video_playlist",
+      "photo_backup",
+      "comm_subway",
+      "work_tool_article",
+      "shop_coupon",
+      "sys_wallpaper",
+      "learn_video",
+      "mail_newsletter",
+      "game_daily",
+      "pay_balance",
+      "read_bookmark",
+      "music_play",
+      "cal_view",
+      "weather_forecast"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "family_gathering": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "family": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1858,
+      "completion_tokens": 2491,
+      "total_tokens": 4349,
+      "latency_s": 24.22,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1749,
+      "completion_tokens": 9140,
+      "total_tokens": 10889,
+      "latency_s": 76.6,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3704,
+      "completion_tokens": 4187,
+      "total_tokens": 7891,
+      "latency_s": 29.32,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6413,
+      "completion_tokens": 12115,
+      "total_tokens": 18528,
+      "latency_s": 90.46,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10860,
+      "completion_tokens": 16723,
+      "total_tokens": 27583,
+      "latency_s": 117.33,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 340.96,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c08-s03-86cfa2cb.json",
+      "sha256": "47cc086a4b71c4bcf95f0b6072132d1fcc521353c89f81af587273583026e5c1"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c08-s03-86cfa2cb.json",
+      "sha256": "a0c33242085b34757294bdfe90d99a9fd04a626e0d7a491e31877b617a49b773"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c08-s03-86cfa2cb.json",
+      "sha256": "4b7fb4b3c60cfa81335a08eb6485bd5868eef768eea236fe2efa0b7f3e2e9ed1"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c08-s03-86cfa2cb.json",
+      "sha256": "b6bc093fb5b578a01896e17258bc27163bb6cdab7796f074b81f23109ad633a2"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c08-s03-86cfa2cb.json",
+      "sha256": "cd88b0d1eec245443c77f9b47c127bfb76acdf3ef7040ff416ccba40aacbd199"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "上海",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "颈肩劳损自我调理关注",
+      "category": "health_service",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e005",
+        "e007",
+        "e009",
+        "e011",
+        "e012",
+        "e014",
+        "e016",
+        "e018",
+        "e021",
+        "e022",
+        "e024",
+        "e027",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户连续搜索和浏览颈肩酸痛缓解、久坐颈肩放松、颈椎保养、肩颈劳损与落枕区别等内容，表现出对颈肩及久坐健康话题的持续关注。",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e007",
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户收藏了工间拉伸教程，并在之后再次从收藏夹查看该教程。",
+          "source_event_ids": [
+            "e009",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户还浏览了久坐健康隐患和腰背酸痛相关内容，关注范围涉及久坐带来的肌肉骨骼不适。",
+          "source_event_ids": [
+            "e012",
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户在 fitness_app 搜索肩颈拉伸课程、在 video_app 搜索并观看肩颈操/工间放松操、在 map_app 搜索附近拉伸瑜伽馆，显示跨 App 了解相关放松或训练资源。",
+          "source_event_ids": [
+            "e016",
+            "e018",
+            "e021",
+            "e022",
+            "e024",
+            "e027"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否计划前往医院或体检机构检查",
+        "症状持续时间和严重程度",
+        "是否打算购买按摩或理疗器材",
+        "是否计划报名线下瑜伽或拉伸课程",
+        "是否本人存在颈肩不适，还是为他人查询资料",
+        "锻炼是用于治疗、康复还是日常健身"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e006",
+    "e008",
+    "e010",
+    "e013",
+    "e015",
+    "e017",
+    "e019",
+    "e020",
+    "e023",
+    "e025",
+    "e026",
+    "e028",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c05-s05-2a633e7a"
+}

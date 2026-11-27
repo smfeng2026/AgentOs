@@ -1,0 +1,309 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "六级考前冲刺备考",
+      "category": "learning",
+      "purpose": "exam_prep",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e001",
+        "e003",
+        "e005",
+        "e012"
+      ],
+      "related_interest_event_ids": [
+        "e006",
+        "e008",
+        "e009",
+        "e010",
+        "e014",
+        "e017",
+        "e021",
+        "e023",
+        "e026",
+        "e029",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户在 exam_app 查看的六级准考证载明：考试日期 12月19日、15:00 开考、考点为长安大学渭水校区考点、考场为修远教学楼302、座位18号，准考证号 2612****0835，表明考试报名与准考证已生效。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "用户日历中已存在12月19日15:00-17:25“大学英语六级考试”日程，地点为长安大学渭水校区考点。",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "学校教务处发来考前通知，确认六级考试于12月19日15:00-17:25在长安大学渭水校区考点举行，并要求提前打印准考证、携带身份证入场。",
+          "source_event_ids": [
+            "e005"
+          ]
+        },
+        {
+          "fact": "用户支付99元购买“大学英语六级冲刺课（考前点睛班）”，订单状态为已支付。",
+          "source_event_ids": [
+            "e012"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在 learning_app 学习六级冲刺课“写作预测与高分模板精讲”、完成六级真题模考（仔细阅读10题）、在 reader_app 阅读六级写作高分范文、在 video_app 观看六级听力冲刺技巧、在 social_app 浏览六级备考交流小组的冲刺作息经验帖，推断其正在多 App 系统性冲刺备考。",
+          "source_event_ids": [
+            "e009",
+            "e010",
+            "e017",
+            "e026",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户与同学李婷讨论最后两天的复习安排，并发送消息约定12月19日考后在考点门口碰头对答案，推断存在同伴共同备考与考后碰面安排。",
+          "source_event_ids": [
+            "e008",
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户查看12月19日西安天气（晴，-2℃~8℃），并搜索12月19日13:00从太白南路小区到长安大学渭水校区考点的出行路线，预计耗时约55分钟，推断其在规划考试当天赴考行程（事件未记录具体交通方式）。",
+          "source_event_ids": [
+            "e006",
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户在 shopping_app 搜索“六级真题试卷”（按销量排序），但窗口内无对应下单或支付记录，推断其存在购买纸质真题的意向但尚未确认购买。",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户将12月17日“听力练习”日程由19:00调整到20:00，结合考前冲刺语境推断为配合备考作息的安排调整，但事件本身未出现六级、真题等明确指涉。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否继续报考六级口语加试",
+        "是否已实际打印准考证",
+        "是否实际购买六级真题试卷或其他纸质备考资料",
+        "考试当天具体交通方式与最终出发时间是否已确定",
+        "与同学李婷考后碰头的安排是否已得到对方确认",
+        "听力练习日程调整后是否按计划执行"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e007",
+    "e011",
+    "e013",
+    "e015",
+    "e016",
+    "e018",
+    "e019",
+    "e020",
+    "e022",
+    "e024",
+    "e025",
+    "e027",
+    "e028"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c06-s01-139648a9"
+}

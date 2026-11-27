@@ -1,0 +1,807 @@
+{
+  "sample_id": "c08-s03-2b914f19",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "已将预订前调研/初始提议类事件 e001、e008、e010、e015 从 supporting 修正为 related_interest，仅保留家庭确认、包间预订、定金支付、日历日程和群内确认等决定性证据为 supporting；意图仍为单一家庭聚餐，category 采用 family，与场景及 purpose family_gathering 一致。e029 的 query_purpose 字段虽有内容泄露感，但不影响其真实语义关系，无需据此重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "read_article",
+        "game_play",
+        "health_article",
+        "news_headlines",
+        "video_playlist",
+        "contacts_search_repair",
+        "car_rental_browse_other_city",
+        "fin_points",
+        "cal_view",
+        "food_lunch",
+        "photo_album",
+        "social_feed_photo",
+        "review_brunch_browse",
+        "gov_residence_progress",
+        "sys_storage"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "全家年底聚餐预订",
+        "category": "social_dining",
+        "purpose": "family_gathering",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002",
+          "e004",
+          "e019",
+          "e020",
+          "e022",
+          "e023"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e008",
+          "e010",
+          "e013",
+          "e015",
+          "e021",
+          "e027",
+          "e029",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "家人确认周日晚上18:30开始聚餐，并要求预订有包间的餐厅。",
+            "source_event_ids": [
+              "e002"
+            ]
+          },
+          {
+            "fact": "家庭成员计划共8人参加，并建议预订10人包间以便宽松就座。",
+            "source_event_ids": [
+              "e004"
+            ]
+          },
+          {
+            "fact": "已在老城隍本帮菜馆(福佑路店)预订12月27日18:30的10人包间，8人用餐，预订状态为预订成功。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "已支付200元包间预订定金，支付成功。",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "已创建12月27日18:30至20:30的“全家年底聚餐”日程，地点为老城隍本帮菜馆(福佑路店)。",
+            "source_event_ids": [
+              "e022"
+            ]
+          },
+          {
+            "fact": "已向家庭群发送包间已订好、定金已付的确认消息。",
+            "source_event_ids": [
+              "e023"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "聚餐地点选在城隍庙商圈的本帮菜馆。",
+            "source_event_ids": [
+              "e008",
+              "e010",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户在比较后倾向于选择老城隍本帮菜馆，因为其有10人包间且免最低消费。",
+            "source_event_ids": [
+              "e010",
+              "e015",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户在会前考虑了驾车路线、天气和餐厅附近停车安排。",
+            "source_event_ids": [
+              "e027",
+              "e029",
+              "e030"
+            ]
+          },
+          {
+            "fact": "该聚餐属于家庭团聚性质的年底聚会。",
+            "source_event_ids": [
+              "e001",
+              "e002",
+              "e004",
+              "e019"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "最终到场人数是否仍为8人",
+          "聚餐费用如何分摊",
+          "是否需要安排餐后活动"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e005",
+      "e006",
+      "e007",
+      "e009",
+      "e011",
+      "e012",
+      "e014",
+      "e016",
+      "e017",
+      "e018",
+      "e024",
+      "e025",
+      "e026",
+      "e028"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c08-s03-2b914f19",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_weak_evidence",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e008",
+          "e010",
+          "e015"
+        ],
+        "description": "Gold 将 e001（家庭群初始提议/询问周日是否有空）、e008（餐厅搜索）、e010（查看详情）、e015（比较两家餐厅）标为 supporting，但 blind_annotation 和便于对照的 event_labels 均将这些归为 related_interest；这些事件属于预订前调研或发起讨论，不是 required_evidence 中的最终确认、预订成功、定金支付或日历日程。把它们计入 supporting 使 supporting_event_count 虚高到 10，弱化了核心证据边界。",
+        "suggested_action": "将 e001、e008、e010、e015 改为 related_interest，supporting 保留 e002、e004、e019、e020、e022、e023；同步更新 supporting/related_interest 计数。若必须满足 supporting 预算，应重新生成更多直接证据，不要用调研行为凑数。"
+      },
+      {
+        "issue_type": "content_leakage_or_unnatural_field",
+        "severity": "medium",
+        "event_ids": [
+          "e029"
+        ],
+        "description": "e029 的天气查询内容含 query_purpose='外出聚餐穿衣参考'，这是内部目的标注而非自然天气 App 字段，直接提示该事件与聚餐相关，降低语义推断难度并显得不自然。",
+        "suggested_action": "删除 query_purpose 或改为自然查询词（如 city='上海'、query_date='12月27日'、forecast 等）；关系仍按真实语义保留为 related_interest。"
+      },
+      {
+        "issue_type": "time_profile_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e003",
+          "e026",
+          "e028"
+        ],
+        "description": "time_profile 称 18:10-19:05 只有家庭群消息、23点后只剩路线/天气/停车等弱相关行为，但 e003 在 18:50 阅读历史文化文章，e026 在 23:03 查看居住证进度，e028 在 23:13 清理缓存，与描述不一致。",
+        "suggested_action": "调整 time_profile 表述，或移动/替换这些噪声事件，使规格与事件时间线一致。"
+      },
+      {
+        "issue_type": "participant_detail_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e004",
+          "e022"
+        ],
+        "description": "e004 明确计划 8 人（二叔、婶婶、表弟、姑姑一家三口、母子俩），但 e022 日历 participants 只列妈妈、二叔、姑姑、表弟，未包含二婶及姑姑家人；不影响核心结论，但细节不一致。",
+        "suggested_action": "补全 participants 或改为概括性参与人描述，保持与 8 人聚餐计划一致。"
+      },
+      {
+        "issue_type": "blind_category_mismatch",
+        "severity": "low",
+        "event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e019"
+        ],
+        "description": "盲标将意图 category 从规格的 family 改为 social_dining；purpose 仍为 family_gathering。若分类体系要求与场景规格一致，这会造成标签不一致。",
+        "suggested_action": "确认分类映射：若以规格为准改回 family；若允许更细粒度，补充 family 到 social_dining 的映射说明。"
+      }
+    ],
+    "summary": "单意图证据链本身完整：家庭群确认、包间预订、定金支付、日历日程和群内确认均存在。主要问题是 Gold 将 4 个预订前调研/初始提议升级为 supporting，导致支持证据边界和计数失真；另有天气查询字段泄露、时间线描述和参与人细节不一致。建议修正标签和内容后重审。"
+  },
+  "adjudication": {
+    "sample_id": "c08-s03-2b914f19",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "全家年底聚餐",
+          "category": "family",
+          "purpose": "family_gathering",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e004",
+            "e019",
+            "e020",
+            "e022",
+            "e023"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e008",
+            "e010",
+            "e013",
+            "e015",
+            "e021",
+            "e027",
+            "e029",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "妈妈确认周日晚上18:30开始聚餐，并要求预订有包间的餐厅。",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "二叔确认参加人数共8人，并建议预订10人包间以便宽松就座。",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "已在老城隍本帮菜馆(福佑路店)预订12月27日18:30的10人包间，8人用餐，预订状态为预订成功，订单号R2026122209451。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "已支付200元包间预订定金，支付成功。",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "已创建12月27日18:30至20:30的“全家年底聚餐”日程，地点为老城隍本帮菜馆(福佑路店)。",
+              "source_event_ids": [
+                "e022"
+              ]
+            },
+            {
+              "fact": "已向家庭群发送包间已订好、定金已付的确认消息。",
+              "source_event_ids": [
+                "e023"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "聚餐地点选在城隍庙商圈的本帮菜馆。",
+              "source_event_ids": [
+                "e008",
+                "e010",
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户在比较两家本帮菜馆后倾向于选择老城隍本帮菜馆，因为其有10人包间且免最低消费。",
+              "source_event_ids": [
+                "e010",
+                "e015",
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户在会前考虑了驾车路线、天气和餐厅附近停车安排。",
+              "source_event_ids": [
+                "e027",
+                "e029",
+                "e030"
+              ]
+            },
+            {
+              "fact": "该聚餐属于家庭团聚性质的年底聚会。",
+              "source_event_ids": [
+                "e001",
+                "e002",
+                "e004",
+                "e019"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "最终到场人数是否仍为8人",
+            "是否需要为长辈安排接送",
+            "聚餐费用如何分摊",
+            "是否需要安排餐后活动"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e005",
+        "e006",
+        "e007",
+        "e009",
+        "e011",
+        "e012",
+        "e014",
+        "e016",
+        "e017",
+        "e018",
+        "e024",
+        "e025",
+        "e026",
+        "e028"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c08-s03-2b914f19"
+    },
+    "rationale": "已将预订前调研/初始提议类事件 e001、e008、e010、e015 从 supporting 修正为 related_interest，仅保留家庭确认、包间预订、定金支付、日历日程和群内确认等决定性证据为 supporting；意图仍为单一家庭聚餐，category 采用 family，与场景及 purpose family_gathering 一致。e029 的 query_purpose 字段虽有内容泄露感，但不影响其真实语义关系，无需据此重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 6,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "family_gathering": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "family": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 2547,
+      "total_tokens": 4406,
+      "latency_s": 88.58,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1809,
+      "completion_tokens": 8682,
+      "total_tokens": 10491,
+      "latency_s": 83.08,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3821,
+      "completion_tokens": 4928,
+      "total_tokens": 8749,
+      "latency_s": 76.82,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6270,
+      "completion_tokens": 12523,
+      "total_tokens": 18793,
+      "latency_s": 93.29,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10768,
+      "completion_tokens": 3895,
+      "total_tokens": 14663,
+      "latency_s": 24.03,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 365.8
+}

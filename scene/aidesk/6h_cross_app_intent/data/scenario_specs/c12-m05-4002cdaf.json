@@ -1,0 +1,89 @@
+{
+  "title": "年前成都休假与项目评审会并行准备",
+  "scenario_category": "multi_intent",
+  "subscenario": "成都旅游 + 工作项目会议",
+  "template_id": "C12-M05",
+  "difficulty": "D5_multi_intent",
+  "key_entities": {
+    "home_city": "深圳",
+    "destinations": [
+      "成都"
+    ],
+    "products": [
+      "深圳北-成都东高铁票",
+      "熊猫基地门票"
+    ],
+    "people": [
+      "李总监",
+      "同事张工"
+    ],
+    "dates": [
+      "12月22日",
+      "12月26日",
+      "12月28日"
+    ],
+    "other": [
+      "项目评审会",
+      "春熙路附近酒店"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "成都年假游玩",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的12月26日深圳北到成都东高铁票订单",
+        "已预订的12月26日入住成都春熙路附近酒店"
+      ],
+      "optional_evidence": [
+        "熊猫基地门票购买记录",
+        "成都美食攻略浏览与火锅店收藏",
+        "日历周视图中显示的成都行程备注"
+      ],
+      "unknown_information": [
+        "是否有同行人",
+        "返程车票是否已预订"
+      ],
+      "supporting_event_count": 5,
+      "related_interest_event_count": 3,
+      "contradicting_event_count": 0
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "季度项目评审会",
+      "category": "work",
+      "purpose": "meeting",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "邮件收到的12月22日14:00项目评审会邀请",
+        "日历中已创建的评审会日程",
+        "回复邮件确认按时参会"
+      ],
+      "optional_evidence": [
+        "项目结项方案文档的查看记录",
+        "浏览项目文档目录",
+        "日历周视图中显示的评审会日程"
+      ],
+      "unknown_information": [
+        "是否需要现场出席或可线上参会",
+        "评审材料是否已定稿"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 3,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 10,
+    "related_interest": 5,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前三分之一（约11:00-12:40）旅游侧完成车票下单、支付与酒店预订；中段（13:00-14:30）出现两条交叉事件（同事IM私信同时提到评审材料与成都行程、日历周视图同时显示评审会与出行备注），并收到评审会邮件邀请、创建日历日程；后段（14:30-16:30）工作侧回复确认参会并查看项目方案，旅游侧购买景点门票、浏览攻略并收藏餐厅。两个意图的决定性强证据分别位于窗口约四分之一与二分之一处，两簇证据交错出现而非分段集中",
+  "variant_note": "与同模板其他样本的差异：出发地为深圳，交通证据用高铁票而非机票；旅游证据簇为高铁订单+支付+酒店预订+景点门票，工作证据簇为邮件邀请+日历创建+确认回复+方案文档；交叉事件为IM私信（supporting，同时确认两个意图）与日历周视图浏览（related_interest，同时展示两个日程）；两侧均为强证据且状态为confirmed，未使用取消或改期反转，区别于同模板中一强一弱或含状态变化的样本",
+  "scenario_id": "c12-m05-4002cdaf"
+}

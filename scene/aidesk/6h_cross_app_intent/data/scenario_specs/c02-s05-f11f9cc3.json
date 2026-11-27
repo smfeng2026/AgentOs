@@ -1,0 +1,53 @@
+{
+  "title": "午间刷行业资讯并浏览岗位信息",
+  "scenario_category": "work",
+  "subscenario": "工作兴趣",
+  "template_id": "C02-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [],
+    "people": [],
+    "dates": [],
+    "other": [
+      "人工智能行业",
+      "算法工程师岗位",
+      "行业新闻资讯"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "关注行业与岗位机会",
+      "category": "work",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在job_app浏览并收藏算法类岗位",
+        "在news_app浏览人工智能行业新闻"
+      ],
+      "optional_evidence": [
+        "在video_app观看技术行业解读视频",
+        "在learning_app浏览机器学习课程页面"
+      ],
+      "unknown_information": [
+        "是否有明确的求职或跳槽计划",
+        "目标公司和岗位方向",
+        "是否已更新简历或投递"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口开头只有news_app的行业资讯浏览；岗位搜索和收藏集中在上午10:30-11:30和午休后13:00-13:40；全程无投递、简历更新、日程创建或任何下单类强证据",
+  "variant_note": "本样本仅用job_app的搜索、浏览、收藏动作和news_app的行业内容浏览构成弱证据簇，辅助interest来自video_app和learning_app的浏览行为；与同模板其他样本相比，主题落在人工智能行业与算法岗位，事件顺序为资讯先行、岗位浏览后置，证据强度停留在emerging且confidence为low",
+  "scenario_id": "c02-s05-f11f9cc3"
+}

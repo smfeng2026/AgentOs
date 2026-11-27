@@ -1,0 +1,285 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "居家训练入门探索",
+      "category": "fitness",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e002",
+        "e004",
+        "e005",
+        "e008",
+        "e009",
+        "e011",
+        "e013",
+        "e015",
+        "e016",
+        "e019",
+        "e021",
+        "e022",
+        "e024",
+        "e028",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户搜索并连续浏览零基础居家训练视频，包括15分钟全身跟练、新手核心训练和20分钟HIIT入门。",
+          "source_event_ids": [
+            "e002",
+            "e004",
+            "e005",
+            "e008"
+          ]
+        },
+        {
+          "fact": "用户在健身应用浏览并收藏“居家零基础 · 7天唤醒训练”录播跟练课程。",
+          "source_event_ids": [
+            "e009",
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户阅读健身新手训练频率及冬季居家锻炼指南等训练知识。",
+          "source_event_ids": [
+            "e013",
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户查看附近健身房及12月6日周末健身体验课，但未预约。",
+          "source_event_ids": [
+            "e015",
+            "e016",
+            "e019",
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户搜索并浏览加厚防滑瑜伽垫及运动服饰，但无下单或加购动作。",
+          "source_event_ids": [
+            "e022",
+            "e024",
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "目标是减脂还是增肌",
+        "是否打算办卡或购买课程",
+        "是否已有具体训练计划",
+        "是否会预约线下体验课或购买装备"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e003",
+    "e006",
+    "e007",
+    "e010",
+    "e012",
+    "e014",
+    "e017",
+    "e018",
+    "e020",
+    "e023",
+    "e025",
+    "e026",
+    "e027",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c10-s05-bb8d9331"
+}

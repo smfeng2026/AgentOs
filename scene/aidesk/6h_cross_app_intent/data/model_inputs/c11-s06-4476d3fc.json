@@ -1,0 +1,376 @@
+{
+  "sample_id": "c11-s06-4476d3fc",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-16T18:10:00+08:00",
+    "end": "2026-12-17T00:10:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-16T18:14:00+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_content",
+      "content": {
+        "title": "古北水镇冬季两日游攻略",
+        "destination": "古北水镇",
+        "tags": [
+          "温泉",
+          "夜景",
+          "司马台长城"
+        ],
+        "browse_duration": "8分钟"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-16T18:37:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "朝阳区望京",
+        "destination": "古北水镇",
+        "travel_mode": "自驾",
+        "distance": "约140公里",
+        "estimated_time": "2小时10分钟",
+        "toll": "京承高速约65元"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-16T18:52:00+08:00",
+      "app": "car_rental_app",
+      "action": "view_order",
+      "content": {
+        "order_no": "CR2026121900385",
+        "pickup_date": "12月19日",
+        "pickup_store": "望京南地铁站门店",
+        "car_model": "紧凑型SUV",
+        "rental_days": 2,
+        "order_status": "已确认",
+        "total_price": "486.00元"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-16T19:21:00+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_content",
+      "content": {
+        "title": "古北水镇圣诞季夜游与温泉住宿推荐",
+        "destination": "古北水镇",
+        "viewed_sections": [
+          "夜景灯光",
+          "温泉酒店",
+          "停车信息"
+        ],
+        "browse_duration": "12分钟"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-16T19:47:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "city": "北京",
+        "warning_type": "暴雪橙色预警",
+        "effective_date": "12月19日",
+        "forecast": "大到暴雪，累计降雪量10至18毫米",
+        "affected_region": "密云区及北部山区",
+        "visibility": "局部不足200米"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-16T20:03:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "李晓",
+        "chat_type": "私聊",
+        "message": "看到暴雪橙色预警了吗？周六还按原计划开车去古北水镇吗？"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-16T20:12:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "李晓",
+        "chat_type": "私聊",
+        "message": "雪太大了高速大概率封路，我先把租的车退了，改查市郊铁路到古北口，票订好告诉你"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-16T20:19:00+08:00",
+      "app": "car_rental_app",
+      "action": "cancel",
+      "content": {
+        "order_no": "CR2026121900385",
+        "pickup_date": "12月19日",
+        "car_model": "紧凑型SUV",
+        "cancel_reason": "暴雪预警，出行方式变更",
+        "cancel_status": "取消成功",
+        "refund_amount": "486.00元"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-16T20:23:33+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "睡前放松"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-16T20:52:17+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "会员日折扣"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-16T21:03:12+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-16T21:07:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "bill_type": "退款到账",
+        "counterparty": "租车平台",
+        "amount": "486.00元",
+        "related_order_no": "CR2026121900385",
+        "refund_status": "已到账",
+        "refund_method": "原路退回储蓄卡尾号6621"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-16T21:08:06+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "社区图书馆延长开放",
+        "source": "财经早报"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-16T21:20:02+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-16T21:29:11+08:00",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-16T21:30:47+08:00",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-16T21:42:00+08:00",
+      "app": "ticket_app",
+      "action": "search",
+      "content": {
+        "keyword": "古北水镇门票",
+        "visit_date": "12月19日",
+        "filters": [
+          "成人票",
+          "当日可订"
+        ],
+        "result_count": 5,
+        "price_range": "120元至180元"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-16T21:49:07+08:00",
+      "app": "job_app",
+      "action": "browse_content",
+      "content": {
+        "keyword": "行业薪资报告",
+        "content_type": "资讯"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-16T22:18:18+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "曼谷"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-16T22:41:42+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 9
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-16T22:54:07+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-16T23:01:46+08:00",
+      "app": "clinic_app",
+      "action": "browse_content",
+      "content": {
+        "service": "疫苗接种预约须知"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-16T23:12:00+08:00",
+      "app": "rail_ticket_app",
+      "action": "search",
+      "content": {
+        "departure_station": "清河站",
+        "arrival_station": "古北口站",
+        "travel_date": "12月19日",
+        "line": "市郊铁路怀密线",
+        "result_count": 3,
+        "fastest_option": "S505次 08:36开 10:24到",
+        "unit_price": "13.00元"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-16T23:31:00+08:00",
+      "app": "rail_ticket_app",
+      "action": "create_order",
+      "content": {
+        "order_no": "T2026121900216",
+        "line": "市郊铁路怀密线",
+        "train_no": "S505次",
+        "departure_station": "清河站",
+        "arrival_station": "古北口站",
+        "travel_date": "12月19日",
+        "departure_time": "08:36",
+        "passenger_count": 2,
+        "passengers": [
+          "本人",
+          "李晓"
+        ],
+        "total_price": "26.00元",
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-16T23:36:00+08:00",
+      "app": "rail_ticket_app",
+      "action": "pay",
+      "content": {
+        "order_no": "T2026121900216",
+        "amount": "26.00元",
+        "payment_method": "微信支付",
+        "order_status": "已支付",
+        "ticket_type": "电子客票"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-16T23:44:30+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "宇宙天文科普"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-16T23:47:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title": "古北水镇周末游（乘市郊铁路）",
+        "event_date": "12月19日",
+        "start_time": "07:30",
+        "end_time": "21:00",
+        "location": "清河站集合",
+        "participants": [
+          "本人",
+          "李晓"
+        ],
+        "updated_field": "出行方式由自驾改为市郊铁路S505次",
+        "reminder": "提前1小时提醒"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-16T23:54:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "李晓",
+        "chat_type": "私聊",
+        "message": "车票买好了：12月19日S505次，清河站08:36开，10:24到古北口，两个人的票都已支付。租车已取消退款486元已到账，周六早上7点半清河站见"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-16T23:57:28+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "伦敦",
+        "topic": "小众咖啡馆地图"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-17T00:00:33+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "北京",
+        "arrival": "呼伦贝尔",
+        "date": "01月06日"
+      }
+    }
+  ]
+}

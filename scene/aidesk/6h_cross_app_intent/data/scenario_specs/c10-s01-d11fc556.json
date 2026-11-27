@@ -1,0 +1,62 @@
+{
+  "title": "周末搏击操课程预约",
+  "scenario_category": "fitness",
+  "subscenario": "健身课程",
+  "template_id": "C10-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "静安体育中心"
+    ],
+    "products": [
+      "瑜伽垫",
+      "运动水壶"
+    ],
+    "people": [
+      "教练李锐",
+      "好友陈晨"
+    ],
+    "dates": [
+      "12月05日"
+    ],
+    "other": [
+      "搏击操体验课"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周末搏击操训练课",
+      "category": "fitness",
+      "purpose": "training",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "venue_booking_app 中12月05日搏击操课程的已预约订单",
+        "payment_app 中对应课程费用的支付成功记录",
+        "fitness_app 中该课程的预约成功状态"
+      ],
+      "optional_evidence": [
+        "calendar_app 创建的12月05日上午上课日程",
+        "map_app 搜索到静安体育中心的路线",
+        "im_app 中发给好友陈晨的约课消息"
+      ],
+      "unknown_information": [
+        "是否购买后续正式课包",
+        "上课当天是否由朋友陪同"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "前两小时（14:20-16:30）以课程搜索、教练与时段比较、场馆评价浏览为主；决定性证据（预约下单+支付）集中在17:40-18:30出现；末段（19:00后）出现日历日程创建、场馆路线搜索和给好友的约课消息，形成完整证据闭环",
+  "variant_note": "单意图预约体验课样本，与同模板其他样本的差异在于：证据分散在 fitness_app、venue_booking_app、payment_app、calendar_app、map_app、im_app 六类 App，需融合判断；决定性支付证据位于窗口中后段；相关兴趣事件包含运动装备浏览（瑜伽垫、运动水壶）、健身视频观看和轻食搜索作为软性佐证，无关事件由程序注入；无反向证据，状态为 confirmed",
+  "scenario_id": "c10-s01-d11fc556"
+}

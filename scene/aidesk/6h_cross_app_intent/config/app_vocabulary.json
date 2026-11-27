@@ -1,0 +1,17 @@
+{
+  "_doc": "Canonical generic app names shared by generated (related) events and the noise pool. Using one closed vocabulary means app naming cannot leak the label, and lets the builder measure app-role shortcuts / hold out apps later. Extend here only.",
+  "apps": [
+    "flight_booking_app", "rail_ticket_app", "hotel_app", "travel_guide_app", "car_rental_app", "taxi_app", "parking_app",
+    "mail_app", "calendar_app", "im_app", "docs_app", "contacts_app", "meeting_app", "job_app",
+    "shopping_app", "price_compare_app", "payment_app", "delivery_app",
+    "restaurant_app", "food_delivery_app", "review_app",
+    "health_app", "hospital_app", "clinic_app", "pharmacy_app",
+    "learning_app", "exam_app", "reader_app", "video_app",
+    "music_app", "ticket_app", "game_app",
+    "home_service_app", "pet_app", "furniture_app",
+    "banking_app", "government_app", "tax_app",
+    "fitness_app", "sports_app", "venue_booking_app",
+    "map_app", "weather_app",
+    "news_app", "social_app", "gallery_app", "settings_app", "commute_app"
+  ]
+}

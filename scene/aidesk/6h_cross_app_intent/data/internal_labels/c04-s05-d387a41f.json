@@ -1,0 +1,569 @@
+{
+  "sample_id": "c04-s05-d387a41f",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与老同学的小聚计划",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "considering",
+      "confidence_level": "low",
+      "required_evidence": [
+        "im_app 中收到对方发来的改天一起吃饭的口头邀约且未提具体时间",
+        "restaurant_app 中搜索并收藏多家适合聚餐的餐厅",
+        "review_app 中查看候选餐厅的评价详情"
+      ],
+      "optional_evidence": [
+        "map_app 查看某家餐厅的位置",
+        "im_app 中把餐厅链接分享给对方但对方未确认时间"
+      ],
+      "unknown_information": [
+        "具体聚餐日期和时段",
+        "参与人数",
+        "最终选定的餐厅",
+        "邀约是否会落实"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T09:45:13+08:00",
+      "app": "music_app",
+      "action": "search_song",
+      "content": {
+        "keyword": "下雨天的歌"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_health",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T09:58:50+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "春季过敏防护指南"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T10:02:18+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "周悦",
+        "chat_type": "私聊",
+        "message_text": "好久没见了，改天一起吃个饭吧？",
+        "has_specific_time": false
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T10:05:41+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "周悦",
+        "message_text": "好啊，到时候约",
+        "proposed_time": "未提及"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_now",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T10:20:05+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T10:47:09+08:00",
+      "app": "restaurant_app",
+      "action": "search",
+      "content": {
+        "keyword": "适合聚餐的餐厅",
+        "city": "杭州",
+        "filters": [
+          "有包厢",
+          "人均100-200元"
+        ]
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_edit",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T10:55:11+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "拼图"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_bookmark",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:00:50+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "世界遗产名录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:02:33+08:00",
+      "app": "restaurant_app",
+      "action": "collect",
+      "content": {
+        "restaurant_name": "青叶日料",
+        "city": "杭州",
+        "avg_price": "约150元",
+        "collect_folder": "想去的店"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_card_bill",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:15:41+08:00",
+      "app": "payment_app",
+      "action": "view_credit_card_bill",
+      "content": {
+        "month": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:26:52+08:00",
+      "app": "review_app",
+      "action": "view_detail",
+      "content": {
+        "restaurant_name": "青叶日料",
+        "review_score": "4.6分",
+        "review_count": 1284,
+        "viewed_section": "环境与包厢评价"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:47:41+08:00",
+      "app": "map_app",
+      "action": "view_place_history",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:51:20+08:00",
+      "app": "restaurant_app",
+      "action": "collect",
+      "content": {
+        "restaurant_name": "拾光小馆",
+        "city": "杭州",
+        "avg_price": "约120元",
+        "collect_folder": "想去的店"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_reply",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T11:55:28+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "工位绿植领养"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T12:23:47+08:00",
+      "app": "restaurant_app",
+      "action": "collect",
+      "content": {
+        "restaurant_name": "南山里火锅",
+        "city": "杭州",
+        "avg_price": "约130元",
+        "collect_folder": "想去的店"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_restaurant_lunch",
+      "hard_negative": true,
+      "timestamp": "2026-12-14T12:33:28+08:00",
+      "app": "restaurant_app",
+      "action": "browse_restaurants",
+      "content": {
+        "area": "公司附近",
+        "meal": "工作日午餐"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T12:40:05+08:00",
+      "app": "food_delivery_app",
+      "action": "create_order",
+      "content": {
+        "merchant": "张记双拼快餐",
+        "items": [
+          "香辣鸡双拼套餐"
+        ],
+        "order_amount": "28元",
+        "order_status": "已提交",
+        "dine_in_or_delivery": "送至公司前台"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T12:57:36+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order",
+      "content": {
+        "merchant": "张记双拼快餐",
+        "order_status": "配送中",
+        "rider_distance": "距收货点约800米"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T13:07:58+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "周悦",
+        "shared_content_type": "餐厅主页链接",
+        "shared_item": "青叶日料",
+        "message_text": "这家评价看着不错，你看看？",
+        "proposed_time": "未提及"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_ranking",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T13:12:33+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T13:26:14+08:00",
+      "app": "map_app",
+      "action": "browse_content",
+      "content": {
+        "city": "杭州",
+        "browse_area": "公司周边2公里",
+        "category": "餐饮商圈",
+        "viewed_pois": [
+          "滨江美食街",
+          "星光大道餐饮层"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T13:58:42+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "content_type": "探店笔记",
+        "topic": "杭州安静小馆探店",
+        "viewed_notes_count": 6
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_wallpaper",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:09:28+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "动漫插画"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:31:19+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "content_type": "美食攻略合集",
+        "topic": "杭州适合多人聚会的馆子",
+        "viewed_notes_count": 4
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_photo",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:38:09+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "城市街景摄影"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_watch",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:44:34+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "厨房收纳技巧",
+        "duration_min": 5
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:49:31+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 9
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:53:47+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "content_type": "榜单",
+        "list_name": "本周杭州热门餐厅榜",
+        "city": "杭州",
+        "viewed_rank_range": "1-20名"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_coupon",
+      "hard_negative": false,
+      "timestamp": "2026-12-14T14:55:42+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "会员日折扣"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-14T15:12:26+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_content",
+      "content": {
+        "city": "杭州",
+        "category": "下午茶甜品",
+        "viewed_merchants": [
+          "半野甜品铺",
+          "浮岛咖啡"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ]
+}

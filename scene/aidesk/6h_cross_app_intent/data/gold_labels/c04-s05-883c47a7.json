@@ -1,0 +1,308 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与老同学敲不定日子的那顿饭",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "considering",
+      "confidence_level": "low",
+      "supporting_event_ids": [
+        "e002",
+        "e003",
+        "e004"
+      ],
+      "related_interest_event_ids": [
+        "e007",
+        "e008",
+        "e010",
+        "e012",
+        "e013",
+        "e016",
+        "e018",
+        "e019",
+        "e020",
+        "e021",
+        "e023",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "老同学阿凯发消息提议改天一起吃个饭",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "用户回复同意，表示最近都行、到时候约，但未给出具体时间",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "阿凯表示回头再定时间，双方始终未敲定日期",
+          "source_event_ids": [
+            "e004"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在餐厅App以“本帮菜/静安寺/朋友聚餐”搜索并浏览朋友聚餐推荐列表，筛选本帮菜、江浙菜",
+          "source_event_ids": [
+            "e007",
+            "e008"
+          ]
+        },
+        {
+          "fact": "用户查看圆苑酒家(静安寺店)详情并收藏进“聚餐候选”文件夹",
+          "source_event_ids": [
+            "e010",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户向阿凯表示已看到几家不错的店、之后会发给他",
+          "source_event_ids": [
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户浏览同城餐厅热门榜与江浙菜口碑榜，并用地图搜索静安寺本帮菜餐厅及圆苑酒家位置",
+          "source_event_ids": [
+            "e016",
+            "e018",
+            "e019",
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户另收藏小南国(南京西路店)到“聚餐候选”，并回看该收藏夹（共2家）",
+          "source_event_ids": [
+            "e021",
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户回看与阿凯当日的聊天记录",
+          "source_event_ids": [
+            "e023"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "具体聚餐日期和时间",
+        "最终选定的餐厅",
+        "是否还有其他老同学参加",
+        "是否已预订餐厅",
+        "聚餐预算"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e005",
+    "e006",
+    "e009",
+    "e011",
+    "e014",
+    "e015",
+    "e017",
+    "e022",
+    "e024",
+    "e025",
+    "e026",
+    "e027",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c04-s05-883c47a7"
+}

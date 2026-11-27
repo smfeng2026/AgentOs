@@ -1,0 +1,810 @@
+{
+  "sample_id": "c06-s05-e58bfd9c",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标：按规则10，本窗口内天文相关事件均为 browse_content、view_detail、search、collect、关注等弱信号，没有订单、报名、日程、出票或明确确认等决定性证据，因此 supporting 应为空，全部天文相关事件标为 related_interest；confirmed_facts 也应为空。意图表述回退为“天文科普内容兴趣探索”，status=emerging，confidence_level=low，保留未知信息中的实际观测、购镜与报名问题，不把单晚浏览升级为“观测准备/系统学习”。e008 为通用“手机摄影入门”课程，不含天文语义，维持 unrelated。实际 unrelated_event_count 为 15。无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "im_family_reply",
+        "shop_order",
+        "fin_points",
+        "fit_water",
+        "food_grocery",
+        "hn_course_other_subject",
+        "news_read",
+        "cal_birthday",
+        "mail_newsletter",
+        "video_search",
+        "ent_trailer",
+        "weather_forecast",
+        "health_article",
+        "sys_update",
+        "map_nearby"
+      ],
+      "hard_negative_ids": [
+        "hn_course_other_subject"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "学习天文观测与星空摄影（含双子座流星雨观测准备）",
+        "category": "learning",
+        "purpose": "hobby",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e003",
+          "e006",
+          "e008",
+          "e009",
+          "e012",
+          "e014",
+          "e019",
+          "e021",
+          "e022",
+          "e023",
+          "e025",
+          "e026",
+          "e027",
+          "e028",
+          "e029",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户对天文、观星及星空摄影有持续兴趣",
+            "source_event_ids": [
+              "e003",
+              "e009",
+              "e014",
+              "e019",
+              "e022",
+              "e027",
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户正在了解双子座流星雨的观测时间、地点和器材攻略",
+            "source_event_ids": [
+              "e009",
+              "e012",
+              "e027",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户在系统学习星座辨认、手机/星空摄影和天文望远镜入门知识",
+            "source_event_ids": [
+              "e006",
+              "e008",
+              "e019",
+              "e021",
+              "e023",
+              "e025",
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户已关注星空摄影话题，并收藏观星/流星雨相关文章以便后续阅读",
+            "source_event_ids": [
+              "e028",
+              "e029",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否计划实际外出观测双子座流星雨，以及具体时间、地点和同行人",
+          "是否打算购买天文望远镜或摄影器材",
+          "是否报名相关课程或参加观星活动",
+          "该兴趣是否会发展为社交分享或专业学习目标"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e004",
+      "e005",
+      "e007",
+      "e010",
+      "e011",
+      "e013",
+      "e015",
+      "e016",
+      "e017",
+      "e018",
+      "e020",
+      "e024"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 14
+    }
+  },
+  "review": {
+    "sample_id": "c06-s05-e58bfd9c",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "意图表述超出证据",
+        "severity": "high",
+        "event_ids": [
+          "e003",
+          "e009",
+          "e014",
+          "e019",
+          "e022",
+          "e027",
+          "e029",
+          "e030"
+        ],
+        "description": "盲标将 intent_name 改写为“学习天文观测与星空摄影（含双子座流星雨观测准备）”，并把“持续兴趣”“系统学习”写入 inferred_facts。全部天文相关事件集中在 12月3日 19:43–23:34 单晚窗口，行为仅为浏览、搜索、收藏和关注话题，没有任何观测日程、器材下单或活动报名。场景规格把“是否有线下观测计划”“是否打算购买望远镜或报名课程”列为 unknown_information，盲标却把“观测准备”写进意图名，属于把弱证据升级为计划性目的；“持续”“系统学习”同样超出单次会话证据。",
+        "suggested_action": "将 intent_name 回退为“天文科普内容兴趣探索”或“天文观测/星空摄影兴趣萌芽”，删除“观测准备”“系统学习”“持续”等表述；“双子座流星雨是否实际观测、是否购镜/报名”保留在 unknown_information。"
+      },
+      {
+        "issue_type": "置信度与状态标注过强",
+        "severity": "high",
+        "event_ids": [
+          "e021",
+          "e023",
+          "e025",
+          "e028",
+          "e030"
+        ],
+        "description": "场景为 D3_weak_evidence，预设 confidence_level=low、status=emerging；盲标给出 confidence_level=high、status=considering（考虑采取行动）。但全部证据为 search/browse_content/view_detail/collect 等弱信号，无课程报名、无器材加购、无日程或提醒，无法支撑“high”与“已进入行动考虑”的判断。",
+        "suggested_action": "将 confidence_level 降为 low 或至多 medium，status 保持 emerging（若保留 considering，需补充至少一项行动倾向证据，但不应补造事件）。"
+      },
+      {
+        "issue_type": "noise 与真实语义可能冲突（硬负例）",
+        "severity": "medium",
+        "event_ids": [
+          "e008",
+          "e006"
+        ],
+        "description": "e008 被生成器标为 origin=noise 且 hard_negative=true（learning_app 浏览“手机摄影入门”课程），但盲标将其归入 related_interest。上下文里 e006 是“手机也能拍星空”视频，手机摄影与该用户的天文摄影兴趣存在语义邻近，同时“手机摄影入门”本身又不含任何天文观测内容，属边界事件。当前生成器标 unrelated、盲标标 related_interest 的冲突未在标注中得到解释，也无裁决记录。",
+        "suggested_action": "由裁决器显式判定：若视作“手机星野摄影”兴趣的延续，则改标 related_interest（但不得计入 supporting）；若判定为通用摄影课、与天文无关，则维持 unrelated 并注明为硬负例。无论哪种，都不得丢弃本样本。"
+      },
+      {
+        "issue_type": "supporting 分配缺失",
+        "severity": "medium",
+        "event_ids": [
+          "e014",
+          "e019",
+          "e021",
+          "e023",
+          "e025",
+          "e027",
+          "e028",
+          "e030"
+        ],
+        "description": "盲标 supporting_event_ids 为空，把全部 16 个相关事件一律放入 related_interest_event_ids，与场景规划的 supporting=8 / related_interest=7 结构不符。其中 e021/e025（星座辨认、望远镜入门搜索且未报名）、e028/e030（reader_app 收藏天文文章）正是 required_evidence 直接对应的条目，应作为 supporting，未做区分会削弱证据分层。",
+        "suggested_action": "按 required_evidence 对齐，把 e014、e019、e021、e023、e025、e027、e028、e030 标为 supporting，e003、e006、e009、e012、e022、e026、e029 保持 related_interest，并对 e008 单独裁决。"
+      },
+      {
+        "issue_type": "事件溯源字段不自然",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e006",
+          "e012",
+          "e014",
+          "e021",
+          "e022",
+          "e023",
+          "e025",
+          "e026",
+          "e027",
+          "e028",
+          "e029",
+          "e030"
+        ],
+        "description": "多条 origin=related 事件的 generator_event_id 指向完全无关的 noise 事件，例如 e014（冬季星空辨认视频）← e005（记录喝水 8 杯）、e021（星座辨认搜索）← e007（外卖搜“水果”）、e022（星空摄影话题）← e008、e026（流星雨摄影帖）← e011（妈妈生日提醒）、e030（流星雨攻略收藏）← e015（搜“家常菜做法”）。溯源链与业务因果不符，属于不自然的生成逻辑，会误导后续证据链审查。",
+        "suggested_action": "修正 generator_event_id，使其指向同一意图链内的相关事件（如 e003→e006→e019→e021 等），或将该字段置空并注明为独立生成，避免与 noise 事件建立伪因果。"
+      },
+      {
+        "issue_type": "相关性与噪声边界模糊",
+        "severity": "low",
+        "event_ids": [
+          "e017"
+        ],
+        "description": "e017（weather_app 查看逐小时预报）位于 21:52 天文浏览最集中时段，从“看天气是否为观星做准备”角度存在相关可能，但 content 仅写“当前所在城市”、无观星场景信息，证据不足以判定相关。当前标 unrelated 可以接受，但该风险未被记录。",
+        "suggested_action": "维持 unrelated，但在备注中标识为潜在相关边界事件；不因时间邻近而强行改标，也不建议补造观测相关天气查询。"
+      },
+      {
+        "issue_type": "action 与 content 字段不一致",
+        "severity": "low",
+        "event_ids": [
+          "e029"
+        ],
+        "description": "e029 的 action 为 collect，但 content 中 object_type=话题、operation=关注，语义是“关注话题”而非“收藏”，动作字段自相矛盾。",
+        "suggested_action": "将 action 统一为 follow/subscribe，或在 content 中补充收藏文件夹等收藏语义字段，保持字段一致。"
+      },
+      {
+        "issue_type": "业务逻辑不自然",
+        "severity": "low",
+        "event_ids": [
+          "e010"
+        ],
+        "description": "e010 为 news_app 阅读“城市马拉松报名启动”，来源标注“科技晚报”，来源媒体与内容主题不匹配，属轻度不自然生成。",
+        "suggested_action": "更换为与体育/本地新闻匹配的来源，或调整文章主题使其与来源一致。"
+      },
+      {
+        "issue_type": "近似重复证据",
+        "severity": "low",
+        "event_ids": [
+          "e009",
+          "e012"
+        ],
+        "description": "e009（浏览“双子座流星雨12月14日迎来极大，每小时可见上百颗”）与 e012（阅读“双子座流星雨12月14日极大，观测指南请查收”）标题高度接近，来自不同来源但内容重叠，存在关键词堆叠、重复抬高同一事实权重的风险。",
+        "suggested_action": "保留两条但区分内容侧重点（一条偏预报、一条偏观测指南并体现阅读进度差异），或在计数时合并为一条证据，避免重复计数。"
+      }
+    ],
+    "summary": "单一意图“天文兴趣萌芽”主体成立，20–30 号事件的弱信号链完整；但盲标存在三处核心偏差：把单晚弱信号升级为“观测准备 + 持续/系统学习”并在 weak-evidence 场景给出 high 置信度；未分配任何 supporting 事件；以及对硬负例 e008 的归属未与生成器对齐。另有多条 related 事件的 generator_event_id 指向无关 noise 事件，溯源与业务因果不自然。建议下调意图表述与置信度、补齐 supporting 划分、对 e008 显式裁决并修正溯源字段后再放行。"
+  },
+  "adjudication": {
+    "sample_id": "c06-s05-e58bfd9c",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "天文科普内容兴趣探索",
+          "category": "learning",
+          "purpose": "hobby",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e003",
+            "e006",
+            "e009",
+            "e012",
+            "e014",
+            "e019",
+            "e021",
+            "e022",
+            "e023",
+            "e025",
+            "e026",
+            "e027",
+            "e028",
+            "e029",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户在单晚连续浏览多条天文科普视频，内容涉及双子座流星雨、冬季星空辨认和流星雨观测攻略。",
+              "source_event_ids": [
+                "e003",
+                "e014",
+                "e019",
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户通过新闻和文章了解双子座流星雨12月14日极大及观测指南。",
+              "source_event_ids": [
+                "e009",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户在learning_app搜索星座辨认、天文望远镜入门关键词，窗口内未出现报名或下单行为。",
+              "source_event_ids": [
+                "e021",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户浏览手机星空摄影、天文望远镜入门内容，并查看星空摄影话题与流星雨摄影帖子。",
+              "source_event_ids": [
+                "e006",
+                "e022",
+                "e023",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户收藏观星/流星雨相关文章并在社交app关注星空摄影话题。",
+              "source_event_ids": [
+                "e028",
+                "e029",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否计划在12月14日前后实际外出观测双子座流星雨，以及具体时间、地点和同行人",
+            "是否打算购买天文望远镜或摄影器材",
+            "是否报名相关课程或参加观星活动",
+            "该兴趣是否会发展为社交分享或持续学习目标"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e005",
+        "e007",
+        "e008",
+        "e010",
+        "e011",
+        "e013",
+        "e015",
+        "e016",
+        "e017",
+        "e018",
+        "e020",
+        "e024"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c06-s05-e58bfd9c"
+    },
+    "rationale": "修正盲标：按规则10，本窗口内天文相关事件均为 browse_content、view_detail、search、collect、关注等弱信号，没有订单、报名、日程、出票或明确确认等决定性证据，因此 supporting 应为空，全部天文相关事件标为 related_interest；confirmed_facts 也应为空。意图表述回退为“天文科普内容兴趣探索”，status=emerging，confidence_level=low，保留未知信息中的实际观测、购镜与报名问题，不把单晚浏览升级为“观测准备/系统学习”。e008 为通用“手机摄影入门”课程，不含天文语义，维持 unrelated。实际 unrelated_event_count 为 15。无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "hobby": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "learning": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1852,
+      "completion_tokens": 1450,
+      "total_tokens": 3302,
+      "latency_s": 15.3,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1681,
+      "completion_tokens": 5699,
+      "total_tokens": 7380,
+      "latency_s": 66.37,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3319,
+      "completion_tokens": 7198,
+      "total_tokens": 10517,
+      "latency_s": 56.13,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5534,
+      "completion_tokens": 5777,
+      "total_tokens": 11311,
+      "latency_s": 44.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10450,
+      "completion_tokens": 4280,
+      "total_tokens": 14730,
+      "latency_s": 28.4,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 210.32
+}

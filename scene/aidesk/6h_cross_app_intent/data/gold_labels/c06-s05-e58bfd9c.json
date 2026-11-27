@@ -1,0 +1,285 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "天文科普内容兴趣探索",
+      "category": "learning",
+      "purpose": "hobby",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e003",
+        "e006",
+        "e009",
+        "e012",
+        "e014",
+        "e019",
+        "e021",
+        "e022",
+        "e023",
+        "e025",
+        "e026",
+        "e027",
+        "e028",
+        "e029",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在单晚连续浏览多条天文科普视频，内容涉及双子座流星雨、冬季星空辨认和流星雨观测攻略。",
+          "source_event_ids": [
+            "e003",
+            "e014",
+            "e019",
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户通过新闻和文章了解双子座流星雨12月14日极大及观测指南。",
+          "source_event_ids": [
+            "e009",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户在learning_app搜索星座辨认、天文望远镜入门关键词，窗口内未出现报名或下单行为。",
+          "source_event_ids": [
+            "e021",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户浏览手机星空摄影、天文望远镜入门内容，并查看星空摄影话题与流星雨摄影帖子。",
+          "source_event_ids": [
+            "e006",
+            "e022",
+            "e023",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户收藏观星/流星雨相关文章并在社交app关注星空摄影话题。",
+          "source_event_ids": [
+            "e028",
+            "e029",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否计划在12月14日前后实际外出观测双子座流星雨，以及具体时间、地点和同行人",
+        "是否打算购买天文望远镜或摄影器材",
+        "是否报名相关课程或参加观星活动",
+        "该兴趣是否会发展为社交分享或持续学习目标"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e004",
+    "e005",
+    "e007",
+    "e008",
+    "e010",
+    "e011",
+    "e013",
+    "e015",
+    "e016",
+    "e017",
+    "e018",
+    "e020",
+    "e024"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c06-s05-e58bfd9c"
+}

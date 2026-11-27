@@ -1,0 +1,60 @@
+{
+  "title": "周末老友烤肉饭局敲定",
+  "scenario_category": "social_dining",
+  "subscenario": "朋友聚餐",
+  "template_id": "C04-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "静安寺"
+    ],
+    "products": [],
+    "people": [
+      "老周",
+      "小林",
+      "阿凯"
+    ],
+    "dates": [
+      "12月05日"
+    ],
+    "other": [
+      "烤肉店",
+      "四人桌预订",
+      "100元订金"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周六晚四人烤肉局",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "即时通讯群聊中确定周六晚聚餐时间的消息往来",
+        "餐厅App中已完成的12月05日18:00四人桌预订",
+        "支付App中对应预订的订金支付记录"
+      ],
+      "optional_evidence": [
+        "日历App中新建的周六晚聚餐日程",
+        "群聊中转发的预订成功确认"
+      ],
+      "unknown_information": [
+        "最终到店人数是否会临时变化"
+      ],
+      "supporting_event_count": 11,
+      "related_interest_event_count": 4,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 11,
+    "related_interest": 4,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前段（16:30-18:00）为IM群聊约时间、拉人确认；中段（18:00-21:00）为餐厅搜索、看评价、两店对比等犹豫比较；决定性证据（下单订座、订金支付、日历建日程）集中在窗口最后半小时（21:30-22:15）出现",
+  "variant_note": "与同模板其他样本相比：本样本以订金支付+日历日程作为跨App融合的关键链路，餐厅类型为烤肉而非火锅，人数固定为四人，且中段加入较长的两店对比环节，使单看餐厅App无法直接确认结果，必须结合支付与IM证据；无取消或改期干扰",
+  "scenario_id": "c04-s01-9e1006a1"
+}

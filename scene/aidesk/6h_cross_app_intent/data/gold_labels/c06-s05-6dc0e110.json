@@ -1,0 +1,285 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "数据分析自学意向",
+      "category": "learning",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e003",
+        "e004",
+        "e007",
+        "e010",
+        "e013",
+        "e017",
+        "e019",
+        "e020",
+        "e023",
+        "e025",
+        "e026",
+        "e027",
+        "e028",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在learning_app搜索并浏览Python零基础入门课程，表现出对编程入门内容的关注",
+          "source_event_ids": [
+            "e003",
+            "e004"
+          ]
+        },
+        {
+          "fact": "用户比较Python入门课与数据分析训练营，并浏览数据分析方向课程列表",
+          "source_event_ids": [
+            "e013",
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户查看编程教学与Pandas数据处理视频详情，继续接触Python/数据分析内容",
+          "source_event_ids": [
+            "e007",
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户搜索数据分析入门书籍并查看、收藏相关书籍",
+          "source_event_ids": [
+            "e023",
+            "e025",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户阅读数据分析师职业资讯、搜索数据分析学习路线，并收藏自学Python经验文章",
+          "source_event_ids": [
+            "e010",
+            "e028",
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户在视频知识区浏览到算法、Excel函数等相邻内容",
+          "source_event_ids": [
+            "e027"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "学习动机是转行、工作需要还是纯兴趣",
+        "是否会报名付费课程或购买书籍",
+        "是否有明确的学习计划、开始时间或认证考试安排"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e005",
+    "e006",
+    "e008",
+    "e009",
+    "e011",
+    "e012",
+    "e014",
+    "e015",
+    "e016",
+    "e018",
+    "e021",
+    "e022",
+    "e024",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 16
+  },
+  "sample_id": "c06-s05-6dc0e110"
+}

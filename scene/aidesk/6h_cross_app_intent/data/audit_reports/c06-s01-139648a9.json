@@ -1,0 +1,813 @@
+{
+  "sample_id": "c06-s01-139648a9",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "意图单一且证据充分，无需重新生成。裁决要点：(1) 证据分级：e001 为本人准考证（含准考证号、考场、座位），属于报名生效/出票类决定性证据，e003 为日历中已存在且与官方通知一致的已确认考试日程，e005 为教务处正式考前通知，e012 为已支付的六级冲刺课订单，四者判 supporting；e008/e009/e010/e014/e017/e021/e023/e026/e029/e030 均为沟通、浏览课程与范文、搜索真题与路线、观看视频、浏览经验帖等 view/browse/search 或安排性消息，按语义边界保留 related_interest；e029 仅是把“听力练习”改到20:00，虽属日程更新但内容未出现六级指涉，不宜升为 supporting（也不构成对备考的反向证据，故不判 contradicting）。(2) 盲标把 e001/e003 降级为主要错误，已修正；但审计建议把 e009/e010 升为 supporting 不符合 view/browse 类动作归 related_interest 的口径，未采纳。(3) 状态：准考证、已确认考试日程与已支付冲刺课表明该备考意图已确立并在执行中，planned 改为 confirmed。(4) 事实修正：删除 e021 事实中无据的“驾车”表述，仅保留出发地、目的地、日期与预计耗时；并为 e029 事实加注推断限定。(5) 补回场景 unknown_information 中“是否继续报考口语加试”。(6) 15 条 unrelated 均为语义上与六级备考无关的噪声（含通用职场类噪声），按真实语义维持无关，实际 unrelated_event_count=15。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "fin_balance",
+        "map_commute",
+        "comm_subway",
+        "food_history",
+        "news_share",
+        "pay_bill",
+        "cal_view",
+        "hn_course_other_subject",
+        "work_industry_news",
+        "sys_update",
+        "video_search",
+        "im_friend_reply",
+        "shop_order",
+        "read_article",
+        "weather_now"
+      ],
+      "hard_negative_ids": [
+        "hn_course_other_subject"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "备考大学英语六级考试",
+        "category": "learning",
+        "purpose": "exam_prep",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e005",
+          "e012",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e006",
+          "e008",
+          "e009",
+          "e010",
+          "e014",
+          "e017",
+          "e021",
+          "e023",
+          "e026",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "学校教务处通知显示大学英语六级考试于12月19日15:00-17:25在长安大学渭水校区考点举行，并要求提前打印准考证、携带身份证入场。",
+            "source_event_ids": [
+              "e005"
+            ]
+          },
+          {
+            "fact": "用户已支付99元购买“大学英语六级冲刺课（考前点睛班）”，订单状态为已支付。",
+            "source_event_ids": [
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户将12月17日的“听力练习”日程从19:00调整到20:00。",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户查看了六级考试准考证信息，包含准考证号、考场修远教学楼302和座位18，推断其已报名该考试并获取了考点座位信息。",
+            "source_event_ids": [
+              "e001"
+            ]
+          },
+          {
+            "fact": "用户日历中已有12月19日大学英语六级考试日程，时间地点与官方通知一致。",
+            "source_event_ids": [
+              "e003"
+            ]
+          },
+          {
+            "fact": "用户在多个学习、阅读、视频和社交应用中浏览六级冲刺课、真题、写作范文、听力技巧及备考经验帖，推断其正在系统性备考。",
+            "source_event_ids": [
+              "e009",
+              "e010",
+              "e017",
+              "e026",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户查询12月19日西安天气并搜索从太白南路小区到长安大学渭水校区考点的驾车路线，推断其在规划考试当天出行。",
+            "source_event_ids": [
+              "e006",
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户与同学李婷讨论考前复习安排并约定考后考点门口碰头对答案，推断其有同伴备考和考后碰面安排。",
+            "source_event_ids": [
+              "e008",
+              "e023"
+            ]
+          },
+          {
+            "fact": "用户搜索“六级真题试卷”但无购买或下单记录，推断其有购买备考资料的兴趣但未确认购买。",
+            "source_event_ids": [
+              "e014"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否已完成六级考试报名缴费（仅有准考证信息，无报名或缴费事件）",
+          "用户最终是否会参加12月19日的考试",
+          "用户是否实际购买六级真题试卷或其他备考资料",
+          "12月19日前往考点的具体交通方式与出发时间是否最终确定",
+          "与同学李婷考后碰头的安排是否已得到对方确认",
+          "听力练习日程调整后是否按计划执行"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e007",
+      "e011",
+      "e013",
+      "e015",
+      "e016",
+      "e018",
+      "e019",
+      "e020",
+      "e022",
+      "e024",
+      "e025",
+      "e027",
+      "e028"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c06-s01-139648a9",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_evidence_demoted",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e009",
+          "e010"
+        ],
+        "description": "盲标把三条 required_evidence 全部降级为 related_interest：e001（exam_app 准考证+考场座位）、e003（calendar_app 12月19日15:00 六级考试日程）、e009（learning_app 六级冲刺课学习记录）。这三条正是任务规格点名的必备证据，也是全样本最直接的 exam_prep 证据；e010（learning_app 六级真题模考）同样属于核心学习记录。盲标 supporting 只剩 [e005,e012,e029]，把最强证据误判为弱相关，导致 supporting 与 related_interest 的语义边界被颠倒。",
+        "suggested_action": "将 e001、e003、e009（并建议 e010）改标为 supporting；related_interest 仅保留 e006、e008、e014、e017、e026、e030 一类弱辅助行为。"
+      },
+      {
+        "issue_type": "unsupported_fact_detail",
+        "severity": "medium",
+        "event_ids": [
+          "e021"
+        ],
+        "description": "盲标 inferred_fact 写“搜索从太白南路小区到长安大学渭水校区考点的驾车路线”，但 e021 的 content 只有出发地、目的地、出发日期与 expected_duration_minutes，未包含任何交通方式字段，“驾车”属于无证据补充。",
+        "suggested_action": "将该事实改为“搜索前往考点的路线，预计55分钟”，删除“驾车”表述；或不为该细节下结论。"
+      },
+      {
+        "issue_type": "intent_status_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e012",
+          "e029"
+        ],
+        "description": "Gold 将 i001 标为 status=planned，盲标标为 confirmed。若把“冲刺备考”视为已发生的行为，凭准考证查看、考试日程、冲刺课支付与听力日程调整，confirmed 可成立；若把意图理解为“参加12月19日考试”，则考试尚未发生，planned 更稳妥。两侧判断不一致，需裁决统一口径。",
+        "suggested_action": "明确 intent 语义边界后统一状态；若以行为证据为准建议 confirmed，若以考试尚未举行事件为准保留 planned，并在 unknown_information 中说明。"
+      },
+      {
+        "issue_type": "weak_evidence_as_supporting",
+        "severity": "low",
+        "event_ids": [
+          "e029"
+        ],
+        "description": "e029 仅是把“听力练习”日历从19:00改到20:00，事件内容未出现六级、真题等任何考试指向，Gold 与盲标都把它计为 supporting 并作为 confirmed_fact。它依赖语境推断（考前两天的英文听力练习），属于弱证据。",
+        "suggested_action": "降级为 related_interest，或在 fact 描述中显式标注“推断为六级听力练习”；不要单凭此事件强化 exam_prep 结论。"
+      },
+      {
+        "issue_type": "noise_relatedness_check",
+        "severity": "low",
+        "event_ids": [
+          "e028",
+          "e016"
+        ],
+        "description": "e028（weather_app 查看当前城市天气）与 e016（calendar_app 本月视图）在“临考查看考试当天天气/确认考试日程”的语境下存在弱语义吸附可能，但两者内容都没有城市日期、考试标题等可核查指涉，仍不足以判为相关。",
+        "suggested_action": "维持 unrelated，不需改标；建议在场景中让 e028/e016 保持完全无考试字段，避免与 e006/e003 产生语义重叠。"
+      },
+      {
+        "issue_type": "persona_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e004",
+          "e011",
+          "e019"
+        ],
+        "description": "注入噪声来自通用职场池：e004“公司→家”通勤、e011“公司楼下面馆”、e019“行业季度报告”，与在校大学生（六级考生）人设不符，虽不影响意图判定，但削弱样本真实性。",
+        "suggested_action": "可将此类噪声池替换为校园/生活类无关事件（如校园卡充值、食堂订单历史），或接受现状并在备注中说明。"
+      },
+      {
+        "issue_type": "unknown_information_dropped",
+        "severity": "low",
+        "event_ids": [],
+        "description": "场景规格中的 unknown_information 含“是否继续报考口语加试”，盲标的 unknown_information 未保留该项，信息覆盖不完整（不影响主结论）。",
+        "suggested_action": "在盲标 unknown_information 中补回“是否继续报考六级口语加试”。"
+      }
+    ],
+    "summary": "意图本身成立：exam_prep 由 e001（准考证/考场座位）、e003（考试日程）、e005（教务处通知）、e009/e010（冲刺课与真题学习）、e012（冲刺课支付）形成完整证据链，无缺失意图、无错误合并拆分，也没有取消/退款/改期类状态变化被误述，未发现 intent_name 原样泄露（仅主题词密度偏高，但内容自然）。主要问题出在盲标侧：它把 e001、e003、e009（以及 e010）这四条最关键的必备/核心证据降级为 related_interest，使 supporting 只剩 e005、e012、e029，属于高严重度的证据分级错误；此外 e021 推断事实凭空添加“驾车”、意图状态 planned/confirmed 不一致、e029 作为 supporting 证据偏弱，以及噪声池带出的职场人设与在校生身份不符。建议盲标重新分级、修正 e021 事实表述、统一状态口径；Gold 侧整体可用，只需评估 e029 是否降级。"
+  },
+  "adjudication": {
+    "sample_id": "c06-s01-139648a9",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "六级考前冲刺备考",
+          "category": "learning",
+          "purpose": "exam_prep",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e012"
+          ],
+          "related_interest_event_ids": [
+            "e006",
+            "e008",
+            "e009",
+            "e010",
+            "e014",
+            "e017",
+            "e021",
+            "e023",
+            "e026",
+            "e029",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户在 exam_app 查看的六级准考证载明：考试日期 12月19日、15:00 开考、考点为长安大学渭水校区考点、考场为修远教学楼302、座位18号，准考证号 2612****0835，表明考试报名与准考证已生效。",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "用户日历中已存在12月19日15:00-17:25“大学英语六级考试”日程，地点为长安大学渭水校区考点。",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "学校教务处发来考前通知，确认六级考试于12月19日15:00-17:25在长安大学渭水校区考点举行，并要求提前打印准考证、携带身份证入场。",
+              "source_event_ids": [
+                "e005"
+              ]
+            },
+            {
+              "fact": "用户支付99元购买“大学英语六级冲刺课（考前点睛班）”，订单状态为已支付。",
+              "source_event_ids": [
+                "e012"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在 learning_app 学习六级冲刺课“写作预测与高分模板精讲”、完成六级真题模考（仔细阅读10题）、在 reader_app 阅读六级写作高分范文、在 video_app 观看六级听力冲刺技巧、在 social_app 浏览六级备考交流小组的冲刺作息经验帖，推断其正在多 App 系统性冲刺备考。",
+              "source_event_ids": [
+                "e009",
+                "e010",
+                "e017",
+                "e026",
+                "e030"
+              ]
+            },
+            {
+              "fact": "用户与同学李婷讨论最后两天的复习安排，并发送消息约定12月19日考后在考点门口碰头对答案，推断存在同伴共同备考与考后碰面安排。",
+              "source_event_ids": [
+                "e008",
+                "e023"
+              ]
+            },
+            {
+              "fact": "用户查看12月19日西安天气（晴，-2℃~8℃），并搜索12月19日13:00从太白南路小区到长安大学渭水校区考点的出行路线，预计耗时约55分钟，推断其在规划考试当天赴考行程（事件未记录具体交通方式）。",
+              "source_event_ids": [
+                "e006",
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户在 shopping_app 搜索“六级真题试卷”（按销量排序），但窗口内无对应下单或支付记录，推断其存在购买纸质真题的意向但尚未确认购买。",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户将12月17日“听力练习”日程由19:00调整到20:00，结合考前冲刺语境推断为配合备考作息的安排调整，但事件本身未出现六级、真题等明确指涉。",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否继续报考六级口语加试",
+            "是否已实际打印准考证",
+            "是否实际购买六级真题试卷或其他纸质备考资料",
+            "考试当天具体交通方式与最终出发时间是否已确定",
+            "与同学李婷考后碰头的安排是否已得到对方确认",
+            "听力练习日程调整后是否按计划执行"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e007",
+        "e011",
+        "e013",
+        "e015",
+        "e016",
+        "e018",
+        "e019",
+        "e020",
+        "e022",
+        "e024",
+        "e025",
+        "e027",
+        "e028"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c06-s01-139648a9"
+    },
+    "rationale": "意图单一且证据充分，无需重新生成。裁决要点：(1) 证据分级：e001 为本人准考证（含准考证号、考场、座位），属于报名生效/出票类决定性证据，e003 为日历中已存在且与官方通知一致的已确认考试日程，e005 为教务处正式考前通知，e012 为已支付的六级冲刺课订单，四者判 supporting；e008/e009/e010/e014/e017/e021/e023/e026/e029/e030 均为沟通、浏览课程与范文、搜索真题与路线、观看视频、浏览经验帖等 view/browse/search 或安排性消息，按语义边界保留 related_interest；e029 仅是把“听力练习”改到20:00，虽属日程更新但内容未出现六级指涉，不宜升为 supporting（也不构成对备考的反向证据，故不判 contradicting）。(2) 盲标把 e001/e003 降级为主要错误，已修正；但审计建议把 e009/e010 升为 supporting 不符合 view/browse 类动作归 related_interest 的口径，未采纳。(3) 状态：准考证、已确认考试日程与已支付冲刺课表明该备考意图已确立并在执行中，planned 改为 confirmed。(4) 事实修正：删除 e021 事实中无据的“驾车”表述，仅保留出发地、目的地、日期与预计耗时；并为 e029 事实加注推断限定。(5) 补回场景 unknown_information 中“是否继续报考口语加试”。(6) 15 条 unrelated 均为语义上与六级备考无关的噪声（含通用职场类噪声），按真实语义维持无关，实际 unrelated_event_count=15。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "exam_prep": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "learning": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.9,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 2807,
+      "total_tokens": 4664,
+      "latency_s": 28.94,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1772,
+      "completion_tokens": 5821,
+      "total_tokens": 7593,
+      "latency_s": 114.12,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3448,
+      "completion_tokens": 7021,
+      "total_tokens": 10469,
+      "latency_s": 53.08,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5996,
+      "completion_tokens": 7442,
+      "total_tokens": 13438,
+      "latency_s": 62.0,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10549,
+      "completion_tokens": 5425,
+      "total_tokens": 15974,
+      "latency_s": 35.85,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 294.01
+}

@@ -1,0 +1,61 @@
+{
+  "title": "六级考试前两天的冲刺备考",
+  "scenario_category": "learning",
+  "subscenario": "考试准备",
+  "template_id": "C06-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "西安",
+    "destinations": [
+      "长安大学渭水校区考点"
+    ],
+    "products": [
+      "大学英语六级冲刺课",
+      "六级真题试卷"
+    ],
+    "people": [
+      "同学李婷"
+    ],
+    "dates": [
+      "12月19日"
+    ],
+    "other": [
+      "大学英语六级考试",
+      "六级准考证"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "六级考前冲刺备考",
+      "category": "learning",
+      "purpose": "exam_prep",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "exam_app 中查看六级准考证与考场安排的记录",
+        "calendar_app 中 12月19日 15:00 的六级考试日程",
+        "learning_app 中六级冲刺课的学习记录"
+      ],
+      "optional_evidence": [
+        "支付六级冲刺课的订单",
+        "与同学约定考后对答案的聊天消息",
+        "搜索前往考点路线的记录"
+      ],
+      "unknown_information": [
+        "是否继续报考口语加试"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "决定性证据集中在窗口前段（09:45-11:00）：查看准考证与考场信息、在日历中确认考试日程、收到学校考试安排邮件；中段（11:00-13:30）为冲刺课学习、真题模考与课程支付；末段（14:00-15:45）出现考点路线搜索、与同学约考后对答案的消息以及把今晚听力练习改到 20:00 的日历更新，证据链在多类 App 间需要融合才能确认",
+  "variant_note": "与同模板其他样本相比：考试日期极度临近（后天开考），时间压力使备考行为密集；证据分布在 exam_app、calendar_app、learning_app、payment_app、mail_app、im_app、map_app 七类 App，需融合准考证、考试日程与课程学习三类核心证据；含考点路线搜索与考试当天天气查看等临考特有行为；无任何反向或干扰性相关证据，干扰项由程序以无关事件注入",
+  "scenario_id": "c06-s01-139648a9"
+}

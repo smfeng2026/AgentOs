@@ -1,0 +1,566 @@
+{
+  "sample_id": "c02-s05-df12f707",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "关注AI行业动态与岗位机会",
+      "category": "work",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "job_app中搜索并查看多个大模型相关岗位详情",
+        "news_app中浏览并收藏多篇人工智能行业分析文章"
+      ],
+      "optional_evidence": [
+        "learning_app浏览大模型相关课程介绍",
+        "查看12月18日线上行业峰会的直播信息"
+      ],
+      "unknown_information": [
+        "是否准备投递简历或更换工作",
+        "浏览岗位是出于职业规划还是行业好奇",
+        "当前从事的具体工作方向"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_backup",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T07:46:13+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_view",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T07:51:00+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T08:02:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "article_title": "2026年人工智能行业发展报告：大模型进入落地深水区",
+        "category": "科技资讯",
+        "source": "科技日报",
+        "read_duration_sec": 185
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T08:17:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "五分钟看懂大模型是怎么训练出来的",
+        "channel": "科技早知道",
+        "duration_sec": 312,
+        "play_progress": "完整观看"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T08:34:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "article_title": "大模型商业化下半场：从拼参数到拼场景",
+        "category": "深度分析",
+        "source": "第一财经",
+        "read_duration_sec": 240
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T08:39:04+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "居家拉伸跟练",
+        "duration_min": 12
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_points",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T08:54:46+08:00",
+      "app": "banking_app",
+      "action": "view_credit_card_points",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "health_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T09:10:32+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "护眼小贴士"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T09:12:00+08:00",
+      "app": "job_app",
+      "action": "search",
+      "content": {
+        "keyword": "大模型算法",
+        "city": "杭州",
+        "filter_experience": "不限",
+        "result_count": 37
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_playlist",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T09:24:42+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "90年代金曲"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T09:46:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "article_title": "AI芯片供需回暖，国产算力厂商加速扩产",
+        "category": "产业动态",
+        "source": "财新网",
+        "read_duration_sec": 90
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T10:24:00+08:00",
+      "app": "learning_app",
+      "action": "search",
+      "content": {
+        "keyword": "大模型",
+        "course_type": "在线课程",
+        "sort_by": "人气",
+        "result_count": 42
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_bookmark",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T10:50:26+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "历史文化文章"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T10:52:00+08:00",
+      "app": "learning_app",
+      "action": "browse_content",
+      "content": {
+        "course_title": "大模型微调实战：从LoRA到RLHF",
+        "instructor": "高校NLP实验室讲师",
+        "price": "399元",
+        "lesson_count": 24,
+        "view_depth": "浏览至课程大纲"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_like",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T10:59:00+08:00",
+      "app": "social_app",
+      "action": "like_post",
+      "content": {
+        "topic": "城市夜景摄影"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T11:08:00+08:00",
+      "app": "job_app",
+      "action": "search",
+      "content": {
+        "keyword": "算法工程师",
+        "city": "杭州",
+        "filter_experience": "3-5年",
+        "result_count": 126
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_daily",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T11:28:34+08:00",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T11:31:00+08:00",
+      "app": "job_app",
+      "action": "browse_content",
+      "content": {
+        "feed_section": "推荐职位",
+        "city": "杭州",
+        "visible_titles": [
+          "机器学习平台开发工程师",
+          "数据挖掘工程师",
+          "NLP应用工程师"
+        ],
+        "slide_count": 6
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T11:52:00+08:00",
+      "app": "job_app",
+      "action": "view_detail",
+      "content": {
+        "job_title": "大模型算法工程师",
+        "company": "杭州某智能科技公司",
+        "salary": "35k-60k·16薪",
+        "city": "杭州",
+        "requirements": "熟悉Transformer架构与预训练流程",
+        "view_duration_sec": 96
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_browse",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T11:57:20+08:00",
+      "app": "shopping_app",
+      "action": "browse_category",
+      "content": {
+        "category": "日常清洁用品"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_balance",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:00:50+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:11:00+08:00",
+      "app": "job_app",
+      "action": "view_detail",
+      "content": {
+        "job_title": "大模型预训练算法研究员",
+        "company": "杭州某互联网企业",
+        "salary": "40k-70k·15薪",
+        "city": "杭州",
+        "requirements": "具备大规模分布式训练经验",
+        "view_duration_sec": 120
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_cleanup",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:12:23+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_lunch",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:24:40+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:29:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "program_title": "2026人工智能行业年度峰会线上直播",
+        "live_date": "12月18日",
+        "live_time": "09:30",
+        "platform": "科技频道直播间",
+        "guest_count": 12,
+        "agenda_viewed": true
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:40:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "AI峰会 直播",
+        "filter": "直播预告",
+        "result_count": 9
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:47:00+08:00",
+      "app": "news_app",
+      "action": "collect",
+      "content": {
+        "article_title": "大模型人才缺口持续扩大，算法岗薪资逆势上涨",
+        "collection_folder": "科技收藏夹",
+        "collect_source": "文章详情页"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:50:00+08:00",
+      "app": "map_app",
+      "action": "view_place_history",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_forecast",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:53:39+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:56:00+08:00",
+      "app": "news_app",
+      "action": "collect",
+      "content": {
+        "article_title": "年度盘点：生成式AI的十大行业落地案例",
+        "collection_folder": "科技收藏夹",
+        "collect_source": "文章详情页"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ]
+}

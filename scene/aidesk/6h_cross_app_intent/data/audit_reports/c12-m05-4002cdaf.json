@@ -1,0 +1,882 @@
+{
+  "sample_id": "c12-m05-4002cdaf",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标与审查发现：e010为评审会邀请邮件，是i002的直接证据，改标为supporting并补入confirmed_facts；e014仅是同事询问/提醒，未确认订票或参会，降为i001与i002的related_interest；e018、e026属于文档查看/浏览，按规则保持related_interest；同步修正supporting/related列表和事件标签镜像关系，并修正超出证据的到达日期表述。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "hn_guide_other_city",
+        "food_history",
+        "shop_browse",
+        "clinic_vaccine_notice",
+        "hn_hotel_other_city",
+        "social_feed_photo",
+        "mail_cleanup",
+        "home_ac_cleaning_search",
+        "pet_vaccine_schedule",
+        "exam_driving_license_bank",
+        "music_playlist",
+        "video_playlist",
+        "hn_map_other_city",
+        "pay_card_bill",
+        "venue_badminton_schedule"
+      ],
+      "hard_negative_ids": [
+        "hn_guide_other_city",
+        "hn_hotel_other_city",
+        "hn_map_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "12月26日深圳北至成都的成都行程",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002",
+          "e007",
+          "e009",
+          "e016"
+        ],
+        "related_interest_event_ids": [
+          "e013",
+          "e014",
+          "e022",
+          "e024"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "已创建12月26日深圳北至成都东高铁订单（G2964，08:15发车，二等座，¥549，待支付）",
+            "source_event_ids": [
+              "e002"
+            ]
+          },
+          {
+            "fact": "该高铁票已于12月19日支付成功，金额¥549，支付方式微信支付",
+            "source_event_ids": [
+              "e007"
+            ]
+          },
+          {
+            "fact": "已预订成都春熙路云栖酒店，12月26日入住、12月28日退房，大床房2晚，¥358/晚，状态已预订",
+            "source_event_ids": [
+              "e009"
+            ]
+          },
+          {
+            "fact": "已购买12月27日熊猫基地门票1张，¥55，支付成功",
+            "source_event_ids": [
+              "e016"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "行程时间聚焦12月26日至28日，与高铁到达日期和酒店入住区间一致",
+            "source_event_ids": [
+              "e002",
+              "e009"
+            ]
+          },
+          {
+            "fact": "行程内容包含熊猫基地游玩、火锅店收藏和成都游玩攻略浏览，倾向休闲旅游而非商务",
+            "source_event_ids": [
+              "e016",
+              "e022",
+              "e024"
+            ]
+          },
+          {
+            "fact": "该成都行程已进入用户在日历中的周视图，说明用户将其视为既定安排",
+            "source_event_ids": [
+              "e013",
+              "e009",
+              "e007"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "返程交通方式与日期",
+          "住宿之外的具体每日安排",
+          "同行人员情况",
+          "出行目的最终是纯旅游还是附带其他事务"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "参加Q4项目结项评审会",
+        "category": "work",
+        "purpose": "meeting",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e011",
+          "e015"
+        ],
+        "related_interest_event_ids": [
+          "e010",
+          "e013",
+          "e014",
+          "e018",
+          "e026",
+          "e028",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "已创建日程“Q4项目结项评审会”，时间为12月22日14:00-15:30，地点公司3楼会议室，参与人李总监、同事张工，设置提前30分钟提醒",
+            "source_event_ids": [
+              "e011"
+            ]
+          },
+          {
+            "fact": "已回复李总监邮件，确认22日下午按时参加评审会并会前发送汇报材料确认",
+            "source_event_ids": [
+              "e015"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户需在会前审阅同事张工更新的结项方案V3.2并准备汇报要点",
+            "source_event_ids": [
+              "e014",
+              "e018",
+              "e028"
+            ]
+          },
+          {
+            "fact": "评审会涉及结项方案、测试报告、复盘纪要等多份项目文档，用户已浏览相关文档目录",
+            "source_event_ids": [
+              "e026",
+              "e018"
+            ]
+          },
+          {
+            "fact": "会议相关安排已进入日历周视图，且用户查看了线上参会入口说明，存在线上参与准备的可能",
+            "source_event_ids": [
+              "e013",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "评审会最终采用线下还是线上方式",
+          "汇报材料的具体内容与完成进度",
+          "会议是否有其他参会人"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001",
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001",
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e003",
+      "e004",
+      "e005",
+      "e006",
+      "e008",
+      "e012",
+      "e017",
+      "e019",
+      "e020",
+      "e021",
+      "e023",
+      "e025",
+      "e027",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c12-m05-4002cdaf",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "blind_evidence_mislabel",
+        "severity": "high",
+        "event_ids": [
+          "e010"
+        ],
+        "description": "盲标将 e010（李总监发送的12月22日14:00 Q4项目结项评审会邀请邮件）标为 related_interest，且未写入 i002 的 supporting_event_ids 或 confirmed_facts；但场景 required_evidence 明确要求该邮件邀请，邮件本身也包含会议时间、地点和回复要求，是 i002 的直接强证据。",
+        "suggested_action": "裁决器应将 e010 改标为 i002 的 supporting，并在 i002 confirmed_facts 中补充“收到评审会邀请邮件（12月22日14:00-15:30，公司3楼会议室，需回复）”。"
+      },
+      {
+        "issue_type": "supporting_weak_evidence",
+        "severity": "medium",
+        "event_ids": [
+          "e014"
+        ],
+        "description": "labeled_events 将 e014 同时标为 i001/i002 的 supporting，但该 IM 对 i001 仅是询问“26号去成都的车票订好了吧”，并未确认已订票；对 i001 属于弱相关对话，不应作为支持性证据。盲标将 i001 这一侧降为 related_interest 更合理。",
+        "suggested_action": "将 e014 对 i001 改为 related_interest；i002 侧可保留 supporting 或 related_interest，但需与最终计数同步。"
+      },
+      {
+        "issue_type": "evidence_label_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e018",
+          "e026"
+        ],
+        "description": "盲标将 e018（查看Q4结项方案V3.2）和 e026（浏览Q4项目结项文档目录）标为 related_interest，而 labeled_events 将其标为 i002 supporting；两者都是直接的会前工作准备行为，至少应保持同一裁决口径，不能一边作为支持证据一边作为兴趣相关。",
+        "suggested_action": "裁决器统一 e018/e026 的 relation：若按直接工作准备证据处理，应改为 i002 supporting 并纳入计数；若按可选辅助证据处理，则同步降低 labeled_events 的 supporting 标记，避免重复口径。"
+      },
+      {
+        "issue_type": "evidence_overclaim",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e009"
+        ],
+        "description": "i001 的 inferred_fact 称“与高铁到达日期一致”，但 e002 只提供12月26日08:15深圳北出发，没有到达日期/时间；酒店入住日期只能佐证同日到达的合理推断，不能作为“到达日期”直接事实。",
+        "suggested_action": "将该推断改写为“与高铁出发日期和酒店入住日期一致”，或补充包含到达时间的车票事件后再声明到达日期。"
+      }
+    ],
+    "summary": "样本包含两个清晰意图，旅游与会议的核心事件基本成立；但盲标把 i002 的必需邮件邀请 e010 降为 related_interest 且未写入 confirmed_facts，这是高风险漏标。另有 e014/e018/e026 的 supporting 口径不一致，以及一处“到达日期”推断超出 e002 证据。建议裁决器修正标签和事实后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c12-m05-4002cdaf",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "成都年假游玩",
+          "category": "travel",
+          "purpose": "tourism",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e007",
+            "e009",
+            "e016"
+          ],
+          "related_interest_event_ids": [
+            "e013",
+            "e014",
+            "e022",
+            "e024"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "已创建12月26日深圳北至成都东高铁订单（G2964，08:15发车，二等座，¥549，待支付）",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "该高铁票已支付成功，金额¥549，支付方式为微信支付",
+              "source_event_ids": [
+                "e007"
+              ]
+            },
+            {
+              "fact": "已预订成都春熙路云栖酒店，12月26日入住、12月28日退房，大床房2晚，¥358/晚，订单状态已预订",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "已购买12月27日熊猫基地门票1张，¥55，支付成功，订单状态已支付",
+              "source_event_ids": [
+                "e016"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "行程日期聚焦12月26日至28日，与高铁出发日期及酒店入住区间一致",
+              "source_event_ids": [
+                "e002",
+                "e009"
+              ]
+            },
+            {
+              "fact": "熊猫基地门票、成都游玩攻略浏览和春熙路火锅店收藏共同指向休闲旅游安排",
+              "source_event_ids": [
+                "e016",
+                "e022",
+                "e024"
+              ]
+            },
+            {
+              "fact": "该成都行程已出现在日历周视图中，说明被视为既定安排",
+              "source_event_ids": [
+                "e013",
+                "e007",
+                "e009"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否有同行人",
+            "返程交通方式与日期",
+            "住宿之外的具体每日安排",
+            "出行是否纯旅游或附带其他事务"
+          ],
+          "conflicts": []
+        },
+        {
+          "intent_id": "i002",
+          "intent_name": "季度项目评审会",
+          "category": "work",
+          "purpose": "meeting",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e010",
+            "e011",
+            "e015"
+          ],
+          "related_interest_event_ids": [
+            "e013",
+            "e014",
+            "e018",
+            "e026",
+            "e028",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "收到李总监发送的Q4项目结项评审会邀请邮件，会议时间为12月22日14:00-15:30，地点公司3楼会议室，需回复是否参会",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "已创建“Q4项目结项评审会”日历日程，12月22日14:00-15:30，地点公司3楼会议室，参与人李总监、同事张工，提前30分钟提醒",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "已回复李总监邮件，确认22日下午按时参加评审会并将于会前发送汇报材料确认",
+              "source_event_ids": [
+                "e015"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "需在会前审阅同事张工更新的结项方案V3.2并准备汇报要点",
+              "source_event_ids": [
+                "e014",
+                "e018",
+                "e028"
+              ]
+            },
+            {
+              "fact": "评审会涉及结项方案、测试报告、复盘纪要等项目文档，用户已浏览相关文档目录",
+              "source_event_ids": [
+                "e026",
+                "e018"
+              ]
+            },
+            {
+              "fact": "会议安排已进入日历周视图，且用户查看了线上参会入口说明，存在线上参与准备的可能",
+              "source_event_ids": [
+                "e013",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "评审会最终采用线下还是线上方式",
+            "汇报材料的具体内容与完成进度",
+            "会议是否有其他参会人"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001",
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001",
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e003",
+        "e004",
+        "e005",
+        "e006",
+        "e008",
+        "e012",
+        "e017",
+        "e019",
+        "e020",
+        "e021",
+        "e023",
+        "e025",
+        "e027",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 2,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c12-m05-4002cdaf"
+    },
+    "rationale": "修正盲标与审查发现：e010为评审会邀请邮件，是i002的直接证据，改标为supporting并补入confirmed_facts；e014仅是同事询问/提醒，未确认订票或参会，降为i001与i002的related_interest；e018、e026属于文档查看/浏览，按规则保持related_interest；同步修正supporting/related列表和事件标签镜像关系，并修正超出证据的到达日期表述。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 2,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "tourism": 1,
+        "meeting": 1
+      },
+      "statuses": {
+        "confirmed": 2
+      },
+      "categories": {
+        "travel": 1,
+        "work": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1876,
+      "completion_tokens": 5693,
+      "total_tokens": 7569,
+      "latency_s": 111.5,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 2037,
+      "completion_tokens": 10532,
+      "total_tokens": 12569,
+      "latency_s": 101.16,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3751,
+      "completion_tokens": 4646,
+      "total_tokens": 8397,
+      "latency_s": 30.82,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6737,
+      "completion_tokens": 9002,
+      "total_tokens": 15739,
+      "latency_s": 62.1,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11037,
+      "completion_tokens": 6222,
+      "total_tokens": 17259,
+      "latency_s": 38.68,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 344.26
+}

@@ -1,0 +1,60 @@
+{
+  "title": "暴雪预警后取消租车改乘市郊铁路",
+  "scenario_category": "local_transport",
+  "subscenario": "行程变化",
+  "template_id": "C11-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [
+      "古北水镇",
+      "古北口"
+    ],
+    "products": [],
+    "people": [
+      "同伴李晓"
+    ],
+    "dates": [
+      "12月19日"
+    ],
+    "other": [
+      "租车订单",
+      "市郊铁路车票"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "古北水镇周末出行方式调整",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已取消的12月19日租车订单及退款到账记录",
+        "已支付的12月19日去古北口的市郊铁路车票订单",
+        "日历中将周六行程更新为火车出行的记录"
+      ],
+      "optional_evidence": [
+        "天气App中12月19日暴雪预警",
+        "通知同伴改乘火车的聊天消息",
+        "去往火车站的打车预约"
+      ],
+      "unknown_information": [
+        "是否另订古北水镇门票",
+        "返程是否同样乘火车"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 2
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 7,
+    "contradicting": 2
+  },
+  "time_profile": "窗口前两小时只有旧行为：浏览古北水镇攻略、查自驾路线、看租车订单，中段天气App出现12月19日暴雪预警并与同伴讨论，第三至四小时完成取消租车与退款，最后约一小时集中出现火车票搜索、下单、支付、更新日历和通知同伴的决定性证据",
+  "variant_note": "与同模板其他样本的差异：本样本不是彻底放弃出行，而是取消租车后改乘市郊铁路，取消与改订在窗口内先后出现，状态由自驾计划变更为火车计划；干扰项是大量残留的旧行为（自驾路线搜索、租车订单查看）和天气预警，同模板其他样本可能只取消不改订或改订出租车、城际大巴",
+  "scenario_id": "c11-s06-4476d3fc"
+}

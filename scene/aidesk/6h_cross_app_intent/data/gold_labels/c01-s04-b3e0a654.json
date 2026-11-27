@@ -1,0 +1,311 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "深圳客户项目评审出差",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e001",
+        "e008",
+        "e010",
+        "e020",
+        "e022"
+      ],
+      "related_interest_event_ids": [
+        "e002",
+        "e003",
+        "e004",
+        "e006",
+        "e013",
+        "e016",
+        "e024",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "客户方陈总监发来项目阶段评审会议邀请，会议日期为12月16日，地点为客户公司前海办公室。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "用户创建上海浦东—深圳宝安往返机票订单，去程12月15日CZ3553 09:15、返程12月17日HU7285 18:40，1人，金额¥2320，下单时订单状态为待支付。",
+          "source_event_ids": [
+            "e008"
+          ]
+        },
+        {
+          "fact": "用户已支付上海浦东至深圳宝安往返机票¥2320，支付成功，订单状态为已支付。",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户已预订深圳湾万丽酒店12月15日至12月17日商务大床房2晚，预订状态为已预订。",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户已在日历创建12月16日10:00-12:00“客户项目阶段评审会”日程，地点为客户公司前海办公室3楼会议室。",
+          "source_event_ids": [
+            "e022"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户出行目的为赴深圳参加客户方项目阶段评审会，属于商务出差。",
+          "source_event_ids": [
+            "e001",
+            "e002",
+            "e022",
+            "e024",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户行程覆盖12月15日至12月17日，包含往返机票与两晚酒店。",
+          "source_event_ids": [
+            "e008",
+            "e010",
+            "e020",
+            "e029"
+          ]
+        },
+        {
+          "fact": "会议地点在深圳前海客户办公室，用户查询了从宝安机场到该办公室的驾车路线。",
+          "source_event_ids": [
+            "e002",
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户与同事李锐讨论过是否一起前往深圳参加评审会，但同行安排尚未完全确定。",
+          "source_event_ids": [
+            "e024",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否需要顺访深圳其他客户",
+        "差旅报销与同行人最终名单",
+        "客户评审会最终参会名单是否确定",
+        "用户是否与同事李锐同行",
+        "会议议程细节与结果"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e005",
+    "e007",
+    "e009",
+    "e011",
+    "e012",
+    "e014",
+    "e015",
+    "e017",
+    "e018",
+    "e019",
+    "e021",
+    "e023",
+    "e025",
+    "e026",
+    "e028"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c01-s04-b3e0a654"
+}

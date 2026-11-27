@@ -1,0 +1,588 @@
+{
+  "sample_id": "c10-s01-d11fc556",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周末搏击操训练课",
+      "category": "fitness",
+      "purpose": "training",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "venue_booking_app 中12月05日搏击操课程的已预约订单",
+        "payment_app 中对应课程费用的支付成功记录",
+        "fitness_app 中该课程的预约成功状态"
+      ],
+      "optional_evidence": [
+        "calendar_app 创建的12月05日上午上课日程",
+        "map_app 搜索到静安体育中心的路线",
+        "im_app 中发给好友陈晨的约课消息"
+      ],
+      "unknown_information": [
+        "是否购买后续正式课包",
+        "上课当天是否由朋友陪同"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T14:26:00+08:00",
+      "app": "fitness_app",
+      "action": "search",
+      "content": {
+        "keyword": "搏击操体验课",
+        "city": "上海",
+        "preferred_date": "12月05日",
+        "distance_filter_km": 5
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_update",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T14:29:17+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T14:47:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "搏击操入门20分钟跟练",
+        "channel": "燃脂健身研究所",
+        "duration_minutes": 20
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_trailer",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:06:33+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "纪录片预告"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:12:00+08:00",
+      "app": "venue_booking_app",
+      "action": "browse_content",
+      "content": {
+        "venue_name": "静安体育中心",
+        "course_type": "搏击操体验课",
+        "available_date": "12月05日",
+        "coach": "李锐",
+        "time_slots": [
+          "10:00-11:00",
+          "15:00-16:00"
+        ],
+        "price_per_class": 99
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_photo",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:22:23+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "建筑摄影作品"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T15:38:00+08:00",
+      "app": "venue_booking_app",
+      "action": "compare",
+      "content": {
+        "venue_name": "静安体育中心",
+        "compare_items": [
+          {
+            "coach": "李锐",
+            "class_time": "12月05日 10:00-11:00",
+            "price": 99,
+            "rating": 4.9
+          },
+          {
+            "coach": "周敏",
+            "class_time": "12月05日 15:00-16:00",
+            "price": 89,
+            "rating": 4.6
+          }
+        ]
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_match_news",
+      "hard_negative": true,
+      "timestamp": "2026-12-03T15:44:27+08:00",
+      "app": "sports_app",
+      "action": "read_match_news",
+      "content": {
+        "league": "足球联赛"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:00:03+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "轻音乐"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:03:00+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "target_name": "静安体育中心",
+        "category": "运动场馆",
+        "overall_rating": 4.6,
+        "review_highlights": [
+          "团课氛围好",
+          "器械区宽敞",
+          "地铁可达"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_forecast",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:10:17+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:25:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "product_name": "加厚防滑瑜伽垫",
+        "category": "运动装备",
+        "price_range": "59-129元",
+        "selected_specc": "厚度8mm"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T16:52:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "运动水壶 大容量",
+        "category": "运动装备",
+        "sort_by": "销量"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_share",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:34:15+08:00",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "周末街头艺术节回顾",
+        "shared_to": "朋友圈"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_album",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:43:52+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "街景与天空"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:46:00+08:00",
+      "app": "venue_booking_app",
+      "action": "create_order",
+      "content": {
+        "venue_name": "静安体育中心",
+        "course_name": "搏击操体验课",
+        "coach": "李锐",
+        "class_date": "12月05日",
+        "class_time": "10:00-11:00",
+        "order_amount": 99,
+        "order_status": "待支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_watch",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T17:50:51+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "历史纪录片片段",
+        "duration_min": 18
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:05:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "静安体育中心",
+        "item": "搏击操体验课（12月05日 10:00-11:00）",
+        "amount": 99,
+        "payment_method": "银行卡",
+        "payment_status": "支付成功"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bus",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:08:35+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:27:00+08:00",
+      "app": "fitness_app",
+      "action": "view_order",
+      "content": {
+        "course_name": "搏击操体验课",
+        "venue_name": "静安体育中心",
+        "coach": "李锐",
+        "class_date": "12月05日",
+        "class_time": "10:00-11:00",
+        "booking_status": "已预约"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_transfer",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:46:45+08:00",
+      "app": "payment_app",
+      "action": "transfer",
+      "content": {
+        "to": "朋友小赵",
+        "amount": "¥68.00",
+        "note": "代付奶茶"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T18:49:00+08:00",
+      "app": "food_delivery_app",
+      "action": "search",
+      "content": {
+        "keyword": "轻食沙拉",
+        "filter_tags": [
+          "低卡",
+          "高蛋白"
+        ],
+        "sort_by": "评分"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "health_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:02:25+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "熬夜后如何恢复"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:08:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "event_title": "搏击操体验课",
+        "event_date": "12月05日",
+        "start_time": "10:00",
+        "end_time": "11:00",
+        "location": "静安体育中心",
+        "reminder": "提前1小时"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_grocery",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:21:05+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:29:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure_point": "家（上海市静安区）",
+        "destination": "静安体育中心",
+        "travel_mode": "驾车",
+        "estimated_minutes": 25,
+        "plan_date": "12月05日"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:47:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "recipient": "陈晨",
+        "message_topic": "约12月05日一起上搏击操体验课",
+        "message_summary": "周六上午静安体育中心有搏击操体验课，我已经约好10点李锐的课，要不要一起来？"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-03T19:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "搏击操基础步伐分解教学",
+        "channel": "居家健身日记",
+        "duration_minutes": 15
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_traffic",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:05:23+08:00",
+      "app": "map_app",
+      "action": "view_commute_traffic",
+      "content": {
+        "road": "常走的环线"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_industry_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-03T20:16:27+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "行业季度报告摘要"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

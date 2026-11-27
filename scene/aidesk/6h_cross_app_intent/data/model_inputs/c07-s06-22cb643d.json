@@ -1,0 +1,342 @@
+{
+  "sample_id": "c07-s06-22cb643d",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-07T07:15:00+08:00",
+    "end": "2026-12-07T13:15:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-07T07:21:06+08:00",
+      "app": "ticket_app",
+      "action": "browse_movie_schedules",
+      "content": {
+        "movie": "儿童动画专场",
+        "date": "工作日晚"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-07T07:32:00+08:00",
+      "app": "ticket_app",
+      "action": "view_order",
+      "content": {
+        "ticket_name": "星野巡回演唱会·杭州站",
+        "venue": "滨江体育中心体育馆",
+        "show_date": "12月26日",
+        "ticket_count": 2,
+        "seat_info": "内场B区 12排",
+        "total_price": "¥1360",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-07T07:48:00+08:00",
+      "app": "music_app",
+      "action": "browse_content",
+      "content": {
+        "singer": "林星野",
+        "song_title": "夜航星",
+        "content_type": "歌手主页热门歌曲",
+        "play_mode": "单曲循环"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-07T07:52:42+08:00",
+      "app": "mail_app",
+      "action": "read_newsletter",
+      "content": {
+        "subject": "商场促销活动"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-07T08:05:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "contact": "朋友小周",
+        "message_subject": "12月26日演唱会碰面",
+        "message_content": "26号下午5点半在滨江体育中心体育馆西门碰头，先吃个饭再进场？"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-07T08:07:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "contact": "朋友小周",
+        "message_subject": "回复：12月26日演唱会碰面",
+        "message_content": "可以，17:30西门见，两张票都在你那，别忘了带"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-07T08:26:00+08:00",
+      "app": "calendar_app",
+      "action": "view_schedule",
+      "content": {
+        "event_title": "林星野巡回演唱会（与小周同行）",
+        "event_date": "12月26日",
+        "start_time": "19:30",
+        "location": "滨江体育中心体育馆",
+        "status": "正常"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-07T08:28:30+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-07T08:39:45+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "儿童绘本推荐"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-07T08:41:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "西湖区文三路",
+        "destination": "滨江体育中心体育馆",
+        "route_date": "12月26日",
+        "suggest_depart_time": "16:50",
+        "estimated_duration": "45分钟"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-07T09:03:00+08:00",
+      "app": "ticket_app",
+      "action": "view_detail",
+      "content": {
+        "ticket_name": "星野巡回演唱会·杭州站",
+        "show_date": "12月26日",
+        "show_time": "19:30",
+        "seat_info": "内场B区 12排 7座、8座",
+        "entry_notice": "凭身份证实名入场",
+        "refund_policy": "演出前7天以上退票收取票价10%手续费"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-07T09:07:23+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-07T09:10:12+08:00",
+      "app": "taxi_app",
+      "action": "browse_content",
+      "content": {
+        "section": "电子发票",
+        "month": "上月"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-07T09:18:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "event_title": "林星野巡回演唱会（与小周同行）",
+        "event_date": "12月26日",
+        "reminder_time": "12月26日 17:30",
+        "reminder_type": "开演前2小时提醒"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-07T09:22:01+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 9
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-07T09:47:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "林星野杭州站",
+        "content_type": "演出话题动态",
+        "account": "林星野官方后援会",
+        "summary": "内场应援物发放点位置更新"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-07T09:50:07+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "给绿植浇水"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-07T09:57:05+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-07T10:02:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "contact": "朋友小周",
+        "message_subject": "临时出差安排",
+        "message_content": "刚接到公司通知，12月24日到28日要去深圳出差，26号的演唱会去不了了，票退了吧，手续费我补给你"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-07T10:24:00+08:00",
+      "app": "ticket_app",
+      "action": "refund",
+      "content": {
+        "ticket_name": "星野巡回演唱会·杭州站",
+        "show_date": "12月26日",
+        "ticket_count": 2,
+        "refund_reason": "同行人临时出差无法到场",
+        "apply_status": "退票申请已提交",
+        "estimated_refund_amount": "¥1224"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-07T10:52:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "refund_item": "星野巡回演唱会·杭州站 门票x2",
+        "original_amount": "¥1360",
+        "handling_fee": "¥136",
+        "refund_amount": "¥1224",
+        "refund_status": "已到账",
+        "arrival_account": "余额账户"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-07T10:58:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title": "林星野巡回演唱会（与小周同行）",
+        "event_date": "12月26日",
+        "original_time": "19:30",
+        "update_type": "标记取消",
+        "reminder_status": "关联提醒已删除"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-07T11:09:28+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-07T11:17:42+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "古生物新发现"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-07T11:40:05+08:00",
+      "app": "parking_app",
+      "action": "view_detail",
+      "content": {
+        "parking_lot": "公司楼下停车场",
+        "section": "收费标准"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-07T12:21:00+08:00",
+      "app": "music_app",
+      "action": "collect",
+      "content": {
+        "singer": "林星野",
+        "song_title": "夜航星",
+        "collect_type": "收藏到歌单",
+        "playlist_name": "巡演歌单"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-07T12:24:31+08:00",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": 4
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-07T12:28:39+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "平台满减活动"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-07T12:30:59+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "公交"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-07T12:47:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "林星野巡演",
+        "content_type": "其他场次讨论帖",
+        "summary": "上海站加场信息讨论"
+      }
+    }
+  ]
+}

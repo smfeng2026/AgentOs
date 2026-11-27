@@ -1,0 +1,376 @@
+{
+  "sample_id": "c02-s01-68d56630",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-05T13:40:00+08:00",
+    "end": "2026-12-05T19:40:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-05T13:52:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "客户李总监",
+        "subject": "确认12月11日季度合作方案汇报安排",
+        "meeting_date": "12月11日",
+        "meeting_time": "14:00-15:30",
+        "location": "浦东新区客户公司办公楼3层会议室",
+        "agenda": [
+          "季度合作方案汇报",
+          "报价框架讨论",
+          "后续合作计划"
+        ],
+        "attendee_requirement": "双方项目对接人参加"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-05T14:03:13+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "极简主义设计"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-05T14:08:00+08:00",
+      "app": "mail_app",
+      "action": "send_message",
+      "content": {
+        "recipient": "客户李总监",
+        "subject": "回复：确认12月11日季度合作方案汇报安排",
+        "body_summary": "确认届时偕同事张倩准时到访，汇报材料电子版将于会前一天发送",
+        "has_attachment": false
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-05T14:19:33+08:00",
+      "app": "map_app",
+      "action": "view_place_history",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-05T14:26:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_target": "同事张倩",
+        "topic": "12月11日客户现场汇报分工",
+        "message": "你负责数据回顾与客户案例部分，我讲方案总述和报价框架，周经理压场",
+        "message_type": "文字"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-05T14:41:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "同事张倩",
+        "topic": "12月11日客户现场汇报分工",
+        "message": "收到，数据页今晚合并进总稿，明早发你终版",
+        "message_type": "文字"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-05T14:58:10+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-05T15:04:12+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-05T15:12:00+08:00",
+      "app": "docs_app",
+      "action": "browse_content",
+      "content": {
+        "list_type": "最近文件",
+        "file_count": 18,
+        "visible_titles": [
+          "客户拜访纪要模板",
+          "Q3合作复盘数据",
+          "竞品方案参考",
+          "内部周报草稿"
+        ],
+        "sort_by": "最近修改"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-05T15:46:00+08:00",
+      "app": "docs_app",
+      "action": "view_detail",
+      "content": {
+        "doc_title": "季度合作方案汇报",
+        "doc_type": "演示文稿",
+        "current_version": "v3",
+        "page_count": 22,
+        "last_edited_time": "今天15:30",
+        "sections": [
+          "合作回顾",
+          "季度目标",
+          "报价框架",
+          "实施计划与分工"
+        ]
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-05T15:58:00+08:00",
+      "app": "mail_app",
+      "action": "search",
+      "content": {
+        "keyword": "李总监",
+        "date_range": "近三个月",
+        "matched_count": 12,
+        "latest_subject": "11月渠道合作对齐会纪要"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-05T16:12:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "标书打印装订",
+        "result_count": 23,
+        "top_results": [
+          "A4铜版纸胶装 当日可取",
+          "投标文件精装定制"
+        ],
+        "price_range": "25-80元"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-05T16:28:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_target": "直属领导周经理",
+        "topic": "汇报材料审阅",
+        "message": "v3版汇报材料已发你邮箱，请重点过一遍报价框架页",
+        "attachment_name": "季度合作方案汇报_v3.pdf",
+        "attachment_size": "4.2MB"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-05T16:40:54+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "历史文化文章"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-05T16:42:08+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "历史冷知识",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-05T16:52:00+08:00",
+      "app": "contacts_app",
+      "action": "view_detail",
+      "content": {
+        "contact_name": "李总监",
+        "company": "客户公司",
+        "phone": "138****6621",
+        "email": "li***@client-corp.com",
+        "note": "季度合作方案对接人"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-05T17:01:17+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "熬夜后如何恢复"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-05T17:11:43+08:00",
+      "app": "news_app",
+      "action": "browse_headlines",
+      "content": {
+        "section": "体育"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-05T17:14:08+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-05T17:18:00+08:00",
+      "app": "calendar_app",
+      "action": "view_schedule",
+      "content": {
+        "date_range": "12月7日至12月13日",
+        "existing_events": [
+          {
+            "title": "部门周例会",
+            "date": "12月7日"
+          },
+          {
+            "title": "Q4复盘会",
+            "date": "12月9日"
+          }
+        ],
+        "conflict_check": "12月11日下午空闲"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-05T17:52:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "客户现场会议：季度合作方案汇报",
+        "date": "12月11日",
+        "start_time": "14:00",
+        "end_time": "15:30",
+        "location": "浦东新区客户公司办公楼3层会议室",
+        "participants": [
+          "客户李总监",
+          "同事张倩",
+          "直属领导周经理"
+        ]
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-05T17:55:51+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "动画电影预告"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-05T18:00:38+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "简约风景"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-05T18:07:03+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-05T18:12:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "reminder_title": "出发前往浦东客户办公楼",
+        "reminder_time": "12月11日 13:15",
+        "linked_event": "客户现场会议：季度合作方案汇报",
+        "repeat": "不重复"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-05T18:33:46+08:00",
+      "app": "game_app",
+      "action": "browse_game_store",
+      "content": {
+        "category": "限时免费"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-05T18:36:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "origin": "公司办公室（上海）",
+        "destination": "浦东新区客户公司办公楼",
+        "planned_departure_time": "12月11日 13:00",
+        "route_options": [
+          {
+            "mode": "驾车",
+            "duration": "约38分钟"
+          },
+          {
+            "mode": "地铁",
+            "duration": "约52分钟"
+          }
+        ],
+        "traffic_hint": "午间后段轻度拥堵"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-05T18:55:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "上海",
+        "district": "浦东新区",
+        "query_date": "12月11日",
+        "forecast_summary": "多云转小雨 8-13℃"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-05T19:29:07+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "上海"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-05T19:32:13+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "会员日折扣"
+      }
+    }
+  ]
+}

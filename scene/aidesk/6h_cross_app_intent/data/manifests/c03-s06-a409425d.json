@@ -1,0 +1,215 @@
+{
+  "sample_id": "c03-s06-a409425d",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:24:50+08:00",
+  "task": {
+    "scenario_category": "shopping",
+    "template_id": "C03-S06",
+    "subscenario": "取消购买",
+    "difficulty": "D6_conflict_state_change",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-05T11:15:00+08:00",
+    "window_end": "2026-12-05T17:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 1281249924
+  },
+  "spec_summary": {
+    "title": "平板电脑下单后取消并重新比价",
+    "intent_names": [
+      "平板电脑购置计划撤销"
+    ],
+    "intent_categories": [
+      "shopping"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [],
+      "products": [
+        "星曜Pad11平板电脑",
+        "灵犀TabS平板",
+        "云驰PadPro平板"
+      ],
+      "people": [],
+      "dates": [
+        "12月05日",
+        "12月07日"
+      ],
+      "other": [
+        "订单金额2899元",
+        "预计送达12月07日"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 2,
+    "gold_unrelated": 15,
+    "gold_supporting": 5,
+    "gold_related_interest": 10,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "unknown": 2
+    },
+    "gold_statuses": {
+      "cancelled": 1,
+      "planned": 1
+    },
+    "gold_categories": {
+      "shopping": 2
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "pay_card_bill",
+      "work_industry_news",
+      "photo_backup",
+      "read_bookmark",
+      "news_share",
+      "music_play",
+      "mail_reply",
+      "hn_product_other",
+      "comm_bus",
+      "food_history",
+      "weather_forecast",
+      "hn_product_wishlist_other",
+      "fit_water",
+      "hn_product_compare_other",
+      "map_commute"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 2,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 2
+      },
+      "statuses": {
+        "cancelled": 1,
+        "planned": 1
+      },
+      "categories": {
+        "shopping": 2
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 1862,
+      "total_tokens": 3719,
+      "latency_s": 36.08,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1728,
+      "completion_tokens": 5042,
+      "total_tokens": 6770,
+      "latency_s": 91.24,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3469,
+      "completion_tokens": 11275,
+      "total_tokens": 14744,
+      "latency_s": 90.2,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6141,
+      "completion_tokens": 8782,
+      "total_tokens": 14923,
+      "latency_s": 76.38,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10689,
+      "completion_tokens": 9006,
+      "total_tokens": 19695,
+      "latency_s": 61.31,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 355.22,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c03-s06-a409425d.json",
+      "sha256": "e2c15757adabec289fd3960bc2ec6f90bcd4e27832d0849d453ade383e6f0db5"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c03-s06-a409425d.json",
+      "sha256": "7187774ef6ccf77db8636826103166caeba441764a207855a4bb6f92d4267776"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c03-s06-a409425d.json",
+      "sha256": "e48c93a4ec86010a2236fbe5ea1c0656dd08702a0dd1d53bb365179940de5fb0"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c03-s06-a409425d.json",
+      "sha256": "253a288e06355cd617321274deebb5f9a7ba3276ebca33444390592c4c4d983a"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c03-s06-a409425d.json",
+      "sha256": "98f7a84ba2e15b3520dab51116475dee7a9b51270faee148c90c46d5344015ae"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "上海",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

@@ -1,0 +1,818 @@
+{
+  "sample_id": "c02-s05-f11f9cc3",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标的过度收窄与过度拆分：将AI行业资讯关注和算法岗位浏览合并为同一工作兴趣意图；e002/e003/e004/e005等行业资讯不应标为unrelated。按证据规则，岗位搜索、查看、浏览、收藏以及课程搜索/查看/收藏均属related_interest，未出现投递、报名、日程确认等决定性证据，故supporting为空，维持emerging/low。盲标新增的学习课程意图与岗位/职业探索证据高度重叠，且无独立学习目标证据，不单列。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "shop_order",
+        "ent_trailer",
+        "weather_now",
+        "health_article",
+        "fit_water",
+        "sys_update",
+        "fin_news",
+        "game_daily",
+        "map_commute",
+        "im_friend_reply",
+        "learn_video",
+        "photo_edit",
+        "news_read",
+        "video_livestream",
+        "comm_bus"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "寻找算法工程师工作机会",
+        "category": "work",
+        "purpose": "unknown",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e004",
+          "e011",
+          "e012",
+          "e014",
+          "e016",
+          "e018",
+          "e019",
+          "e025",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户在招聘平台搜索上海的算法工程师和NLP算法工程师职位",
+            "source_event_ids": [
+              "e011",
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户查看并收藏多个算法工程师岗位，包括推荐算法、大模型算法和机器学习工程师",
+            "source_event_ids": [
+              "e012",
+              "e014",
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户浏览算法类职位列表，并阅读AI人才需求及算法工程师职业发展相关内容",
+            "source_event_ids": [
+              "e004",
+              "e016",
+              "e018",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户存在寻找算法工程师工作机会或进行职业转换的探索意图",
+            "source_event_ids": [
+              "e004",
+              "e011",
+              "e012",
+              "e014",
+              "e016",
+              "e018",
+              "e019",
+              "e025",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已投递简历",
+          "是否已参加面试",
+          "目标公司",
+          "期望薪资",
+          "是否已决定换工作",
+          "当前在职状态"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "学习机器学习与深度学习课程",
+        "category": "learning",
+        "purpose": "career",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e019",
+          "e020",
+          "e029",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户搜索入门级机器学习课程",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户查看“机器学习实战入门”课程详情",
+            "source_event_ids": [
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户将“深度学习基础与行业应用”加入学习清单",
+            "source_event_ids": [
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户关注算法工程师职业发展，并搜索或收藏机器学习与深度学习课程，可能用于职业相关技能提升",
+            "source_event_ids": [
+              "e019",
+              "e020",
+              "e029",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已报名或购买课程",
+          "计划学习时间",
+          "目标证书或学习成果",
+          "课程选择是否最终确定"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001",
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e005",
+      "e006",
+      "e007",
+      "e008",
+      "e009",
+      "e010",
+      "e013",
+      "e015",
+      "e017",
+      "e021",
+      "e022",
+      "e023",
+      "e024",
+      "e026",
+      "e027"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 18
+    }
+  },
+  "review": {
+    "sample_id": "c02-s05-f11f9cc3",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "blind_intent_narrowing",
+        "severity": "high",
+        "event_ids": [
+          "e002",
+          "e003",
+          "e004"
+        ],
+        "description": "盲标将 i001 收窄为“寻找算法工程师工作机会”，并把 news_app 的人工智能行业资讯 e002/e003 标为 unrelated。但场景规格的 required_evidence 明确包含“在news_app浏览人工智能行业新闻”，标题也是“刷行业资讯并浏览岗位信息”，Gold 意图同时覆盖行业关注与岗位机会。盲标漏掉了“关注行业”这一半，导致必需证据被错误标为无关。",
+        "suggested_action": "将 e002/e003/e004 重新标为与 i001 相关或 supporting；若认为行业资讯与求职应分开，应新增“关注AI行业资讯”意图，而不是把必需证据标为 unrelated。"
+      },
+      {
+        "issue_type": "supporting_evidence_misclassified",
+        "severity": "high",
+        "event_ids": [
+          "e011",
+          "e012",
+          "e014",
+          "e016",
+          "e025",
+          "e028"
+        ],
+        "description": "盲标 i001 的 supporting_event_ids 为空，所有岗位搜索、查看详情、收藏岗位等直接证据都被放入 related_interest_event_ids。与此同时却给出 confidence_level=high、status=considering。e011/e012/e014/e016/e025/e028 是“关注岗位机会”的直接行为，不应只作为弱相关兴趣；且全程无投递、简历更新、面试安排，high confidence 与弱证据场景和 Gold 的 low/emerging 明显不一致。",
+        "suggested_action": "将直接岗位证据移入 supporting_event_ids，或将 confidence 下调为 low/medium、status 保持 emerging；不要在没有强证据时给 high confidence。"
+      },
+      {
+        "issue_type": "multi_intent_over_split",
+        "severity": "medium",
+        "event_ids": [
+          "e019",
+          "e020",
+          "e029",
+          "e030"
+        ],
+        "description": "盲标新增 i002“学习机器学习与深度学习课程”，但 e020/e029/e030 在场景规格中是 i001 的 optional_evidence（learning_app 浏览机器学习课程页面），并未显示独立于职业/岗位探索之外的学习目标。将其拆成独立意图有过度拆分风险，且 i002 的 supporting_event_ids 仍为空。",
+        "suggested_action": "优先将 e020/e029/e030 保留为 i001 的 related_interest；若坚持拆分 i002，需要补充能证明独立学习动机的证据，并明确 e019 的双重归属，避免弱证据重复计数。"
+      },
+      {
+        "issue_type": "purpose_overstated",
+        "severity": "medium",
+        "event_ids": [
+          "e019",
+          "e020",
+          "e029",
+          "e030"
+        ],
+        "description": "盲标 i002 的 purpose 设为 career，但课程搜索、课程详情浏览和加入学习清单只能说明学习兴趣，无法直接证明学习目的是职业提升；职业导向主要来自同时段的岗位浏览，属于推断而非直接证据。",
+        "suggested_action": "将 i002 的 purpose 改为 unknown，或在 inferred_facts 中标注“可能用于职业提升”并降低 confidence；不要在没有课程选择理由或学习目标证据时断言 career。"
+      },
+      {
+        "issue_type": "unnatural_provenance_chain",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e012",
+          "e014",
+          "e016",
+          "e018",
+          "e019",
+          "e028",
+          "e030"
+        ],
+        "description": "多个 origin=related 事件的 generator_event_id 指向无关的 noise 事件，例如 e002 指向购物订单 e001、e012 指向电影预告 e006、e014 指向天气 e007、e016 指向健康文章 e008、e018 指向喝水记录 e009、e028 指向理财文章 e013、e030 指向游戏签到 e015。这会形成不自然的生成链，削弱事件因果一致性。",
+        "suggested_action": "修正或重新生成 generator_event_id，使 related 事件由相关前序事件派生；若该字段仅为内部元数据且不影响语义，应在数据说明中标注，避免被误读为业务因果。"
+      }
+    ],
+    "summary": "样本未通过。主要问题在盲标：i001 被收窄为纯求职意图，导致 AI 行业资讯 e002/e003 被错误标为 unrelated；直接岗位搜索与收藏证据被放入 related_interest 而 supporting_event_ids 为空，却给出 high confidence；新增 i002 学习意图存在过度拆分和 career purpose 证据不足。Gold 的弱证据 low/emerging 判断本身较合理，但盲标的高置信与事件标签不一致，需要重新裁决。"
+  },
+  "adjudication": {
+    "sample_id": "c02-s05-f11f9cc3",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "关注AI行业资讯与算法岗位机会",
+          "category": "work",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e002",
+            "e003",
+            "e004",
+            "e005",
+            "e011",
+            "e012",
+            "e014",
+            "e016",
+            "e018",
+            "e019",
+            "e020",
+            "e025",
+            "e028",
+            "e029",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户浏览人工智能频道并搜索“人工智能 大模型”相关资讯，表现出对AI行业动态的关注。",
+              "source_event_ids": [
+                "e002",
+                "e003"
+              ]
+            },
+            {
+              "fact": "用户阅读“2026年大模型行业人才需求观察”，关注AI行业与岗位需求信息。",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "用户浏览科技行业资讯，包括互联网公司组织架构调整和智能硬件新品动态。",
+              "source_event_ids": [
+                "e005"
+              ]
+            },
+            {
+              "fact": "用户在上海搜索算法工程师、NLP算法工程师岗位，并查看算法类职位列表。",
+              "source_event_ids": [
+                "e011",
+                "e016",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户查看推荐算法、大模型算法、机器学习工程师等岗位，并收藏其中部分岗位。",
+              "source_event_ids": [
+                "e012",
+                "e014",
+                "e028"
+              ]
+            },
+            {
+              "fact": "用户观看算法岗工作日常、换工作时机和算法工程师职业发展路径相关视频。",
+              "source_event_ids": [
+                "e018",
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户搜索并查看机器学习课程，收藏深度学习相关课程到学习清单。",
+              "source_event_ids": [
+                "e020",
+                "e029",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否有明确的求职或跳槽计划",
+            "目标公司和岗位方向",
+            "是否已更新简历或投递",
+            "期望薪资",
+            "是否已参加面试或拿到offer",
+            "当前在职状态",
+            "是否已报名或购买机器学习课程",
+            "学习计划与目标"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e006",
+        "e007",
+        "e008",
+        "e009",
+        "e010",
+        "e013",
+        "e015",
+        "e017",
+        "e021",
+        "e022",
+        "e023",
+        "e024",
+        "e026",
+        "e027"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c02-s05-f11f9cc3"
+    },
+    "rationale": "修正盲标的过度收窄与过度拆分：将AI行业资讯关注和算法岗位浏览合并为同一工作兴趣意图；e002/e003/e004/e005等行业资讯不应标为unrelated。按证据规则，岗位搜索、查看、浏览、收藏以及课程搜索/查看/收藏均属related_interest，未出现投递、报名、日程确认等决定性证据，故supporting为空，维持emerging/low。盲标新增的学习课程意图与岗位/职业探索证据高度重叠，且无独立学习目标证据，不单列。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "work": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.9,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1863,
+      "completion_tokens": 1524,
+      "total_tokens": 3387,
+      "latency_s": 32.15,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1654,
+      "completion_tokens": 5414,
+      "total_tokens": 7068,
+      "latency_s": 46.03,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3377,
+      "completion_tokens": 10709,
+      "total_tokens": 14086,
+      "latency_s": 87.17,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5764,
+      "completion_tokens": 8062,
+      "total_tokens": 13826,
+      "latency_s": 66.23,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9998,
+      "completion_tokens": 7101,
+      "total_tokens": 17099,
+      "latency_s": 46.68,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 278.27
+}

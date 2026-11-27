@@ -1,0 +1,931 @@
+{
+  "sample_id": "c05-s05-89eb7071",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标新增的 i003（电费支付）和 i004（购物车凑单）均基于单条 noise 事件，证据不足，删除；e004/e024 恢复 unrelated。按规则10，搜索、浏览、收藏、查看详情均属 related_interest，原金标的 8 条 supporting 降级为 related_interest，故 supporting_event_ids 为空。保留单一健康科普内容关注意图，并将 e002 体检科普纳入，命名扩展为睡眠、颈椎与体检健康科普内容关注；未发现 contradicting。unrelated 共 15 条。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "comm_bike",
+        "pay_utility",
+        "learn_video",
+        "ent_ranking",
+        "weather_now",
+        "food_lunch",
+        "cal_view",
+        "game_play",
+        "photo_album",
+        "news_read",
+        "video_short",
+        "shop_cart",
+        "fit_steps",
+        "read_science",
+        "map_history"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "改善睡眠质量",
+        "category": "health_service",
+        "purpose": "unknown",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e003",
+          "e007",
+          "e008",
+          "e009",
+          "e010",
+          "e021",
+          "e025",
+          "e026"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户浏览并搜索了睡眠改善及熬夜对睡眠节律影响的内容",
+            "source_event_ids": [
+              "e007",
+              "e008"
+            ]
+          },
+          {
+            "fact": "用户收藏并阅读了改善睡眠习惯和睡前呼吸放松相关文章",
+            "source_event_ids": [
+              "e009",
+              "e010",
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户搜索睡眠养生书籍并浏览睡前舒缓瑜伽课程",
+            "source_event_ids": [
+              "e025",
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户查看了睡前放松拉伸视频",
+            "source_event_ids": [
+              "e003"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否有明确睡眠问题或就医需求",
+          "是否计划报名课程、购买书籍或采取具体改善措施",
+          "当前睡眠状况及改善目标"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "缓解颈肩不适",
+        "category": "health_service",
+        "purpose": "unknown",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e005",
+          "e006",
+          "e015",
+          "e018",
+          "e022",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户搜索颈椎操教程和颈椎放松动作",
+            "source_event_ids": [
+              "e005",
+              "e015"
+            ]
+          },
+          {
+            "fact": "用户浏览居家颈肩拉伸入门课程",
+            "source_event_ids": [
+              "e006"
+            ]
+          },
+          {
+            "fact": "用户收藏办公室颈椎放松和久坐族颈椎保养文章",
+            "source_event_ids": [
+              "e018",
+              "e022"
+            ]
+          },
+          {
+            "fact": "用户阅读办公室颈椎放松文章",
+            "source_event_ids": [
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户关注办公或久坐场景下的颈肩放松方法",
+            "source_event_ids": [
+              "e005",
+              "e006",
+              "e015",
+              "e018",
+              "e022",
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "颈肩不适的严重程度及是否就医",
+          "是否计划参加课程或购买相关器材",
+          "具体症状和触发场景"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i003",
+        "intent_name": "缴纳电费",
+        "category": "finance_admin",
+        "purpose": "personal_admin",
+        "status": "completed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e004"
+        ],
+        "related_interest_event_ids": [],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户于2026-12-13 17:44:09支付电费¥45.20",
+            "source_event_ids": [
+              "e004"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "该支付属于个人日常账单管理",
+            "source_event_ids": [
+              "e004"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "该电费对应的房屋或账期",
+          "是否为自动扣费或一次性手动缴费"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i004",
+        "intent_name": "购物车凑单购物",
+        "category": "shopping",
+        "purpose": "unknown",
+        "status": "considering",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e024"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户查看了购物车，车内有2件商品",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "购物车备注为待凑单，表明用户可能在考虑凑单购买",
+            "source_event_ids": [
+              "e024"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "购物车商品品类和金额",
+          "凑单目标（如包邮或满减）",
+          "预计购买时间及是否最终购买"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i004"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e011",
+      "e012",
+      "e013",
+      "e014",
+      "e016",
+      "e017",
+      "e019",
+      "e020",
+      "e023",
+      "e027",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 4,
+      "unrelated_event_count": 14
+    }
+  },
+  "review": {
+    "sample_id": "c05-s05-89eb7071",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "盲标把noise事件过度解读为意图",
+        "severity": "high",
+        "event_ids": [
+          "e004"
+        ],
+        "description": "e004 是程序注入的 noise 事件（pool_id=pay_utility, origin=noise, 生成器标 unrelated）：一次性的电费支付 ¥45.20。盲标据此新增意图 i003「缴纳电费」，并给出 status=completed、confidence_level=high、purpose=personal_admin。这与样本规划（单一健康兴趣意图、无任何缴费类活动）直接冲突；单次自动或手动账单支付只说明一次财务操作，不能构成用户“意图”，更不应标为 completed 的高置信意图。这是噪声误升为意图（false positive intent），会直接污染意图数量和指标。",
+        "suggested_action": "删除盲标意图 i003；把 e004 恢复为 unrelated（relation=unrelated, intent_ids=[]）。若确需标注账单类行为，只能作为孤立事件记录，不得进入意图层。"
+      },
+      {
+        "issue_type": "盲标把noise事件过度解读为意图",
+        "severity": "medium",
+        "event_ids": [
+          "e024"
+        ],
+        "description": "e024 同样来自 noise 注入（pool_id=shop_cart）：一次 view_shopping_cart，content 中 note=\"待凑单\"。盲标据此新增意图 i004「购物车凑单购物」（confidence=low, status=considering）。问题在于，该 note 是噪声模板自带的文案，被当作用户心理状态证据；且全窗口仅有这一次购物车行为，没有加购、比价、下单、优惠券等任何配套动作，不足以支撑独立意图，也与本样本“晚间健康科普浏览”的场景无关。该处 inferred_fact 中“表明用户可能在考虑凑单购买”属于对单条弱证据的过度外推。",
+        "suggested_action": "删除 i004，e024 回归 unrelated；如未来要保留购物意图，必须补充同窗口内 ≥2 条同主题事件（加购、比价、领券等）再判定。"
+      },
+      {
+        "issue_type": "多意图拆分与规划不一致",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e005",
+          "e006",
+          "e007",
+          "e008",
+          "e009",
+          "e010",
+          "e015",
+          "e018",
+          "e021",
+          "e022",
+          "e025",
+          "e026",
+          "e029"
+        ],
+        "description": "规划只有 1 个意图 i001「睡眠与颈椎健康内容关注」，把睡眠主题（e003/e007/e008/e009/e010/e021/e025/e026）与颈椎主题（e005/e006/e015/e018/e022/e029）合并为一个“内容关注”意图；盲标将其拆成 i001「改善睡眠质量」与 i002「缓解颈肩不适」两个意图。拆分本身在语义上有一定可辩护性（两主题使用不同关键词、不同文章），但它改变了意图计数与支持度分布，且规划中 key_entities 明确把“睡眠改善”和“颈椎放松”作为同一 other 字段下的并列主题。当前拆分与合并都没有给出裁决依据，属于金标-盲标结构性分歧未解决。",
+        "suggested_action": "由裁决器明确裁定粒度：若维持“健康科普内容关注”单一兴趣意图，则合并 i001/i002 并统一意图名；若认可按主题拆分，则应回到场景规格，把 intents 改为两条并各自配置 required_evidence，不得让盲标单方面改变意图数量。"
+      },
+      {
+        "issue_type": "supporting 被用于弱证据且与置信度自相矛盾",
+        "severity": "medium",
+        "event_ids": [
+          "e008",
+          "e009",
+          "e010",
+          "e015",
+          "e018",
+          "e021",
+          "e022",
+          "e029"
+        ],
+        "description": "金标把 8 条纯浏览/搜索/收藏类事件标为 relation=supporting（e008/e009/e010/e015/e018/e021/e022/e029），但同一意图的 status=emerging、confidence_level=low、purpose=unknown，且窗口内无任何预约、问诊、挂号、下单、课程报名等收敛动作。按 D3_weak_evidence 的设计，这些事件本质是与该意图相关的弱兴趣信号，用 supporting 会让“支持度”虚高，也与 low 置信度、emerging 状态不一致。盲标则把上述 8 条全部降为 related_interest、supporting_event_ids 留空，两种标注在支持度上正好相反，说明该字段判定标准未被统一。",
+        "suggested_action": "二选一并保持一致：要么把这 8 条降级为 related_interest、把“在 health_app 多次搜索并收藏、查看文章详情”保留为唯一支持线索（弱支持），使 supporting 数量与 low 置信度匹配；要么维持 supporting 但把 confidence 提到 medium 并说明判定依据。禁止出现“8 条 supporting + 低置信 emerging”的组合。"
+      },
+      {
+        "issue_type": "意图命名超出证据范围",
+        "severity": "medium",
+        "event_ids": [
+          "e005",
+          "e007",
+          "e008",
+          "e009",
+          "e010",
+          "e015",
+          "e018",
+          "e022",
+          "e029"
+        ],
+        "description": "盲标把意图命名为「改善睡眠质量」「缓解颈肩不适」，这已经是对用户存在具体不适与改善目标的断言；但规划中 unknown_information 明确写着“是否存在具体身体不适”“是否打算体检或就医”，盲标自己的 unknown_information 也承认“颈肩不适的严重程度及是否就医”“当前睡眠状况及改善目标”未知。意图名与其自述的未知项自相矛盾——用「缓解/改善」命名等于把待验证的假设写成了意图本身。相比之下金标「睡眠与颈椎健康内容关注」只描述可观测的浏览行为，更贴合证据。",
+        "suggested_action": "将 i001/i002 改回行为描述型命名（如「睡眠健康科普内容关注」「颈椎放松科普内容关注」），purpose 维持 unknown；若坚持“改善/缓解”式目标命名，必须补充能证明不适与目标的直接证据（如症状自述、健康档案、问诊记录），否则不得使用。"
+      },
+      {
+        "issue_type": "盲标漏标相关事件",
+        "severity": "medium",
+        "event_ids": [
+          "e002"
+        ],
+        "description": "e002（news_app 浏览《上班族年度体检项目挑选指南》，健康频道）被盲标标为 unrelated，但场景 key_entities.other 明确包含“体检项目科普”，金标也将其标为 related_interest(i001)。该事件与“健康科普内容浏览”的场景主题同域，属弱相关而非无关；盲标标为 unrelated 会低估兴趣信号的连续性。同时需指出反向问题：金标把它挂在名为“睡眠与颈椎健康内容关注”的意图下，而体检内容既非睡眠也非颈椎，意图命名与事件范围存在轻微不匹配。",
+        "suggested_action": "裁决器恢复 e002 为 related_interest；若维持单一意图，应把意图名扩展为覆盖体检科普的「健康科普内容关注」，或在事件层注明其属于体检科普子主题，避免名实不符。"
+      },
+      {
+        "issue_type": "hard_negative 标注缺失",
+        "severity": "low",
+        "event_ids": [
+          "e011",
+          "e028"
+        ],
+        "description": "e011（video_app《天文科普短片》）与 e028（reader_app《材料科学趣闻》）是与目标意图同 App、同为“科普内容”但主题不同的强干扰项，最适合作为难负例，但两者 hard_negative=false。若不作区分，判别环节可能把它们当作普通随机噪声，无法检验模型是否能区分“健康科普”与“其他科普”。",
+        "suggested_action": "将 e011、e028 的 hard_negative 置为 true（relation 仍为 unrelated），并在生成器中显式登记这类同域负例，而不是简单丢弃。"
+      },
+      {
+        "issue_type": "边界事件归类未说明",
+        "severity": "low",
+        "event_ids": [
+          "e027"
+        ],
+        "description": "e027（fitness_app 查看步数 7890）金标与盲标都判 unrelated，但它是 health/fitness 域内的自我健康数据查看，与“健康兴趣”存在弱关联可能；将其直接归为无关虽可接受（属常规功能查看），但缺少判定说明，易与其他“健康域即相关”的标注冲突。",
+        "suggested_action": "保留 unrelated，但在标注规范中补充：单次查看步数等常规健康数据面板不构成兴趣信号，需与搜索/收藏/课程浏览等主动行为区分；如需强化难度可将其标为 hard_negative。"
+      },
+      {
+        "issue_type": "噪声事件业务逻辑不自然",
+        "severity": "low",
+        "event_ids": [
+          "e014"
+        ],
+        "description": "e014 时间为 2026-12-13T20:31（周日），内容 meal=\"工作日午餐\"、sort_by=\"距离最近\"，时间与语义不匹配（工作日晚餐时段不应出现“工作日午餐”），属于噪声池套用固定文案造成的轻微不自然。虽不影响意图判定，但会降低样本的真实性评分。",
+        "suggested_action": "调整 food_lunch 噪声池文案为与当前时间匹配的 meal（如“晚餐”），或把该条噪声替换为时间语义自洽的模板。"
+      }
+    ],
+    "summary": "样本的浏览型弱证据链条（health_app 搜索+收藏+详情、视频/健身/阅读同主题）本身成立，未见答案泄露或不自然的核心业务逻辑；但盲标存在两处严重越界：把注入噪声 e004（电费支付）升格为高置信、completed 的意图 i003，把噪声 e024（单次购物车查看）升格为意图 i004，均已超出单条噪声事件可支撑的范围，属必须修正的假阳。此外金标将 8 条纯浏览/收藏事件标为 supporting，却同时保持 low 置信、emerging 状态，supporting 使用与置信度自相矛盾；盲标则把同一批事件全部降为 related_interest，两套标注在支持度口径上完全相反，需裁决器统一。意图粒度上规划为“睡眠+颈椎”单一兴趣意图，盲标拆成两条，并在命名上直接断言“改善睡眠质量/缓解颈肩不适”，超出 unknown_information 允许的范围。另发现盲标漏标本应相关的 e002（体检科普，属场景 key_entities），以及 e011/e028 这类同域科普干扰项未标为 hard_negative。综合判定不通过：需删除 i003/i004、统一支持度与意图粒度口径、修正意图命名后再复审。建议不补造新事件，仅按上述方式改标或重生成。"
+  },
+  "adjudication": {
+    "sample_id": "c05-s05-89eb7071",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "睡眠、颈椎与体检健康科普内容关注",
+          "category": "health_service",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e002",
+            "e003",
+            "e005",
+            "e006",
+            "e007",
+            "e008",
+            "e009",
+            "e010",
+            "e015",
+            "e018",
+            "e021",
+            "e022",
+            "e025",
+            "e026",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户在多个 App 中浏览健康科普内容，主题覆盖睡眠改善、颈椎放松和体检项目。",
+              "source_event_ids": [
+                "e002",
+                "e003",
+                "e005",
+                "e006",
+                "e007",
+                "e008",
+                "e009",
+                "e010",
+                "e015",
+                "e018",
+                "e021",
+                "e022",
+                "e025",
+                "e026",
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户多次在 health_app 搜索睡眠改善方法和颈椎放松动作，并收藏、阅读相关文章。",
+              "source_event_ids": [
+                "e008",
+                "e009",
+                "e010",
+                "e015",
+                "e018",
+                "e021",
+                "e022",
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户观看睡前放松拉伸视频，并浏览睡前舒缓瑜伽、居家颈肩拉伸等课程。",
+              "source_event_ids": [
+                "e003",
+                "e006",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户搜索睡眠养生类书籍。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户浏览上班族年度体检项目挑选指南，显示对体检科普也有兴趣。",
+              "source_event_ids": [
+                "e002"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否存在具体身体不适",
+            "是否打算体检或就医",
+            "是否计划报名课程、购买书籍或采取其他改善措施",
+            "当前睡眠与颈肩状况及改善目标",
+            "该兴趣是短期浏览还是持续关注"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e004",
+        "e011",
+        "e012",
+        "e013",
+        "e014",
+        "e016",
+        "e017",
+        "e019",
+        "e020",
+        "e023",
+        "e024",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c05-s05-89eb7071"
+    },
+    "rationale": "盲标新增的 i003（电费支付）和 i004（购物车凑单）均基于单条 noise 事件，证据不足，删除；e004/e024 恢复 unrelated。按规则10，搜索、浏览、收藏、查看详情均属 related_interest，原金标的 8 条 supporting 降级为 related_interest，故 supporting_event_ids 为空。保留单一健康科普内容关注意图，并将 e002 体检科普纳入，命名扩展为睡眠、颈椎与体检健康科普内容关注；未发现 contradicting。unrelated 共 15 条。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "health_service": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.9,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 1551,
+      "total_tokens": 3410,
+      "latency_s": 16.68,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1658,
+      "completion_tokens": 4623,
+      "total_tokens": 6281,
+      "latency_s": 84.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3202,
+      "completion_tokens": 14955,
+      "total_tokens": 18157,
+      "latency_s": 113.85,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5910,
+      "completion_tokens": 6304,
+      "total_tokens": 12214,
+      "latency_s": 52.82,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11314,
+      "completion_tokens": 6950,
+      "total_tokens": 18264,
+      "latency_s": 47.94,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 316.23
+}

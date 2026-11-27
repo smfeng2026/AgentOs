@@ -1,0 +1,314 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "观看林知夏巡回演唱会上海站",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e021",
+        "e024",
+        "e025",
+        "e028"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e004",
+        "e005",
+        "e007",
+        "e008",
+        "e011",
+        "e012",
+        "e014",
+        "e016",
+        "e017",
+        "e019"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户创建了“林知夏巡回演唱会门票-上海站”订单（order_id TP20261215200831），内场VIP票2张、内场A区连座，总价¥2560，下单时订单状态为待支付。",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "用户使用银行卡尾号6688向官方票务平台支付¥2560.00，支付状态为支付成功，且对应同一 order_id TP20261215200831。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "周悦回复确认同行，表示票钱明天转账，并要求选靠前一点的连座。",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户在日历创建了12月26日19:30至22:00的演唱会日程，地点为滨江体育馆，参与人包含周悦，提前120分钟提醒，备注写明“两张内场票已出票，提前2小时从家出发”。",
+          "source_event_ids": [
+            "e028"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户是林知夏的粉丝：收藏其歌曲、查看艺人主页动态并浏览粉丝应援话题。",
+          "source_event_ids": [
+            "e001",
+            "e005",
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户计划于12月26日晚在上海滨江体育馆观看林知夏巡回演唱会，并与朋友周悦同行、由用户先垫付两张连座票款。",
+          "source_event_ids": [
+            "e019",
+            "e021",
+            "e024",
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户在购票前比较过官方票务、猫眼、纷玩岛的价格，结论为官方票务价格最低且可连座。",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户关注演出当天（12月26日）上海的天气并查询了从家到滨江体育馆的地铁路线（约50分钟）。",
+          "source_event_ids": [
+            "e014",
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户浏览过林知夏应援物相关商品（应援手幅、姓名灯牌、巡演纪念徽章）。",
+          "source_event_ids": [
+            "e012"
+          ]
+        },
+        {
+          "fact": "结合日历备注的“提前2小时出发”与路线耗时，用户大概率在演出当天约17:30前后从家出发。",
+          "source_event_ids": [
+            "e016",
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "具体座位号未在事件中给出",
+        "周悦是否已实际转账票款",
+        "用户最终是否购买应援物",
+        "用户是否按搜索到的地铁路线前往场馆"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e003",
+    "e006",
+    "e009",
+    "e010",
+    "e013",
+    "e015",
+    "e018",
+    "e020",
+    "e022",
+    "e023",
+    "e026",
+    "e027",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c07-s01-b12855b4"
+}

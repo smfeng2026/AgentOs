@@ -1,0 +1,591 @@
+{
+  "sample_id": "c01-s06-5d8b33d6",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "三亚海边度假出行",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "查看已支付的杭州往返三亚机票订单",
+        "机票退票操作与退款到账记录",
+        "酒店订单被取消",
+        "日历中原定行程事件被删除",
+        "向同伴发送行程取消的消息"
+      ],
+      "optional_evidence": [
+        "查询三亚未来几天天气显示持续降雨",
+        "浏览其他日期机票但未下单"
+      ],
+      "unknown_information": [
+        "后续是否会改期重新预订",
+        "同伴方是否另有安排"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 4
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T17:52:00+08:00",
+      "app": "flight_booking_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "F2026120501",
+        "route": "杭州—三亚往返",
+        "departure_date": "12月12日",
+        "return_date": "12月15日",
+        "passengers": [
+          "本人",
+          "小林"
+        ],
+        "order_status": "已支付",
+        "total_price": "¥2,980"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_edit",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T17:56:42+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "去除背景"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T18:07:00+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_content",
+      "content": {
+        "destination": "三亚",
+        "content_title": "三亚湾与亚龙湾四日海边游攻略",
+        "content_tags": [
+          "海边度假",
+          "美食"
+        ],
+        "read_progress": "已读完"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T18:22:00+08:00",
+      "app": "hotel_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "H2026112801",
+        "hotel_name": "三亚海景酒店",
+        "room_type": "高级海景双床房",
+        "check_in_date": "12月12日",
+        "check_out_date": "12月15日",
+        "nights": 3,
+        "order_status": "已预订"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T18:36:00+08:00",
+      "app": "travel_guide_app",
+      "action": "collect",
+      "content": {
+        "destination": "三亚",
+        "content_title": "第一市场海鲜挑选与加工避坑指南",
+        "collection_folder": "三亚出行收藏夹"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T18:51:00+08:00",
+      "app": "calendar_app",
+      "action": "view_schedule",
+      "content": {
+        "month": "12月",
+        "event_title": "三亚度假（杭州—三亚）",
+        "start_date": "12月12日",
+        "end_date": "12月15日",
+        "reminder": "12月12日 06:30 出发去萧山机场"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_share",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T18:57:06+08:00",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "城市夜景摄影合集",
+        "shared_to": "同事"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T19:12:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "三亚",
+        "query_type": "未来一周天气预报",
+        "date_range": "12月12日-12月15日",
+        "weather_condition": "持续降雨",
+        "rain_probability": "80%以上"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T19:26:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "小林",
+        "message_topic": "出发安排确认",
+        "message_summary": "12号早上7点萧山机场T4集合，网上值机我来办",
+        "send_status": "已发送"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T19:43:00+08:00",
+      "app": "restaurant_app",
+      "action": "search",
+      "content": {
+        "city": "三亚",
+        "search_keyword": "海棠湾海鲜餐厅",
+        "filters": "近海景酒店",
+        "result_count": 8
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_reply",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T19:49:53+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "会议室投影仪报修"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_transfer",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T19:51:34+08:00",
+      "app": "payment_app",
+      "action": "transfer",
+      "content": {
+        "to": "朋友小赵",
+        "amount": "¥68.00",
+        "note": "昨天外卖AA"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_storage",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T20:28:55+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_train_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T20:33:52+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "杭州",
+        "arrival": "福州",
+        "date": "12月17日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T20:41:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "小林",
+        "message_topic": "天气与行程商量",
+        "message_summary": "看了下预报，12号到15号那边连着下雨，海边基本泡汤，要不这次先取消？"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_water",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:00:32+08:00",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": 4
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_watch",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:08:39+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "历史纪录片片段",
+        "duration_min": 3
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:18:24+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "轻音乐"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:23:00+08:00",
+      "app": "flight_booking_app",
+      "action": "search",
+      "content": {
+        "departure_city": "杭州",
+        "arrival_city": "三亚",
+        "departure_date": "12月19日",
+        "cabin_class": "经济舱",
+        "lowest_price": "¥760",
+        "search_result_count": 12,
+        "order_status": "仅浏览未下单"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:37:32+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:40:40+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_industry_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T21:59:50+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "职场沟通书籍推荐"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "health_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T22:37:26+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "熬夜后如何恢复"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T22:48:00+08:00",
+      "app": "flight_booking_app",
+      "action": "cancel",
+      "content": {
+        "order_id": "F2026120501",
+        "route": "杭州—三亚往返",
+        "departure_date": "12月12日",
+        "action_detail": "申请退票",
+        "cancel_fee": "¥330",
+        "refund_amount": "¥2,650",
+        "order_status": "退票处理中"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_map_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T22:49:32+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "大连",
+        "query": "老城区咖啡馆"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T23:02:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "transaction_type": "退款入账",
+        "amount": "¥2,650.00",
+        "source": "杭州往返三亚机票退票款",
+        "related_order_id": "F2026120501",
+        "arrival_status": "已到账"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T23:15:00+08:00",
+      "app": "hotel_app",
+      "action": "cancel",
+      "content": {
+        "order_id": "H2026112801",
+        "hotel_name": "三亚海景酒店",
+        "check_in_date": "12月12日",
+        "check_out_date": "12月15日",
+        "cancel_policy": "入住前免费取消",
+        "order_status": "已取消",
+        "refund_status": "原路退回"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_hotel_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T23:21:21+08:00",
+      "app": "hotel_app",
+      "action": "view_hotel_detail",
+      "content": {
+        "city": "巴黎",
+        "check_in": "12月17日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T23:28:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title": "三亚度假（杭州—三亚）",
+        "original_date_range": "12月12日-12月15日",
+        "operation": "删除事件",
+        "event_status": "已删除",
+        "related_reminder": "出发提醒同步移除"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T23:38:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "小林",
+        "message_topic": "行程取消通知",
+        "message_summary": "机票退好了钱已到账，酒店也取消了，这次不去了，回头天气好再约",
+        "send_status": "已发送"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ]
+}

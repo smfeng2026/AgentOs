@@ -1,0 +1,306 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "普通护照换发办理",
+      "category": "finance_admin",
+      "purpose": "certification",
+      "status": "planned",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e019",
+        "e020",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e003",
+        "e007",
+        "e010",
+        "e011",
+        "e012",
+        "e014",
+        "e017",
+        "e021",
+        "e022",
+        "e023",
+        "e026",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户通过政务App成功预约12月18日09:30-10:00在杭州市出入境接待大厅办理普通护照换发，预约号为HZ2026121800931。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户收到杭州市公安局出入境管理局发送的出入境证件预约成功通知，确认上述预约。",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户已在日历中创建12月18日09:30-10:00的护照换发预约日程，地点为杭州市出入境接待大厅，提醒时间为08:40。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户正在准备普通护照换发所需材料，包括原护照、居民身份证、出入境证件照片回执等。",
+          "source_event_ids": [
+            "e003",
+            "e007",
+            "e011",
+            "e017",
+            "e022",
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户关注出入境证件照片规格及可当日取件的证件照回执拍摄渠道。",
+          "source_event_ids": [
+            "e010",
+            "e011",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户向同事咨询护照换发预约及照片回执的办理经验。",
+          "source_event_ids": [
+            "e022",
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户关注普通护照换发的工本费金额。",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户关注12月18日前往杭州市出入境接待大厅的公共交通路线及当天天气。",
+          "source_event_ids": [
+            "e026",
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否选择邮寄取证",
+        "是否需要加急办理",
+        "是否已拍摄并取得符合要求的出入境证件照片回执",
+        "12月18日现场办理是否已完成及护照换发结果未知",
+        "相关费用是否已实际支付未知",
+        "护照换发的具体出行目的（旅游、商务、探亲等）未知"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e004",
+    "e005",
+    "e006",
+    "e008",
+    "e009",
+    "e013",
+    "e015",
+    "e016",
+    "e018",
+    "e024",
+    "e025",
+    "e027",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c09-s01-18124adb"
+}

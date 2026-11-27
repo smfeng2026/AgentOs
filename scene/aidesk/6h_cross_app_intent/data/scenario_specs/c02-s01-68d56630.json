@@ -1,0 +1,61 @@
+{
+  "title": "季度合作方案客户拜访确认",
+  "scenario_category": "work",
+  "subscenario": "客户会议",
+  "template_id": "C02-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "浦东新区客户公司办公楼"
+    ],
+    "products": [],
+    "people": [
+      "客户李总监",
+      "同事张倩",
+      "直属领导周经理"
+    ],
+    "dates": [
+      "12月11日"
+    ],
+    "other": [
+      "季度合作方案汇报"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "季度合作方案客户拜访",
+      "category": "work",
+      "purpose": "meeting",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "客户邮件确认汇报时间与议程",
+        "日历中创建带客户办公楼地址的会议日程",
+        "即时通讯中与同事确认汇报分工",
+        "地图搜索前往客户办公楼的路线",
+        "文档应用中查看并修改汇报材料"
+      ],
+      "optional_evidence": [
+        "设置会前提醒",
+        "查看客户联系人信息"
+      ],
+      "unknown_information": [
+        "客户方最终参会人数",
+        "是否需要携带纸质材料"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前两小时出现客户确认邮件与内部沟通分工；中间时段为材料修改与联系人查看；决定性证据（日历创建会议日程、路线搜索、会前提醒）集中在最后两小时",
+  "variant_note": "与同模板差旅型样本不同，本样本为同城客户拜访，不涉及机票酒店；证据横跨 mail_app、im_app、calendar_app、map_app、docs_app、contacts_app 六类应用，无反向证据，干扰完全来自无关事件；会议日期为12月11日，晚于窗口结束",
+  "scenario_id": "c02-s01-68d56630"
+}

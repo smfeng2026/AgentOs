@@ -1,0 +1,805 @@
+{
+  "sample_id": "c02-s01-a9ca700b",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "composition_deviation"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标主体符合规则，需微调：e018为泛行业资讯，未出现华信科技、评审会或刘总，改为unrelated；意图名改为“华信科技需求评审会确认与筹备”。未采纳将e005、e023升为supporting的审查建议，因为view/search类动作按规则应为related_interest；e028天气查询同为search，归related_interest；e011为协调消息而非决定性确认，保持related_interest；e004邮件确认、e009分工确认、e021日历创建、e027网约车预订为决定性支持证据。最终1个意图，4条supporting、10条related_interest、16条unrelated。",
+      "errors": [],
+      "warnings": [
+        "unrelated count 16 differs from target 15"
+      ],
+      "noise_pool_ids": [
+        "ent_ranking",
+        "weather_now",
+        "read_bookmark",
+        "shop_cart",
+        "photo_album",
+        "game_store",
+        "mail_cleanup",
+        "health_article",
+        "fin_balance",
+        "comm_bus",
+        "music_playlist",
+        "food_grocery",
+        "map_traffic",
+        "pay_bill",
+        "sys_storage"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "参加华信科技12月18日客户需求评审会",
+        "category": "work",
+        "purpose": "meeting",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e004",
+          "e009",
+          "e021",
+          "e027"
+        ],
+        "related_interest_event_ids": [
+          "e005",
+          "e007",
+          "e011",
+          "e013",
+          "e015",
+          "e016",
+          "e017",
+          "e018",
+          "e023",
+          "e025",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "客户方项目经理刘总发来邮件，确认12月18日14:00-16:00在浦东张江张江路88号华信科技3楼会议室召开需求评审会",
+            "source_event_ids": [
+              "e004"
+            ]
+          },
+          {
+            "fact": "已在日历中创建“华信科技需求评审会”日程（12月18日14:00-16:00，地点张江路88号华信科技3楼会议室，参与人含刘总、陈晓、周经理）",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "已预订12月18日12:30从南京西路公司楼下前往张江路88号华信科技的舒适型出租车，订单状态为已预订",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "已与同事陈晓确认评审会分工：陈晓负责更新演示材料，本人整理需求文档，周四前互相对稿",
+            "source_event_ids": [
+              "e009"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "参会需从南京西路办公点前往张江，驾车约42分钟，也可选地铁2号线转张江有轨电车",
+            "source_event_ids": [
+              "e023"
+            ]
+          },
+          {
+            "fact": "正在准备客户需求评审的演示材料（V3，28页，含“需求方案演示”部分及6条评论）并收藏了通用汇报模板",
+            "source_event_ids": [
+              "e013",
+              "e015",
+              "e017"
+            ]
+          },
+          {
+            "fact": "计划在会后于张江路88号附近咖啡厅进行商务洽谈",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "已了解12月18日上海天气（多云转阴，6℃~11℃，降水概率20%），与出行安排相关",
+            "source_event_ids": [
+              "e028"
+            ]
+          },
+          {
+            "fact": "关注线上会议接入与会议室投屏方案，可能涉及线上线下结合的会议形式",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "已查找客户方联系人刘总的信息（华信科技项目经理）",
+            "source_event_ids": [
+              "e007"
+            ]
+          },
+          {
+            "fact": "浏览了张江科技园区企业数字化转型相关资讯，与会面对象所在区域和行业背景相关",
+            "source_event_ids": [
+              "e018"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "最终参会名单未确定，周经理是否参会尚未确认",
+          "会议是否采用线上接入或仅线下现场进行尚未明确",
+          "会后商务洽谈的咖啡厅尚未预订，也未确认",
+          "是否需要预订午餐等其它安排未知"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e006",
+      "e008",
+      "e010",
+      "e012",
+      "e014",
+      "e019",
+      "e020",
+      "e022",
+      "e024",
+      "e026",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c02-s01-a9ca700b",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "blind_annotation_misclassification",
+        "severity": "high",
+        "event_ids": [
+          "e005",
+          "e011",
+          "e023"
+        ],
+        "description": "盲标将会议确认邮件详情e005、同事关于材料与周经理参会确认的IM e011、以及客户地址路线搜索e023标为related_interest，未放入supporting。其中e023是场景required_evidence中的“地图应用中搜索客户公司地址的路线”，e005/e011也是直接筹备证据；这会导致required evidence未计入supporting，并与labeled_events的supporting标注冲突。",
+        "suggested_action": "将e005、e011、e023至少在盲标中改为supporting，尤其e023必须改；重新计算supporting/related_interest计数，不应把required evidence降级为related_interest。"
+      },
+      {
+        "issue_type": "weak_evidence_supporting",
+        "severity": "medium",
+        "event_ids": [
+          "e028"
+        ],
+        "description": "Gold将12月18日上海天气查询e028标为supporting，但天气仅是出行/着装辅助信息，属于optional_evidence，不能直接证明会议确认或筹备；用作supporting会稀释支持证据强度。",
+        "suggested_action": "将e028调整为related_interest或optional context；若需保持supporting数量，优先使用直接筹备事件而非天气。"
+      },
+      {
+        "issue_type": "weak_relation",
+        "severity": "medium",
+        "event_ids": [
+          "e018"
+        ],
+        "description": "e018为泛化的“浦东张江科技园区企业数字化转型动态盘点”科技资讯，未出现华信科技、评审会或刘总，和本次客户会议筹备的关联较弱；标为related_interest有过度关联风险。",
+        "suggested_action": "改为unrelated，或在保留related_interest时注明仅行业背景并降低置信度。"
+      },
+      {
+        "issue_type": "blind_intent_name_drift",
+        "severity": "low",
+        "event_ids": [
+          "e009",
+          "e013",
+          "e015",
+          "e021",
+          "e027"
+        ],
+        "description": "盲标意图名称为“参加华信科技12月18日客户需求评审会”，而场景/Gold为“筹备”；盲标supporting又只保留确认、日历、打车，弱化了文档准备和分工等筹备证据，可能掩盖筹备意图。",
+        "suggested_action": "将盲标意图名称改为“华信科技需求评审会确认与筹备”或保留Gold名称，并把文档/分工证据作为筹备支持。"
+      }
+    ],
+    "summary": "样本主体时间线和多应用融合基本合理，未发现噪声事件被明显误丢；但盲标将地图路线等required evidence降级为related_interest，且Gold对天气查询和泛资讯的关联偏宽，需修正后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c02-s01-a9ca700b",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "华信科技需求评审会确认与筹备",
+          "category": "work",
+          "purpose": "meeting",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e004",
+            "e009",
+            "e021",
+            "e027"
+          ],
+          "related_interest_event_ids": [
+            "e005",
+            "e007",
+            "e011",
+            "e013",
+            "e015",
+            "e016",
+            "e017",
+            "e023",
+            "e025",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "客户方项目经理刘总发来邮件，确认12月18日14:00-16:00在浦东张江张江路88号华信科技3楼会议室召开需求评审会，附会议议程，参会人含刘总、客户方产品代表、客户方研发代表",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "已与同事陈晓明确评审会分工：陈晓负责更新演示材料，本人整理需求文档，周四前互相对稿",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "已在日历中创建“华信科技需求评审会”日程，时间为12月18日14:00-16:00，地点为张江路88号华信科技3楼会议室，参与人含刘总、陈晓、周经理，并设置提前1小时提醒",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "已预订12月18日12:30从南京西路公司楼下前往张江路88号华信科技的舒适型网约车，预估费用86元，订单状态为已预订",
+              "source_event_ids": [
+                "e027"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "会议议程包括项目背景介绍、需求方案演示和评审意见讨论",
+              "source_event_ids": [
+                "e005"
+              ]
+            },
+            {
+              "fact": "已查找客户方联系人刘总的联系方式，显示其为华信科技项目经理",
+              "source_event_ids": [
+                "e007"
+              ]
+            },
+            {
+              "fact": "陈晓回复演示材料今晚改完发送，并询问是否需要确认周经理参会时间",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "正在准备客户需求评审演示材料V3，共28页，重点涉及“需求方案演示”部分并有6条评论；另收藏了通用汇报模板",
+              "source_event_ids": [
+                "e013",
+                "e015",
+                "e017"
+              ]
+            },
+            {
+              "fact": "已浏览线上会议接入方案与会议室投屏连接说明，可能考虑线上或混合会议形式",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "从南京西路办公点驾车至张江路88号华信科技约42分钟，也可选择地铁2号线转张江有轨电车",
+              "source_event_ids": [
+                "e023"
+              ]
+            },
+            {
+              "fact": "计划会后在张江路88号附近咖啡厅进行商务洽谈，已搜索距离优先的咖啡厅",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "已查询12月18日上海天气：多云转阴，6℃~11℃，降水概率20%，东北风3级",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "客户方参会人员是否全部到场",
+            "周经理是否确认参会",
+            "是否需要线上接入或采用线上线下结合形式",
+            "会后商务洽谈的咖啡厅是否确定并预订",
+            "是否需要安排午餐等其他事项"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e006",
+        "e008",
+        "e010",
+        "e012",
+        "e014",
+        "e018",
+        "e019",
+        "e020",
+        "e022",
+        "e024",
+        "e026",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 16
+      },
+      "sample_id": "c02-s01-a9ca700b"
+    },
+    "rationale": "盲标主体符合规则，需微调：e018为泛行业资讯，未出现华信科技、评审会或刘总，改为unrelated；意图名改为“华信科技需求评审会确认与筹备”。未采纳将e005、e023升为supporting的审查建议，因为view/search类动作按规则应为related_interest；e028天气查询同为search，归related_interest；e011为协调消息而非决定性确认，保持related_interest；e004邮件确认、e009分工确认、e021日历创建、e027网约车预订为决定性支持证据。最终1个意图，4条supporting、10条related_interest、16条unrelated。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 16 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 16,
+      "supporting": 4,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "meeting": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "work": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 1782,
+      "total_tokens": 3638,
+      "latency_s": 35.43,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1784,
+      "completion_tokens": 6432,
+      "total_tokens": 8216,
+      "latency_s": 122.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3723,
+      "completion_tokens": 4035,
+      "total_tokens": 7758,
+      "latency_s": 27.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6301,
+      "completion_tokens": 10070,
+      "total_tokens": 16371,
+      "latency_s": 83.07,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10462,
+      "completion_tokens": 10967,
+      "total_tokens": 21429,
+      "latency_s": 83.18,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 351.74
+}

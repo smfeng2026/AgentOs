@@ -1,0 +1,331 @@
+{
+  "sample_id": "c06-s01-139648a9",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-17T09:45:00+08:00",
+    "end": "2026-12-17T15:45:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-17T09:48:00+08:00",
+      "app": "exam_app",
+      "action": "view_detail",
+      "content": {
+        "exam_name": "大学英语六级考试",
+        "admission_ticket_no": "2612****0835",
+        "exam_date": "12月19日",
+        "exam_start_time": "15:00",
+        "exam_site": "长安大学渭水校区考点",
+        "exam_room": "修远教学楼302",
+        "seat_no": "18"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-17T09:52:29+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-17T09:59:00+08:00",
+      "app": "calendar_app",
+      "action": "view_schedule",
+      "content": {
+        "date": "12月19日",
+        "event_title": "大学英语六级考试",
+        "start_time": "15:00",
+        "end_time": "17:25",
+        "location": "长安大学渭水校区考点"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-17T10:02:32+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "驾车"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-17T10:14:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "学校教务处",
+        "subject": "2026年12月大学英语六级考试考前通知",
+        "exam_date": "12月19日",
+        "exam_time": "15:00-17:25",
+        "exam_site": "长安大学渭水校区考点",
+        "notice": "请提前打印准考证并携带身份证入场"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-17T10:36:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "city": "西安",
+        "query_date": "12月19日",
+        "weather": "晴",
+        "temperature_range": "-2℃~8℃",
+        "wind": "微风"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-17T10:45:37+08:00",
+      "app": "commute_app",
+      "action": "check_subway_crowding",
+      "content": {
+        "line": "早晚高峰线路"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-17T10:52:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "同学李婷",
+        "message_topic": "考前复习安排",
+        "message_summary": "李婷问最后两天怎么安排，要不要一起自习刷真题"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-17T11:08:00+08:00",
+      "app": "learning_app",
+      "action": "browse_content",
+      "content": {
+        "course_name": "大学英语六级冲刺课",
+        "chapter_title": "写作预测与高分模板精讲",
+        "watch_duration_minutes": 30
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-17T11:47:00+08:00",
+      "app": "learning_app",
+      "action": "browse_content",
+      "content": {
+        "content_type": "真题模考",
+        "paper_title": "六级真题试卷（2025年6月第二套）",
+        "module": "仔细阅读",
+        "question_count": 10
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-17T12:04:20+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-17T12:19:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "order_title": "大学英语六级冲刺课（考前点睛班）",
+        "amount": "99.00",
+        "pay_method": "微信支付",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-17T12:34:08+08:00",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "周末街头艺术节回顾",
+        "shared_to": "朋友圈"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-17T12:41:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "六级真题试卷",
+        "sort_by": "销量优先"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-17T13:03:59+08:00",
+      "app": "payment_app",
+      "action": "view_bill",
+      "content": {
+        "bill_type": "日常水电账单"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-17T13:09:30+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-17T13:12:00+08:00",
+      "app": "reader_app",
+      "action": "browse_content",
+      "content": {
+        "document_title": "六级写作高分范文20篇",
+        "category": "备考资料",
+        "current_chapter": "议论文范文第3篇"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-17T13:25:14+08:00",
+      "app": "learning_app",
+      "action": "browse_course",
+      "content": {
+        "subject": "素描基础"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-17T13:37:45+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "行业季度报告摘要"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-17T14:00:52+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-17T14:06:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure_location": "西安·太白南路小区",
+        "destination": "长安大学渭水校区考点",
+        "departure_date": "12月19日",
+        "planned_departure_time": "13:00",
+        "expected_duration_minutes": 55
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-17T14:30:28+08:00",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "阳台种菜"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-17T14:32:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "recipient": "同学李婷",
+        "message_topic": "考后对答案",
+        "message_content": "12月19日六级考完出来在考点门口碰头，一起对答案",
+        "exam_date": "12月19日"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-17T14:40:28+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "朋友群",
+        "topic": "分享一个搞笑视频"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-17T14:47:44+08:00",
+      "app": "shopping_app",
+      "action": "view_order",
+      "content": {
+        "order_type": "上周的纸巾订单"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-17T14:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "六级听力最后一晚冲刺技巧",
+        "channel": "英语备考站",
+        "duration_minutes": 12
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-17T15:09:51+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "旧书修复技艺"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-17T15:16:47+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "西安"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-17T15:18:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title": "听力练习",
+        "event_date": "12月17日",
+        "original_time": "19:00",
+        "new_time": "20:00"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-17T15:40:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "group_name": "六级备考交流小组",
+        "post_topic": "考前两天冲刺作息经验帖"
+      }
+    }
+  ]
+}

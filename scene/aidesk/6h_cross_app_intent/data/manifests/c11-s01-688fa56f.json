@@ -1,0 +1,206 @@
+{
+  "sample_id": "c11-s01-688fa56f",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:08:32+08:00",
+  "task": {
+    "scenario_category": "local_transport",
+    "template_id": "C11-S01",
+    "subscenario": "周边自驾",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-02T09:15:00+08:00",
+    "window_end": "2026-12-02T15:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 2350988999
+  },
+  "spec_summary": {
+    "title": "莫干山周末租车自驾小出游",
+    "intent_names": [
+      "莫干山周末自驾出游"
+    ],
+    "intent_categories": [
+      "local_transport"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "莫干山"
+      ],
+      "products": [
+        "紧凑型SUV租车两日"
+      ],
+      "people": [
+        "大学同学小陈",
+        "同事老周"
+      ],
+      "dates": [
+        "12月05日",
+        "12月06日"
+      ],
+      "other": [
+        "庾村景区",
+        "山间餐厅"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 5,
+    "gold_related_interest": 10,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "outing": 1
+    },
+    "gold_statuses": {
+      "planned": 1
+    },
+    "gold_categories": {
+      "local_transport": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "hn_train_other_city",
+      "meeting_app_week_schedule",
+      "read_novel",
+      "hn_map_other_city",
+      "fit_steps",
+      "learn_video",
+      "food_grocery",
+      "pet_vaccine_schedule",
+      "sys_storage",
+      "mail_reply",
+      "map_nearby",
+      "hn_weather_other_city",
+      "home_ac_cleaning_search",
+      "photo_album",
+      "tax_deduction_guide"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1858,
+      "completion_tokens": 1095,
+      "total_tokens": 2953,
+      "latency_s": 17.81,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1763,
+      "completion_tokens": 10461,
+      "total_tokens": 12224,
+      "latency_s": 84.82,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3546,
+      "completion_tokens": 7572,
+      "total_tokens": 11118,
+      "latency_s": 53.37,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5969,
+      "completion_tokens": 6236,
+      "total_tokens": 12205,
+      "latency_s": 46.94,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10492,
+      "completion_tokens": 5713,
+      "total_tokens": 16205,
+      "latency_s": 35.59,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 238.54,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c11-s01-688fa56f.json",
+      "sha256": "81ad354a77817d03b7e4c7031c487f7c6dfb0e1466cc06e9460e29ff643decd1"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c11-s01-688fa56f.json",
+      "sha256": "5cd730cac498f1a0cf7343751a5a286ba24cbd6b46a5a033bf9bd0225c0e4f3f"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c11-s01-688fa56f.json",
+      "sha256": "956e10ce243d4098c739b0e613490528d7599981137eb559c2c9f46e89323b4b"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c11-s01-688fa56f.json",
+      "sha256": "ca6e2d9168b08080e31ad422ea969cab95b3a9f13c8d4c02ef6c8e88f9663524"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c11-s01-688fa56f.json",
+      "sha256": "2f07222eeec0ab7300c367e4789e7fc3a32a052d3d2bb0da673baa7a20a0ae1b"
+    }
+  },
+  "updated_at": "2026-11-27T12:08:32+08:00"
+}

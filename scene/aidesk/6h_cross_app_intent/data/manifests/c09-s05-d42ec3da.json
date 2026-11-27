@@ -1,0 +1,211 @@
+{
+  "sample_id": "c09-s05-d42ec3da",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:42:11+08:00",
+  "task": {
+    "scenario_category": "finance_admin",
+    "template_id": "C09-S05",
+    "subscenario": "金融信息浏览",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-02T16:00:00+08:00",
+    "window_end": "2026-12-02T22:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 2359781234
+  },
+  "spec_summary": {
+    "title": "睡前浏览年末理财资讯",
+    "intent_names": [
+      "年末理财信息关注"
+    ],
+    "intent_categories": [
+      "finance_admin"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [],
+      "products": [
+        "稳健型理财产品",
+        "货币基金",
+        "大额存单"
+      ],
+      "people": [],
+      "dates": [],
+      "other": [
+        "存款利率",
+        "年末资金配置",
+        "理财科普"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 0,
+    "gold_related_interest": 15,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "unknown": 1
+    },
+    "gold_statuses": {
+      "emerging": 1
+    },
+    "gold_categories": {
+      "finance_admin": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "hn_bank_news",
+      "photo_album",
+      "fit_video",
+      "map_nearby",
+      "learn_video",
+      "cal_reminder",
+      "comm_bus",
+      "weather_forecast",
+      "music_playlist",
+      "game_play",
+      "ent_ranking",
+      "food_history",
+      "shop_browse",
+      "video_short",
+      "work_tool_article"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "finance_admin": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 2334,
+      "total_tokens": 4190,
+      "latency_s": 23.0,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1735,
+      "completion_tokens": 5542,
+      "total_tokens": 7277,
+      "latency_s": 45.87,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3443,
+      "completion_tokens": 3511,
+      "total_tokens": 6954,
+      "latency_s": 22.03,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5897,
+      "completion_tokens": 4293,
+      "total_tokens": 10190,
+      "latency_s": 32.99,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10370,
+      "completion_tokens": 8298,
+      "total_tokens": 18668,
+      "latency_s": 64.9,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 188.79,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c09-s05-d42ec3da.json",
+      "sha256": "60491fba7cadba051171a5f49e2e57ba6d907f21b0bcbd171f7c28bb9772a65e"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c09-s05-d42ec3da.json",
+      "sha256": "2ea1cffbd61bf7c632c8eec611756cd7d1a977887c5e54ca16493ce290c692e4"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c09-s05-d42ec3da.json",
+      "sha256": "d30c4bcd1b25f74d2682e21e36f6d4f36c5bab5490a6d9fffa5b0732ab0bdafc"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c09-s05-d42ec3da.json",
+      "sha256": "a0a83b7a1a05d495282601a4a7bfadf771d1882d712b802dff32952f4de9c032"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c09-s05-d42ec3da.json",
+      "sha256": "d4b4371618fe07db56605b082d572e6aaf786ae5c3f2627818f660728c5294b8"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "杭州",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

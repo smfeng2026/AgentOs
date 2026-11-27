@@ -1,0 +1,350 @@
+{
+  "sample_id": "c12-m05-df2dd78e",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-08T16:20:00+08:00",
+    "end": "2026-12-08T22:20:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-08T16:36:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "contact_name": "项目经理李阳",
+        "message_text": "收到通知，Q1项目评审会12月16日14:00我准时到，地点还是301会议室吧？",
+        "conversation_topic": "评审会时间确认"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-08T16:47:31+08:00",
+      "app": "flight_booking_app",
+      "action": "search_flight",
+      "content": {
+        "departure": "上海",
+        "destination": "郑州",
+        "departure_date": "12月28日"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-08T16:52:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "event_title": "Q1项目评审会",
+        "start_time": "12月16日 14:00",
+        "end_time": "12月16日 16:00",
+        "location": "公司301会议室",
+        "participants": [
+          "项目经理李阳",
+          "同事赵琳"
+        ]
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-08T17:08:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "项目经理李阳",
+        "subject": "Q1项目评审会议程（12月16日14:00）",
+        "summary": "议程含进度汇报、风险评审、Q2资源规划三个环节",
+        "has_attachment": true
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-08T17:26:00+08:00",
+      "app": "docs_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "历史评审纪要",
+        "search_scope": "共享文档库",
+        "result_count": 7
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-08T17:34:20+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-08T17:39:39+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "上海",
+        "arrival": "郑州",
+        "date": "12月28日"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-08T17:45:00+08:00",
+      "app": "docs_app",
+      "action": "browse_content",
+      "content": {
+        "document_title": "Q1项目评审材料v3",
+        "document_type": "演示文稿",
+        "viewed_section": "风险与依赖清单",
+        "last_edit_by": "项目经理李阳"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-08T18:02:38+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-08T18:05:00+08:00",
+      "app": "venue_booking_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "会议室",
+        "query_date": "12月16日",
+        "time_range": "14:00-16:00",
+        "result_summary": "301会议室该时段空闲"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-08T18:22:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "reminder_title": "Q1项目评审会提醒",
+        "remind_time": "12月16日 13:30",
+        "target_event": "Q1项目评审会"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-08T19:00:41+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "平台满减活动"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-08T19:20:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "contact_name": "同事赵琳",
+        "message_text": "放心，评审会开完我才出发去成都，16号下午肯定坐在会议室里",
+        "conversation_topic": "会议与周末安排"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-08T19:38:33+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-08T19:47:00+08:00",
+      "app": "flight_booking_app",
+      "action": "create_order",
+      "content": {
+        "route_type": "往返",
+        "departure_city": "上海",
+        "destination": "成都",
+        "outbound_date": "12月19日",
+        "return_date": "12月21日",
+        "passenger_count": 1,
+        "price": 1860,
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-08T19:51:28+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "动漫插画"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-08T19:53:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "order_description": "上海虹桥至成都天府往返机票",
+        "amount": 1860,
+        "payment_method": "银行卡",
+        "payment_status": "支付成功"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-08T20:02:37+08:00",
+      "app": "government_app",
+      "action": "view_progress",
+      "content": {
+        "item": "居住证办理进度",
+        "status": "审核中"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-08T20:07:44+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "target": "周末早午餐店",
+        "city": "上海",
+        "sort": "评分最高"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-08T20:18:00+08:00",
+      "app": "hotel_app",
+      "action": "book",
+      "content": {
+        "hotel_name": "春熙路智选酒店",
+        "address_area": "锦江区春熙路商圈",
+        "checkin_date": "12月19日",
+        "checkout_date": "12月21日",
+        "nights": 2,
+        "room_type": "大床房",
+        "price_per_night": 428,
+        "booking_status": "已预订"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-08T20:41:00+08:00",
+      "app": "ticket_app",
+      "action": "pay",
+      "content": {
+        "ticket_name": "成都大熊猫繁育研究基地门票",
+        "visit_date": "12月20日",
+        "quantity": 1,
+        "unit_price": 55,
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-08T20:45:20+08:00",
+      "app": "banking_app",
+      "action": "view_account_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-08T20:57:00+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_content",
+      "content": {
+        "guide_title": "成都周末两日游经典路线",
+        "viewed_section": "第二天行程安排",
+        "tags": [
+          "春熙路",
+          "大熊猫基地",
+          "宽窄巷子"
+        ]
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-08T21:06:30+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "充电宝租借"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-08T21:14:39+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "桂林",
+        "query": "火车站停车场"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-08T21:16:33+08:00",
+      "app": "venue_booking_app",
+      "action": "view_court_schedule",
+      "content": {
+        "venue": "家附近羽毛球馆",
+        "date": "本周六"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-08T21:18:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "成都",
+        "query_date_range": "12月19日至12月21日",
+        "weather_brief": "多云转小雨，气温5至11℃"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-08T21:19:51+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "90年代金曲"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-08T21:26:23+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "街头美食探店",
+        "duration_min": 8
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-08T21:46:00+08:00",
+      "app": "restaurant_app",
+      "action": "collect",
+      "content": {
+        "restaurant_name": "成都老码头火锅（春熙路店）",
+        "location": "锦江区春熙路",
+        "per_capita": 98,
+        "collect_list": "成都觅食清单"
+      }
+    }
+  ]
+}

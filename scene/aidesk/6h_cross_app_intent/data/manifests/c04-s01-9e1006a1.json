@@ -1,0 +1,209 @@
+{
+  "sample_id": "c04-s01-9e1006a1",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:27:29+08:00",
+  "task": {
+    "scenario_category": "social_dining",
+    "template_id": "C04-S01",
+    "subscenario": "朋友聚餐",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-04T16:30:00+08:00",
+    "window_end": "2026-12-04T22:30:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 2360243922
+  },
+  "spec_summary": {
+    "title": "周末老友烤肉饭局敲定",
+    "intent_names": [
+      "周六晚四人烤肉局"
+    ],
+    "intent_categories": [
+      "social_dining"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [
+        "静安寺"
+      ],
+      "products": [],
+      "people": [
+        "老周",
+        "小林",
+        "阿凯"
+      ],
+      "dates": [
+        "12月05日"
+      ],
+      "other": [
+        "烤肉店",
+        "四人桌预订",
+        "100元订金"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 16,
+    "gold_supporting": 7,
+    "gold_related_interest": 7,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "socializing": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "social_dining": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "map_history",
+      "sys_storage",
+      "shop_coupon",
+      "ent_trailer",
+      "music_search",
+      "fin_news",
+      "work_industry_news",
+      "hn_restaurant_lunch",
+      "photo_backup",
+      "game_daily",
+      "read_science",
+      "comm_subway",
+      "cal_reminder",
+      "fit_water",
+      "learn_video"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "composition_deviation"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 16 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 16,
+      "supporting": 7,
+      "related_interest": 7,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 2013,
+      "total_tokens": 3875,
+      "latency_s": 20.44,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1724,
+      "completion_tokens": 8181,
+      "total_tokens": 9905,
+      "latency_s": 141.58,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3558,
+      "completion_tokens": 10681,
+      "total_tokens": 14239,
+      "latency_s": 78.61,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6023,
+      "completion_tokens": 9452,
+      "total_tokens": 15475,
+      "latency_s": 75.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10348,
+      "completion_tokens": 5022,
+      "total_tokens": 15370,
+      "latency_s": 35.31,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 351.41,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c04-s01-9e1006a1.json",
+      "sha256": "c65f3b26e4ecf5d96895ed2d63bccabc1753cdabc8c881c0b209eb9e5a9b20e6"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c04-s01-9e1006a1.json",
+      "sha256": "e9f144c86537919b6222d75084c12273e996041acf32e92b98daf86fc2017880"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c04-s01-9e1006a1.json",
+      "sha256": "fcbffc4a33725d4cd8678cbea38857b91d3a728076ae15db40308402d0ccf30b"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c04-s01-9e1006a1.json",
+      "sha256": "1cd098a00d6ced0e0a4167094d2beb05c9edb0c25a4b9915098f3d04e6d54419"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c04-s01-9e1006a1.json",
+      "sha256": "61e79c0e08758e1bcfbb1b8e5c9b4843ba9597af977179d7e2200b409f790190"
+    }
+  },
+  "updated_at": "2026-11-27T11:27:29+08:00"
+}

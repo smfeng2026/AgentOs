@@ -1,0 +1,592 @@
+{
+  "sample_id": "c08-s06-2fde485e",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "家装风格兴趣浏览",
+      "category": "family",
+      "purpose": "renovation",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "视频App中连续观看多个家装改造与户型优化视频",
+        "社交笔记App中浏览装修攻略并收藏两篇笔记",
+        "家具App中收藏布艺沙发与全屋定制柜商品",
+        "比价App中查询已收藏沙发的价格走势"
+      ],
+      "optional_evidence": [
+        "把一条家装视频分享给配偶",
+        "在地图App中查看本地家居卖场的位置",
+        "浏览家居卖场的用户评价"
+      ],
+      "unknown_information": [
+        "房屋是否已交付或为旧房翻新",
+        "装修预算与时间表",
+        "是否打算联系装修公司量房"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 9,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_industry_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T18:51:53+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "行业季度报告摘要"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:04:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "session_type": "晚间连刷",
+        "playlist": "小户型爆改改造合集",
+        "videos_watched": [
+          "60平老房全屋翻新实录",
+          "暗厅变明厅的户型优化思路",
+          "开放式厨房改造前后对比"
+        ],
+        "watched_episodes": "3集",
+        "total_duration": "38分钟"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_handmade",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:14:00+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "手工作品"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "health_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:19:11+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "护眼小贴士"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_coupon",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:39:32+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "会员日折扣"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:47:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "title": "自装日记第12期：奶油风客厅软装进场",
+        "channel": "慢慢装家的阿岚",
+        "duration": "08:32",
+        "watch_progress": "65%",
+        "like_count": "2.1万"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_trailer",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T19:55:09+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "纪录片预告"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T20:12:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "配偶",
+        "message_type": "视频分享",
+        "shared_title": "暗厅变明厅的户型优化思路",
+        "message_text": "客厅要是也这样改，采光应该能好很多"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T20:33:27+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "基金定投入门"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T20:58:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "装修攻略",
+        "notes_previewed": [
+          "全屋定制避坑清单",
+          "硬装半包和全包怎么选"
+        ],
+        "stay_duration": "12分钟",
+        "note_count_in_topic": "2.4万篇"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T21:16:00+08:00",
+      "app": "social_app",
+      "action": "collect",
+      "content": {
+        "note_title": "从量房到软装：普通业主的装修全流程笔记",
+        "author": "装修慢记",
+        "collect_folder": "新家灵感",
+        "liked_count": "8600"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T21:24:00+08:00",
+      "app": "social_app",
+      "action": "collect",
+      "content": {
+        "note_title": "装修预算表怎么列：容易漏掉的20项开销",
+        "author": "持家老张",
+        "collect_folder": "新家灵感",
+        "liked_count": "1.2万"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T21:38:05+08:00",
+      "app": "music_app",
+      "action": "search_song",
+      "content": {
+        "keyword": "下雨天的歌"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T21:43:00+08:00",
+      "app": "map_app",
+      "action": "search",
+      "content": {
+        "keyword": "家居卖场",
+        "city": "杭州",
+        "result_count": "12家",
+        "top_result": "城西家居生活广场",
+        "distance": "4.2公里",
+        "open_hours": "10:00-21:00"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T21:52:00+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "target_name": "城西家居生活广场",
+        "overall_rating": "4.3",
+        "review_count": "1860条",
+        "reviews_read": [
+          "定制门店集中可以一次对比三家",
+          "周末人多建议工作日去"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T21:54:10+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "历史冷知识",
+        "duration_min": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T22:02:03+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "摄影构图技巧"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_daily",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T22:09:04+08:00",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_card_bill",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T22:10:13+08:00",
+      "app": "payment_app",
+      "action": "view_credit_card_bill",
+      "content": {
+        "month": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T22:38:00+08:00",
+      "app": "furniture_app",
+      "action": "browse_content",
+      "content": {
+        "category": "北欧风客厅灵感",
+        "items_viewed": [
+          "米灰色布艺沙发搭配示例",
+          "原木色茶几组合"
+        ],
+        "stay_duration": "9分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T22:49:00+08:00",
+      "app": "furniture_app",
+      "action": "collect",
+      "content": {
+        "product_name": "北欧风布艺沙发 三人位米灰",
+        "brand": "木白家居",
+        "price": "4299元",
+        "collect_folder": "客厅搭配",
+        "stock": "有货"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_now",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T22:52:55+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T23:05:00+08:00",
+      "app": "furniture_app",
+      "action": "collect",
+      "content": {
+        "product_name": "全屋定制柜 入户柜加衣柜组合方案",
+        "brand": "原素定制",
+        "price": "12800元起",
+        "collect_folder": "收纳方案",
+        "lead_time": "约30天"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T23:15:41+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T23:24:00+08:00",
+      "app": "price_compare_app",
+      "action": "search",
+      "content": {
+        "product_name": "北欧风布艺沙发 三人位米灰",
+        "price_trend": "近30天下降8%",
+        "current_lowest": "3899元",
+        "history_high": "4599元",
+        "platform_count": "5家"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-12T23:40:00+08:00",
+      "app": "furniture_app",
+      "action": "search",
+      "content": {
+        "keyword": "浴室收纳架",
+        "filters": [
+          "免打孔",
+          "太空铝"
+        ],
+        "result_count": "236件",
+        "sort_by": "销量"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_view",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T23:42:25+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "下个月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_backup",
+      "hard_negative": false,
+      "timestamp": "2026-12-12T23:54:12+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T00:07:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "product_category": "扫地机器人",
+        "candidates": [
+          "扫拖一体旗舰款",
+          "基础扫地款"
+        ],
+        "price_range": "1599-3299元",
+        "compare_dimensions": [
+          "吸力",
+          "续航",
+          "噪音"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T00:24:00+08:00",
+      "app": "furniture_app",
+      "action": "browse_content",
+      "content": {
+        "category": "家居好物热销榜",
+        "items_viewed": [
+          "免打孔置物架",
+          "沙发边几",
+          "折叠收纳凳"
+        ],
+        "stay_duration": "6分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ]
+}

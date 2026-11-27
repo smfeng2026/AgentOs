@@ -1,0 +1,216 @@
+{
+  "sample_id": "c10-s05-bb8d9331",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:45:24+08:00",
+  "task": {
+    "scenario_category": "fitness",
+    "template_id": "C10-S05",
+    "subscenario": "健身兴趣",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-02T12:25:00+08:00",
+    "window_end": "2026-12-02T18:25:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 2338258658
+  },
+  "spec_summary": {
+    "title": "午后的居家健身入门探索",
+    "intent_names": [
+      "居家训练入门探索"
+    ],
+    "intent_categories": [
+      "fitness"
+    ],
+    "key_entities": {
+      "home_city": "北京",
+      "destinations": [],
+      "products": [
+        "瑜伽垫",
+        "运动服饰"
+      ],
+      "people": [
+        "健身博主"
+      ],
+      "dates": [
+        "12月06日"
+      ],
+      "other": [
+        "居家训练视频",
+        "附近健身房",
+        "周末体验课"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 0,
+    "gold_related_interest": 15,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "unknown": 1
+    },
+    "gold_statuses": {
+      "emerging": 1
+    },
+    "gold_categories": {
+      "fitness": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "work_tool_article",
+      "cal_reminder",
+      "weather_now",
+      "read_bookmark",
+      "video_search",
+      "sys_update",
+      "learn_video",
+      "music_playlist",
+      "shop_cart",
+      "hn_match_news",
+      "food_grocery",
+      "comm_subway",
+      "mail_reply",
+      "map_nearby",
+      "ent_trailer"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "fitness": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1849,
+      "completion_tokens": 2265,
+      "total_tokens": 4114,
+      "latency_s": 43.48,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1686,
+      "completion_tokens": 5503,
+      "total_tokens": 7189,
+      "latency_s": 89.02,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3471,
+      "completion_tokens": 9997,
+      "total_tokens": 13468,
+      "latency_s": 72.99,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6001,
+      "completion_tokens": 4846,
+      "total_tokens": 10847,
+      "latency_s": 37.13,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10865,
+      "completion_tokens": 3507,
+      "total_tokens": 14372,
+      "latency_s": 24.64,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 267.26,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c10-s05-bb8d9331.json",
+      "sha256": "4203e14dda0aa0214e068757d1ac91233d6dc0460e34ea6f545ca144af004aa2"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c10-s05-bb8d9331.json",
+      "sha256": "92fdcb2e9a5da400c52bc3de4f79550656ae1a8917693500984b42c28793c4d4"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c10-s05-bb8d9331.json",
+      "sha256": "10cd68db1bfa3b5412541d68de75297328d8c29ec6e63e04ed94d2293145f7c2"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c10-s05-bb8d9331.json",
+      "sha256": "15c09d7dbb2a079bbb61c0275287350bdb455b06405114f683e2898b9f57f26c"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c10-s05-bb8d9331.json",
+      "sha256": "75e63bfbd81db254f744528d640264b3961fd0a95fe339cb6c965e30113fffe4"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "北京",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

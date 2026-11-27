@@ -1,0 +1,598 @@
+{
+  "sample_id": "c04-s01-7520a488",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周六老友饭局定店安排",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "即时通讯三人小群中约定周六晚上一起吃饭并敲定18:30",
+        "餐厅应用完成四人桌预订并收到预订成功通知",
+        "日历应用创建周六聚餐日程提醒"
+      ],
+      "optional_evidence": [
+        "点评应用浏览候选餐厅评分",
+        "地图应用查询到餐厅的路线",
+        "支付应用支付订座押金"
+      ],
+      "unknown_information": [
+        "聚餐总预算由谁结算",
+        "饭后是否有第二场活动"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T08:47:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "group_name": "老友周末饭局",
+        "sender": "本人",
+        "message_type": "提议",
+        "text": "周六12月19日晚上一起聚个饭吧，就在湖滨银泰附近吃日料，18:30开始，人均150左右，最好订个包间",
+        "mentions": [
+          "老周",
+          "阿蕾",
+          "大鹏"
+        ]
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:12:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "group_name": "老友周末饭局",
+        "sender": "阿蕾",
+        "message_type": "回复",
+        "text": "周六可以，18:30没问题，日料我也想吃，包间好啊方便聊天"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:15:47+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "化学小实验",
+        "duration_min": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:27:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "group_name": "老友周末饭局",
+        "sender": "大鹏",
+        "message_type": "回复",
+        "text": "周日的备选就别考虑了，就定周六吧，包间记得提前订上",
+        "reply_to": "周六聚餐提议"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_restaurant_lunch",
+      "hard_negative": true,
+      "timestamp": "2026-12-15T09:43:12+08:00",
+      "app": "restaurant_app",
+      "action": "browse_restaurants",
+      "content": {
+        "area": "公司附近",
+        "meal": "工作日午餐"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_view",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:45:01+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "下个月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:01:42+08:00",
+      "app": "music_app",
+      "action": "search_song",
+      "content": {
+        "keyword": "钢琴曲"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_balance",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:22:31+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_forecast",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:25:15+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:02:00+08:00",
+      "app": "restaurant_app",
+      "action": "search",
+      "content": {
+        "keyword": "日料",
+        "location": "湖滨银泰",
+        "dining_date": "12月19日",
+        "dining_time": "18:30",
+        "party_size": 4,
+        "filter": "有包间"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_read",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:05:12+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "新能源车市场观察",
+        "source": "财经早报"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_cleanup",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:11:07+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_edit",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:12:21+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "拼图"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:15:00+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "list_name": "湖滨银泰日料人气榜",
+        "sort_by": "评分",
+        "filters": [
+          "人均100-200元",
+          "提供包间"
+        ],
+        "page_viewed": 2
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_traffic",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:29:04+08:00",
+      "app": "map_app",
+      "action": "view_commute_traffic",
+      "content": {
+        "road": "常走的环线"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:31:00+08:00",
+      "app": "review_app",
+      "action": "view_detail",
+      "content": {
+        "restaurant_name": "鮨风·湖滨银泰店",
+        "rating": 4.7,
+        "avg_price_per_person": "148元",
+        "tags": [
+          "包间",
+          "刺身",
+          "朋友聚餐"
+        ],
+        "address": "杭州湖滨银泰in77"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:44:00+08:00",
+      "app": "restaurant_app",
+      "action": "compare",
+      "content": {
+        "candidates": [
+          "鮨风·湖滨银泰店",
+          "汐屋日料(湖滨店)"
+        ],
+        "dimensions": [
+          "人均价格",
+          "评分",
+          "包间",
+          "距湖滨银泰距离"
+        ],
+        "preferred": "鮨风·湖滨银泰店"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:58:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "origin": "家（西湖区文二西路）",
+        "destination": "鮨风·湖滨银泰店",
+        "route_type": "地铁",
+        "depart_time": "12月19日 17:40",
+        "duration": "约28分钟"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_trailer",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:12:26+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "动画电影预告"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:18:00+08:00",
+      "app": "review_app",
+      "action": "collect",
+      "content": {
+        "restaurant_name": "汐屋日料(湖滨店)",
+        "folder": "聚餐备选",
+        "note": "评分4.5，人均132元"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:52:00+08:00",
+      "app": "restaurant_app",
+      "action": "book",
+      "content": {
+        "restaurant_name": "鮨风·湖滨银泰店",
+        "dining_date": "12月19日",
+        "dining_time": "18:30",
+        "party_size": 4,
+        "private_room": "四人包间",
+        "deposit_amount": "100元",
+        "contact_name": "老周"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:53:00+08:00",
+      "app": "restaurant_app",
+      "action": "receive_message",
+      "content": {
+        "message_type": "预订成功通知",
+        "booking_no": "RC20261219003",
+        "restaurant_name": "鮨风·湖滨银泰店",
+        "dining_time": "12月19日 18:30",
+        "party_size": 4,
+        "order_status": "已预订",
+        "note": "请于18:15前到店确认包间"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:01:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "payee": "鮨风·湖滨银泰店",
+        "purpose": "订座押金",
+        "amount": "100元",
+        "payment_method": "余额",
+        "related_order": "RC20261219003",
+        "order_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:12:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "city": "杭州",
+        "forecast_date": "12月19日",
+        "condition": "多云",
+        "temperature_range": "5~13℃",
+        "wind": "东北风2级"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:24:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "老友聚餐·鮨风日料（湖滨银泰）",
+        "start_time": "12月19日 18:30",
+        "end_time": "12月19日 20:30",
+        "location": "湖滨银泰 鮨风·湖滨银泰店",
+        "participants": [
+          "老周",
+          "阿蕾",
+          "大鹏"
+        ],
+        "reminder": "提前1小时提醒"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_steps",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:38:10+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 4321
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "health_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:41:36+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "办公室久坐危害"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:47:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "group_name": "老友周末饭局",
+        "sender": "大鹏",
+        "message_type": "回复",
+        "text": "包间订好啦？吃完要不要再去湖边清吧坐坐，饭后看大家状态随意"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_photo",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:57:09+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "建筑摄影作品"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bus",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T14:01:15+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

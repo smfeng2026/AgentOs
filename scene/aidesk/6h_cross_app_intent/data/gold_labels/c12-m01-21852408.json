@@ -1,0 +1,360 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "杭州客户方案评审行程",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e014",
+        "e016",
+        "e017",
+        "e018",
+        "e019"
+      ],
+      "related_interest_event_ids": [
+        "e015",
+        "e024",
+        "e025"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "客户刘总发来邮件，确认12月22日下午14:00在杭州公司会议室召开方案评审会，并要求准时出席。",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户创建了武汉往返杭州的机票订单（12月22日去程MU2581、12月24日返程MU2586，经济舱，1280元），订单状态为待支付。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户已支付该武汉往返杭州机票订单1280元（订单号FB-20261218-6632），支付方式为银行卡尾号6688，订单状态为已支付。",
+          "source_event_ids": [
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户预订杭州滨江开元名都大酒店大床房，入住12月22日、退房12月24日，价格856元，状态为已预订。",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户在日历中创建“客户方案评审会”日程：12月22日14:00-16:00，地点为杭州客户公司3楼会议室，参与人为客户刘总，并设置提前1小时提醒。",
+          "source_event_ids": [
+            "e019"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户向同事陈晨提到22号要去杭州见客户刘总，说明该出行计划已在同事间沟通。",
+          "source_event_ids": [
+            "e015"
+          ]
+        },
+        {
+          "fact": "用户计划12月22日15:30从萧山机场T4航站楼乘地铁前往杭州滨江开元名都大酒店，预计耗时55分钟。",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "用户查询了杭州12月22日至24日的天气，预报为多云转小雨，气温5℃~12℃，为出行做准备。",
+          "source_event_ids": [
+            "e025"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否有其他同事同行未知",
+        "客户晚宴是否需要出席未知",
+        "航班具体起降时间未知",
+        "酒店房费是否已在线支付未知",
+        "e024中12月22日15:30从机场出发前往酒店的路线，与e019中12月22日14:00的会议时间可能冲突，实际“抵杭—入住—参会”的先后顺序待确认"
+      ],
+      "conflicts": []
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "更换星耀X7 Pro新手机",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e021",
+        "e022"
+      ],
+      "related_interest_event_ids": [
+        "e002",
+        "e005",
+        "e009",
+        "e011",
+        "e015",
+        "e023"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户在商城创建星耀X7 Pro手机订单（12GB+256GB，曜石黑，3899元），订单状态为待支付。",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户已支付该星耀X7 Pro手机订单3899元（订单号SO-20261218-8837），支付方式为银行卡尾号6688，订单状态为已支付。",
+          "source_event_ids": [
+            "e022"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在商城搜索星耀X7 Pro手机，并在比价工具中对比品牌官方商城、京选自营和猫淘旗舰店的价格，其中京选自营3899元最低。",
+          "source_event_ids": [
+            "e002",
+            "e005"
+          ]
+        },
+        {
+          "fact": "用户浏览了星耀X7 Pro的深度使用报告和上手评测视频，关注续航、影像与充电表现。",
+          "source_event_ids": [
+            "e009",
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户向同事陈晨表示想赶在出差前把旧手机换成星耀X7 Pro，说明换机动机偏向个人使用，并且与出差时间相关联。",
+          "source_event_ids": [
+            "e015"
+          ]
+        },
+        {
+          "fact": "用户收藏了星耀X7 Pro磁吸保护壳（雾灰，79元）至“手机配件清单”，可能在考虑购买配件。",
+          "source_event_ids": [
+            "e023"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否办理旧机以旧换新未知",
+        "是否加购碎屏保障服务未知",
+        "手机是否已发货或签收未知",
+        "收藏的保护壳是否最终购买未知"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001",
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e003",
+    "e004",
+    "e006",
+    "e007",
+    "e008",
+    "e010",
+    "e012",
+    "e013",
+    "e020",
+    "e026",
+    "e027",
+    "e028",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 2,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c12-m01-21852408"
+}

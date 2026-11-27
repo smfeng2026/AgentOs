@@ -1,0 +1,213 @@
+{
+  "sample_id": "c12-m01-ef9e300c",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:16:26+08:00",
+  "task": {
+    "scenario_category": "multi_intent",
+    "template_id": "C12-M01",
+    "subscenario": "商务出差 + 购买手机",
+    "difficulty": "D5_multi_intent",
+    "intent_count": 2,
+    "split": "unassigned",
+    "window_start": "2026-12-05T08:35:00+08:00",
+    "window_end": "2026-12-05T14:35:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3420491842
+  },
+  "spec_summary": {
+    "title": "赴深圳客户签约行程与自用新机采购",
+    "intent_names": [
+      "深圳客户签约差旅",
+      "旗舰手机换新采购"
+    ],
+    "intent_categories": [
+      "travel",
+      "shopping"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [
+        "深圳"
+      ],
+      "products": [
+        "新款旗舰手机（12GB+256GB，黑色）"
+      ],
+      "people": [
+        "客户陈总监",
+        "同事李工"
+      ],
+      "dates": [
+        "12月16日",
+        "12月18日"
+      ],
+      "other": [
+        "深圳湾科技园"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 2,
+    "gold_unrelated": 15,
+    "gold_supporting": 7,
+    "gold_related_interest": 8,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "business": 1,
+      "personal_use": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1,
+      "completed": 1
+    },
+    "gold_categories": {
+      "travel": 1,
+      "shopping": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "work_industry_news",
+      "photo_album",
+      "social_feed_handmade",
+      "hn_guide_other_city",
+      "ent_ranking",
+      "contacts_search_repair",
+      "sys_storage",
+      "game_daily",
+      "cal_view",
+      "read_bookmark",
+      "hn_hotel_other_city",
+      "video_playlist",
+      "fit_steps",
+      "hn_train_other_city",
+      "home_ac_cleaning_search"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 2,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "business": 1,
+        "personal_use": 1
+      },
+      "statuses": {
+        "confirmed": 1,
+        "completed": 1
+      },
+      "categories": {
+        "travel": 1,
+        "shopping": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1896,
+      "completion_tokens": 1810,
+      "total_tokens": 3706,
+      "latency_s": 81.07,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1925,
+      "completion_tokens": 5151,
+      "total_tokens": 7076,
+      "latency_s": 103.53,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3695,
+      "completion_tokens": 6404,
+      "total_tokens": 10099,
+      "latency_s": 73.53,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6659,
+      "completion_tokens": 10471,
+      "total_tokens": 17130,
+      "latency_s": 89.68,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11480,
+      "completion_tokens": 4613,
+      "total_tokens": 16093,
+      "latency_s": 26.85,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 374.68,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c12-m01-ef9e300c.json",
+      "sha256": "4c3970d82a10183e111769e836f232f092d81e7e7b63e31b2275850996a56370"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c12-m01-ef9e300c.json",
+      "sha256": "3224990213a3d8092ab6ea02bd8862955cb3827d572496f6a09df417dc9c531a"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c12-m01-ef9e300c.json",
+      "sha256": "f3005357f497cf8ac8dc88de847986e05120457a4f6eb7cdba1570dcc1db4927"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c12-m01-ef9e300c.json",
+      "sha256": "a5c7e7f90a4e3258d8ef06fe876ad2c53783361f0faa11c2836c8db90d3174a9"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c12-m01-ef9e300c.json",
+      "sha256": "1b39ad8b0ecaaf3c47ec1cf7424579ba54e4a26c24d5aa4ddd11d0022e15d118"
+    }
+  },
+  "updated_at": "2026-11-27T12:16:26+08:00"
+}

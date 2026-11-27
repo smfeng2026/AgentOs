@@ -1,0 +1,752 @@
+{
+  "sample_id": "c08-s06-7cd453df",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "根据规则10，浏览、搜索、查看详情、收藏、比价均只能作为 related_interest，不能作为 supporting；本窗口没有订单、支付、预约量房、联系装修公司或明确确认等决定性证据，因此将盲标中高置信、考虑中的意图修正为 emerging/low，并将 e001/e003/e011/e012/e013/e016 等直接内容消费事件统一标为 related_interest。e014 等噪声事件仍与旧居翻新意图无关，保持 unrelated；场景本身有足够内容浏览证据支撑，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "photo_edit",
+        "social_feed_handmade",
+        "comm_bike",
+        "health_article",
+        "work_industry_news",
+        "fit_video",
+        "pay_card_bill",
+        "food_lunch",
+        "fin_balance",
+        "news_headlines",
+        "mail_cleanup",
+        "cal_view",
+        "weather_now",
+        "ent_ranking",
+        "game_store"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "老房翻新与家居布置",
+        "category": "family",
+        "purpose": "renovation",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e008",
+          "e011",
+          "e012",
+          "e013",
+          "e016",
+          "e018",
+          "e019",
+          "e022",
+          "e023",
+          "e025",
+          "e027",
+          "e028",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户持续浏览老房翻新、改造前后对比及预算相关内容，表现出对老房翻新的兴趣。",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户关注装修公司口碑和翻新后开荒保洁服务，可能正在评估翻新方案。",
+            "source_event_ids": [
+              "e016",
+              "e023"
+            ]
+          },
+          {
+            "fact": "用户浏览或搜索收纳、置物架、收纳盒、软装等家居用品，可能为翻新后的家居布置做准备。",
+            "source_event_ids": [
+              "e008",
+              "e012",
+              "e013",
+              "e018",
+              "e019",
+              "e028",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户比较扫地机器人，可能考虑添置或更换家电。",
+            "source_event_ids": [
+              "e022"
+            ]
+          },
+          {
+            "fact": "家人提到红星美凯龙周末建材满减活动并邀请一起逛，可能涉及建材采购。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "用户搜索附近家居卖场，可能考虑线下选购家居或建材。",
+            "source_event_ids": [
+              "e025"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "房屋具体位置、面积和当前状态",
+          "翻新预算与计划时间",
+          "是否已选定装修公司或已预约量房",
+          "是否实际购买建材或家具",
+          "是否已与家人约定逛店时间"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e005",
+      "e006",
+      "e007",
+      "e009",
+      "e010",
+      "e014",
+      "e015",
+      "e017",
+      "e020",
+      "e021",
+      "e024",
+      "e026",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c08-s06-7cd453df",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_evidence_missing",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e011",
+          "e012",
+          "e013",
+          "e016"
+        ],
+        "description": "盲标将 i001 的 supporting_event_ids 置空，并把所有 15 个 related 事件都标为 related_interest；但 e001/e003/e011/e012/e013/e016 正好覆盖规格中的社交浏览、视频观看、预算攻略搜索、家具搜索/详情、装修口碑搜索等 required_evidence，且 labeled_events 中这些事件的关系为 supporting，与盲标/event_labels 冲突。",
+        "suggested_action": "统一裁决：若维持兴趣探索定位，应把这些直接证据至少标为 supporting；若认为证据过弱，则不能保留 supporting 标签，并将意图降为更低置信。不要出现 supporting 为空却高置信的标注。"
+      },
+      {
+        "issue_type": "overstated_intent_status",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e011",
+          "e016",
+          "e023"
+        ],
+        "description": "盲标将 i001 从规格的 emerging/low 提升为 considering/high，但事件只有内容浏览、搜索、收藏和比价，没有量房、联系装修公司、报价、明确预算/时间表等直接证据；证据只能支持‘旧居翻新兴趣探索’，不能支持进入考虑/评估阶段。",
+        "suggested_action": "将 status 改回 emerging、confidence 改为 low（或至少 medium-low），删除‘正在评估翻新方案’等推断，除非补充直接证据。"
+      },
+      {
+        "issue_type": "fact_overreach",
+        "severity": "medium",
+        "event_ids": [
+          "e016",
+          "e023"
+        ],
+        "description": "盲标 inferred_fact 写‘关注装修公司口碑和翻新后开荒保洁服务，可能正在评估翻新方案’，但 e016 只是搜索口碑、e023 只是浏览保洁服务，未出现具体方案比较或服务预约。",
+        "suggested_action": "将事实改写为‘了解装修公司口碑和翻新后保洁服务’，避免从信息浏览推断为方案评估。"
+      },
+      {
+        "issue_type": "unnatural_business_logic",
+        "severity": "medium",
+        "event_ids": [
+          "e014"
+        ],
+        "description": "场景为周末（2026-12-06）上午，但噪声事件 e014 在 09:48 浏览的是‘工作日午餐’，与周末时间背景不符，显得不自然。",
+        "suggested_action": "将 e014 改为周末午餐/早午餐，或替换为其他合理噪声事件。"
+      },
+      {
+        "issue_type": "time_window_mismatch",
+        "severity": "low",
+        "event_ids": [
+          "e025",
+          "e027",
+          "e028",
+          "e030"
+        ],
+        "description": "标题为‘周末上午’，但相关事件延续到 12:07-13:19 的午后时段，时间窗口描述与标题略不一致。",
+        "suggested_action": "将标题改为‘周末白天’或压缩午后事件到上午。"
+      }
+    ],
+    "summary": "未通过：盲标把低置信的兴趣探索提升为高置信的考虑中，且 supporting_event_ids 为空与事件标签/规格冲突；需统一 supporting 与 related_interest 的裁决并降级意图置信。另有事实推断过度和周末‘工作日午餐’不自然的问题。"
+  },
+  "adjudication": {
+    "sample_id": "c08-s06-7cd453df",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "旧居翻新兴趣探索",
+          "category": "family",
+          "purpose": "renovation",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e008",
+            "e011",
+            "e012",
+            "e013",
+            "e016",
+            "e018",
+            "e019",
+            "e022",
+            "e023",
+            "e025",
+            "e027",
+            "e028",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户浏览老房改造内容、观看老房翻新视频、搜索翻新预算清单和装修公司口碑，表现出对旧居翻新的兴趣。",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e011",
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户搜索并查看实木置物架详情，同时浏览收纳用品、软装搭配和附近家居卖场，关注翻新后的家居布置与选购方向。",
+              "source_event_ids": [
+                "e012",
+                "e013",
+                "e018",
+                "e019",
+                "e025",
+                "e028",
+                "e030"
+              ]
+            },
+            {
+              "fact": "用户比较扫地机器人价格并浏览开荒保洁服务，涉及翻新后的家电配置与清洁安排。",
+              "source_event_ids": [
+                "e022",
+                "e023"
+              ]
+            },
+            {
+              "fact": "姐姐在家庭群提到红星美凯龙周末建材满减活动并邀请一起逛，可能作为建材采购的参考信息。",
+              "source_event_ids": [
+                "e027"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否有明确的装修时间表",
+            "预算范围",
+            "是否已与装修公司实际接触",
+            "打算改造的具体房间范围",
+            "是否已实际购买建材、家具或家电",
+            "是否已与家人约定逛卖场时间"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e005",
+        "e006",
+        "e007",
+        "e009",
+        "e010",
+        "e014",
+        "e015",
+        "e017",
+        "e020",
+        "e021",
+        "e024",
+        "e026",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c08-s06-7cd453df"
+    },
+    "rationale": "根据规则10，浏览、搜索、查看详情、收藏、比价均只能作为 related_interest，不能作为 supporting；本窗口没有订单、支付、预约量房、联系装修公司或明确确认等决定性证据，因此将盲标中高置信、考虑中的意图修正为 emerging/low，并将 e001/e003/e011/e012/e013/e016 等直接内容消费事件统一标为 related_interest。e014 等噪声事件仍与旧居翻新意图无关，保持 unrelated；场景本身有足够内容浏览证据支撑，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "renovation": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "family": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1851,
+      "completion_tokens": 2512,
+      "total_tokens": 4363,
+      "latency_s": 26.46,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1736,
+      "completion_tokens": 8109,
+      "total_tokens": 9845,
+      "latency_s": 141.51,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3399,
+      "completion_tokens": 6354,
+      "total_tokens": 9753,
+      "latency_s": 47.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5709,
+      "completion_tokens": 8951,
+      "total_tokens": 14660,
+      "latency_s": 68.34,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9687,
+      "completion_tokens": 3859,
+      "total_tokens": 13546,
+      "latency_s": 29.4,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 315.84
+}

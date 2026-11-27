@@ -1,0 +1,303 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "12月26日南山滑雪场滑雪出行（改乘直通车）",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e016",
+        "e018",
+        "e021",
+        "e023"
+      ],
+      "related_interest_event_ids": [
+        "e002",
+        "e003",
+        "e004",
+        "e010",
+        "e012",
+        "e014",
+        "e015",
+        "e019",
+        "e027"
+      ],
+      "contradicting_event_ids": [
+        "e005",
+        "e007"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "已创建12月26日东直门—南山滑雪场往返直通车订单（TC20261221015），去程06:50、返程16:30，总价116元。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "直通车订单TC20261221015已支付成功116元。",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "日历中12月26日“南山滑雪场滑雪（与小周同行）”日程的出发时间已更新为06:50东直门乘直通车，并设置提前90分钟提醒。",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "已向小周发送消息：租车已退，12月26日改乘06:50东直门发车的直通车，06:30东直门交通枢纽集合。",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "原租车订单CR20261221008已取消，368元退款成功原路退回。",
+          "source_event_ids": [
+            "e005",
+            "e007"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户12月26日计划与朋友小周前往南山滑雪场滑雪。",
+          "source_event_ids": [
+            "e021",
+            "e023"
+          ]
+        },
+        {
+          "fact": "原计划租车自驾前往南山滑雪场，因12月26日京承高速密云段道路结冰/降雪预警，取消租车并改乘直通车。",
+          "source_event_ids": [
+            "e003",
+            "e010",
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户计划从望京西园前往东直门交通枢纽，再乘06:50直通车去南山滑雪场，并考虑打车到东直门。",
+          "source_event_ids": [
+            "e012",
+            "e016",
+            "e023",
+            "e027"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "小周是否已购买同班次直通车票",
+        "小周是否确认06:30在东直门交通枢纽集合",
+        "滑雪场门票和装备是否已另行安排",
+        "是否还有其他同行人"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e006",
+    "e008",
+    "e009",
+    "e011",
+    "e013",
+    "e017",
+    "e020",
+    "e022",
+    "e024",
+    "e025",
+    "e026",
+    "e028",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c11-s06-9b9b5104"
+}

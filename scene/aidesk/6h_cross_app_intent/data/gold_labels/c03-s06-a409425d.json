@@ -1,0 +1,360 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "平板电脑购置计划撤销",
+      "category": "shopping",
+      "purpose": "unknown",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e007",
+        "e010",
+        "e016",
+        "e018"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e005",
+        "e012",
+        "e014"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户创建了订单 PO202612051231，购买星曜Pad11平板电脑 1 台，订单金额 2899 元，预计 12 月 7 日送达至上海市浦东新区。",
+          "source_event_ids": [
+            "e007"
+          ]
+        },
+        {
+          "fact": "该订单通过银行卡支付成功，商户为星曜官方旗舰店，金额 2899 元，订单状态为已支付。",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "该订单随后被取消，取消原因为续航不符合预期，退款金额 2899 元，订单状态为已取消。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "退款 2899 元已原路退回并到账。",
+          "source_event_ids": [
+            "e018"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在下单前搜索并浏览星曜Pad11，并比较星曜Pad11、灵犀TabS、云驰PadPro的价格，星曜Pad11最低价为 2899 元。",
+          "source_event_ids": [
+            "e001",
+            "e002",
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户查看了星曜Pad11的评测视频和续航差评，关注续航仅 5 小时、发热明显等问题。",
+          "source_event_ids": [
+            "e005",
+            "e014"
+          ]
+        },
+        {
+          "fact": "订单取消与续航差评有关。",
+          "source_event_ids": [
+            "e014",
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户在取消前曾查看该订单，状态为待发货。",
+          "source_event_ids": [
+            "e012"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "取消是否还受预算变化影响",
+        "是否打算在大促时重新下单",
+        "购买用途是个人使用、送礼还是工作相关"
+      ],
+      "conflicts": []
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "大促前平板换购研究",
+      "category": "shopping",
+      "purpose": "unknown",
+      "status": "planned",
+      "confidence_level": "medium",
+      "supporting_event_ids": [
+        "e028"
+      ],
+      "related_interest_event_ids": [
+        "e019",
+        "e023",
+        "e025",
+        "e026"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户设置了 12 月 12 日 10:00 的提醒，标题为“双十二平板比价提醒”，备注关注云驰PadPro优惠价。",
+          "source_event_ids": [
+            "e028"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户比较了灵犀TabS与云驰PadPro的价格与续航，云驰PadPro 2670 元，灵犀TabS 2799 元。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户收藏了云驰PadPro平板，价格 2670 元，收藏夹为“平板候选”。",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户搜索了 11 英寸平板电脑保护壳。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户浏览了平板电脑优惠榜，关注双十二预热立减券。",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户可能计划在双十二期间继续比较平板价格并关注优惠。",
+          "source_event_ids": [
+            "e019",
+            "e023",
+            "e026",
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "最终想购买的平板型号",
+        "是否会在双十二实际下单",
+        "购买用途和预算上限"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e004",
+    "e006",
+    "e008",
+    "e009",
+    "e011",
+    "e013",
+    "e015",
+    "e017",
+    "e020",
+    "e021",
+    "e022",
+    "e024",
+    "e027",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 2,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c03-s06-a409425d"
+}

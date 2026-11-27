@@ -1,0 +1,316 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "全家年底聚餐",
+      "category": "family",
+      "purpose": "family_gathering",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e002",
+        "e004",
+        "e019",
+        "e020",
+        "e022",
+        "e023"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e008",
+        "e010",
+        "e013",
+        "e015",
+        "e021",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "妈妈确认周日晚上18:30开始聚餐，并要求预订有包间的餐厅。",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "二叔确认参加人数共8人，并建议预订10人包间以便宽松就座。",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "已在老城隍本帮菜馆(福佑路店)预订12月27日18:30的10人包间，8人用餐，预订状态为预订成功，订单号R2026122209451。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "已支付200元包间预订定金，支付成功。",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "已创建12月27日18:30至20:30的“全家年底聚餐”日程，地点为老城隍本帮菜馆(福佑路店)。",
+          "source_event_ids": [
+            "e022"
+          ]
+        },
+        {
+          "fact": "已向家庭群发送包间已订好、定金已付的确认消息。",
+          "source_event_ids": [
+            "e023"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "聚餐地点选在城隍庙商圈的本帮菜馆。",
+          "source_event_ids": [
+            "e008",
+            "e010",
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户在比较两家本帮菜馆后倾向于选择老城隍本帮菜馆，因为其有10人包间且免最低消费。",
+          "source_event_ids": [
+            "e010",
+            "e015",
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户在会前考虑了驾车路线、天气和餐厅附近停车安排。",
+          "source_event_ids": [
+            "e027",
+            "e029",
+            "e030"
+          ]
+        },
+        {
+          "fact": "该聚餐属于家庭团聚性质的年底聚会。",
+          "source_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e019"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "最终到场人数是否仍为8人",
+        "是否需要为长辈安排接送",
+        "聚餐费用如何分摊",
+        "是否需要安排餐后活动"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e005",
+    "e006",
+    "e007",
+    "e009",
+    "e011",
+    "e012",
+    "e014",
+    "e016",
+    "e017",
+    "e018",
+    "e024",
+    "e025",
+    "e026",
+    "e028"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c08-s03-2b914f19"
+}

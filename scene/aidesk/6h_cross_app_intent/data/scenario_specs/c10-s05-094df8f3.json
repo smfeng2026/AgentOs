@@ -1,0 +1,59 @@
+{
+  "title": "周末傍晚的居家健身内容浏览",
+  "scenario_category": "fitness",
+  "subscenario": "健身兴趣",
+  "template_id": "C10-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [],
+    "products": [
+      "瑜伽垫",
+      "弹力带"
+    ],
+    "people": [],
+    "dates": [],
+    "other": [
+      "新手训练计划",
+      "健身教程视频",
+      "附近健身房",
+      "运动歌单"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "开始尝试居家健身",
+      "category": "fitness",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在fitness_app搜索并浏览新手训练课程",
+        "在video_app搜索健身教程视频并收藏",
+        "在fitness_app查看21天训练计划详情页"
+      ],
+      "optional_evidence": [
+        "在shopping_app搜索瑜伽垫",
+        "在sports_app搜索附近健身房",
+        "在music_app搜索运动歌单"
+      ],
+      "unknown_information": [
+        "是否打算实际开始训练或购买器械",
+        "是否考虑去线下健身房",
+        "具体训练目标"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前半段（14:35-16:30）以无关活动为主，仅零星一条关联浏览；16:30 起用户在 video_app 与 fitness_app 连续搜索、浏览并收藏健身教学内容，形成主要证据簇；19:00 后转为浏览瑜伽垫、附近健身房和运动歌单等关联信息；全程无任何下单、预订、日历或提醒类强证据，兴趣强度停留在浏览收藏层面。",
+  "variant_note": "与同模板其他样本的差异：本样本以 fitness_app 与 video_app 的搜索浏览收藏为核心证据簇，关联兴趣扩展到 shopping_app、sports_app、venue_booking_app 和 music_app；兴趣行为集中在窗口中后段而非开头；未使用日历、提醒、订单类强证据，status 保持 emerging，purpose 为 unknown，以体现 D3 弱证据下目的不可证明的特点。",
+  "scenario_id": "c10-s05-094df8f3"
+}

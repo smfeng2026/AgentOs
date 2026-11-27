@@ -1,0 +1,585 @@
+{
+  "sample_id": "c06-s01-a6082189",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "大学英语六级冲刺备考",
+      "category": "learning",
+      "purpose": "exam_prep",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "exam_app中12月19日六级考试提醒与报名信息",
+        "calendar_app创建多条12月5日至12月18日的复习日程事件",
+        "learning_app中六级真题搜索与练习记录",
+        "shopping_app中已支付的六级真题套卷订单",
+        "im_app中与同学约定12月12日一起进行全真模考"
+      ],
+      "optional_evidence": [
+        "video_app观看六级听力技巧视频",
+        "map_app查看考点位置与路线",
+        "calendar_app设置12月19日考试当日提醒"
+      ],
+      "unknown_information": [
+        "是否还报名了其他科目考试",
+        "是否参加线下培训班"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T14:47:00+08:00",
+      "app": "learning_app",
+      "action": "search",
+      "content": {
+        "keyword": "大学英语六级真题",
+        "category": "历年真题",
+        "filter_year_range": "2021-2025",
+        "search_result_count": 36
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T14:56:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "考试频道",
+        "playlist_title": "六级听力技巧视频合集",
+        "video_count": 12,
+        "uploader": "英语备考君",
+        "play_count": "58万"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "im_work_reply",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T14:58:06+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "同事群",
+        "topic": "打印机卡纸了"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T15:26:00+08:00",
+      "app": "learning_app",
+      "action": "view_detail",
+      "content": {
+        "paper_title": "2024年6月大学英语六级真题（第一套）",
+        "section": "听力",
+        "question_count": 25,
+        "completed_count": 25,
+        "accuracy": "68%",
+        "duration_minutes": 32
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_points",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T15:29:58+08:00",
+      "app": "banking_app",
+      "action": "view_credit_card_points",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_grocery",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T15:36:36+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T15:44:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "course_title": "六级听力冲刺网课",
+        "lesson_count": 16,
+        "instructor": "张老师",
+        "price": "199元",
+        "start_date": "12月6日",
+        "rating": "4.8",
+        "viewer_count": "1.2万"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T16:10:00+08:00",
+      "app": "learning_app",
+      "action": "collect",
+      "content": {
+        "item_title": "六级高频词汇精简版讲义",
+        "item_type": "备考资料",
+        "folder": "六级资料收藏夹"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T16:22:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "室友陈悦",
+        "message_type": "text",
+        "message_summary": "问晚上要不要一起去图书馆刷六级真题，顺便对答案"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_wallpaper",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T16:23:51+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "简约风景"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bus",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T16:36:43+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T16:41:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "category": "考试用书",
+        "keyword": "六级真题",
+        "item_list": [
+          "大学英语六级真题套卷",
+          "六级词汇乱序版",
+          "六级写作与翻译专项训练"
+        ],
+        "sort_by": "销量"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_industry_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T16:51:24+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "远程办公效率工具盘点"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T17:20:00+08:00",
+      "app": "exam_app",
+      "action": "receive_message",
+      "content": {
+        "message_type": "系统通知",
+        "title": "2026年下半年全国大学英语六级考试提醒",
+        "exam_name": "大学英语六级考试",
+        "exam_date": "12月19日",
+        "exam_time": "15:00-17:25",
+        "registration_status": "报名成功",
+        "admission_ticket_note": "12月15日起开放打印准考证",
+        "exam_center": "南京师范大学仙林校区"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_daily",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T17:22:00+08:00",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T17:34:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "文苑路（当前定位）",
+        "destination": "南京师范大学仙林校区",
+        "route_type": "公共交通",
+        "route_line": "地铁2号线转321路",
+        "estimated_duration": "38分钟",
+        "distance": "6.5公里"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_course_other_subject",
+      "hard_negative": true,
+      "timestamp": "2026-12-04T18:03:26+08:00",
+      "app": "learning_app",
+      "action": "browse_course",
+      "content": {
+        "subject": "公共演讲"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T18:05:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "order_number": "202612041805123068",
+        "merchant": "考试图书专营店",
+        "goods_name": "大学英语六级真题套卷（2021-2025历年真题含详解）",
+        "order_amount": "49.80元",
+        "payment_method": "微信零钱",
+        "payment_status": "支付成功",
+        "order_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_album",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T18:08:42+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "日常随手拍"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "health_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T18:13:22+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "办公室久坐危害"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_reminder",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T18:41:58+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "取快递"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_newsletter",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T18:45:59+08:00",
+      "app": "mail_app",
+      "action": "read_newsletter",
+      "content": {
+        "subject": "商场促销活动"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_balance",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T19:16:47+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_share",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T19:20:18+08:00",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "周末街头艺术节回顾",
+        "shared_to": "朋友圈"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_steps",
+      "hard_negative": false,
+      "timestamp": "2026-12-04T19:31:59+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 7890
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T19:38:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "六级真题每日刷题计划",
+        "start_date": "12月5日",
+        "start_time": "19:00",
+        "duration_hours": 2,
+        "repeat": "每日",
+        "repeat_until": "12月18日",
+        "location": "图书馆三楼自习区",
+        "reminder": "提前30分钟"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T19:46:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "六级全真模考（与林晓）",
+        "start_date": "12月12日",
+        "start_time": "09:00",
+        "duration_hours": 3,
+        "location": "教学楼B座203",
+        "participants": [
+          "林晓"
+        ],
+        "note": "按考试流程严格计时，结束后互批作文"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T19:53:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "reminder_title": "六级考试日提醒",
+        "remind_date": "12月19日",
+        "remind_time": "07:30",
+        "note": "13:30前到达南京师范大学仙林校区，带准考证和耳机"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T20:12:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "同学林晓",
+        "message_type": "text",
+        "message_summary": "提议12月12日上午9点在教学楼B座203一起做六级全真模考，按考试流程计时"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-04T20:21:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "chat_with": "同学林晓",
+        "message_type": "text",
+        "message_summary": "确认12月12日上午9点一起模考，会带两套打印好的真题卷和答题卡"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ]
+}

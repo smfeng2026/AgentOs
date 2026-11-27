@@ -1,0 +1,299 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "关注AI行业资讯与算法岗位机会",
+      "category": "work",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e002",
+        "e003",
+        "e004",
+        "e005",
+        "e011",
+        "e012",
+        "e014",
+        "e016",
+        "e018",
+        "e019",
+        "e020",
+        "e025",
+        "e028",
+        "e029",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户浏览人工智能频道并搜索“人工智能 大模型”相关资讯，表现出对AI行业动态的关注。",
+          "source_event_ids": [
+            "e002",
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户阅读“2026年大模型行业人才需求观察”，关注AI行业与岗位需求信息。",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "用户浏览科技行业资讯，包括互联网公司组织架构调整和智能硬件新品动态。",
+          "source_event_ids": [
+            "e005"
+          ]
+        },
+        {
+          "fact": "用户在上海搜索算法工程师、NLP算法工程师岗位，并查看算法类职位列表。",
+          "source_event_ids": [
+            "e011",
+            "e016",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户查看推荐算法、大模型算法、机器学习工程师等岗位，并收藏其中部分岗位。",
+          "source_event_ids": [
+            "e012",
+            "e014",
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户观看算法岗工作日常、换工作时机和算法工程师职业发展路径相关视频。",
+          "source_event_ids": [
+            "e018",
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户搜索并查看机器学习课程，收藏深度学习相关课程到学习清单。",
+          "source_event_ids": [
+            "e020",
+            "e029",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否有明确的求职或跳槽计划",
+        "目标公司和岗位方向",
+        "是否已更新简历或投递",
+        "期望薪资",
+        "是否已参加面试或拿到offer",
+        "当前在职状态",
+        "是否已报名或购买机器学习课程",
+        "学习计划与目标"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e006",
+    "e007",
+    "e008",
+    "e009",
+    "e010",
+    "e013",
+    "e015",
+    "e017",
+    "e021",
+    "e022",
+    "e023",
+    "e024",
+    "e026",
+    "e027"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c02-s05-f11f9cc3"
+}

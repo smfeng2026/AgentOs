@@ -1,0 +1,339 @@
+{
+  "sample_id": "c11-s01-688fa56f",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-02T09:15:00+08:00",
+    "end": "2026-12-02T15:15:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-02T09:23:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "大学同学小陈",
+        "chat_type": "私聊",
+        "message_text": "这周末想出去透透气，莫干山那边怎么样？你要不要一起"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-02T09:32:33+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "杭州",
+        "arrival": "济南",
+        "date": "12月22日"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-02T09:39:58+08:00",
+      "app": "meeting_app",
+      "action": "view_schedule",
+      "content": {
+        "date_range": "本周"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-02T09:47:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "莫干山",
+        "date_range": "12月05日至12月06日",
+        "forecast_summary": "周六多云 4~13℃，周日晴 3~11℃"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-02T10:05:27+08:00",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "悬疑推理",
+        "chapter": "第103章"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-02T10:12:00+08:00",
+      "app": "travel_guide_app",
+      "action": "search",
+      "content": {
+        "keyword": "莫干山自驾两日攻略",
+        "filter": "周末短途",
+        "sort_by": "热度"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-02T10:38:00+08:00",
+      "app": "travel_guide_app",
+      "action": "view_detail",
+      "content": {
+        "title": "庾村景区与山间餐厅：周末两日慢游笔记",
+        "category": "周边游",
+        "author": "山野拾光",
+        "read_progress": "全文已读"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-02T10:56:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "同事老周",
+        "chat_type": "私聊",
+        "message_text": "周六全天在外地回不来，评审会挪到周一下午可以吗"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-02T10:57:35+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "天津",
+        "query": "火车站停车场"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-02T11:05:00+08:00",
+      "app": "restaurant_app",
+      "action": "search",
+      "content": {
+        "keyword": "山间餐厅",
+        "location": "莫干山镇",
+        "dine_date": "12月05日",
+        "sort_by": "评分"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-02T11:18:33+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 7890
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-02T11:23:03+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "历史冷知识",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-02T11:26:00+08:00",
+      "app": "car_rental_app",
+      "action": "search",
+      "content": {
+        "pickup_city": "杭州",
+        "pickup_store": "杭州东站店",
+        "pickup_date": "12月05日",
+        "return_date": "12月06日",
+        "car_type": "紧凑型SUV"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-02T11:58:00+08:00",
+      "app": "car_rental_app",
+      "action": "view_detail",
+      "content": {
+        "car_model": "紧凑型SUV 5座",
+        "rental_store": "杭州东站店",
+        "daily_price": "258元/天",
+        "rental_days": "2天",
+        "pickup_date": "12月05日",
+        "return_date": "12月06日",
+        "insurance": "含基本保障服务"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-02T12:08:48+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-02T12:24:00+08:00",
+      "app": "car_rental_app",
+      "action": "create_order",
+      "content": {
+        "car_model": "紧凑型SUV",
+        "pickup_store": "杭州东站店",
+        "pickup_time": "12月05日 10:00",
+        "return_time": "12月06日 18:00",
+        "rental_days": "2天",
+        "total_price": "516元",
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-02T12:26:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "payee": "租车平台",
+        "amount": "516.00元",
+        "payment_method": "银行卡尾号6688",
+        "related_order": "紧凑型SUV两日租车",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-02T12:53:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "杭州东站",
+        "destination": "莫干山庾村",
+        "travel_mode": "驾车",
+        "planned_departure": "12月05日 08:00"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-02T13:08:00+08:00",
+      "app": "map_app",
+      "action": "view_detail",
+      "content": {
+        "route": "长深高速转S304",
+        "distance": "约82公里",
+        "duration": "约1小时50分钟",
+        "toll": "约35元",
+        "traffic_status": "畅通"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-02T13:17:14+08:00",
+      "app": "pet_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "猫咪疫苗时间表"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-02T13:25:17+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-02T13:28:14+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "工位绿植领养"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-02T13:34:00+08:00",
+      "app": "ticket_app",
+      "action": "book",
+      "content": {
+        "ticket_name": "庾村景区门票",
+        "visit_date": "12月05日",
+        "quantity": "2张",
+        "unit_price": "80元",
+        "visitors": "本人、小陈",
+        "order_status": "已预订"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-02T13:43:12+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "便利店"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-02T13:47:52+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "太原"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-02T14:09:37+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-02T14:34:42+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "周末散步照片"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-02T14:36:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "大学同学小陈",
+        "chat_type": "私聊",
+        "message_text": "周六早上出发可以的，几点在哪儿碰头？"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-02T14:58:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "大学同学小陈",
+        "chat_type": "私聊",
+        "message_text": "车我订好了，周六早上7点50杭州东站西广场取车点集合，8点出发"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-02T15:07:41+08:00",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      }
+    }
+  ]
+}

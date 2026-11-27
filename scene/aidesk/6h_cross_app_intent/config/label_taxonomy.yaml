@@ -1,0 +1,43 @@
+# Canonical label taxonomy — the single source of truth for enums.
+# Loaded by src/taxonomy.py, injected into planner/annotator/adjudicator prompts and enforced by validators.
+categories:
+  - travel
+  - work
+  - shopping
+  - social_dining
+  - health_service
+  - learning
+  - entertainment
+  - family
+  - finance_admin
+  - fitness
+  - local_transport
+event_relations:
+  - supporting
+  - related_interest
+  - contradicting
+  - unrelated
+intent_status:
+  - emerging
+  - considering
+  - planned
+  - confirmed
+  - cancelled
+  - completed
+confidence:
+  - low
+  - medium
+  - high
+# Purpose vocabulary per intent category. Every category keeps `unknown`.
+purpose:
+  travel: [tourism, business, visiting, commuting, other, unknown]
+  shopping: [personal_use, gift, work_related, household, unknown]
+  work: [meeting, project, interview, business_development, unknown]
+  social_dining: [socializing, dating, family_gathering, business_entertainment, unknown]
+  health_service: [checkup, treatment, household_service, pet_care, unknown]
+  learning: [exam_prep, skill_up, career, enrollment, hobby, unknown]
+  entertainment: [leisure, social, fan, unknown]
+  family: [relocation, renovation, family_gathering, pet_care, household_purchase, unknown]
+  finance_admin: [personal_admin, banking, tax, certification, unknown]
+  fitness: [training, competition, social, equipment_purchase, unknown]
+  local_transport: [outing, commuting, errand, unknown]

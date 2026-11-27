@@ -1,0 +1,300 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年末银行理财产品调研",
+      "category": "finance_admin",
+      "purpose": "banking",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e006",
+        "e011",
+        "e013",
+        "e015",
+        "e017",
+        "e018",
+        "e019",
+        "e021",
+        "e024",
+        "e026",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在财经频道浏览基金净值与货基收益类资讯，显示对理财收益信息的初步关注",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "用户搜索并阅读存款利率走势及多家银行下调定期存款利率、大额存单额度趋紧的资讯",
+          "source_event_ids": [
+            "e003",
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户关注年末稳健型银行理财市场动态并阅读稳健理财攻略",
+          "source_event_ids": [
+            "e013",
+            "e015"
+          ]
+        },
+        {
+          "fact": "用户在 banking_app 筛选并查看多款三年期大额存单详情（杭州银行2.15%、江苏银行2.05%，起购20万元）",
+          "source_event_ids": [
+            "e017",
+            "e018",
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户查看稳健固收类银行理财产品详情（R2、业绩比较基准2.80%、起购1万元、366天）",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户使用比较功能对比多家银行大额存单利率，并横向比较三年期大额存单与稳健固收类理财产品的收益、起购金额与流动性",
+          "source_event_ids": [
+            "e024",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户查看账户总览与余额（86,420.50元），可能为评估可投入资金做准备",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户收到同事小周分享的存钱理财文章链接，阅读并收藏年末稳健理财攻略",
+          "source_event_ids": [
+            "e027",
+            "e028",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否打算近期实际购买理财产品",
+        "计划投入金额与投资期限",
+        "偏好的购买渠道或银行",
+        "是否仅为信息浏览而无购买计划"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e005",
+    "e007",
+    "e008",
+    "e009",
+    "e010",
+    "e012",
+    "e014",
+    "e016",
+    "e020",
+    "e022",
+    "e023",
+    "e025",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c09-s05-8dfdef5c"
+}

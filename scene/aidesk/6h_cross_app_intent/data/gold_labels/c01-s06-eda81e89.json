@@ -1,0 +1,336 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "三亚度假行程",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e001",
+        "e003",
+        "e012",
+        "e014"
+      ],
+      "related_interest_event_ids": [
+        "e004",
+        "e007",
+        "e015",
+        "e017",
+        "e019",
+        "e027"
+      ],
+      "contradicting_event_ids": [
+        "e020",
+        "e022",
+        "e025",
+        "e029",
+        "e030"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "存在杭州至三亚往返机票订单（订单号HZSY202612020918），出发12月20日、返回12月23日，状态为已出票，票价2860元。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "存在三亚湾海景度假酒店订单（订单号HTL202612020356），入住12月20日、退房12月23日共3晚，海景大床房，状态为已确认，房价2160元。",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "日历中存在“三亚度假行程”，时间12月20日至12月23日，并备注航班与酒店信息。",
+          "source_event_ids": [
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户向李婷发消息称12月20日去三亚的机票和酒店都已订好，计划到海边走走并去第一市场吃海鲜。",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "杭州至三亚往返机票订单因台风预警影响出行被取消，退款金额2860元，状态为全额退款处理中。",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "三亚湾海景度假酒店订单因台风天气原因被取消，符合免费取消政策，房费全额退回。",
+          "source_event_ids": [
+            "e022"
+          ]
+        },
+        {
+          "fact": "日历中的“三亚度假行程”被标记为已取消，备注为台风橙色预警、机票酒店均已取消。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "2860元杭州至三亚往返机票退款已入账。",
+          "source_event_ids": [
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户向李婷发消息称机票和酒店都已退款、2860元退款已到账，此次三亚去不成。",
+          "source_event_ids": [
+            "e030"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户原计划12月20日至23日前往三亚度假，行程包含往返机票、海景酒店、海边活动与第一市场海鲜。",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e012",
+            "e014"
+          ]
+        },
+        {
+          "fact": "三亚在12月19日至21日受台风影响将有大风暴雨、橙色预警，台风预计于12月19日夜至20日凌晨擦过海南东南沿海，沿海景区或将临时关闭。",
+          "source_event_ids": [
+            "e015",
+            "e017",
+            "e019"
+          ]
+        },
+        {
+          "fact": "台风预警信息与用户取消三亚机票、酒店并标记日历行程取消的决定相关。",
+          "source_event_ids": [
+            "e017",
+            "e019",
+            "e020",
+            "e022",
+            "e025"
+          ]
+        },
+        {
+          "fact": "三亚行程取消后，用户浏览了厦门鼓浪屿等替代海岛目的地，可能仍在考虑改期或另选目的地。",
+          "source_event_ids": [
+            "e027",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "用户是否会在台风季过后重新预订三亚或其他目的地行程",
+        "酒店房费退款是否已有单独的到账通知或凭证",
+        "同行人员是否包含李婷或其他旅伴",
+        "是否存在其他未展示的机票、酒店或行程订单"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e005",
+    "e006",
+    "e008",
+    "e009",
+    "e010",
+    "e011",
+    "e013",
+    "e016",
+    "e018",
+    "e021",
+    "e023",
+    "e024",
+    "e026",
+    "e028"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c01-s06-eda81e89"
+}

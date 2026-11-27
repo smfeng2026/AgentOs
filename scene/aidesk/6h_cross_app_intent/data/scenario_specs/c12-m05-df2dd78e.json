@@ -1,0 +1,90 @@
+{
+  "title": "先开评审会，周末去成都玩两天",
+  "scenario_category": "multi_intent",
+  "subscenario": "成都旅游 + 工作项目会议",
+  "template_id": "C12-M05",
+  "difficulty": "D5_multi_intent",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "成都"
+    ],
+    "products": [
+      "大熊猫基地门票"
+    ],
+    "people": [
+      "项目经理李阳",
+      "同事赵琳"
+    ],
+    "dates": [
+      "12月16日",
+      "12月19日",
+      "12月20日",
+      "12月21日"
+    ],
+    "other": [
+      "春熙路",
+      "Q1项目评审会"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "成都周末观光行程",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的上海至成都往返机票订单(12月19日去程、12月21日返程)",
+        "成都春熙路附近酒店预订(12月19日入住两晚)",
+        "已购买的大熊猫基地门票(12月20日)"
+      ],
+      "optional_evidence": [
+        "成都旅游攻略浏览",
+        "成都天气查询",
+        "火锅店收藏"
+      ],
+      "unknown_information": [
+        "是否有同行人",
+        "12月20日的具体游览路线"
+      ],
+      "supporting_event_count": 5,
+      "related_interest_event_count": 3,
+      "contradicting_event_count": 0
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "Q1项目评审会准备",
+      "category": "work",
+      "purpose": "meeting",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "日历中创建的Q1项目评审会事件(12月16日14:00)",
+        "邮件收到的会议议程",
+        "文档应用中查看与修改的评审材料"
+      ],
+      "optional_evidence": [
+        "评审会前提醒设置",
+        "会议室日程查询",
+        "历史评审纪要搜索"
+      ],
+      "unknown_information": [
+        "评审会是否需要线下出席",
+        "最终参会名单"
+      ],
+      "supporting_event_count": 5,
+      "related_interest_event_count": 3,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前半段(16:30-18:40)集中出现工作侧证据：IM确认评审会时间、日历创建事件、邮件接收议程、文档浏览材料并设置提醒；约19:20出现一条交叉IM消息(同事提醒评审会并问成都行程，用户回复开完会才出发)；窗口后半段(19:40-22:00)集中出现旅行侧证据：创建并支付往返机票、预订酒店、购买门票，随后是攻略、天气、餐厅收藏等弱相关浏览",
+  "variant_note": "与同模板其他样本的差异：工作侧证据为线下评审会而非线上会议，且会议日期(12月16日)刻意早于出行日期(12月19日)，避免两个意图被误判为一次商务出差；旅行侧含已支付门票形成三重强证据；仅1条交叉事件(IM对话)同时关联两个意图，交叉表述含蓄，需从上下文推断而非关键词直给",
+  "scenario_id": "c12-m05-df2dd78e"
+}

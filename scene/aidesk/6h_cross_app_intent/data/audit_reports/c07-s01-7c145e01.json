@@ -1,0 +1,792 @@
+{
+  "sample_id": "c07-s01-7c145e01",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "按规则10统一supporting边界：e012搜索、e015详情浏览、e017票档比较、e022订单查看、e029路线搜索均属search/view/compare类动作，调整为related_interest；e019创建订单、e020支付成功、e024创建日历日程、e026向好友明确确认已购票并同行保留为supporting。意图仍为单一娱乐/fan意图，无需新增独立意图；意图名改为“沈以辰上海站观演计划”以避免“已参加”的过度表述，并补充场景未覆盖的未知信息。未发现语义上应归入意图的noise事件，unrelated_event_count为15。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "food_grocery",
+        "photo_album",
+        "fin_news",
+        "social_feed_pets",
+        "sys_wallpaper",
+        "map_nearby",
+        "pet_vaccine_schedule",
+        "comm_bus",
+        "cal_birthday",
+        "hn_movie_schedule",
+        "health_article",
+        "learn_video",
+        "read_article",
+        "meeting_app_week_schedule",
+        "taxi_invoice_history"
+      ],
+      "hard_negative_ids": [
+        "hn_movie_schedule"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "购买并参加沈以辰巡回演唱会上海站",
+        "category": "entertainment",
+        "purpose": "fan",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e019",
+          "e020",
+          "e022",
+          "e024",
+          "e026"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e008",
+          "e009",
+          "e010",
+          "e012",
+          "e015",
+          "e017",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已创建沈以辰巡回演唱会上海站内场票2张的订单，金额2560元，订单初始状态为待支付",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户已通过银行卡支付2560元，支付成功，账单备注为沈以辰巡回演唱会上海站内场票x2",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户查看的演唱会订单状态为已支付",
+            "source_event_ids": [
+              "e022"
+            ]
+          },
+          {
+            "fact": "用户已在日历创建12月20日19:30沈以辰演唱会上海站日程，地点为滨江体育中心体育馆，备注内场票两张、与小周同行、提前出发",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户已告知好友小周12月20日内场票两张已付款，当晚一起去，票由用户先拿着",
+            "source_event_ids": [
+              "e026"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户对歌手沈以辰有明确兴趣，搜索并收藏其歌曲，浏览粉丝超话及演唱会舞台视频",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e005",
+              "e008",
+              "e009"
+            ]
+          },
+          {
+            "fact": "用户曾收到好友小周关于上海站开票并邀约同行的消息",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户在购票前比较了内场票1280元与看台票680元，并按2张考虑",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户最终选择内场票而非看台票",
+            "source_event_ids": [
+              "e017",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户已查询前往滨江体育中心体育馆的路线，计划12月20日出行，预计42分钟",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已收到电子票或出票凭证",
+          "好友小周是否已最终确认同行及票款分担",
+          "12月20日具体出发时间与交通方式是否最终确定"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e006",
+      "e007",
+      "e011",
+      "e013",
+      "e014",
+      "e016",
+      "e018",
+      "e021",
+      "e023",
+      "e025",
+      "e027",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c07-s01-7c145e01",
+    "passed": true,
+    "issues": [
+      {
+        "issue_type": "relation_label_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e012",
+          "e015",
+          "e017",
+          "e029"
+        ],
+        "description": "内部 labeled_events 将票务搜索、详情浏览、票档比较和路线查询标为 supporting，但盲标将其全部归入 related_interest，且 supporting_event_ids 只保留 e019/e020/e022/e024/e026。两边对 supporting 的边界不一致，导致 supporting 数 9 与盲标 5 冲突。若 supporting 仅指决定性证据，内部标签存在弱证据支持化；若准备性支持动作也可算 supporting，则盲标低估了支持证据。",
+        "suggested_action": "由裁决环节统一定义 supporting 边界：若仅指决定性证据，则将 e012/e015/e017 及可选证据 e029 改为 related_interest 或补充 preparatory 子类，并同步 supporting 计数；若准备性动作可计入 supporting，则需在盲标中同步说明。"
+      },
+      {
+        "issue_type": "intent_name_overstatement",
+        "severity": "low",
+        "event_ids": [
+          "e019",
+          "e020",
+          "e024"
+        ],
+        "description": "盲标 intent_name 写为“购买并参加沈以辰巡回演唱会上海站”，其中“参加”容易被理解为已实际到场；当前证据只支持已购票并创建日程，演出尚未发生，实际观演未确认。",
+        "suggested_action": "改为“购买门票并计划参加沈以辰上海站演唱会”或沿用“沈以辰上海站观演计划”，并将实际到场列为未知。"
+      },
+      {
+        "issue_type": "unknown_information_mismatch",
+        "severity": "low",
+        "event_ids": [
+          "e029"
+        ],
+        "description": "盲标 unknown_information 未覆盖场景规划中的“是否购买应援周边”“具体座位排号”，却将“交通方式是否最终确定”列为未知；e029 已给出“地铁+步行”的路线类型，交通方式至少已有计划。",
+        "suggested_action": "补齐未覆盖的未知项，并将交通相关未知改为“最终出发时间/是否按该路线执行”等更精确表述。"
+      },
+      {
+        "issue_type": "keyword_repetition",
+        "severity": "low",
+        "event_ids": [
+          "e008",
+          "e012",
+          "e015",
+          "e017",
+          "e019",
+          "e020",
+          "e022",
+          "e024",
+          "e026"
+        ],
+        "description": "“沈以辰巡回演唱会上海站”等关键词在多个 App 事件中高频重复，e020 账单备注和 e024 日历标题/备注几乎直接复述购票意图，虽符合业务但会降低多 App 融合难度并带来答案泄露风险。",
+        "suggested_action": "保留必要证据的同时，适当使用变体表述（如场馆名、票档、订单号替代完整标题），避免所有关键事件都堆叠同一完整产品名。"
+      }
+    ],
+    "summary": "整体意图识别正确，票务订单、支付成功、日历日程和好友消息构成强证据，purpose=fan 支持充分；未发现 noise 被误丢或盲标漏掉规划意图。主要问题是 supporting 边界在内部标签与盲标间不一致，另有个别命名、未知信息和关键词重复的低风险问题。"
+  },
+  "adjudication": {
+    "sample_id": "c07-s01-7c145e01",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "沈以辰上海站观演计划",
+          "category": "entertainment",
+          "purpose": "fan",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e019",
+            "e020",
+            "e024",
+            "e026"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e008",
+            "e009",
+            "e010",
+            "e012",
+            "e015",
+            "e017",
+            "e022",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户已在票务App创建沈以辰巡回演唱会上海站内场票2张订单，总金额2560元，订单状态为待支付",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户已通过银行卡支付2560元，支付成功，账单备注为“沈以辰巡回演唱会上海站内场票x2”",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户已在日历创建12月20日19:30沈以辰演唱会上海站日程，地点为滨江体育中心体育馆，备注内场票两张、与小周同行、提前出发",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "用户已告知好友小周12月20日内场票两张已付款，当晚一起去，票由用户先拿着",
+              "source_event_ids": [
+                "e026"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户对歌手沈以辰有明确兴趣，曾搜索、收藏其歌曲并浏览热门歌曲榜、粉丝超话及演唱会舞台视频",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e005",
+                "e008",
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户收到好友小周关于上海站开票并邀约同行的消息",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户在购票前搜索上海站演出、查看场次票档并比较内场票与看台票，按2张考虑",
+              "source_event_ids": [
+                "e012",
+                "e015",
+                "e017"
+              ]
+            },
+            {
+              "fact": "用户曾查看该演唱会订单状态为已支付",
+              "source_event_ids": [
+                "e022"
+              ]
+            },
+            {
+              "fact": "用户已查询前往滨江体育中心体育馆的路线，计划12月20日出行，预计地铁+步行42分钟",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否已收到电子票或出票凭证",
+            "好友小周是否已最终确认同行及票款分担",
+            "12月20日具体出发时间及是否按查询路线执行",
+            "是否购买应援周边",
+            "具体座位排号"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e006",
+        "e007",
+        "e011",
+        "e013",
+        "e014",
+        "e016",
+        "e018",
+        "e021",
+        "e023",
+        "e025",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c07-s01-7c145e01"
+    },
+    "rationale": "按规则10统一supporting边界：e012搜索、e015详情浏览、e017票档比较、e022订单查看、e029路线搜索均属search/view/compare类动作，调整为related_interest；e019创建订单、e020支付成功、e024创建日历日程、e026向好友明确确认已购票并同行保留为supporting。意图仍为单一娱乐/fan意图，无需新增独立意图；意图名改为“沈以辰上海站观演计划”以避免“已参加”的过度表述，并补充场景未覆盖的未知信息。未发现语义上应归入意图的noise事件，unrelated_event_count为15。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1860,
+      "completion_tokens": 1863,
+      "total_tokens": 3723,
+      "latency_s": 19.66,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1761,
+      "completion_tokens": 4913,
+      "total_tokens": 6674,
+      "latency_s": 103.45,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3506,
+      "completion_tokens": 4513,
+      "total_tokens": 8019,
+      "latency_s": 31.01,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5942,
+      "completion_tokens": 14106,
+      "total_tokens": 20048,
+      "latency_s": 104.67,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10004,
+      "completion_tokens": 4787,
+      "total_tokens": 14791,
+      "latency_s": 92.37,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 351.16
+}

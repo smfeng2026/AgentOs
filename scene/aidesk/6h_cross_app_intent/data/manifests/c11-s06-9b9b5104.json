@@ -1,0 +1,206 @@
+{
+  "sample_id": "c11-s06-9b9b5104",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:11:17+08:00",
+  "task": {
+    "scenario_category": "local_transport",
+    "template_id": "C11-S06",
+    "subscenario": "行程变化",
+    "difficulty": "D6_conflict_state_change",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-21T14:05:00+08:00",
+    "window_end": "2026-12-21T20:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 295054729
+  },
+  "spec_summary": {
+    "title": "租车取消后改乘滑雪场直通车",
+    "intent_names": [
+      "周末滑雪场出行"
+    ],
+    "intent_categories": [
+      "local_transport"
+    ],
+    "key_entities": {
+      "home_city": "北京",
+      "destinations": [
+        "南山滑雪场",
+        "密云"
+      ],
+      "products": [
+        "SUV租车订单",
+        "滑雪场直通车车票"
+      ],
+      "people": [
+        "朋友小周"
+      ],
+      "dates": [
+        "12月26日",
+        "12月27日"
+      ],
+      "other": [
+        "京承高速"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 4,
+    "gold_related_interest": 9,
+    "gold_contradicting": 2,
+    "gold_purposes": {
+      "outing": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "local_transport": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "contacts_search_repair",
+      "read_novel",
+      "hn_guide_other_city",
+      "cal_view",
+      "pet_vaccine_schedule",
+      "mail_reply",
+      "video_watch",
+      "home_ac_cleaning_search",
+      "pay_bill",
+      "photo_album",
+      "hn_train_other_city",
+      "hn_map_other_city",
+      "shop_cart",
+      "food_grocery",
+      "ent_trailer"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 9,
+      "contradicting": 2,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1861,
+      "completion_tokens": 2403,
+      "total_tokens": 4264,
+      "latency_s": 71.96,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1860,
+      "completion_tokens": 7522,
+      "total_tokens": 9382,
+      "latency_s": 62.06,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3817,
+      "completion_tokens": 11530,
+      "total_tokens": 15347,
+      "latency_s": 85.75,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6376,
+      "completion_tokens": 11733,
+      "total_tokens": 18109,
+      "latency_s": 86.68,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10875,
+      "completion_tokens": 11318,
+      "total_tokens": 22193,
+      "latency_s": 83.82,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 390.27,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c11-s06-9b9b5104.json",
+      "sha256": "ff02b9db3c7244bf0225c3fd7424e2cd60c2e9ca4f59d2f8368088f4722fadab"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c11-s06-9b9b5104.json",
+      "sha256": "5730dc528705ea6f1ed29e7a0b54d11b573b1db665f25d87f747350f49697380"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c11-s06-9b9b5104.json",
+      "sha256": "c937e35f8a9cfb0e9eedd897acbef7f5a45167acb0ec58e584990d830dba748e"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c11-s06-9b9b5104.json",
+      "sha256": "beee2ed8fc7177626e2b4d7a2ac8f365beb809024f4c854cd0aad65383a9a053"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c11-s06-9b9b5104.json",
+      "sha256": "58d93631672979df80469b6872cd3f02abd8ca0de24bc23b79059a3454ea0056"
+    }
+  },
+  "updated_at": "2026-11-27T12:11:17+08:00"
+}

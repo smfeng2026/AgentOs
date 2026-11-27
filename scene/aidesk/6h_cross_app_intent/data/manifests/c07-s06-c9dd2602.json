@@ -1,0 +1,205 @@
+{
+  "sample_id": "c07-s06-c9dd2602",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:04:20+08:00",
+  "task": {
+    "scenario_category": "entertainment",
+    "template_id": "C07-S06",
+    "subscenario": "退票取消",
+    "difficulty": "D6_conflict_state_change",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-03T15:05:00+08:00",
+    "window_end": "2026-12-03T21:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3353612470
+  },
+  "spec_summary": {
+    "title": "Livehouse演出取消退票",
+    "intent_names": [
+      "观演计划落空"
+    ],
+    "intent_categories": [
+      "entertainment"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [],
+      "products": [
+        "12月19日乐队现场演出门票2张",
+        "乐队应援周边"
+      ],
+      "people": [
+        "朋友小柯"
+      ],
+      "dates": [
+        "12月19日"
+      ],
+      "other": [
+        "滨江某livehouse场馆"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 7,
+    "gold_related_interest": 7,
+    "gold_contradicting": 1,
+    "gold_purposes": {
+      "fan": 1
+    },
+    "gold_statuses": {
+      "cancelled": 1
+    },
+    "gold_categories": {
+      "entertainment": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "comm_subway",
+      "exam_driving_license_bank",
+      "clinic_vaccine_notice",
+      "shop_cart",
+      "car_rental_browse_other_city",
+      "sys_storage",
+      "home_ac_cleaning_search",
+      "fin_news",
+      "photo_backup",
+      "parking_fee_standard",
+      "food_history",
+      "hn_movie_schedule",
+      "social_like",
+      "contacts_search_repair",
+      "gov_residence_progress"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "blind_low_agreement",
+    "reviewer_critical_issue"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 7,
+      "contradicting": 1,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 2670,
+      "total_tokens": 4526,
+      "latency_s": 60.43,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1802,
+      "completion_tokens": 6333,
+      "total_tokens": 8135,
+      "latency_s": 117.73,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3693,
+      "completion_tokens": 10911,
+      "total_tokens": 14604,
+      "latency_s": 79.69,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6333,
+      "completion_tokens": 7319,
+      "total_tokens": 13652,
+      "latency_s": 97.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10722,
+      "completion_tokens": 6584,
+      "total_tokens": 17306,
+      "latency_s": 78.34,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 433.3,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c07-s06-c9dd2602.json",
+      "sha256": "9aea9f7002e3f32ae34cd3216e7e810563eb69cbb5d3f0cbc0d0ec16b608e7a9"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c07-s06-c9dd2602.json",
+      "sha256": "23f060ab30f325607d97b9b62e8b0f73c87228b6f3a2bd45e080ea386751eba0"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c07-s06-c9dd2602.json",
+      "sha256": "b44c5d12edb48fe2e655d1dedc0b4cd6ef4d434bf8448d85bdf0b8e8ab440411"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c07-s06-c9dd2602.json",
+      "sha256": "0a14ac071079eb4ed1ece29ad4044802eb9fe7157448e67aeb229d57098a4a10"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c07-s06-c9dd2602.json",
+      "sha256": "ee6332268c9e41abefbb797622185856feb5f4e919c97de09d6b83bbec407d6f"
+    }
+  },
+  "updated_at": "2026-11-27T12:04:20+08:00"
+}

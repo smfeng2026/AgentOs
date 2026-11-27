@@ -1,0 +1,784 @@
+{
+  "sample_id": "c09-s05-8dfdef5c",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "依 label_taxonomy 事件关系规则（规则10），search/view/browse/collect/compare 类动作只能标为 related_interest；本样本全程为浏览资讯、查看产品详情页、利率比较、收藏与同事分享文章的弱信号，无订单、支付、预约、出票、报名或明确确认消息，故 Scenario Spec 预设的 9 条 supporting 全部应修正为 related_interest，supporting_event_ids 为空，这与 D3_weak_evidence、无购买承诺的设计一致，并非降级错误（审查报告建议回填 supporting 与本规则相悖，不予采纳）。意图名称采用更宽的『年末银行理财产品调研』，涵盖存款利率资讯浏览、产品详情查看与比较等子活动；status 保持 emerging、confidence 保持 low（全程无任何购买/预约/咨询信号，是否实际购买仍为未知，盲标的 considering/high 属过度推断）。e012（储蓄险利弊分析）属保险类，且 Scenario 明确其主题聚焦银行存款利率与稳健理财而非保险，保留为 hard-negative/unrelated。盲标事实引用 e001 支撑『存款利率/银行理财动态』不当，已拆分为独立的基金净值资讯事实，存款利率与银行理财动态改用 e003/e006/e015。确认型事实因无 supporting/contradicting 事件而为空，所有推断事实均引用相关事件。事件本身可支持该 emerging 调研意图，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "social_like",
+        "health_article",
+        "ent_trailer",
+        "news_health",
+        "fit_water",
+        "work_tool_article",
+        "photo_edit",
+        "hn_bank_news",
+        "map_history",
+        "comm_bike",
+        "sys_storage",
+        "shop_order",
+        "weather_forecast",
+        "read_article",
+        "mail_reply"
+      ],
+      "hard_negative_ids": [
+        "hn_bank_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "比较大额存单与稳健型理财产品",
+        "category": "finance_admin",
+        "purpose": "banking",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e006",
+          "e011",
+          "e012",
+          "e013",
+          "e015",
+          "e017",
+          "e018",
+          "e019",
+          "e021",
+          "e024",
+          "e026",
+          "e027",
+          "e028",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户关注存款利率走势和银行稳健理财市场动态",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e006",
+              "e015"
+            ]
+          },
+          {
+            "fact": "用户在筛选并比较3年期大额存单产品及利率",
+            "source_event_ids": [
+              "e017",
+              "e018",
+              "e019",
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户在比较大额存单与稳健固收类理财产品",
+            "source_event_ids": [
+              "e021",
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户收到同事分享的存钱文章并阅读、收藏理财攻略",
+            "source_event_ids": [
+              "e027",
+              "e028",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户查看了账户总览及余额信息",
+            "source_event_ids": [
+              "e011"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否计划实际购买或存入",
+          "拟投入金额",
+          "倾向选择的银行或产品",
+          "计划购买时间",
+          "理财目标是否为储蓄、增值或其他",
+          "是否仅为信息浏览"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e005",
+      "e007",
+      "e008",
+      "e009",
+      "e010",
+      "e014",
+      "e016",
+      "e020",
+      "e022",
+      "e023",
+      "e025",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 14
+    }
+  },
+  "review": {
+    "sample_id": "c09-s05-8dfdef5c",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_evidence_misclassified",
+        "severity": "high",
+        "event_ids": [
+          "e006",
+          "e013",
+          "e015",
+          "e018",
+          "e019",
+          "e021",
+          "e024",
+          "e026",
+          "e030"
+        ],
+        "description": "盲标将多条直接命中 required_evidence 的事件全部降级为 related_interest，且 supporting_event_ids 为空。e024/e026 是直接使用比较功能对比大额存单利率和理财产品；e018/e019/e021 是在 banking_app 查看多款产品详情；e006/e013/e015/e030 是多篇理财资讯浏览与收藏，均不应仅作为弱相关兴趣处理。",
+        "suggested_action": "至少将 e024、e026、e018、e019、e021 标为 supporting，并回填 supporting_event_ids；e006、e013、e015、e030 可按证据强度标为 supporting 或 related_interest，但不应使 supporting_event_ids 完全为空。"
+      },
+      {
+        "issue_type": "overconfident_intent_status",
+        "severity": "high",
+        "event_ids": [
+          "e017",
+          "e018",
+          "e019",
+          "e021",
+          "e024",
+          "e026",
+          "e030"
+        ],
+        "description": "盲标将意图状态设为 considering、confidence 设为 high，但全程只有浏览、筛选、查看详情、比较和收藏，无购买、预约、咨询或下单行为，且盲标自己在 unknown_information 中保留了“是否仅为信息浏览”。这与场景设计的弱证据、emerging/low 不一致，属于过度推断。",
+        "suggested_action": "将 status 调整为 emerging 或保留 unknown，confidence 降为 low 或 medium；除非出现购买、预约、客服咨询等更强信号，否则不应标为 considering/high。"
+      },
+      {
+        "issue_type": "intent_name_scope_drift",
+        "severity": "medium",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e006",
+          "e013",
+          "e015",
+          "e017",
+          "e018",
+          "e019",
+          "e021",
+          "e024",
+          "e026"
+        ],
+        "description": "盲标将意图名改为“比较大额存单与稳健型理财产品”，比 Gold 的“年末银行理财产品调研”更窄。比较行为是核心证据之一，但盲标名称可能丢失“银行理财产品调研”和基金/存款利率资讯浏览等更广义范围。",
+        "suggested_action": "将意图名对齐为更宽泛的“年末银行理财产品调研/银行稳健理财调研”，把“比较大额存单与稳健型理财产品”作为子活动写入证据或事实，而不是用作唯一意图名。"
+      },
+      {
+        "issue_type": "noise_relatedness_unresolved",
+        "severity": "medium",
+        "event_ids": [
+          "e012"
+        ],
+        "description": "e012 在 Gold 中被标为 hard_negative/unrelated（储蓄险利弊分析），但盲标将其标为 related_interest。储蓄险与银行稳健理财是相邻的储蓄替代品，是否纳入 i001 取决于意图边界；当前 Gold 与盲标对同一事件的语义判断冲突，需裁决。",
+        "suggested_action": "若意图边界包含“储蓄替代品/理财替代方案”，则将 e012 改为 related_interest 但不计入 supporting；若严格限定银行存款与大额存单/银行理财，则保留 unrelated，并在盲标中移除该事件。"
+      },
+      {
+        "issue_type": "fact_source_mismatch",
+        "severity": "low",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e006",
+          "e015"
+        ],
+        "description": "盲标事实“用户关注存款利率走势和银行稳健理财市场动态”引用了 e001，但 e001 是“债基净值/货基七日年化”的基金净值资讯，不能直接支持“存款利率走势”或“银行稳健理财市场动态”。e003/e006/e015 才更直接支持该事实。",
+        "suggested_action": "将 e001 从该事实来源中移除，或拆分为独立事实“关注基金净值/货基收益”；存款利率与银行理财市场动态仅引用 e003、e006、e015 等直接事件。"
+      }
+    ],
+    "summary": "样本整体事件设计基本合理，但盲标存在高严重度问题：直接命中 required_evidence 的产品详情与比较事件被全部降级为 related_interest，supporting_event_ids 为空，并将弱浏览证据过度推断为 considering/high。另有意图名范围收窄、e012 储蓄险硬负例归属冲突及 e001 事实来源不匹配，需修正后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c09-s05-8dfdef5c",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "年末银行理财产品调研",
+          "category": "finance_admin",
+          "purpose": "banking",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e006",
+            "e011",
+            "e013",
+            "e015",
+            "e017",
+            "e018",
+            "e019",
+            "e021",
+            "e024",
+            "e026",
+            "e027",
+            "e028",
+            "e030"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户在财经频道浏览基金净值与货基收益类资讯，显示对理财收益信息的初步关注",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "用户搜索并阅读存款利率走势及多家银行下调定期存款利率、大额存单额度趋紧的资讯",
+              "source_event_ids": [
+                "e003",
+                "e006"
+              ]
+            },
+            {
+              "fact": "用户关注年末稳健型银行理财市场动态并阅读稳健理财攻略",
+              "source_event_ids": [
+                "e013",
+                "e015"
+              ]
+            },
+            {
+              "fact": "用户在 banking_app 筛选并查看多款三年期大额存单详情（杭州银行2.15%、江苏银行2.05%，起购20万元）",
+              "source_event_ids": [
+                "e017",
+                "e018",
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户查看稳健固收类银行理财产品详情（R2、业绩比较基准2.80%、起购1万元、366天）",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户使用比较功能对比多家银行大额存单利率，并横向比较三年期大额存单与稳健固收类理财产品的收益、起购金额与流动性",
+              "source_event_ids": [
+                "e024",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户查看账户总览与余额（86,420.50元），可能为评估可投入资金做准备",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户收到同事小周分享的存钱理财文章链接，阅读并收藏年末稳健理财攻略",
+              "source_event_ids": [
+                "e027",
+                "e028",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否打算近期实际购买理财产品",
+            "计划投入金额与投资期限",
+            "偏好的购买渠道或银行",
+            "是否仅为信息浏览而无购买计划"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e005",
+        "e007",
+        "e008",
+        "e009",
+        "e010",
+        "e012",
+        "e014",
+        "e016",
+        "e020",
+        "e022",
+        "e023",
+        "e025",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c09-s05-8dfdef5c"
+    },
+    "rationale": "依 label_taxonomy 事件关系规则（规则10），search/view/browse/collect/compare 类动作只能标为 related_interest；本样本全程为浏览资讯、查看产品详情页、利率比较、收藏与同事分享文章的弱信号，无订单、支付、预约、出票、报名或明确确认消息，故 Scenario Spec 预设的 9 条 supporting 全部应修正为 related_interest，supporting_event_ids 为空，这与 D3_weak_evidence、无购买承诺的设计一致，并非降级错误（审查报告建议回填 supporting 与本规则相悖，不予采纳）。意图名称采用更宽的『年末银行理财产品调研』，涵盖存款利率资讯浏览、产品详情查看与比较等子活动；status 保持 emerging、confidence 保持 low（全程无任何购买/预约/咨询信号，是否实际购买仍为未知，盲标的 considering/high 属过度推断）。e012（储蓄险利弊分析）属保险类，且 Scenario 明确其主题聚焦银行存款利率与稳健理财而非保险，保留为 hard-negative/unrelated。盲标事实引用 e001 支撑『存款利率/银行理财动态』不当，已拆分为独立的基金净值资讯事实，存款利率与银行理财动态改用 e003/e006/e015。确认型事实因无 supporting/contradicting 事件而为空，所有推断事实均引用相关事件。事件本身可支持该 emerging 调研意图，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "banking": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "finance_admin": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 2968,
+      "total_tokens": 4825,
+      "latency_s": 40.45,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1699,
+      "completion_tokens": 10074,
+      "total_tokens": 11773,
+      "latency_s": 86.52,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3432,
+      "completion_tokens": 4154,
+      "total_tokens": 7586,
+      "latency_s": 32.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5621,
+      "completion_tokens": 6599,
+      "total_tokens": 12220,
+      "latency_s": 55.21,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9893,
+      "completion_tokens": 6841,
+      "total_tokens": 16734,
+      "latency_s": 48.0,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 265.3
+}

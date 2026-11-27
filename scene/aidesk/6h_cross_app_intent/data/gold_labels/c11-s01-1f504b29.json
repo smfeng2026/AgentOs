@@ -1,0 +1,306 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "莫干山周末自驾两日游",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e007",
+        "e026",
+        "e027",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e002",
+        "e005",
+        "e006",
+        "e008",
+        "e010",
+        "e012",
+        "e015",
+        "e017",
+        "e018",
+        "e019",
+        "e023"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户向朋友小林发送消息，约定周六（12月12日）早上8:30在城西集合，走杭长高速，住一晚周日午后返程。",
+          "source_event_ids": [
+            "e007"
+          ]
+        },
+        {
+          "fact": "用户创建日历日程“周六出发去莫干山”，时间为12月12日08:30至12月13日18:00，地点为杭州城西集合点，参与人为自己与朋友小林。",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户在租车App创建12月12日至12月13日杭州城西门店的紧凑型SUV订单，租期2天，总价596元，状态为待支付。",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户已支付596元完成该租车订单，订单状态为已支付。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "出行目的地为莫干山，采用自驾方式，杭州至莫干山约75公里、约1小时40分钟车程，并关注莫干山景区开放信息与环山公路驾驶经验。",
+          "source_event_ids": [
+            "e006",
+            "e010",
+            "e023"
+          ]
+        },
+        {
+          "fact": "出行前围绕12月12日周末天气、莫干山民宿评价与停车条件做了功课，说明此次为两天一晚的山中周末短途自驾游计划。",
+          "source_event_ids": [
+            "e002",
+            "e008",
+            "e012",
+            "e015",
+            "e017",
+            "e018"
+          ]
+        },
+        {
+          "fact": "租车比价与下单的车型、门店与12月12日至13日租期，与日历中的莫干山行程时间吻合，可判定该租车服务于本次自驾出行。",
+          "source_event_ids": [
+            "e019",
+            "e026",
+            "e027",
+            "e029"
+          ]
+        },
+        {
+          "fact": "朋友阿哲曾发来泛化的周末出游邀约，未提及莫干山、租车或小林，尚不能确认其是否加入本次莫干山行程。",
+          "source_event_ids": [
+            "e005"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "最终入住哪家民宿（仅收藏“莫干山山麓庭院民宿”，未见预订或支付）",
+        "朋友小林是否已回复确认同行（仅有用户单方面约定消息，无其回复）",
+        "朋友阿哲是否同行",
+        "景区门票是否购买",
+        "周日返程时间是否最终固定"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e003",
+    "e004",
+    "e009",
+    "e011",
+    "e013",
+    "e014",
+    "e016",
+    "e020",
+    "e021",
+    "e022",
+    "e024",
+    "e025",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c11-s01-1f504b29"
+}

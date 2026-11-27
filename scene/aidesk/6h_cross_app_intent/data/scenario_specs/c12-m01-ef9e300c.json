@@ -1,0 +1,82 @@
+{
+  "title": "赴深圳客户签约行程与自用新机采购",
+  "scenario_category": "multi_intent",
+  "subscenario": "商务出差 + 购买手机",
+  "template_id": "C12-M01",
+  "difficulty": "D5_multi_intent",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "深圳"
+    ],
+    "products": [
+      "新款旗舰手机（12GB+256GB，黑色）"
+    ],
+    "people": [
+      "客户陈总监",
+      "同事李工"
+    ],
+    "dates": [
+      "12月16日",
+      "12月18日"
+    ],
+    "other": [
+      "深圳湾科技园"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "深圳客户签约差旅",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的上海到深圳机票订单（12月16日去程、12月18日返程）",
+        "客户陈总监发来的会议邀请邮件（深圳湾科技园，12月17日）",
+        "日历中已创建的客户签约会议日程"
+      ],
+      "optional_evidence": [
+        "深圳酒店预订确认",
+        "与同事李工沟通出差安排的聊天记录"
+      ],
+      "unknown_information": [
+        "酒店具体房型偏好"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 2,
+      "contradicting_event_count": 0
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "旗舰手机换新采购",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "购物App内创建的新款旗舰手机订单并完成支付",
+        "比价App中对同型号手机的比价记录"
+      ],
+      "optional_evidence": [
+        "浏览同型号手机壳和贴膜等配件",
+        "收藏该手机商品"
+      ],
+      "unknown_information": [
+        "是否使用旧机以旧换新"
+      ],
+      "supporting_event_count": 5,
+      "related_interest_event_count": 2,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 11,
+    "related_interest": 4,
+    "contradicting": 0
+  },
+  "time_profile": "差旅证据簇集中在窗口前半段：约09:05收到客户会议邀请邮件，09:40左右完成机票支付，10:20完成酒店预订；购机证据簇集中在后半段：11:50起搜索与比价，13:40左右下单并支付，两条决定性证据分别位于窗口前两小时和最后一小时",
+  "variant_note": "与同模板其他样本相比：目的地为深圳（非成都/北京）；差旅以邮件邀请+已支付机票+日历三重强证据锚定商务目的；购机通过加购手机壳与贴膜等自用配件将 purpose 定为 personal_use；两个证据簇在时间上完全分离、无交叉事件；购物证据被刻意后置到窗口末段以拉开时间分布",
+  "scenario_id": "c12-m01-ef9e300c"
+}

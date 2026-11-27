@@ -1,0 +1,382 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "成都周末观光行程",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e015",
+        "e017",
+        "e020",
+        "e021"
+      ],
+      "related_interest_event_ids": [
+        "e023",
+        "e027",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已创建并支付上海至成都往返机票订单，去程12月19日、返程12月21日，金额1860元",
+          "source_event_ids": [
+            "e015",
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户已预订成都春熙路智选酒店，12月19日入住、12月21日退房，共两晚",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户已支付12月20日成都大熊猫繁育研究基地门票1张，金额55元",
+          "source_event_ids": [
+            "e021"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户计划成都周末两日游，行程涉及春熙路、大熊猫基地、宽窄巷子等",
+          "source_event_ids": [
+            "e023",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户关注12月19日至12月21日成都天气，预报为多云转小雨、气温5至11℃",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户收藏了成都春熙路的老码头火锅，用于成都觅食清单",
+          "source_event_ids": [
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否有同行人",
+        "12月20日的具体游览路线"
+      ],
+      "conflicts": []
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "Q1项目评审会准备",
+      "category": "work",
+      "purpose": "meeting",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e001",
+        "e003",
+        "e004",
+        "e013"
+      ],
+      "related_interest_event_ids": [
+        "e005",
+        "e008",
+        "e010",
+        "e011"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已确认12月16日下午参加Q1项目评审会",
+          "source_event_ids": [
+            "e001",
+            "e013"
+          ]
+        },
+        {
+          "fact": "日历中已创建12月16日14:00-16:00的Q1项目评审会，地点为公司301会议室，参与人包括项目经理李阳和同事赵琳",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户收到项目经理李阳发送的Q1项目评审会议程邮件，议程含进度汇报、风险评审、Q2资源规划三个环节",
+          "source_event_ids": [
+            "e004"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户查阅历史评审纪要并浏览Q1项目评审材料，为评审会做准备",
+          "source_event_ids": [
+            "e005",
+            "e008"
+          ]
+        },
+        {
+          "fact": "用户查询12月16日14:00-16:00的会议室，301会议室在该时段空闲",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户设置12月16日13:30的评审会提醒",
+          "source_event_ids": [
+            "e011"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "用户在评审会中的具体角色或汇报内容未明确",
+        "最终参会名单未明确"
+      ],
+      "conflicts": []
+    },
+    {
+      "intent_id": "i003",
+      "intent_name": "考虑12月28日前往郑州",
+      "category": "travel",
+      "purpose": "unknown",
+      "status": "considering",
+      "confidence_level": "medium",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e002",
+        "e007"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户可能正在考虑12月28日从上海前往郑州的行程",
+          "source_event_ids": [
+            "e002",
+            "e007"
+          ]
+        },
+        {
+          "fact": "用户在比较航班和火车两种交通方式",
+          "source_event_ids": [
+            "e002",
+            "e007"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "出行目的未明确",
+        "是否最终预订未明确",
+        "同行人数和返程日期未明确"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i003"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i003"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e006",
+    "e009",
+    "e012",
+    "e014",
+    "e016",
+    "e018",
+    "e019",
+    "e022",
+    "e024",
+    "e025",
+    "e026",
+    "e028",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 3,
+    "unrelated_event_count": 13
+  },
+  "sample_id": "c12-m05-df2dd78e"
+}

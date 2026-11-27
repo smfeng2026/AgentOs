@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-11-27T12:29:59+08:00",
+  "n_rows": 12,
+  "gold": [
+    "data/splits_pilot/test.jsonl",
+    "data/splits_pilot/challenge_test.jsonl"
+  ],
+  "oracle": {
+    "intent": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 14
+    },
+    "intent_count_accuracy": 1.0,
+    "relation_macro_f1": 1.0,
+    "relation_accuracy": 1.0,
+    "purpose_accuracy": 1.0,
+    "fact_grounding_precision": 1.0,
+    "evidence_citation_accuracy": 1.0
+  },
+  "trivial_all_unrelated": {
+    "intent": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 14
+    },
+    "intent_count_accuracy": 0.0,
+    "relation_macro_f1": 0.1673,
+    "relation_accuracy": 0.5028,
+    "purpose_accuracy": null,
+    "fact_grounding_precision": null,
+    "evidence_citation_accuracy": null
+  }
+}

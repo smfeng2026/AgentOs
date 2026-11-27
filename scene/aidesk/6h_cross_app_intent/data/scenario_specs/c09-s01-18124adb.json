@@ -1,0 +1,59 @@
+{
+  "title": "护照换发预约与材料准备",
+  "scenario_category": "finance_admin",
+  "subscenario": "证件办理",
+  "template_id": "C09-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "杭州市出入境接待大厅"
+    ],
+    "products": [
+      "护照换发",
+      "证件照回执"
+    ],
+    "people": [],
+    "dates": [
+      "12月18日"
+    ],
+    "other": [
+      "材料清单"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "出入境证件换发办理",
+      "category": "finance_admin",
+      "purpose": "certification",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "政务App出入境证件预约成功确认（12月18日）",
+        "材料清单与照片规格的浏览记录",
+        "政务App收到的预约确认消息"
+      ],
+      "optional_evidence": [
+        "地图搜索办证大厅路线",
+        "日历创建预约当日提醒",
+        "向同事咨询办证流程的聊天记录"
+      ],
+      "unknown_information": [
+        "是否选择邮寄取证",
+        "是否需要加急办理"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前两小时以政务App搜索办事指南、浏览材料与照片规格为主；中段完成在线预约并收到确认消息，构成决定性证据；最后一小时出现地图路线查询、日历提醒创建等收尾行为",
+  "variant_note": "聚焦护照换发而非港澳通行证或居住证；App组合为government_app+docs_app+mail_app+map_app+calendar_app+im_app，证据需跨政务、文档、消息、地图多类App融合；预约已确认故status为planned、confidence为high，无取消或改期类反向证据",
+  "scenario_id": "c09-s01-18124adb"
+}

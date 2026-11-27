@@ -1,0 +1,219 @@
+{
+  "sample_id": "c02-s01-a9ca700b",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:18:54+08:00",
+  "task": {
+    "scenario_category": "work",
+    "template_id": "C02-S01",
+    "subscenario": "客户会议",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-15T12:35:00+08:00",
+    "window_end": "2026-12-15T18:35:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3157294189
+  },
+  "spec_summary": {
+    "title": "客户需求评审会确认与筹备",
+    "intent_names": [
+      "华信科技需求评审会筹备"
+    ],
+    "intent_categories": [
+      "work"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [
+        "浦东张江"
+      ],
+      "products": [],
+      "people": [
+        "客户方项目经理刘总",
+        "同事陈晓",
+        "部门主管周经理"
+      ],
+      "dates": [
+        "12月18日"
+      ],
+      "other": [
+        "华信科技",
+        "张江路88号",
+        "需求评审演示材料"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 16,
+    "gold_supporting": 4,
+    "gold_related_interest": 10,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "meeting": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "work": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "ent_ranking",
+      "weather_now",
+      "read_bookmark",
+      "shop_cart",
+      "photo_album",
+      "game_store",
+      "mail_cleanup",
+      "health_article",
+      "fin_balance",
+      "comm_bus",
+      "music_playlist",
+      "food_grocery",
+      "map_traffic",
+      "pay_bill",
+      "sys_storage"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "composition_deviation"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 16 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 16,
+      "supporting": 4,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "meeting": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "work": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 1782,
+      "total_tokens": 3638,
+      "latency_s": 35.43,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1784,
+      "completion_tokens": 6432,
+      "total_tokens": 8216,
+      "latency_s": 122.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3723,
+      "completion_tokens": 4035,
+      "total_tokens": 7758,
+      "latency_s": 27.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6301,
+      "completion_tokens": 10070,
+      "total_tokens": 16371,
+      "latency_s": 83.07,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10462,
+      "completion_tokens": 10967,
+      "total_tokens": 21429,
+      "latency_s": 83.18,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 351.74,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c02-s01-a9ca700b.json",
+      "sha256": "e4b25f23ea327592b67b6ca0faada394439e15abafd98d271c4082b3c90a1c38"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c02-s01-a9ca700b.json",
+      "sha256": "b73800dd0de419fefc651d3cdf9e5bb7a50528515e3c5c835471ce4d63e4fc4c"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c02-s01-a9ca700b.json",
+      "sha256": "115d9d561c92b166a6c8d41fe465f3ba09bc7481fbb3abe9e0a8cc54bc13d30a"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c02-s01-a9ca700b.json",
+      "sha256": "7cac4009ec8afcb978f3942e3832cb725024fdda733c48dd810c33da43e5eb41"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c02-s01-a9ca700b.json",
+      "sha256": "b431d24e3ae57bcfb845fced8f7191306c5e64fd34389b26f019d2f66a97b0f0"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "上海",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

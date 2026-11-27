@@ -1,0 +1,211 @@
+{
+  "sample_id": "c02-s05-df12f707",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:21:37+08:00",
+  "task": {
+    "scenario_category": "work",
+    "template_id": "C02-S05",
+    "subscenario": "工作兴趣",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-06T07:45:00+08:00",
+    "window_end": "2026-12-06T13:45:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3932719356
+  },
+  "spec_summary": {
+    "title": "行业资讯与岗位浏览型工作兴趣",
+    "intent_names": [
+      "关注AI行业动态与岗位机会"
+    ],
+    "intent_categories": [
+      "work"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [],
+      "products": [],
+      "people": [],
+      "dates": [
+        "12月18日"
+      ],
+      "other": [
+        "人工智能行业",
+        "大模型算法岗位",
+        "行业年度峰会"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 0,
+    "gold_related_interest": 15,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "unknown": 1
+    },
+    "gold_statuses": {
+      "emerging": 1
+    },
+    "gold_categories": {
+      "work": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "photo_backup",
+      "cal_view",
+      "fit_video",
+      "fin_points",
+      "health_article",
+      "music_playlist",
+      "read_bookmark",
+      "social_like",
+      "game_daily",
+      "shop_browse",
+      "pay_balance",
+      "mail_cleanup",
+      "food_lunch",
+      "map_history",
+      "weather_forecast"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "work": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1863,
+      "completion_tokens": 2395,
+      "total_tokens": 4258,
+      "latency_s": 23.13,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1685,
+      "completion_tokens": 5748,
+      "total_tokens": 7433,
+      "latency_s": 101.42,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3422,
+      "completion_tokens": 9467,
+      "total_tokens": 12889,
+      "latency_s": 78.9,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5877,
+      "completion_tokens": 5364,
+      "total_tokens": 11241,
+      "latency_s": 40.19,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10412,
+      "completion_tokens": 3358,
+      "total_tokens": 13770,
+      "latency_s": 20.59,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 264.24,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c02-s05-df12f707.json",
+      "sha256": "f3a2b1fa8890ab3e578c9a984e9f012fd99e6dd970b87ab09a1747e10b03cf1c"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c02-s05-df12f707.json",
+      "sha256": "652712bd59a457d55dbfb03f5489b9c57dedf983780894bbb4055a7f43c4f363"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c02-s05-df12f707.json",
+      "sha256": "9dc649365fae95558f4efba3dea0e230cd1922915c5b111ff5e12a216f481059"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c02-s05-df12f707.json",
+      "sha256": "2c01e292c5b83e003f244ba91d740f8085a49678fec6f2e4e1d092ad39b64e14"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c02-s05-df12f707.json",
+      "sha256": "559e7f85612499cf8bda3397cc540e56a5c84067dfe161561fdf62a18c20f961"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "杭州",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

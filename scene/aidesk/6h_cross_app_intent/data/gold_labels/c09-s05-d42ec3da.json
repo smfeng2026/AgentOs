@@ -1,0 +1,313 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年末理财信息关注",
+      "category": "finance_admin",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e011",
+        "e012",
+        "e013",
+        "e014",
+        "e016",
+        "e018",
+        "e019",
+        "e020",
+        "e021",
+        "e022",
+        "e023",
+        "e026",
+        "e027",
+        "e028",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在新闻App财经频道浏览存款利率下调、年末资金配置、货币基金收益等主题文章。",
+          "source_event_ids": [
+            "e011",
+            "e012",
+            "e022"
+          ]
+        },
+        {
+          "fact": "用户在银行App筛选R2稳健型理财产品并浏览产品列表，查看约12只产品。",
+          "source_event_ids": [
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户查看“安稳盈90天持有期稳健型理财产品”详情，风险等级R2中低风险，业绩比较基准2.60%，1元起购。",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户查看3年期大额存单详情，利率2.15%，20万元起购。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户将稳健型理财产品与大额存单按业绩比较基准、风险等级、起购金额、流动性等维度进行对比。",
+          "source_event_ids": [
+            "e014",
+            "e016",
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户在阅读App浏览个人理财入门专栏，并收藏存款利率走低后闲钱去处、稳健型理财产品挑选指南等理财科普文章。",
+          "source_event_ids": [
+            "e019",
+            "e020",
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户搜索货币基金七日年化收益率排名。",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户观看理财科普视频，了解大额存单与定期的区别以及年末闲钱打理的稳健思路。",
+          "source_event_ids": [
+            "e026",
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户向母亲提到年终奖将到账，询问闲钱是买稳健理财还是存大额存单，并表示自己在看利率。",
+          "source_event_ids": [
+            "e028"
+          ]
+        },
+        {
+          "fact": "母亲建议先不要急着购买，等利率稳定后再考虑，并提示不要碰高风险产品。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否打算近期实际购买理财产品",
+        "可投资金规模（如年终奖具体金额）",
+        "关注理财的具体目标、资金使用期限与流动性需求",
+        "最终是否购买、购买哪类产品及购买金额",
+        "母亲建议是否会影响用户推迟购买"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e003",
+    "e004",
+    "e005",
+    "e006",
+    "e007",
+    "e008",
+    "e009",
+    "e010",
+    "e015",
+    "e017",
+    "e024",
+    "e025",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c09-s05-d42ec3da"
+}

@@ -1,0 +1,321 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "购买星耀X7 Pro手机（换机）",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e025",
+        "e026",
+        "e027",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e003",
+        "e005",
+        "e007",
+        "e008",
+        "e009",
+        "e010",
+        "e011",
+        "e012",
+        "e013",
+        "e016",
+        "e022"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户创建了星耀X7 Pro手机订单 XD20261221222001，规格为曜石黑 12GB+256GB，数量1，金额4299元，收货城市上海，预计12月23日送达，订单状态为待支付。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户通过银行卡向星耀官方旗舰店支付4299元，支付成功，对应订单 XD20261221222001。",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "银行发送消费提醒，金额4299元，商户为星耀官方旗舰店，时间22:45。",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "订单 XD20261221222001 状态为已支付，商品已从上海仓出库，预计12月23日送达上海。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户当前使用的手机电池健康度为78%，已出现明显老化、续航缩短。",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户因旧机电池健康仅78%、一天需充三次电而产生换机诉求，并在看星耀X7 Pro。",
+          "source_event_ids": [
+            "e003",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户搜索并观看了星耀X7 Pro评测及星耀X7 Pro与麒麟G12的续航横评。",
+          "source_event_ids": [
+            "e005",
+            "e007"
+          ]
+        },
+        {
+          "fact": "用户在购物App搜索星耀X7 Pro（12GB+256GB），查看其详情与麒麟G12详情，并在比价App做价格、续航、充电功率、屏幕素质横向比较。",
+          "source_event_ids": [
+            "e008",
+            "e009",
+            "e010",
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户向朋友李娜咨询星耀X7 Pro购买建议，李娜认为续航口碑不错、曜石黑12+256配置值得，并建议关注以旧换新补贴。",
+          "source_event_ids": [
+            "e012",
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户浏览了星耀X7系列手机壳，并将星耀X7 Pro（曜石黑 12GB+256GB）收藏进“数码心愿单”，随后下单购买同款。",
+          "source_event_ids": [
+            "e016",
+            "e022"
+          ]
+        },
+        {
+          "fact": "换机动机来自自用旧机电池老化、单件购买、无送礼或商务采购线索，目的指向个人使用。",
+          "source_event_ids": [
+            "e003",
+            "e012",
+            "e025"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "旧手机是否走以旧换新回收",
+        "是否加购碎屏保障服务或手机壳等配件",
+        "手机是否已实际签收、订单最终完成时间"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e004",
+    "e006",
+    "e014",
+    "e015",
+    "e017",
+    "e018",
+    "e019",
+    "e020",
+    "e021",
+    "e023",
+    "e024",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c03-s01-9c49fd63"
+}

@@ -1,0 +1,205 @@
+{
+  "sample_id": "c08-s03-2b914f19",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:03:13+08:00",
+  "task": {
+    "scenario_category": "family",
+    "template_id": "C08-S03",
+    "subscenario": "家庭聚会",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-22T18:05:00+08:00",
+    "window_end": "2026-12-23T00:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 2689824628
+  },
+  "spec_summary": {
+    "title": "年底家庭聚餐订包间",
+    "intent_names": [
+      "年终家庭聚餐"
+    ],
+    "intent_categories": [
+      "family"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [
+        "城隍庙商圈"
+      ],
+      "products": [],
+      "people": [
+        "妈妈",
+        "二叔",
+        "姑姑",
+        "表弟"
+      ],
+      "dates": [
+        "12月27日"
+      ],
+      "other": [
+        "本帮菜餐厅（10人包间）",
+        "8-10人聚餐"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 6,
+    "gold_related_interest": 9,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "family_gathering": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "family": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "read_article",
+      "game_play",
+      "health_article",
+      "news_headlines",
+      "video_playlist",
+      "contacts_search_repair",
+      "car_rental_browse_other_city",
+      "fin_points",
+      "cal_view",
+      "food_lunch",
+      "photo_album",
+      "social_feed_photo",
+      "review_brunch_browse",
+      "gov_residence_progress",
+      "sys_storage"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 6,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "family_gathering": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "family": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 2547,
+      "total_tokens": 4406,
+      "latency_s": 88.58,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1809,
+      "completion_tokens": 8682,
+      "total_tokens": 10491,
+      "latency_s": 83.08,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3821,
+      "completion_tokens": 4928,
+      "total_tokens": 8749,
+      "latency_s": 76.82,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6270,
+      "completion_tokens": 12523,
+      "total_tokens": 18793,
+      "latency_s": 93.29,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10768,
+      "completion_tokens": 3895,
+      "total_tokens": 14663,
+      "latency_s": 24.03,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 365.8,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c08-s03-2b914f19.json",
+      "sha256": "a20a9df7be64af9f6e19c10ce1d5bb144303c38e3be506285a6e36cafb67d84e"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c08-s03-2b914f19.json",
+      "sha256": "b0e211813c2a32b8f94b27d481aea48d3742c414c46276070046e36e462edbe9"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c08-s03-2b914f19.json",
+      "sha256": "9ff28bb9236ce4c3124538ef383e6b7c7b81fb5404b3f321597d9a4b21ce2c78"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c08-s03-2b914f19.json",
+      "sha256": "7cc50f4e090b6497ae5580d31d159f6ded731b1f02562ae1ce93c079892a4232"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c08-s03-2b914f19.json",
+      "sha256": "749bc75df645f54bc0d2344b43a08d4d30b9138fec235232ec6836b2ac3ed820"
+    }
+  },
+  "updated_at": "2026-11-27T12:03:13+08:00"
+}

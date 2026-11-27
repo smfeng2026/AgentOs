@@ -1,0 +1,801 @@
+{
+  "sample_id": "c07-s06-22cb643d",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "e011（view_detail，查看票面座位/入场/退票政策）属于查看与准备性行为，不是订单、支付、出票、已确认日程或明确确认/拒绝等决定性证据，按 taxonomy 规则应归为 related_interest 而非 supporting。将其修正后，supporting 5 条、related_interest 6 条、contradicting 4 条，仍与事件语义及意图取消状态自洽；其余标签、事实来源和无关事件集合均正确。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "hn_movie_schedule",
+        "mail_newsletter",
+        "comm_bus",
+        "social_feed_parenting",
+        "pay_balance",
+        "taxi_invoice_history",
+        "learn_video",
+        "cal_reminder",
+        "contacts_search_repair",
+        "food_lunch",
+        "read_science",
+        "parking_fee_standard",
+        "fit_water",
+        "shop_coupon",
+        "map_commute"
+      ],
+      "hard_negative_ids": [
+        "hn_movie_schedule"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "参加林星野杭州站演唱会（与小周同行）",
+        "category": "entertainment",
+        "purpose": "fan",
+        "status": "cancelled",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002",
+          "e005",
+          "e006",
+          "e007",
+          "e014"
+        ],
+        "related_interest_event_ids": [
+          "e003",
+          "e010",
+          "e011",
+          "e016",
+          "e026",
+          "e030"
+        ],
+        "contradicting_event_ids": [
+          "e019",
+          "e020",
+          "e021",
+          "e022"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户持有一笔已支付的星野巡回演唱会·杭州站订单，时间为12月26日，2张票，内场B区12排，总价¥1360。",
+            "source_event_ids": [
+              "e002"
+            ]
+          },
+          {
+            "fact": "用户与小周约定12月26日17:30在滨江体育中心体育馆西门碰面，并确认两张票在用户处。",
+            "source_event_ids": [
+              "e005",
+              "e006"
+            ]
+          },
+          {
+            "fact": "用户日历中已有12月26日19:30林星野巡回演唱会（与小周同行）日程，并设置了12月26日17:30开演前2小时提醒。",
+            "source_event_ids": [
+              "e007",
+              "e014"
+            ]
+          },
+          {
+            "fact": "小周因12月24日至28日去深圳出差，无法参加12月26日演唱会，提出退票并愿意补手续费。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户已提交演唱会门票退票申请，2张票预计退款¥1224；随后退款已到账，原金额¥1360，手续费¥136。",
+            "source_event_ids": [
+              "e020",
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户已将日历中的演唱会日程标记取消，并删除关联提醒。",
+            "source_event_ids": [
+              "e022"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户对林星野演唱会具有粉丝兴趣，曾浏览歌手歌曲、官方后援会演出话题，并收藏巡演歌单。",
+            "source_event_ids": [
+              "e003",
+              "e016",
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户在退票前曾查询12月26日前往滨江体育中心体育馆的路线，显示预计45分钟、建议16:50出发，说明其有出行规划。",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户曾查看门票详情，包括实名入场和退票政策。",
+            "source_event_ids": [
+              "e011"
+            ]
+          },
+          {
+            "fact": "退票到账后用户仍浏览林星野巡演其他场次讨论，可能仍保持对该巡演的兴趣。",
+            "source_event_ids": [
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否仍计划参加林星野其他巡演场次尚不明确",
+          "用户后续是否会另约小周或独自参加其他娱乐活动尚不明确",
+          "退票后是否会产生改期、转让或其他替代安排尚不明确"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e004",
+      "e008",
+      "e009",
+      "e012",
+      "e013",
+      "e015",
+      "e017",
+      "e018",
+      "e023",
+      "e024",
+      "e025",
+      "e027",
+      "e028",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c07-s06-22cb643d",
+    "passed": true,
+    "issues": [
+      {
+        "issue_type": "label_consistency",
+        "severity": "medium",
+        "event_ids": [
+          "e011"
+        ],
+        "description": "盲标将 e011（查看门票详情：座位、实名入场、退票政策）归为 related_interest，而 Gold/event_labels 归为 supporting。这导致盲标 supporting=5、related_interest=6，与 spec 的 supporting=6、related_interest=5 不一致。查看自己已支付门票的座位与入场须知属于观演准备行为，理应算 supporting，因此盲标此处归类偏弱。",
+        "suggested_action": "统一 e011 的归类（建议归 supporting），并同步修正 spec/blind 的 supporting 与 related_interest 计数。"
+      },
+      {
+        "issue_type": "chain_integrity",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e006",
+          "e014",
+          "e016",
+          "e021",
+          "e022",
+          "e030"
+        ],
+        "description": "多个 origin=related 事件的 generator_event_id 指向 origin=noise 事件：e002←e001（电影排片）、e006←e004（商场促销邮件）、e014←e008（公交到站）、e016←e009（儿童绘本）、e021←e012（查余额）、e022←e013（打车发票）、e030←e015（天文科普）。父节点与被生成事件语义不相关，生成链一致性存疑；虽然不影响语义判断，但削弱了事件链的可解释性。",
+        "suggested_action": "核对生成链，将 related 事件的父节点指向同链相关的 related 事件，或在元数据中明确 generator_event_id 的确切语义（因果父节点 vs 时间锚点）。"
+      },
+      {
+        "issue_type": "weak_relation",
+        "severity": "low",
+        "event_ids": [
+          "e030"
+        ],
+        "description": "e030（浏览林星野上海站加场讨论帖）与已取消的 i001（杭州站、与小周同行）关联偏弱，归 related_interest 属边界情形；内容易被误读为『改看其他场次』的新意图证据，但没有任何改期/购新票的决策事件支撑，盲标仅作『可能仍有兴趣』的推断是恰当的。",
+        "suggested_action": "保留 related_interest 即可，切勿据此推断新意图或改期；若需更严谨，可标注为弱相关并维持 single-intent 结果。"
+      },
+      {
+        "issue_type": "answer_leak",
+        "severity": "low",
+        "event_ids": [
+          "e007",
+          "e014",
+          "e022"
+        ],
+        "description": "日历事件标题『林星野巡回演唱会（与小周同行）』与盲标意图名『参加林星野杭州站演唱会（与小周同行）』高度重合，存在轻度答案泄漏风险；虽属业务自然的日历命名，但意图名几乎是事件标题的复写。",
+        "suggested_action": "无需修改事件内容；建议在意图名生成环节与事件标题做差异化表述，降低泄漏度。"
+      },
+      {
+        "issue_type": "unknown_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e019"
+        ],
+        "description": "spec 的 unknown_information 列有『同伴出差行程是否最终确定』，但 e019 中小周已明确『刚接到公司通知，12月24日到28日要去深圳出差』，读起来已是确定安排，二者存在轻微张力。",
+        "suggested_action": "可保留该 unknown（出差通知仍可能变动），或微调为『出差安排是否影响改期/另约』，避免与 e019 的确定性表述冲突。"
+      }
+    ],
+    "summary": "样本整体质量良好，核心事实链完整自洽：已支付订单（e002，2张、内场B区、¥1360）→ 与小周约定碰面（e005/e006）→ 日历日程与开演提醒（e007/e014）→ 同伴临时出差（e019）→ 退票申请（e020）→ 退款到账（e021：¥1360-¥136手续费=¥1224，与『7天以上收10%手续费』政策一致）→ 日历标记取消并删除提醒（e022），status=cancelled 得到决定性反向证据支持。purpose=fan 有音乐App单曲循环、后援会动态、收藏巡演歌单等直接兴趣证据。所有 15 个 origin=noise 事件经复核均与演唱会/出行目的无关（电影排片、促销邮件、公交、绘本、查余额、打车发票、科普视频、浇花、维修师傅、午餐、科普阅读、停车费、喝水、优惠券、通勤路线），未见被错标为 unrelated 的潜在相关事件。盲标未发现 Gold 漏掉的意图，也未漏掉规划中的意图，未出现多意图错误合并/拆分。遗留问题均为中低级别：e011 在盲标与 Gold 间 supporting/related_interest 归类不一致（并造成计数偏差）、生成链父节点指向 noise 事件的元数据一致性、e030 边界弱相关、日历标题与意图名高度重合的轻度泄漏，以及 unknown 与 e019 的轻微张力。无 critical/high 问题，故判定通过。"
+  },
+  "adjudication": {
+    "sample_id": "c07-s06-22cb643d",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "与朋友观看星野巡演",
+          "category": "entertainment",
+          "purpose": "fan",
+          "status": "cancelled",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e005",
+            "e006",
+            "e007",
+            "e014"
+          ],
+          "related_interest_event_ids": [
+            "e003",
+            "e010",
+            "e011",
+            "e016",
+            "e026",
+            "e030"
+          ],
+          "contradicting_event_ids": [
+            "e019",
+            "e020",
+            "e021",
+            "e022"
+          ],
+          "confirmed_facts": [
+            {
+              "fact": "用户持有一笔已支付的星野巡回演唱会·杭州站订单，时间为12月26日，2张票，内场B区12排，总价¥1360。",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "用户与小周约定12月26日17:30在滨江体育中心体育馆西门碰面，并确认两张票在用户处。",
+              "source_event_ids": [
+                "e005",
+                "e006"
+              ]
+            },
+            {
+              "fact": "用户日历中已有12月26日19:30林星野巡回演唱会（与小周同行）日程，并设置了12月26日17:30开演前2小时提醒。",
+              "source_event_ids": [
+                "e007",
+                "e014"
+              ]
+            },
+            {
+              "fact": "小周因12月24日至28日去深圳出差，无法参加12月26日演唱会，提出退票并愿意补手续费。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户已提交演唱会门票退票申请，2张票预计退款¥1224；随后退款已到账，原金额¥1360，手续费¥136。",
+              "source_event_ids": [
+                "e020",
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户已将日历中的演唱会日程标记取消，并删除关联提醒。",
+              "source_event_ids": [
+                "e022"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户对林星野演唱会具有粉丝兴趣，曾浏览歌手歌曲、官方后援会演出话题，并收藏巡演歌单。",
+              "source_event_ids": [
+                "e003",
+                "e016",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户在退票前曾查询12月26日前往滨江体育中心体育馆的路线，显示预计45分钟、建议16:50出发，说明其有出行规划。",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户曾查看门票详情，包括座位信息、实名入场须知和退票政策。",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "退票到账后用户仍浏览林星野巡演其他场次讨论，可能仍保持对该巡演的兴趣。",
+              "source_event_ids": [
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "用户是否仍计划参加林星野其他巡演场次尚不明确",
+            "同伴出差行程是否最终确定尚不明确",
+            "退票后是否会产生改期、转让或其他替代安排尚不明确"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e004",
+        "e008",
+        "e009",
+        "e012",
+        "e013",
+        "e015",
+        "e017",
+        "e018",
+        "e023",
+        "e024",
+        "e025",
+        "e027",
+        "e028",
+        "e029"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c07-s06-22cb643d"
+    },
+    "rationale": "e011（view_detail，查看票面座位/入场/退票政策）属于查看与准备性行为，不是订单、支付、出票、已确认日程或明确确认/拒绝等决定性证据，按 taxonomy 规则应归为 related_interest 而非 supporting。将其修正后，supporting 5 条、related_interest 6 条、contradicting 4 条，仍与事件语义及意图取消状态自洽；其余标签、事实来源和无关事件集合均正确。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 6,
+      "contradicting": 4,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 3009,
+      "total_tokens": 4866,
+      "latency_s": 62.51,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1793,
+      "completion_tokens": 5437,
+      "total_tokens": 7230,
+      "latency_s": 109.71,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3652,
+      "completion_tokens": 8451,
+      "total_tokens": 12103,
+      "latency_s": 74.01,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6206,
+      "completion_tokens": 10211,
+      "total_tokens": 16417,
+      "latency_s": 97.03,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10835,
+      "completion_tokens": 7938,
+      "total_tokens": 18773,
+      "latency_s": 116.26,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 459.53
+}

@@ -1,0 +1,913 @@
+{
+  "sample_id": "c06-s05-6dc0e110",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "composition_deviation",
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标对i001的purpose与confidence过度推断：全程仅有搜索、浏览、比较、收藏等弱学习信号，无报名、支付、订单、日程或明确动机证据，故purpose保持unknown、status为emerging、confidence为low。按规则将search/view/browse/collect/compare类事件统一标为related_interest，原Gold中的supporting（含e007/e017仅为view_detail而非watch_video）不成立，因此supporting为空。e005、e011、e018、e021、e024等单次噪声事件不足以支撑独立意图，不新增盲标中的i002-i005；e030为泛科技资讯，与Python/数据分析学习关联过弱，改标unrelated。",
+      "errors": [],
+      "warnings": [
+        "unrelated count 16 differs from target 15"
+      ],
+      "noise_pool_ids": [
+        "photo_album",
+        "pay_bill",
+        "hn_course_other_subject",
+        "video_watch",
+        "sys_wallpaper",
+        "im_family_reply",
+        "contacts_search_repair",
+        "food_history",
+        "game_play",
+        "shop_coupon",
+        "ent_trailer",
+        "tax_deduction_guide",
+        "home_ac_cleaning_search",
+        "parking_fee_standard",
+        "pet_vaccine_schedule"
+      ],
+      "hard_negative_ids": [
+        "hn_course_other_subject"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "Python/数据分析入门学习",
+        "category": "learning",
+        "purpose": "skill_up",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e003",
+          "e004",
+          "e007",
+          "e010",
+          "e013",
+          "e017",
+          "e019",
+          "e020",
+          "e023",
+          "e025",
+          "e026",
+          "e028",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户在课程平台搜索并查看Python零基础课程，正在评估入门课程",
+            "source_event_ids": [
+              "e003",
+              "e004"
+            ]
+          },
+          {
+            "fact": "用户对比了Python入门课与数据分析训练营的价格、评分等信息",
+            "source_event_ids": [
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户浏览数据分析方向课程列表并查看数据分析师职业相关资讯",
+            "source_event_ids": [
+              "e019",
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户通过短视频学习Python与Pandas数据处理",
+            "source_event_ids": [
+              "e007",
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户搜索Excel数据分析教程与数据分析学习路线，并收藏自学Python经验文",
+            "source_event_ids": [
+              "e029",
+              "e028",
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户在购物App搜索并查看、收藏数据分析入门书籍，存在购书倾向",
+            "source_event_ids": [
+              "e023",
+              "e025",
+              "e026"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已决定报名具体课程或购买书籍",
+          "学习预算与开始时间安排",
+          "学习目的是职业转型还是单纯技能提升"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "粤语入门学习",
+        "category": "learning",
+        "purpose": "hobby",
+        "status": "emerging",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e005"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户浏览粤语入门课程，可能对学习粤语有兴趣",
+            "source_event_ids": [
+              "e005"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否有明确报名或学习计划",
+          "学习动机"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i003",
+        "intent_name": "家庭家电清洗/维修服务",
+        "category": "health_service",
+        "purpose": "household_service",
+        "status": "considering",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e011",
+          "e021"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户查询空调清洗服务，时间意向为下月",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户在通讯录中查找维修师傅联系方式",
+            "source_event_ids": [
+              "e011"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已联系或预约服务商",
+          "具体服务时间与价格",
+          "两项服务是否同一事项"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i004",
+        "intent_name": "个税专项附加扣除填报",
+        "category": "finance_admin",
+        "purpose": "tax",
+        "status": "emerging",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e018"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户查看个税专项附加扣除填报指南，关注个税申报事项",
+            "source_event_ids": [
+              "e018"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否实际完成填报",
+          "涉及的具体扣除项目"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i005",
+        "intent_name": "猫咪疫苗接种了解",
+        "category": "health_service",
+        "purpose": "pet_care",
+        "status": "emerging",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e024"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户浏览猫咪疫苗时间表内容，关注宠物健康管理",
+            "source_event_ids": [
+              "e024"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否养猫及是否计划接种",
+          "是否已预约宠物医疗服务"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i004"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i005"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e006",
+      "e008",
+      "e009",
+      "e012",
+      "e014",
+      "e015",
+      "e016",
+      "e022",
+      "e027",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 5,
+      "unrelated_event_count": 12
+    }
+  },
+  "review": {
+    "sample_id": "c06-s05-6dc0e110",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "intent_purpose_unsupported",
+        "severity": "high",
+        "event_ids": [
+          "e003",
+          "e004",
+          "e013",
+          "e020",
+          "e025",
+          "e026"
+        ],
+        "description": "盲标 i001 将 purpose 设为 skill_up，但事件仅显示课程搜索、详情浏览、课程对比、文章收藏和书籍收藏；没有求职、转行、考试认证、报名付费或明确学习动机证据。场景规格也将 purpose 标为 unknown。skill_up 属于推断，不应高置信度断言。",
+        "suggested_action": "将 i001 的 purpose 改为 unknown，或至少在 purpose 说明中保留动机未知；不要从 Python/数据分析内容直接推断 skill_up。"
+      },
+      {
+        "issue_type": "confidence_inconsistent_with_evidence",
+        "severity": "high",
+        "event_ids": [
+          "e003",
+          "e004",
+          "e013",
+          "e020",
+          "e025",
+          "e026"
+        ],
+        "description": "盲标 i001 的 confidence_level 为 high、status 为 considering，但其 supporting_event_ids 为空，且全程无下单、报名、支付、日程创建等强证据。该样本为 D3_weak_evidence，原规格为 emerging/low。高置信度与证据强度和盲标自身的 supporting 为空不一致。",
+        "suggested_action": "将 i001 置信度降为 low 或 medium；status 保持 emerging，若坚持 considering 需明确其依据仅为比较和收藏；不要补造强证据。"
+      },
+      {
+        "issue_type": "evidence_action_mismatch",
+        "severity": "high",
+        "event_ids": [
+          "e007",
+          "e017"
+        ],
+        "description": "i001 的 required_evidence 包括“在 video_app 观看编程教学类短视频”，但 e007 和 e017 的 action 均为 view_detail（查看视频详情页），不是 watch_video；全窗口内实际的 watch_video 是 e006（手机摄影入门）等无关内容。Gold 将 e007/e017 标为 supporting，盲标还据此推断“通过短视频学习”，均超过事件实际动作。",
+        "suggested_action": "将 e007/e017 从 supporting 降为 related_interest，或重新生成真实的编程教学 watch_video 事件；盲标 inferred_fact 应改为“查看编程教学视频详情”，不要写成已观看/已学习。"
+      },
+      {
+        "issue_type": "supporting_evidence_underclassified",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e004",
+          "e013",
+          "e020",
+          "e025",
+          "e026"
+        ],
+        "description": "盲标 i001 的 supporting_event_ids 为空，把课程搜索、课程详情、课程对比、文章收藏、书籍查看与收藏等直接学习行为全部归为 related_interest。虽然样本证据弱，但这些事件相对直接，完全无 supporting 会削弱意图证据结构，并与 Gold 的 supporting 标注不一致。",
+        "suggested_action": "将 e003/e004/e013/e020/e025/e026 中直接支持学习意向的事件重新评估为 supporting；e007/e017 因仅为 view_detail 不应作为“观看”类 supporting。"
+      },
+      {
+        "issue_type": "over_split_intents_from_noise",
+        "severity": "high",
+        "event_ids": [
+          "e005",
+          "e011",
+          "e018",
+          "e021",
+          "e024"
+        ],
+        "description": "盲标从噪声事件中额外拆出 i002 粤语入门学习、i003 家电清洗/维修、i004 个税填报、i005 猫咪疫苗四个意图。e005 是硬负样本中的其他学科课程，e018/e024 是单次内容浏览，e011/e021 是弱关联服务搜索；这些事件不足以支撑独立意图，导致意图数从 1 膨胀到 5。",
+        "suggested_action": "不要仅凭单次噪声浏览创建独立意图；若保留，应作为低置信度弱上下文并明确证据不足。若裁决器认为 e005/e018/e024 确与更宽泛学习/生活事项相关，应按真实语义改标为相关兴趣，但不应直接升格为独立意图。"
+      },
+      {
+        "issue_type": "over_merge_household_service",
+        "severity": "medium",
+        "event_ids": [
+          "e011",
+          "e021"
+        ],
+        "description": "盲标 i003 将通讯录搜索“维修师傅”与空调清洗搜索“下月”合并为同一家庭家电清洗/维修服务意图，但 e011 未说明维修对象，二者是否同一事项无证据；盲标自己也在 unknown_information 中承认“两项服务是否同一事项”。",
+        "suggested_action": "将 e011 与 e021 拆开评估，或仅保留为弱相关兴趣；在证据不足时不要合并为一个 considering 意图。"
+      },
+      {
+        "issue_type": "weak_related_label_gold",
+        "severity": "medium",
+        "event_ids": [
+          "e030"
+        ],
+        "description": "Gold 将 e030 的科技频道泛资讯（年度技术趋势、低代码平台、数据安全新规）标为 i001 数据分析自学意向的 related_interest，但标题未直接涉及 Python、数据分析学习或数据技能训练，关联较泛。盲标将其标为 unrelated 更符合严格语义。",
+        "suggested_action": "将 e030 改为 unrelated，或要求其内容与数据分析/Python 学习有明确关联；若保留 related_interest，应降低关联强度并说明仅为泛技术资讯背景。"
+      },
+      {
+        "issue_type": "blind_missed_weak_related_event",
+        "severity": "low",
+        "event_ids": [
+          "e027"
+        ],
+        "description": "盲标将 e027 标为 unrelated，但其知识区可见项包含“三分钟看懂什么是算法”“Excel函数小技巧”等与编程/数据分析学习相邻的内容，作为 related_interest 比完全无关更合理。",
+        "suggested_action": "将 e027 至少标为 i001 的弱 related_interest；若认为 feed 曝光不足以证明兴趣，可保留 unrelated 但在全局说明中标注为边界样本。"
+      }
+    ],
+    "summary": "样本存在 high 级问题，不能通过。Gold 的 i001 作为弱学习兴趣基本成立，但 required_evidence 中的“观看编程教学短视频”没有实际 watch_video 事件，e007/e017 仅为 view_detail，却被标为 supporting；盲标又将 i001 的 purpose 高置信度设为 skill_up、confidence 设为 high，且 supporting_event_ids 为空。盲标还从多个单次噪声事件中额外拆出四个独立意图，并合并了 e011/e021 两个未必同一事项的服务搜索。建议修订 purpose/confidence/supporting 标注，必要时重新生成真实编程视频观看事件，避免用噪声事件过度拆分意图。"
+  },
+  "adjudication": {
+    "sample_id": "c06-s05-6dc0e110",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "数据分析自学意向",
+          "category": "learning",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e003",
+            "e004",
+            "e007",
+            "e010",
+            "e013",
+            "e017",
+            "e019",
+            "e020",
+            "e023",
+            "e025",
+            "e026",
+            "e027",
+            "e028",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户在learning_app搜索并浏览Python零基础入门课程，表现出对编程入门内容的关注",
+              "source_event_ids": [
+                "e003",
+                "e004"
+              ]
+            },
+            {
+              "fact": "用户比较Python入门课与数据分析训练营，并浏览数据分析方向课程列表",
+              "source_event_ids": [
+                "e013",
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户查看编程教学与Pandas数据处理视频详情，继续接触Python/数据分析内容",
+              "source_event_ids": [
+                "e007",
+                "e017"
+              ]
+            },
+            {
+              "fact": "用户搜索数据分析入门书籍并查看、收藏相关书籍",
+              "source_event_ids": [
+                "e023",
+                "e025",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户阅读数据分析师职业资讯、搜索数据分析学习路线，并收藏自学Python经验文章",
+              "source_event_ids": [
+                "e010",
+                "e028",
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户在视频知识区浏览到算法、Excel函数等相邻内容",
+              "source_event_ids": [
+                "e027"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "学习动机是转行、工作需要还是纯兴趣",
+            "是否会报名付费课程或购买书籍",
+            "是否有明确的学习计划、开始时间或认证考试安排"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e005",
+        "e006",
+        "e008",
+        "e009",
+        "e011",
+        "e012",
+        "e014",
+        "e015",
+        "e016",
+        "e018",
+        "e021",
+        "e022",
+        "e024",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 16
+      },
+      "sample_id": "c06-s05-6dc0e110"
+    },
+    "rationale": "修正盲标对i001的purpose与confidence过度推断：全程仅有搜索、浏览、比较、收藏等弱学习信号，无报名、支付、订单、日程或明确动机证据，故purpose保持unknown、status为emerging、confidence为low。按规则将search/view/browse/collect/compare类事件统一标为related_interest，原Gold中的supporting（含e007/e017仅为view_detail而非watch_video）不成立，因此supporting为空。e005、e011、e018、e021、e024等单次噪声事件不足以支撑独立意图，不新增盲标中的i002-i005；e030为泛科技资讯，与Python/数据分析学习关联过弱，改标unrelated。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 16 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 16,
+      "supporting": 0,
+      "related_interest": 14,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "learning": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.8,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1853,
+      "completion_tokens": 2355,
+      "total_tokens": 4208,
+      "latency_s": 90.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1734,
+      "completion_tokens": 5829,
+      "total_tokens": 7563,
+      "latency_s": 89.02,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3414,
+      "completion_tokens": 5123,
+      "total_tokens": 8537,
+      "latency_s": 64.93,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6233,
+      "completion_tokens": 12070,
+      "total_tokens": 18303,
+      "latency_s": 101.27,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10956,
+      "completion_tokens": 5444,
+      "total_tokens": 16400,
+      "latency_s": 99.95,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 446.1
+}

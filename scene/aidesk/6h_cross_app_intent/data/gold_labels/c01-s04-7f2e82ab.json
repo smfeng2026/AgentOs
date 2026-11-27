@@ -1,0 +1,327 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "赴深圳客户签约出差",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e010",
+        "e011",
+        "e014",
+        "e016",
+        "e018",
+        "e024"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e002",
+        "e005",
+        "e020",
+        "e021",
+        "e025",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "已创建上海至深圳、2026-12-15、CZ3554 09:15 经济舱机票订单 F2026121500321，价格 1150 元，状态待支付",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "该机票订单已用信用卡支付成功，金额 1150 元，订单状态为已支付",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "已预订深圳福田中心区商务酒店，2026-12-15 入住、2026-12-17 离店，大床房，680 元/晚，订单状态为已预订",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "客户方陈总监回复确认：12月16日上午10:00 在其公司12楼会议室进行年度框架协议签约会谈",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "已创建 2026-12-16 10:00-11:30「年度框架协议签约会」日程，地点为客户公司12楼会议室，参与人含客户方陈总监与本人",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "已为该签约会设置提前1小时提醒（2026-12-16 09:00）",
+          "source_event_ids": [
+            "e024"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "此次深圳之行的核心事务是与客户进行年度框架协议签约会谈，属商务出差",
+          "source_event_ids": [
+            "e005",
+            "e028",
+            "e030"
+          ]
+        },
+        {
+          "fact": "行程时间跨度约为 12月15日抵达深圳、12月16日签约会谈、12月17日离店",
+          "source_event_ids": [
+            "e020",
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户订票前比较了上海-深圳 12月15日的多个航班选项，最终选择南航CZ3554",
+          "source_event_ids": [
+            "e001",
+            "e002"
+          ]
+        },
+        {
+          "fact": "会议当日需从深圳福田中心区商务酒店驾车约18公里、约35分钟前往客户公司（南山区）",
+          "source_event_ids": [
+            "e021",
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户关注 12月16日深圳天气（多云，17℃~24℃，降雨概率10%），为出差行程做准备",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户与销售同事周琳协同出差：告知航班、酒店与签约会安排并询问协议材料，周琳回复材料已备好、15日乘高铁前往、16日一同前往客户公司",
+          "source_event_ids": [
+            "e028",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "返程交通（深圳返回上海）是否已安排或改签",
+        "机票与酒店费用由个人还是公司承担、是否需要报销",
+        "销售同事周琳是否参加签约会谈（日历参与人仅含陈总监与本人）",
+        "协议材料的具体内容与最终准备状态（仅有同事口头回复）",
+        "是否需要在深圳打印/携带纸质合同文件（e015 打印店搜索缺少城市信息，无法确认与本行程相关）",
+        "行程期间是否有其他商务拜访或休闲安排"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e004",
+    "e006",
+    "e007",
+    "e008",
+    "e009",
+    "e012",
+    "e013",
+    "e015",
+    "e017",
+    "e019",
+    "e022",
+    "e023",
+    "e026",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c01-s04-7f2e82ab"
+}

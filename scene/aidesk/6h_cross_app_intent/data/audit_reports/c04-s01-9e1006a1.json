@@ -1,0 +1,812 @@
+{
+  "sample_id": "c04-s01-9e1006a1",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "composition_deviation"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "按证据语义修正标签：supporting 仅保留决定性证据，即群聊中老周/小林/阿凯的明确应约（e002、e004、e005）、用户明确敲定时间地点的消息（e007），以及下单（e025）、订金支付成功（e026）、日历日程创建（e029），共7条。e001（发起邀约）、e011（搜索）、e014（看详情）、e020（比价）依规则10降为 related_interest；e023（静安区烤肉外卖浏览）同品类同区域，语义上与烤肉局相关，由 unrelated 修正为 related_interest。e021（静安寺火锅人气榜）与已确定的烤肉主题关联薄弱，按无关处理。e025 订单状态虽为待支付订金，但 e026 订金支付成功且关联同一订单，叠加 e029 日历日程，足以支撑 status=confirmed、confidence=high；无取消/退款/改期证据，contradicting 为空。confirmed_facts 仅引用 supporting 事件，related_interest 事件内容改写进 inferred_facts，满足证据层级约束。最终 unrelated_event_count=16（配比 7/7/16），事件本身足以支撑场景，无需重新生成。",
+      "errors": [],
+      "warnings": [
+        "unrelated count 16 differs from target 15"
+      ],
+      "noise_pool_ids": [
+        "map_history",
+        "sys_storage",
+        "shop_coupon",
+        "ent_trailer",
+        "music_search",
+        "fin_news",
+        "work_industry_news",
+        "hn_restaurant_lunch",
+        "photo_backup",
+        "game_daily",
+        "read_science",
+        "comm_subway",
+        "cal_reminder",
+        "fit_water",
+        "learn_video"
+      ],
+      "hard_negative_ids": [
+        "hn_restaurant_lunch"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "老友烤肉聚餐预订",
+        "category": "social_dining",
+        "purpose": "socializing",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002",
+          "e004",
+          "e005",
+          "e007",
+          "e025",
+          "e026",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e010",
+          "e011",
+          "e013",
+          "e014",
+          "e020"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "老周、小林、阿凯在群聊中确认周六晚上可参加/加入烤肉聚餐",
+            "source_event_ids": [
+              "e002",
+              "e004",
+              "e005"
+            ]
+          },
+          {
+            "fact": "用户最终确认12月05日18:00在静安寺吃烤肉，并表示找店订四人桌",
+            "source_event_ids": [
+              "e007"
+            ]
+          },
+          {
+            "fact": "用户在炭匠烧肉（静安寺店）创建12月05日18:00、4人、四人桌订单，订金100元，订单状态为待支付订金",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户支付100元四人桌预订订金成功，关联订单RS202612042142",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户创建“老友烤肉聚餐”日历日程，时间12月05日18:00-20:00，地点炭匠烧肉（静安寺店），参与人老周、小林、阿凯",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户最初在“老友饭搭子群”发起周六晚上静安寺烤肉聚餐邀约",
+            "source_event_ids": [
+              "e001"
+            ]
+          },
+          {
+            "fact": "用户查询从家（静安区）到静安寺的地铁路线，预计25分钟，出发时间17:20",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户搜索12月05日18:00、4人、可订四人桌的静安寺烤肉餐厅",
+            "source_event_ids": [
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户浏览静安寺烤肉热门榜，并查看炭匠烧肉（静安寺店）详情及12月05日18:00四人桌可订时段",
+            "source_event_ids": [
+              "e013",
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户比较炭匠烧肉（静安寺店）与牛角日式烧肉（静安寺店）的评分、人均价格、四人桌可订时段和距静安寺地铁站距离",
+            "source_event_ids": [
+              "e020"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "最终到店人数是否仍为4人，是否有其他人加入",
+          "聚餐的具体菜品、预算及是否使用其他优惠",
+          "用户最终是否按查询的地铁路线前往静安寺"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e006",
+      "e008",
+      "e009",
+      "e012",
+      "e015",
+      "e016",
+      "e017",
+      "e018",
+      "e019",
+      "e021",
+      "e022",
+      "e023",
+      "e024",
+      "e027",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 17
+    }
+  },
+  "review": {
+    "sample_id": "c04-s01-9e1006a1",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_overreach",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e011",
+          "e014",
+          "e020"
+        ],
+        "description": "labeled_events 将这些事件标为 supporting，但 e001 仅是发起邀约，e011 是搜索餐厅，e014 是查看详情，e020 是两店对比，均未直接确认“周六晚四人烤肉局”已成立；盲标 event_labels 已把 e011/e014/e020 降为 related_interest，说明 Gold 的 supporting 计数被夸大。",
+        "suggested_action": "将 e001/e011/e014/e020 改为 related_interest；supporting 仅保留群聊确认与最终订座支付链路相关事件（如 e002、e004、e005、e007、e025、e026、e029），并重算 supporting_event_count。"
+      },
+      {
+        "issue_type": "blind_missed_related_interest",
+        "severity": "high",
+        "event_ids": [
+          "e023"
+        ],
+        "description": "e023 浏览“附近烤肉外卖推荐”，category=烤肉、delivery_address=静安区，与 i001 的烤肉聚餐主题同品类同区域，语义上应属于 related_interest；盲标将其放入 unrelated_event_ids，并遗漏在 related_interest_event_ids 中。",
+        "suggested_action": "按真实语义将 e023 改标为 related_interest，intent_ids=[i001]，不要作为 unrelated 丢弃；它不构成 supporting，但应保留为相关兴趣浏览。"
+      },
+      {
+        "issue_type": "relation_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e021"
+        ],
+        "description": "e021 为“静安寺火锅人气榜”，origin 标为 related_interest，但盲标将其视为 unrelated；群聊已明确“烤肉好啊”，且无改吃火锅的证据，该事件与“烤肉局”关系较弱，存在生成侧 related_interest 误标或盲标口径不一致。",
+        "suggested_action": "明确该事件为无关噪声并移除 origin=related_interest，或若按“同区域餐饮备选”口径保留，则盲标需同步纳入 related_interest；建议优先按无关处理。"
+      },
+      {
+        "issue_type": "state_update_gap",
+        "severity": "medium",
+        "event_ids": [
+          "e025",
+          "e026"
+        ],
+        "description": "e025 创建订单时 order_status 仍为“待支付订金”，e026 支付 100 元订金成功，但没有后续事件把订单状态更新为“已支付/预订成功/已确认”。盲标据此确认 intent 为 confirmed，依赖支付成功与日历日程推断，缺少餐厅订单侧的明确状态闭环。",
+        "suggested_action": "补充或重新生成订单状态更新事件（如“预订成功/已确认”）；若无法补充，应在 confirmed_facts 中避免把订单表述为已完成预订，并明确该状态为支付成功后的推断。"
+      },
+      {
+        "issue_type": "fact_evidence_classification",
+        "severity": "low",
+        "event_ids": [
+          "e001",
+          "e010",
+          "e011",
+          "e013",
+          "e014",
+          "e020"
+        ],
+        "description": "盲标把 e001 的发起邀约、e010 路线查询、e011 餐厅搜索、e013 榜单浏览、e014 详情查看、e020 两店对比放入 inferred_facts，但这些均是直接观测到的消息或操作事件，不属于推断事实。",
+        "suggested_action": "将上述内容移入 confirmed/observed facts，或在 inferred_facts 中仅保留真正由证据推导出的结论，避免事实层级混淆。"
+      }
+    ],
+    "summary": "核心意图“周六晚四人烤肉局”有群聊确认、下单、订金支付和日历日程支撑，purpose=socializing 成立，未发现意图泄露、漏意图或取消/退款/改期问题。但存在高严重度标签问题：Gold 将搜索、看详情、比价误列为 supporting；盲标漏掉 e023 这一同品类烤肉外卖浏览，且 e021 火锅榜关系不一致。另有订单状态未闭环和事实层级混淆。建议先修正支持/相关兴趣标签与订单状态表达，再复核通过，不建议直接丢弃样本。"
+  },
+  "adjudication": {
+    "sample_id": "c04-s01-9e1006a1",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "周六晚四人烤肉局",
+          "category": "social_dining",
+          "purpose": "socializing",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e004",
+            "e005",
+            "e007",
+            "e025",
+            "e026",
+            "e029"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e010",
+            "e011",
+            "e013",
+            "e014",
+            "e020",
+            "e023"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "老周在“老友饭搭子群”回复周六晚上可以，几点都行",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "小林回复周六晚上六点以后有空，并认可烤肉",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "阿凯回复算他一个，愿意参加聚餐",
+              "source_event_ids": [
+                "e005"
+              ]
+            },
+            {
+              "fact": "用户发出明确决定：定为周六12月05日晚上6点、静安寺烤肉，并说去找店订四人桌",
+              "source_event_ids": [
+                "e007"
+              ]
+            },
+            {
+              "fact": "用户在炭匠烧肉（静安寺店）创建12月05日18:00、4人、四人桌订单，订金100元，订单号RS202612042142（订单状态为待支付订金）",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户成功支付100.00元“四人桌预订订金”，关联订单RS202612042142",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户创建“老友烤肉聚餐”日历日程：12月05日18:00-20:00，地点炭匠烧肉（静安寺店），参与人老周、小林、阿凯，提前1小时提醒",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户最初在“老友饭搭子群”发起周六晚上到静安寺吃烤肉的邀约",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "用户在找店前查询了从家（静安区）到静安寺的地铁路线，预计25分钟，出发时间17:20",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户在餐厅App搜索12月05日18:00、4人、可订四人桌的静安寺烤肉餐厅",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户浏览静安寺烤肉店热门榜，并查看炭匠烧肉（静安寺店）详情：评分4.7、人均158元、有12月05日18:00四人桌可订",
+              "source_event_ids": [
+                "e013",
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户比较炭匠烧肉（静安寺店）与牛角日式烧肉（静安寺店）的评分、人均价格、四人桌可订时段及距静安寺地铁站距离",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户在等待/犹豫期间还浏览了静安区附近的烤肉外卖推荐",
+              "source_event_ids": [
+                "e023"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "最终到店人数是否会临时变化（是否仍为4人）",
+            "聚餐的具体菜品、预算以及是否叠加使用其他优惠",
+            "预订后餐厅是否另发确认通知"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e006",
+        "e008",
+        "e009",
+        "e012",
+        "e015",
+        "e016",
+        "e017",
+        "e018",
+        "e019",
+        "e021",
+        "e022",
+        "e024",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 16
+      },
+      "sample_id": "c04-s01-9e1006a1"
+    },
+    "rationale": "按证据语义修正标签：supporting 仅保留决定性证据，即群聊中老周/小林/阿凯的明确应约（e002、e004、e005）、用户明确敲定时间地点的消息（e007），以及下单（e025）、订金支付成功（e026）、日历日程创建（e029），共7条。e001（发起邀约）、e011（搜索）、e014（看详情）、e020（比价）依规则10降为 related_interest；e023（静安区烤肉外卖浏览）同品类同区域，语义上与烤肉局相关，由 unrelated 修正为 related_interest。e021（静安寺火锅人气榜）与已确定的烤肉主题关联薄弱，按无关处理。e025 订单状态虽为待支付订金，但 e026 订金支付成功且关联同一订单，叠加 e029 日历日程，足以支撑 status=confirmed、confidence=high；无取消/退款/改期证据，contradicting 为空。confirmed_facts 仅引用 supporting 事件，related_interest 事件内容改写进 inferred_facts，满足证据层级约束。最终 unrelated_event_count=16（配比 7/7/16），事件本身足以支撑场景，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 16 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 16,
+      "supporting": 7,
+      "related_interest": 7,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 2013,
+      "total_tokens": 3875,
+      "latency_s": 20.44,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1724,
+      "completion_tokens": 8181,
+      "total_tokens": 9905,
+      "latency_s": 141.58,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3558,
+      "completion_tokens": 10681,
+      "total_tokens": 14239,
+      "latency_s": 78.61,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6023,
+      "completion_tokens": 9452,
+      "total_tokens": 15475,
+      "latency_s": 75.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10348,
+      "completion_tokens": 5022,
+      "total_tokens": 15370,
+      "latency_s": 35.31,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 351.41
+}

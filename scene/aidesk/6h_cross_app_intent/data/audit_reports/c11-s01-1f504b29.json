@@ -1,0 +1,783 @@
+{
+  "sample_id": "c11-s01-1f504b29",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "按规则10重排关系：e002/e006/e012/e017/e019 等 search/view/browse/collect/compare 类动作统一降为 related_interest，纠正 labeled_events 将 e002/e006/e012/e017 错标 supporting 造成的不一致；保留 e007（约定集合时间与路线的明确出行约定消息）、e026（已创建日程）、e027（已创建租车订单）、e029（已支付订单）为决定性 supporting。category/purpose 回归场景规格的 local_transport/outing（盲标的 travel/tourism 属类别漂移）。意图本身由已支付租车订单+日历日程坐实，故 status=confirmed、confidence=high；但小林仅有单方面约定消息、无回复确认，“已商定同行”不作为已证事实，改列入 unknown_information，民宿也仅收藏未预订。e005 为阿哲的泛化周末邀约，保留为弱 related_interest 并在 inferred_facts 中注明其是否同行未知，未新增独立意图（无独立证据）。未发现语义上应改标为相关的 noise 事件，unrelated_event_count=15 属实，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "read_novel",
+        "health_article",
+        "fit_water",
+        "cal_birthday",
+        "social_feed_handmade",
+        "hn_map_other_city",
+        "shop_cart",
+        "video_livestream",
+        "map_nearby",
+        "hn_guide_other_city",
+        "food_grocery",
+        "fin_balance",
+        "photo_backup",
+        "hn_train_other_city",
+        "mail_reply"
+      ],
+      "hard_negative_ids": [
+        "hn_map_other_city",
+        "hn_guide_other_city",
+        "hn_train_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "莫干山周末自驾两日游",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e007",
+          "e026",
+          "e027",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e002",
+          "e005",
+          "e006",
+          "e008",
+          "e010",
+          "e012",
+          "e015",
+          "e017",
+          "e018",
+          "e019",
+          "e023"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户向朋友小林发送消息，约定周六早上8:30在城西集合，走杭长高速，住一晚周日午后返程。",
+            "source_event_ids": [
+              "e007"
+            ]
+          },
+          {
+            "fact": "用户创建了12月12日08:30至12月13日18:00的日历日程“周六出发去莫干山”，参与人包括自己和朋友小林，地点为杭州城西集合点。",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户创建了12月12日至12月13日杭州城西门店的紧凑型SUV租车订单，租金596元，状态为待支付。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "用户已支付596元完成上述租车订单，订单状态为已支付。",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "此次出行为前往莫干山的周末两日自驾游，包含景区游览、民宿和停车等规划。",
+            "source_event_ids": [
+              "e002",
+              "e006",
+              "e010",
+              "e012",
+              "e017",
+              "e018",
+              "e023",
+              "e026"
+            ]
+          },
+          {
+            "fact": "租车订单的时间（12月12日至12月13日）与日历中的莫干山行程吻合，应服务于此次自驾出行。",
+            "source_event_ids": [
+              "e019",
+              "e026",
+              "e027",
+              "e029"
+            ]
+          },
+          {
+            "fact": "朋友阿哲曾询问周末是否一起出去走走，但事件流未确认其是否加入莫干山行程。",
+            "source_event_ids": [
+              "e005",
+              "e007",
+              "e026"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已预订莫干山民宿及具体住宿安排",
+          "朋友小林是否已最终确认同行",
+          "朋友阿哲是否同行",
+          "景区门票是否购买",
+          "最终返程时间是否固定为周日午后"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e003",
+      "e004",
+      "e009",
+      "e011",
+      "e013",
+      "e014",
+      "e016",
+      "e020",
+      "e021",
+      "e022",
+      "e024",
+      "e025",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c11-s01-1f504b29",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "label_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e002",
+          "e006",
+          "e012",
+          "e017"
+        ],
+        "description": "labeled_events 将 e002/e006/e012/e017 标为 supporting，但 event_labels 和盲标均将这些事件改为 related_interest；其中 e002 天气、e012 民宿评价、e017 停车场属于规格中的 optional_evidence，不应作为 supporting；e006 是 required_evidence 中的杭州到莫干山自驾路线搜索，却被 event_labels/盲标降为 related_interest。规格 supporting 预算为 8，而 event_labels 仅 4 条 supporting，内部标签不一致。",
+        "suggested_action": "统一最终标签：e002/e012/e017 改为 related_interest；e006 按 required_evidence 决定是否保留 supporting，并与 blind_annotation、event_labels、supporting_event_count 全部对齐。"
+      },
+      {
+        "issue_type": "weak_supporting_evidence",
+        "severity": "high",
+        "event_ids": [
+          "e007",
+          "e026"
+        ],
+        "description": "i001 的 required_evidence 要求“与朋友小林商定周六出发同行的聊天记录”，但 e007 只是用户单方面发给小林的消息，没有小林回复或确认；e026 日历把小林列为参与人也不能证明“商定”。盲标自身也把“朋友小林是否已最终确认同行”列为 unknown，却仍将 i001 标为 confirmed/high。",
+        "suggested_action": "当前样本不要补造事件；建议将小林是否确认标为 unknown 或降低 i001 置信度。若重新生成，应增加小林回复确认的聊天事件后再维持 confirmed/high。"
+      },
+      {
+        "issue_type": "over_attribution",
+        "severity": "medium",
+        "event_ids": [
+          "e005"
+        ],
+        "description": "e005 是朋友阿哲的泛化周末邀约，未提到莫干山、租车或小林，盲标将其列入 i001 的 related_interest，存在把不同社交邀约归并到莫干山自驾意图的风险；盲标也承认阿哲是否同行未知。",
+        "suggested_action": "保留为弱 related_interest 时需注明仅为泛化周末邀约；若严格按语义，应改为 unrelated 或单独记录为未确认的周末出游兴趣，不应作为 i001 的相关证据。"
+      },
+      {
+        "issue_type": "category_purpose_mismatch",
+        "severity": "medium",
+        "event_ids": [],
+        "description": "场景规格中 i001 的 category=local_transport、purpose=outing，盲标改为 category=travel、purpose=tourism。虽然莫干山两日游可语义上接近 tourism，但与规格字段不一致，会影响按 category/purpose 的评估。",
+        "suggested_action": "按场景规格统一为 local_transport/outing，或在标注规范中明确 outing 与 tourism 的映射；不要无说明地改类别。"
+      },
+      {
+        "issue_type": "fact_evidence_weakness",
+        "severity": "low",
+        "event_ids": [
+          "e005",
+          "e007",
+          "e026"
+        ],
+        "description": "盲标 inferred_fact “朋友阿哲曾询问周末是否一起出去走走，但事件流未确认其是否加入莫干山行程”中，e007/e026 只能说明小林相关安排，不能作为“阿哲未加入”的来源证据；该负向事实主要应由 e005 与后续无阿哲事件推断。",
+        "suggested_action": "将 source_event_ids 精简为 e005 或补充明确证据；负向事实应标注为推断/unknown，不宜列出无关来源。"
+      }
+    ],
+    "summary": "样本存在 high 级问题：labeled_events 与 event_labels/盲标在 supporting 上不一致，且 i001 的“与小林商定同行” required_evidence 只有单方面消息、无对方确认，却仍标 confirmed/high。另有 e005 过度归因和 category/purpose 漂移。未发现 noise 事件明显应改标为 related 的案例，也未发现盲标新增独立意图；建议修正标签或重新生成后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c11-s01-1f504b29",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "莫干山周末自驾两日游",
+          "category": "local_transport",
+          "purpose": "outing",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e007",
+            "e026",
+            "e027",
+            "e029"
+          ],
+          "related_interest_event_ids": [
+            "e002",
+            "e005",
+            "e006",
+            "e008",
+            "e010",
+            "e012",
+            "e015",
+            "e017",
+            "e018",
+            "e019",
+            "e023"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户向朋友小林发送消息，约定周六（12月12日）早上8:30在城西集合，走杭长高速，住一晚周日午后返程。",
+              "source_event_ids": [
+                "e007"
+              ]
+            },
+            {
+              "fact": "用户创建日历日程“周六出发去莫干山”，时间为12月12日08:30至12月13日18:00，地点为杭州城西集合点，参与人为自己与朋友小林。",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户在租车App创建12月12日至12月13日杭州城西门店的紧凑型SUV订单，租期2天，总价596元，状态为待支付。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户已支付596元完成该租车订单，订单状态为已支付。",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "出行目的地为莫干山，采用自驾方式，杭州至莫干山约75公里、约1小时40分钟车程，并关注莫干山景区开放信息与环山公路驾驶经验。",
+              "source_event_ids": [
+                "e006",
+                "e010",
+                "e023"
+              ]
+            },
+            {
+              "fact": "出行前围绕12月12日周末天气、莫干山民宿评价与停车条件做了功课，说明此次为两天一晚的山中周末短途自驾游计划。",
+              "source_event_ids": [
+                "e002",
+                "e008",
+                "e012",
+                "e015",
+                "e017",
+                "e018"
+              ]
+            },
+            {
+              "fact": "租车比价与下单的车型、门店与12月12日至13日租期，与日历中的莫干山行程时间吻合，可判定该租车服务于本次自驾出行。",
+              "source_event_ids": [
+                "e019",
+                "e026",
+                "e027",
+                "e029"
+              ]
+            },
+            {
+              "fact": "朋友阿哲曾发来泛化的周末出游邀约，未提及莫干山、租车或小林，尚不能确认其是否加入本次莫干山行程。",
+              "source_event_ids": [
+                "e005"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "最终入住哪家民宿（仅收藏“莫干山山麓庭院民宿”，未见预订或支付）",
+            "朋友小林是否已回复确认同行（仅有用户单方面约定消息，无其回复）",
+            "朋友阿哲是否同行",
+            "景区门票是否购买",
+            "周日返程时间是否最终固定"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e003",
+        "e004",
+        "e009",
+        "e011",
+        "e013",
+        "e014",
+        "e016",
+        "e020",
+        "e021",
+        "e022",
+        "e024",
+        "e025",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c11-s01-1f504b29"
+    },
+    "rationale": "按规则10重排关系：e002/e006/e012/e017/e019 等 search/view/browse/collect/compare 类动作统一降为 related_interest，纠正 labeled_events 将 e002/e006/e012/e017 错标 supporting 造成的不一致；保留 e007（约定集合时间与路线的明确出行约定消息）、e026（已创建日程）、e027（已创建租车订单）、e029（已支付订单）为决定性 supporting。category/purpose 回归场景规格的 local_transport/outing（盲标的 travel/tourism 属类别漂移）。意图本身由已支付租车订单+日历日程坐实，故 status=confirmed、confidence=high；但小林仅有单方面约定消息、无回复确认，“已商定同行”不作为已证事实，改列入 unknown_information，民宿也仅收藏未预订。e005 为阿哲的泛化周末邀约，保留为弱 related_interest 并在 inferred_facts 中注明其是否同行未知，未新增独立意图（无独立证据）。未发现语义上应改标为相关的 noise 事件，unrelated_event_count=15 属实，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 1288,
+      "total_tokens": 3147,
+      "latency_s": 12.88,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1690,
+      "completion_tokens": 5409,
+      "total_tokens": 7099,
+      "latency_s": 46.33,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3545,
+      "completion_tokens": 4921,
+      "total_tokens": 8466,
+      "latency_s": 36.84,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5918,
+      "completion_tokens": 11943,
+      "total_tokens": 17861,
+      "latency_s": 86.0,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10208,
+      "completion_tokens": 4437,
+      "total_tokens": 14645,
+      "latency_s": 29.65,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 211.71
+}

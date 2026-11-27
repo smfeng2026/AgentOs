@@ -1,0 +1,281 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "旧居翻新兴趣探索",
+      "category": "family",
+      "purpose": "renovation",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e008",
+        "e011",
+        "e012",
+        "e013",
+        "e016",
+        "e018",
+        "e019",
+        "e022",
+        "e023",
+        "e025",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户浏览老房改造内容、观看老房翻新视频、搜索翻新预算清单和装修公司口碑，表现出对旧居翻新的兴趣。",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e011",
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户搜索并查看实木置物架详情，同时浏览收纳用品、软装搭配和附近家居卖场，关注翻新后的家居布置与选购方向。",
+          "source_event_ids": [
+            "e012",
+            "e013",
+            "e018",
+            "e019",
+            "e025",
+            "e028",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户比较扫地机器人价格并浏览开荒保洁服务，涉及翻新后的家电配置与清洁安排。",
+          "source_event_ids": [
+            "e022",
+            "e023"
+          ]
+        },
+        {
+          "fact": "姐姐在家庭群提到红星美凯龙周末建材满减活动并邀请一起逛，可能作为建材采购的参考信息。",
+          "source_event_ids": [
+            "e027"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否有明确的装修时间表",
+        "预算范围",
+        "是否已与装修公司实际接触",
+        "打算改造的具体房间范围",
+        "是否已实际购买建材、家具或家电",
+        "是否已与家人约定逛卖场时间"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e005",
+    "e006",
+    "e007",
+    "e009",
+    "e010",
+    "e014",
+    "e015",
+    "e017",
+    "e020",
+    "e021",
+    "e024",
+    "e026",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c08-s06-7cd453df"
+}

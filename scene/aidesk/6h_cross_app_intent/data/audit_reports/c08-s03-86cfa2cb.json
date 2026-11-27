@@ -1,0 +1,871 @@
+{
+  "sample_id": "c08-s03-86cfa2cb",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标把蛋糕搜索、详情查看和收藏拆成独立 shopping/gift 意图 i002，但蛋糕是同一场奶奶生日家宴筹备的可选相关活动，尚未下单，证据不足以构成独立意图，按规则合并回 i001。事件关系按标签政策修正：e004/e014/e016/e017/e018 为决定性支持证据；e001/e002/e008/e010/e011/e019/e022/e023/e024/e028 为发起沟通、搜索查看、路线、蛋糕浏览收藏和提醒等 related_interest；e028 不标 supporting。15 条程序注入噪声事件均保持 unrelated。群聊中先提6人后改为8人及提醒时间等细节存在轻微不一致，但后续预订、支付、日历和群通知核心证据一致，不影响意图判定，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "food_lunch",
+        "video_playlist",
+        "photo_backup",
+        "comm_subway",
+        "work_tool_article",
+        "shop_coupon",
+        "sys_wallpaper",
+        "learn_video",
+        "mail_newsletter",
+        "game_daily",
+        "pay_balance",
+        "read_bookmark",
+        "music_play",
+        "cal_view",
+        "weather_forecast"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "奶奶生日家庭聚餐餐厅包间预订",
+        "category": "social_dining",
+        "purpose": "family_gathering",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e014",
+          "e016",
+          "e017",
+          "e018",
+          "e028"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e008",
+          "e010",
+          "e011",
+          "e019"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "已在聚福楼餐厅（徐汇滨江店）预订12月26日18:30的8人包间，订单状态为已预订",
+            "source_event_ids": [
+              "e014"
+            ]
+          },
+          {
+            "fact": "已支付200元包间预订订金，支付成功",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "已创建12月26日18:30-20:30的日历日程，地点为聚福楼餐厅（徐汇滨江店）8人包间",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "已在家庭群发送预订完成的通知，含餐厅、日期时间、8人包间、订金已付",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "已设置12月26日17:00出发去聚福楼的提醒",
+            "source_event_ids": [
+              "e028"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "聚餐目的是为奶奶庆祝生日",
+            "source_event_ids": [
+              "e001",
+              "e014",
+              "e017",
+              "e018"
+            ]
+          },
+          {
+            "fact": "聚餐人数确定为8人，需要大包间",
+            "source_event_ids": [
+              "e002",
+              "e004",
+              "e008",
+              "e014",
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户主动承担查找和预订餐厅的角色",
+            "source_event_ids": [
+              "e002",
+              "e008",
+              "e014"
+            ]
+          },
+          {
+            "fact": "用餐地点选在上海徐汇滨江区域，为家庭聚餐类型的本帮菜餐厅",
+            "source_event_ids": [
+              "e002",
+              "e008",
+              "e010",
+              "e011"
+            ]
+          },
+          {
+            "fact": "出行方式考虑驾车，预计车程约25分钟，需预留晚高峰时间",
+            "source_event_ids": [
+              "e019",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "最终实际到场人数是否确为8人",
+          "订金外的餐费结算方式与最终消费金额",
+          "备注的长寿面是否会被餐厅提供",
+          "当日实际出行方式与停车安排"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "奶奶生日蛋糕选购",
+        "category": "shopping",
+        "purpose": "gift",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e022",
+          "e023",
+          "e024"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户在挑选低糖水果生日蛋糕，规格为8寸，并考虑12月26日送达",
+            "source_event_ids": [
+              "e022",
+              "e023",
+              "e024"
+            ]
+          },
+          {
+            "fact": "已查看并收藏「低糖鲜奶草莓生日蛋糕 8寸」（暖房烘焙上海徐汇店，168元，可预约12月26日16:00前送达）",
+            "source_event_ids": [
+              "e023",
+              "e024"
+            ]
+          },
+          {
+            "fact": "该蛋糕的预期使用日期为12月26日，与同日举行的家庭生日聚餐时间吻合",
+            "source_event_ids": [
+              "e022",
+              "e024"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否最终下单购买蛋糕",
+          "购买数量与实际支付金额",
+          "送达时间与收货地址是否确认",
+          "是否会有其他蛋糕或甜点替代"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e005",
+      "e006",
+      "e007",
+      "e009",
+      "e012",
+      "e013",
+      "e015",
+      "e020",
+      "e021",
+      "e025",
+      "e026",
+      "e027",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c08-s03-86cfa2cb",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "intent_over_split",
+        "severity": "high",
+        "event_ids": [
+          "e022",
+          "e023",
+          "e024"
+        ],
+        "description": "场景规格只有 i001，且把生日蛋糕搜索/收藏列为 i001 的 optional_evidence；labeled_events 也将 e022-e024 标为 i001 related_interest。盲标新增 i002 并把这三条归入 i002，造成 Gold 与盲标的意图数量和事件归属不一致。蛋糕事件只有搜索、查看详情和收藏，未下单，独立作为 gift 意图证据偏弱。",
+        "suggested_action": "统一口径：若蛋糕是家宴筹备子活动，删除 i002，将 e022-e024 归回 i001 related_interest；若确需独立购物意图，则更新 scenario_spec/Gold 增加 i002，明确 category/purpose/status，并同步 event_labels。不要保留双重标签。"
+      },
+      {
+        "issue_type": "business_logic_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e002",
+          "e004"
+        ],
+        "description": "e002 先问“按6个人订”，e004 二姨说“一家三口也去”后总数改为8。6+3=9，人数推导不自然；虽然后续 e008/e014/e017/e018 均按8人执行，但关键群聊证据链有算数矛盾。",
+        "suggested_action": "修改 e002/e004 使人数推导一致（如先说5人再加3人=8，或二姨家只加2人），并保持后续8人包间、日历和群通知一致。"
+      },
+      {
+        "issue_type": "evidence_relation_misclassification",
+        "severity": "medium",
+        "event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e028"
+        ],
+        "description": "盲标把 e001/e002/e004（妈妈发起、本人响应、二姨修正人数）放在 related_interest，但 scenario_spec 将“家庭群中妈妈发起周六为奶奶过生日聚餐的沟通记录”列为 required_evidence，至少应作为 supporting。反过来 e028 只是出发提醒，盲标列为 supporting 偏强，Gold 标为 related_interest 更合适。",
+        "suggested_action": "将 required 群聊证据 e001/e002/e004 上调为 i001 supporting；e028 按政策降为 related_interest，或说明其仅支持执行安排而非核心预订意图。"
+      },
+      {
+        "issue_type": "timeline_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e019",
+          "e028"
+        ],
+        "description": "e019 计划12月26日17:45驾车出发、约25分钟；e028 在17:00设置标题为“出发去聚福楼”的提醒，提醒时间与计划出发时间相差45分钟，也与日历备注“提前15分钟到店”不完全吻合。",
+        "suggested_action": "对齐提醒与路线计划（如17:30准备、17:45出发），或明确17:00提醒是准备/更衣提醒而非实际出发。"
+      },
+      {
+        "issue_type": "calendar_participant_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e014",
+          "e017"
+        ],
+        "description": "预订为8人包间，但 e017 日历参与者只列奶奶、妈妈、二姨、表弟4人。可能只是日历只列关键联系人，但与8人家宴日程存在信息不完整。",
+        "suggested_action": "若日历需完整参与者，补全8人或注明仅列关键联系人；否则不要将参与者列表当作人数证据。"
+      }
+    ],
+    "summary": "核心家宴预订证据链（群聊发起、8人包间预订、200元订金支付、日历日程、群内通知）基本成立，但存在高严重度问题：盲标把规格中作为 i001 可选证据的蛋糕事件拆成独立 i002，造成意图数和事件归属不一致。另有群聊人数算数矛盾、required 群聊证据被降为 related_interest、提醒与计划出发时间不一致等中等问题。建议先统一蛋糕意图归属并修正人数与时间线后再通过。"
+  },
+  "adjudication": {
+    "sample_id": "c08-s03-86cfa2cb",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "奶奶生日家宴安排",
+          "category": "family",
+          "purpose": "family_gathering",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e004",
+            "e014",
+            "e016",
+            "e017",
+            "e018"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e002",
+            "e008",
+            "e010",
+            "e011",
+            "e019",
+            "e022",
+            "e023",
+            "e024",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "二姨在家庭群确认一家三口参加，聚餐人数调整为8人，需要大包间",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "已在聚福楼餐厅（徐汇滨江店）预订12月26日18:30的8人包间，订单状态为已预订",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "已支付200元包间预订订金，支付成功",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "已创建12月26日18:30-20:30的日历日程，地点为聚福楼餐厅（徐汇滨江店）8人包间",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "已在家庭群发送预订完成通知，含餐厅、日期时间、8人包间和订金已付",
+              "source_event_ids": [
+                "e018"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "聚餐目的是为奶奶庆祝生日",
+              "source_event_ids": [
+                "e001",
+                "e014",
+                "e017",
+                "e018"
+              ]
+            },
+            {
+              "fact": "人数从初步提到的6人调整为8人，最终按8人包间执行",
+              "source_event_ids": [
+                "e002",
+                "e004",
+                "e008",
+                "e014",
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户主动承担查找和预订餐厅的角色",
+              "source_event_ids": [
+                "e002",
+                "e008",
+                "e014"
+              ]
+            },
+            {
+              "fact": "用餐地点选在上海徐汇滨江区域的本帮菜餐厅，评价适合家庭聚餐",
+              "source_event_ids": [
+                "e002",
+                "e008",
+                "e010",
+                "e011"
+              ]
+            },
+            {
+              "fact": "考虑驾车前往，计划12月26日17:45出发，车程约25分钟，并设置出发提醒",
+              "source_event_ids": [
+                "e019",
+                "e028"
+              ]
+            },
+            {
+              "fact": "在挑选低糖8寸生日蛋糕，并收藏了一款可在12月26日送达的蛋糕",
+              "source_event_ids": [
+                "e022",
+                "e023",
+                "e024"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "最终实际到场人数是否确为8人",
+            "是否安排接送奶奶",
+            "是否最终下单购买生日蛋糕",
+            "订金外的餐费结算方式与最终消费金额",
+            "备注的长寿面是否会被餐厅提供",
+            "当日实际出行方式与停车安排"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e005",
+        "e006",
+        "e007",
+        "e009",
+        "e012",
+        "e013",
+        "e015",
+        "e020",
+        "e021",
+        "e025",
+        "e026",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c08-s03-86cfa2cb"
+    },
+    "rationale": "盲标把蛋糕搜索、详情查看和收藏拆成独立 shopping/gift 意图 i002，但蛋糕是同一场奶奶生日家宴筹备的可选相关活动，尚未下单，证据不足以构成独立意图，按规则合并回 i001。事件关系按标签政策修正：e004/e014/e016/e017/e018 为决定性支持证据；e001/e002/e008/e010/e011/e019/e022/e023/e024/e028 为发起沟通、搜索查看、路线、蛋糕浏览收藏和提醒等 related_interest；e028 不标 supporting。15 条程序注入噪声事件均保持 unrelated。群聊中先提6人后改为8人及提醒时间等细节存在轻微不一致，但后续预订、支付、日历和群通知核心证据一致，不影响意图判定，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "family_gathering": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "family": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.933,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1858,
+      "completion_tokens": 2491,
+      "total_tokens": 4349,
+      "latency_s": 24.22,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1749,
+      "completion_tokens": 9140,
+      "total_tokens": 10889,
+      "latency_s": 76.6,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3704,
+      "completion_tokens": 4187,
+      "total_tokens": 7891,
+      "latency_s": 29.32,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6413,
+      "completion_tokens": 12115,
+      "total_tokens": 18528,
+      "latency_s": 90.46,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10860,
+      "completion_tokens": 16723,
+      "total_tokens": 27583,
+      "latency_s": 117.33,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 340.96
+}

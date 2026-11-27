@@ -1,0 +1,205 @@
+{
+  "sample_id": "c07-s01-b12855b4",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:06:57+08:00",
+  "task": {
+    "scenario_category": "entertainment",
+    "template_id": "C07-S01",
+    "subscenario": "演唱会",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-15T15:15:00+08:00",
+    "window_end": "2026-12-15T21:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 1387319268
+  },
+  "spec_summary": {
+    "title": "为偶像巡演出票并安排行程",
+    "intent_names": [
+      "观演偶像巡演计划"
+    ],
+    "intent_categories": [
+      "entertainment"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [
+        "滨江体育馆"
+      ],
+      "products": [
+        "林知夏巡回演唱会门票",
+        "内场VIP票"
+      ],
+      "people": [
+        "朋友周悦"
+      ],
+      "dates": [
+        "12月26日"
+      ],
+      "other": [
+        "林知夏",
+        "粉丝应援物"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 4,
+    "gold_related_interest": 11,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "fan": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "entertainment": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "read_science",
+      "cal_view",
+      "mail_reply",
+      "news_headlines",
+      "tax_deduction_guide",
+      "hospital_oral_schedule",
+      "hn_movie_schedule",
+      "weather_forecast",
+      "contacts_search_repair",
+      "food_grocery",
+      "furniture_office_chair",
+      "home_ac_cleaning_search",
+      "job_market_salary_report",
+      "comm_bus",
+      "learn_video"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 976,
+      "total_tokens": 2835,
+      "latency_s": 9.78,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1783,
+      "completion_tokens": 5615,
+      "total_tokens": 7398,
+      "latency_s": 56.19,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3652,
+      "completion_tokens": 4291,
+      "total_tokens": 7943,
+      "latency_s": 29.19,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6094,
+      "completion_tokens": 13971,
+      "total_tokens": 20065,
+      "latency_s": 105.62,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10395,
+      "completion_tokens": 3824,
+      "total_tokens": 14219,
+      "latency_s": 23.22,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 224.01,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c07-s01-b12855b4.json",
+      "sha256": "a59939f4be66ed49d591deb87d2b8777e9d2cbe4a244421517eb0c8603d50d8e"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c07-s01-b12855b4.json",
+      "sha256": "381809e2ff9a876d46b5e8ed2e0afd8c578e18c3c6bf82c1ed95b5378e29b506"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c07-s01-b12855b4.json",
+      "sha256": "de8cc8d962f3a1b737b8d87f92e71f6712eb183913524996b0f0742076fa8482"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c07-s01-b12855b4.json",
+      "sha256": "69cca8d58ccc7230d0be9a307c2139e07533b94715e4a27f2332a315214c2a38"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c07-s01-b12855b4.json",
+      "sha256": "1ea2d573a89af4a7ca83ac659d3c15177023da95e5ba707d6683324997fa40e0"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:57+08:00"
+}

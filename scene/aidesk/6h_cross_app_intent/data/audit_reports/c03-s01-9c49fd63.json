@@ -1,0 +1,841 @@
+{
+  "sample_id": "c03-s01-9c49fd63",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "accept",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "accept",
+      "requires_regeneration": false,
+      "rationale": "盲标结果与证据语义一致，可直接采用。1) 意图唯一：旧机电池健康78%（e003）触发换机，经看评测（e005/e007）、搜索与查看详情（e008/e009/e010）、比价（e011）、好友建议（e012/e013）、浏览配件与收藏（e016/e022）进入决策期，最终下单（e025）并支付成功（e026），银行消费提醒（e027）与订单状态/物流查看（e029）构成闭环；status=confirmed、purpose=personal_use（自用旧机、单件购买、无送礼/商务线索）、confidence=high 均成立。2) 证据分级按规则10校正：search/view/browse/collect/compare 类（e003/e005/e007/e008/e009/e010/e011/e016/e022）与沟通类（e012/e013）一律 related_interest；仅订单、支付、银行扣款佐证、订单状态确认为 supporting（e025/e026/e027/e029）。相对生成器标注，e008/e009/e022 由 supporting 降为 related_interest，e027 由 related_interest 升为 supporting，消除了审计指出的分级不自洽。3) 未发现可成立的第二意图：手机壳浏览、比价、以旧换新讨论均从属于同一换机目的，不单独成意图。4) e018（查看余额）、e020（查看信用卡积分）内容为“常规使用记录”，无任何指向本次购机的语义线索，按规则8不因App或时间位置推断，保留 unrelated；其余 noise 事件（下午茶、邮件清理、会议纪要、音乐、公交、地图、电子书阅读器比价、电动牙刷、电影预告、小说、外卖历史、卡牌游戏、路由器心愿单）确属无关，unrelated_event_count=15 如实反映真实语义。5) 审计提出的支付后17分钟即出库、e028与e029时间重叠属事件生成真实度瑕疵，不影响标签判定与意图结论，不构成重新生成理由；e029 内容为订单已支付状态确认，保留 supporting。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "im_work_reply",
+        "mail_cleanup",
+        "work_tool_article",
+        "music_search",
+        "comm_bus",
+        "map_history",
+        "hn_product_compare_other",
+        "pay_balance",
+        "hn_product_other",
+        "fin_points",
+        "ent_trailer",
+        "read_novel",
+        "food_history",
+        "game_play",
+        "hn_product_wishlist_other"
+      ],
+      "hard_negative_ids": [
+        "hn_product_compare_other",
+        "hn_product_other",
+        "hn_product_wishlist_other"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "购买星耀X7 Pro手机",
+        "category": "shopping",
+        "purpose": "personal_use",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e025",
+          "e026",
+          "e027",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e003",
+          "e005",
+          "e007",
+          "e008",
+          "e009",
+          "e010",
+          "e011",
+          "e012",
+          "e013",
+          "e016",
+          "e022"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户创建了星耀X7 Pro手机订单 XD20261221222001，规格为曜石黑 12GB+256GB，数量1，金额4299元，订单状态为待支付。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户通过银行卡向星耀官方旗舰店支付4299元，支付成功，对应订单 XD20261221222001。",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "银行发送消费提醒，金额4299元，商户为星耀官方旗舰店，时间为22:45。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "订单 XD20261221222001 状态为已支付，商品已从上海仓出库，预计12月23日送达上海。",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户当前手机电池健康度为78%，已出现明显老化，续航缩短。",
+            "source_event_ids": [
+              "e003"
+            ]
+          },
+          {
+            "fact": "用户因旧手机电池健康仅78%、一天需充三次电，正在考虑购买星耀X7 Pro。",
+            "source_event_ids": [
+              "e003",
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户曾搜索并观看星耀X7 Pro评测及旗舰续航横评内容。",
+            "source_event_ids": [
+              "e005",
+              "e007"
+            ]
+          },
+          {
+            "fact": "用户在购物平台搜索、查看星耀X7 Pro，并查看麒麟G12进行对比。",
+            "source_event_ids": [
+              "e008",
+              "e009",
+              "e010",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户向李娜咨询星耀X7 Pro购买建议，李娜推荐曜石黑12+256配置并建议关注以旧换新补贴。",
+            "source_event_ids": [
+              "e012",
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户浏览了星耀X7系列手机壳，并将星耀X7 Pro手机收藏到“数码心愿单”。",
+            "source_event_ids": [
+              "e016",
+              "e022"
+            ]
+          },
+          {
+            "fact": "购买行为指向个人使用的手机更换，而非商务采购或礼品用途。",
+            "source_event_ids": [
+              "e003",
+              "e012",
+              "e025"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否已实际收到手机",
+          "用户是否参与以旧换新补贴",
+          "订单最终签收及完成时间"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e004",
+      "e006",
+      "e014",
+      "e015",
+      "e017",
+      "e018",
+      "e019",
+      "e020",
+      "e021",
+      "e023",
+      "e024",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c03-s01-9c49fd63",
+    "passed": true,
+    "issues": [
+      {
+        "issue_type": "evidence_grading_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e008",
+          "e009",
+          "e022",
+          "e027"
+        ],
+        "description": "生成器与盲标对 supporting 与 related_interest 的划分标准相反，并且生成器的分级自身不自洽。生成器把 e003（查看电池健康度，属于动机触发）、e008（搜索商品）、e009（查看商品详情）、e022（收藏商品）标为 supporting；这些事件只说明购买前的考虑和兴趣，不足以直接确证“购买”意图。但生成器把 e027（银行 4299 元消费提醒，支付成功后商户、金额、时间与订单全对得上的强佐证）标为 related_interest。盲标则相反，把 e003、e008、e009、e011、e022 归为 related_interest，把 e027 归为 supporting。双方的证据强度判断方向完全相反，说明该样本的证据分级标准需要统一。",
+        "suggested_action": "统一关系分级定义：e027 应改为 supporting（支付成功的外部强佐证）；e008、e009、e022 建议改为 related_interest（浏览、收藏属于决策期兴趣行为）；e003 建议改为 related_interest 或保留 supporting，但需在规则中明确“动机触发类事件”归属，避免同一模板内标准漂移。"
+      },
+      {
+        "issue_type": "unnatural_business_logic",
+        "severity": "medium",
+        "event_ids": [
+          "e025",
+          "e026",
+          "e029"
+        ],
+        "description": "e029 在 22:45 支付成功后的 17 分钟（23:02）即显示“商品已从上海仓出库”，深夜即时出库在真实电商履约中不自然；同时 e025 创建订单（待支付）、e026 支付、e029 已支付并且出库、查看物流的时间推进过于理想化，像是按剧本直线推进，而不是自然行为。",
+        "suggested_action": "将 e029 的物流状态改为“仓库已接单、等待揽收”或“待出库”，并把查看物流时间后移；如果保留出库状态，建议把时间改到次日，避免支付后 17 分钟内就完成出库的失真。"
+      },
+      {
+        "issue_type": "temporal_overlap",
+        "severity": "low",
+        "event_ids": [
+          "e028",
+          "e029"
+        ],
+        "description": "e028 于 22:57 开始卡牌对战 15 分钟（约持续到 23:12），而 e029 于 23:02 查看订单物流，同一设备在游戏进行中并发浏览购物 App，时间线冲突。",
+        "suggested_action": "将 e028 游戏事件的开始时间提前，或缩短时长，或把 e029 后移到 23:15 之后，消除时间重叠。"
+      },
+      {
+        "issue_type": "possible_related_noise",
+        "severity": "low",
+        "event_ids": [
+          "e018",
+          "e020"
+        ],
+        "description": "e018 于 20:38 在支付 App 查看余额，距离 22:20 创建 4299 元订单仅约 100 分钟，很可能是下单前的资金确认；e020 于 21:20 查看信用卡积分，与随后用银行卡支付、关注消费回报存在弱关联。这两条被标为 unrelated，但语义上未必完全无关。",
+        "suggested_action": "复核 e018（必要时也包括 e020）：如果将 e018 判为支付前的资金核查，可改标为 related_interest 并归入 i001；如果确认为日常例行操作，应在标注说明中记录判定依据，而不是直接丢弃样本。"
+      },
+      {
+        "issue_type": "keyword_repetition_leak_risk",
+        "severity": "low",
+        "event_ids": [
+          "e005",
+          "e007",
+          "e008",
+          "e009",
+          "e011",
+          "e012",
+          "e013",
+          "e022",
+          "e025",
+          "e026",
+          "e029"
+        ],
+        "description": "“星耀X7 Pro 曜石黑 12GB+256GB / 4299”在 11 条事件中原样反复出现，意图主题词密度过高；虽然这是单品购买场景的固有特征，但仍降低了判断难度，并接近关键词堆叠。",
+        "suggested_action": "在保持证据链完整的前提下，适度降低同一商品全称的重复度（例如比价和聊天中使用简称），并增加少量中性数码类浏览事件以稀释密度。"
+      },
+      {
+        "issue_type": "spec_evidence_downgraded",
+        "severity": "low",
+        "event_ids": [
+          "e011",
+          "e009"
+        ],
+        "description": "场景规格把“比价App中星耀X7 Pro与麒麟G12的横向比较”列为意图的 required_evidence，但盲标把 e011（以及 e009 商品详情查看）降级为 related_interest，与规格给定的证据口径不一致；虽然不影响意图成立（订单和支付已足够），但说明标注者未完全对齐规格定义。",
+        "suggested_action": "在标注指南中明确“必需要素事件”的最低关系等级，要求盲标对规格列出的 required_evidence 事件至少标为 supporting，或在裁决时记录降级理由。"
+      }
+    ],
+    "summary": "该样本意图唯一，证据链完整：电池老化触发（e003）→ 看评测（e005/e007）→ 比价（e011）→ 好友建议（e012/e013）→ 收藏（e022）→ 下单（e025）→ 支付成功（e026）→ 银行提醒（e027）→ 物流（e029），个人使用的目的由旧机自用电池老化、单件购买和好友沟通直接支撑，买新手机意图判定可靠；未发现漏掉的第二意图，也没有发现取消、退款、改期等状态变化被误表达；噪声事件中除 e018/e020 需复核外均确属无关。主要瑕疵为 supporting 与 related_interest 的证据分级内部不自洽（e003/e008/e009/e022 升级、e027 降级）、支付后 17 分钟即出库的履约逻辑失真，以及少量时间重叠与商品名重复密度偏高，均属 medium/low，不影响意图结论，故判定通过。"
+  },
+  "adjudication": {
+    "sample_id": "c03-s01-9c49fd63",
+    "decision": "accept",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "购买星耀X7 Pro手机（换机）",
+          "category": "shopping",
+          "purpose": "personal_use",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e025",
+            "e026",
+            "e027",
+            "e029"
+          ],
+          "related_interest_event_ids": [
+            "e003",
+            "e005",
+            "e007",
+            "e008",
+            "e009",
+            "e010",
+            "e011",
+            "e012",
+            "e013",
+            "e016",
+            "e022"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户创建了星耀X7 Pro手机订单 XD20261221222001，规格为曜石黑 12GB+256GB，数量1，金额4299元，收货城市上海，预计12月23日送达，订单状态为待支付。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户通过银行卡向星耀官方旗舰店支付4299元，支付成功，对应订单 XD20261221222001。",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "银行发送消费提醒，金额4299元，商户为星耀官方旗舰店，时间22:45。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "订单 XD20261221222001 状态为已支付，商品已从上海仓出库，预计12月23日送达上海。",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户当前使用的手机电池健康度为78%，已出现明显老化、续航缩短。",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "用户因旧机电池健康仅78%、一天需充三次电而产生换机诉求，并在看星耀X7 Pro。",
+              "source_event_ids": [
+                "e003",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户搜索并观看了星耀X7 Pro评测及星耀X7 Pro与麒麟G12的续航横评。",
+              "source_event_ids": [
+                "e005",
+                "e007"
+              ]
+            },
+            {
+              "fact": "用户在购物App搜索星耀X7 Pro（12GB+256GB），查看其详情与麒麟G12详情，并在比价App做价格、续航、充电功率、屏幕素质横向比较。",
+              "source_event_ids": [
+                "e008",
+                "e009",
+                "e010",
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户向朋友李娜咨询星耀X7 Pro购买建议，李娜认为续航口碑不错、曜石黑12+256配置值得，并建议关注以旧换新补贴。",
+              "source_event_ids": [
+                "e012",
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户浏览了星耀X7系列手机壳，并将星耀X7 Pro（曜石黑 12GB+256GB）收藏进“数码心愿单”，随后下单购买同款。",
+              "source_event_ids": [
+                "e016",
+                "e022"
+              ]
+            },
+            {
+              "fact": "换机动机来自自用旧机电池老化、单件购买、无送礼或商务采购线索，目的指向个人使用。",
+              "source_event_ids": [
+                "e003",
+                "e012",
+                "e025"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "旧手机是否走以旧换新回收",
+            "是否加购碎屏保障服务或手机壳等配件",
+            "手机是否已实际签收、订单最终完成时间"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e006",
+        "e014",
+        "e015",
+        "e017",
+        "e018",
+        "e019",
+        "e020",
+        "e021",
+        "e023",
+        "e024",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c03-s01-9c49fd63"
+    },
+    "rationale": "盲标结果与证据语义一致，可直接采用。1) 意图唯一：旧机电池健康78%（e003）触发换机，经看评测（e005/e007）、搜索与查看详情（e008/e009/e010）、比价（e011）、好友建议（e012/e013）、浏览配件与收藏（e016/e022）进入决策期，最终下单（e025）并支付成功（e026），银行消费提醒（e027）与订单状态/物流查看（e029）构成闭环；status=confirmed、purpose=personal_use（自用旧机、单件购买、无送礼/商务线索）、confidence=high 均成立。2) 证据分级按规则10校正：search/view/browse/collect/compare 类（e003/e005/e007/e008/e009/e010/e011/e016/e022）与沟通类（e012/e013）一律 related_interest；仅订单、支付、银行扣款佐证、订单状态确认为 supporting（e025/e026/e027/e029）。相对生成器标注，e008/e009/e022 由 supporting 降为 related_interest，e027 由 related_interest 升为 supporting，消除了审计指出的分级不自洽。3) 未发现可成立的第二意图：手机壳浏览、比价、以旧换新讨论均从属于同一换机目的，不单独成意图。4) e018（查看余额）、e020（查看信用卡积分）内容为“常规使用记录”，无任何指向本次购机的语义线索，按规则8不因App或时间位置推断，保留 unrelated；其余 noise 事件（下午茶、邮件清理、会议纪要、音乐、公交、地图、电子书阅读器比价、电动牙刷、电影预告、小说、外卖历史、卡牌游戏、路由器心愿单）确属无关，unrelated_event_count=15 如实反映真实语义。5) 审计提出的支付后17分钟即出库、e028与e029时间重叠属事件生成真实度瑕疵，不影响标签判定与意图结论，不构成重新生成理由；e029 内容为订单已支付状态确认，保留 supporting。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "personal_use": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "shopping": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 2337,
+      "total_tokens": 4199,
+      "latency_s": 49.59,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1742,
+      "completion_tokens": 5838,
+      "total_tokens": 7580,
+      "latency_s": 50.58,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3519,
+      "completion_tokens": 3537,
+      "total_tokens": 7056,
+      "latency_s": 27.23,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6039,
+      "completion_tokens": 7104,
+      "total_tokens": 13143,
+      "latency_s": 58.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10769,
+      "completion_tokens": 5492,
+      "total_tokens": 16261,
+      "latency_s": 37.74,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 223.62
+}

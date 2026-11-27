@@ -1,0 +1,212 @@
+{
+  "sample_id": "c08-s06-7cd453df",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:40:57+08:00",
+  "task": {
+    "scenario_category": "family",
+    "template_id": "C08-S06",
+    "subscenario": "日常浏览",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-06T07:35:00+08:00",
+    "window_end": "2026-12-06T13:35:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 482738876
+  },
+  "spec_summary": {
+    "title": "周末上午的家居翻新内容闲逛",
+    "intent_names": [
+      "旧居翻新兴趣探索"
+    ],
+    "intent_categories": [
+      "family"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [],
+      "products": [
+        "实木置物架",
+        "扫地机器人",
+        "收纳用品"
+      ],
+      "people": [
+        "姐姐"
+      ],
+      "dates": [],
+      "other": [
+        "住了多年的老房子",
+        "附近家居卖场"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 0,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 0,
+    "gold_related_interest": 15,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "renovation": 1
+    },
+    "gold_statuses": {
+      "emerging": 1
+    },
+    "gold_categories": {
+      "family": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "photo_edit",
+      "social_feed_handmade",
+      "comm_bike",
+      "health_article",
+      "work_industry_news",
+      "fit_video",
+      "pay_card_bill",
+      "food_lunch",
+      "fin_balance",
+      "news_headlines",
+      "mail_cleanup",
+      "cal_view",
+      "weather_now",
+      "ent_ranking",
+      "game_store"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "renovation": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "family": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1851,
+      "completion_tokens": 2512,
+      "total_tokens": 4363,
+      "latency_s": 26.46,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1736,
+      "completion_tokens": 8109,
+      "total_tokens": 9845,
+      "latency_s": 141.51,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3399,
+      "completion_tokens": 6354,
+      "total_tokens": 9753,
+      "latency_s": 47.11,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5709,
+      "completion_tokens": 8951,
+      "total_tokens": 14660,
+      "latency_s": 68.34,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9687,
+      "completion_tokens": 3859,
+      "total_tokens": 13546,
+      "latency_s": 29.4,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 315.84,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c08-s06-7cd453df.json",
+      "sha256": "c65d7b4417006102b2e1b4e60757c8faeb02e59600261c0e514f12bb4dfb1708"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c08-s06-7cd453df.json",
+      "sha256": "20efadc5a4ecfce6049f3ccef4fbc052f1f3f0d19e17485c8bc7518a5422bf75"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c08-s06-7cd453df.json",
+      "sha256": "e99ff0274540c81d90d7d92f0872ab5a0f55197c7d801fa4fd5441a81d179262"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c08-s06-7cd453df.json",
+      "sha256": "a66391c22ee5adc94718fe3af3f39671d7e06ff04849e3258faa9feb046a4a03"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c08-s06-7cd453df.json",
+      "sha256": "3603b5a461d43cd1bd822924ed653fa0d48ff0ed75146a4372622e5c60609b3f"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "上海",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

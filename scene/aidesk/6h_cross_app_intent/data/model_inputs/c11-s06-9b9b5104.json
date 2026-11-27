@@ -1,0 +1,358 @@
+{
+  "sample_id": "c11-s06-9b9b5104",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-21T14:05:00+08:00",
+    "end": "2026-12-21T20:05:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-21T14:08:06+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-21T14:12:00+08:00",
+      "app": "car_rental_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "CR20261221008",
+        "car_model": "丰田RAV4 SUV",
+        "pickup_store": "望京租车门店",
+        "pickup_time": "12月26日 09:00",
+        "return_time": "12月26日 18:00",
+        "order_status": "已预订",
+        "total_price": "368元"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-21T14:31:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "warning_type": "道路结冰黄色预警",
+        "affected_area": "京承高速密云段",
+        "forecast_date": "12月26日",
+        "weather": "小到中雪",
+        "temperature_range": "-8℃至-2℃",
+        "issuer": "北京市气象台"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-21T14:47:00+08:00",
+      "app": "car_rental_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "望京租车门店",
+        "message_type": "取车提醒",
+        "content": "您的订单CR20261221008将于12月26日 09:00开始取车，请携带本人驾驶证按时到店办理",
+        "pickup_time": "12月26日 09:00"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-21T15:15:00+08:00",
+      "app": "car_rental_app",
+      "action": "cancel",
+      "content": {
+        "order_id": "CR20261221008",
+        "car_model": "丰田RAV4 SUV",
+        "pickup_time": "12月26日 09:00",
+        "cancel_reason": "行程变更",
+        "order_status": "已取消",
+        "refund_amount": "368元"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-21T15:21:19+08:00",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "历史武侠",
+        "chapter": "第48章"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-21T15:23:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "transaction_id": "PAY20261221123",
+        "merchant": "望京租车门店",
+        "refund_amount": "368元",
+        "refund_status": "退款成功",
+        "refund_method": "原支付渠道退回"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-21T15:40:23+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "长沙",
+        "topic": "三日游路线"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-21T15:50:44+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-21T15:52:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "title": "寒潮携降雪进京 京承高速密云方向夜间结冰风险升高",
+        "category": "交通",
+        "publish_time": "15:20",
+        "key_info": "交管部门提示周末清晨京承高速部分路段可能临时管控"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-21T16:03:18+08:00",
+      "app": "pet_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "猫咪疫苗时间表"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-21T16:08:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "望京西园",
+        "destination": "南山滑雪场",
+        "travel_mode": "公交换乘",
+        "route_summary": "地铁14号线至东直门换乘916快车再转密云滑雪场专线",
+        "estimated_duration": "约2小时40分钟"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-21T16:10:01+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "会议室投影仪报修"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-21T16:16:00+08:00",
+      "app": "ticket_app",
+      "action": "search",
+      "content": {
+        "keyword": "南山滑雪场直通车",
+        "departure_city": "北京",
+        "destination": "南山滑雪场",
+        "travel_date": "12月26日",
+        "ticket_type": "往返"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-21T16:25:00+08:00",
+      "app": "ticket_app",
+      "action": "compare",
+      "content": {
+        "compare_items": [
+          "06:50东直门发车班次",
+          "07:30芍药居发车班次"
+        ],
+        "price_per_person": "58元",
+        "departure_station": "东直门交通枢纽",
+        "difference": "06:50班次余票充足且上午雪质更好"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-21T16:33:00+08:00",
+      "app": "ticket_app",
+      "action": "create_order",
+      "content": {
+        "order_id": "TC20261221015",
+        "product": "滑雪场直通车往返车票",
+        "route": "东直门—南山滑雪场往返",
+        "travel_date": "12月26日",
+        "departure_time": "06:50",
+        "return_time": "16:30",
+        "total_price": "116元"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-21T16:34:31+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "厨房收纳技巧",
+        "duration_min": 12
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-21T16:40:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "order_id": "TC20261221015",
+        "merchant": "京郊直通车票务",
+        "amount": "116元",
+        "payment_method": "微信零钱",
+        "payment_status": "支付成功"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-21T16:46:00+08:00",
+      "app": "ticket_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "TC20261221015",
+        "product": "滑雪场直通车往返车票",
+        "route": "东直门—南山滑雪场往返",
+        "travel_date": "12月26日",
+        "departure_time": "06:50",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-21T16:56:17+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-21T17:04:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title": "南山滑雪场滑雪（与小周同行）",
+        "event_date": "12月26日",
+        "updated_field": "出发时间",
+        "old_value": "09:00门店取车自驾",
+        "new_value": "06:50东直门乘直通车",
+        "reminder": "提前90分钟提醒"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-21T17:12:06+08:00",
+      "app": "payment_app",
+      "action": "view_bill",
+      "content": {
+        "bill_type": "上月话费账单"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-21T17:21:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "小周",
+        "message_type": "文本",
+        "message_content": "租车已经退了，雪天走京承高速不放心，12月26日改乘06:50东直门发的直通车去南山，06:30东直门交通枢纽集合，你那边票定了没"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-21T17:46:46+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "日常随手拍"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-21T18:01:30+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "北京",
+        "arrival": "丽江",
+        "date": "01月25日"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-21T18:21:38+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "石家庄",
+        "query": "机场大巴站点"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-21T18:38:00+08:00",
+      "app": "taxi_app",
+      "action": "search_route",
+      "content": {
+        "departure": "望京西园",
+        "destination": "东直门交通枢纽",
+        "travel_date": "12月26日",
+        "planned_pickup_time": "06:10",
+        "estimated_duration": "25分钟",
+        "estimated_fare": "35元"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-21T18:41:25+08:00",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "待凑单"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-21T19:33:36+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "生抽"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-21T20:01:10+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "即将上映的喜剧片"
+      }
+    }
+  ]
+}

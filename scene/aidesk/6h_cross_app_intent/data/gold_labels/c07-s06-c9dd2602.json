@@ -1,0 +1,320 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "夜航电台杭州站观演计划落空",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e002",
+        "e013",
+        "e014",
+        "e021",
+        "e023",
+        "e028",
+        "e030"
+      ],
+      "related_interest_event_ids": [
+        "e004",
+        "e006",
+        "e007",
+        "e008",
+        "e011",
+        "e012",
+        "e017"
+      ],
+      "contradicting_event_ids": [
+        "e015"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "用户已支付两张12月19日20:00夜航电台「午夜航行」巡演·杭州站预售票，订单号TK202612190031，总价¥560",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "主办方官方账号发布12月19日「午夜航行」杭州站演出取消公告，并说明已购门票票款将于7个工作日内原路退回",
+          "source_event_ids": [
+            "e013"
+          ]
+        },
+        {
+          "fact": "小柯转告用户19号演出取消、票钱可以退",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户于18:32提交订单TK202612190031的退款申请，退款金额¥560，退款原因为主办方取消演出，状态为申请已提交",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户向小柯发送消息称两张票都已提交退票，走主办方取消全额退通道",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "退款¥560已于20:16到账，关联订单TK202612190031",
+          "source_event_ids": [
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户取消12月19日夜航电台Livehouse观演日程，参与人为我、小柯",
+          "source_event_ids": [
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户收到群聊消息称有人传言演出照常举行、只是换到隔壁厅，并称现在退票会亏",
+          "source_event_ids": [
+            "e015"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户具有夜航电台粉丝行为：循环专辑《午夜航行》、收藏现场必听歌单与应援周边",
+          "source_event_ids": [
+            "e006",
+            "e007",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户提前查看演出详情、规划前往滨江MAO Livehouse的路线，并关注12月19日杭州天气",
+          "source_event_ids": [
+            "e004",
+            "e008",
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户查看购票退改政策以了解退票规则",
+          "source_event_ids": [
+            "e017"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "演出是否会改期补办",
+        "同行朋友小柯是否也完成退票",
+        "用户是否相信群聊中“演出照常举行、只是换厅”的传言",
+        "用户后续是否会安排替代娱乐活动"
+      ],
+      "conflicts": [
+        "e015群聊传言称演出照常举行/换厅，与e013、e014的主办方取消信息以及e021、e028的实际退款完成相冲突"
+      ]
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e003",
+    "e005",
+    "e009",
+    "e010",
+    "e016",
+    "e018",
+    "e019",
+    "e020",
+    "e022",
+    "e024",
+    "e025",
+    "e026",
+    "e027",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c07-s06-c9dd2602"
+}

@@ -1,0 +1,312 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与朋友观看星野巡演",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e002",
+        "e005",
+        "e006",
+        "e007",
+        "e014"
+      ],
+      "related_interest_event_ids": [
+        "e003",
+        "e010",
+        "e011",
+        "e016",
+        "e026",
+        "e030"
+      ],
+      "contradicting_event_ids": [
+        "e019",
+        "e020",
+        "e021",
+        "e022"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "用户持有一笔已支付的星野巡回演唱会·杭州站订单，时间为12月26日，2张票，内场B区12排，总价¥1360。",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "用户与小周约定12月26日17:30在滨江体育中心体育馆西门碰面，并确认两张票在用户处。",
+          "source_event_ids": [
+            "e005",
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户日历中已有12月26日19:30林星野巡回演唱会（与小周同行）日程，并设置了12月26日17:30开演前2小时提醒。",
+          "source_event_ids": [
+            "e007",
+            "e014"
+          ]
+        },
+        {
+          "fact": "小周因12月24日至28日去深圳出差，无法参加12月26日演唱会，提出退票并愿意补手续费。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户已提交演唱会门票退票申请，2张票预计退款¥1224；随后退款已到账，原金额¥1360，手续费¥136。",
+          "source_event_ids": [
+            "e020",
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户已将日历中的演唱会日程标记取消，并删除关联提醒。",
+          "source_event_ids": [
+            "e022"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户对林星野演唱会具有粉丝兴趣，曾浏览歌手歌曲、官方后援会演出话题，并收藏巡演歌单。",
+          "source_event_ids": [
+            "e003",
+            "e016",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户在退票前曾查询12月26日前往滨江体育中心体育馆的路线，显示预计45分钟、建议16:50出发，说明其有出行规划。",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户曾查看门票详情，包括座位信息、实名入场须知和退票政策。",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "退票到账后用户仍浏览林星野巡演其他场次讨论，可能仍保持对该巡演的兴趣。",
+          "source_event_ids": [
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "用户是否仍计划参加林星野其他巡演场次尚不明确",
+        "同伴出差行程是否最终确定尚不明确",
+        "退票后是否会产生改期、转让或其他替代安排尚不明确"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e004",
+    "e008",
+    "e009",
+    "e012",
+    "e013",
+    "e015",
+    "e017",
+    "e018",
+    "e023",
+    "e024",
+    "e025",
+    "e027",
+    "e028",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c07-s06-22cb643d"
+}

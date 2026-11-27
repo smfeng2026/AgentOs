@@ -1,0 +1,793 @@
+{
+  "sample_id": "c05-s01-81ece03a",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "按规则10统一 supporting 口径：仅 e016 提交预约单、e017 支付成功、e018 预约确认通知、e021 订单显示已预约已支付、e025 创建体检日程作为决定性证据；e008/e011/e012 属于搜索、查看机构和套餐比较，e026/e029 属于设置提醒和路线查询，均改为 related_interest。同步修正 event_labels 与意图内事件列表，确保互为镜像；修正 inferred_facts 中“复查需求”只引用 e001 支撑，并统一 unknown_information。无需重新生成场景。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "work_industry_news",
+        "news_share",
+        "music_search",
+        "sys_wallpaper",
+        "map_nearby",
+        "read_science",
+        "fin_news",
+        "food_lunch",
+        "photo_album",
+        "cal_view",
+        "ent_ranking",
+        "fit_steps",
+        "im_family_reply",
+        "mail_cleanup",
+        "pay_balance"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "预约并确认年度健康体检",
+        "category": "health_service",
+        "purpose": "checkup",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e016",
+          "e017",
+          "e018",
+          "e021",
+          "e025"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e006",
+          "e008",
+          "e011",
+          "e012",
+          "e013",
+          "e026",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已提交市一医院国际保健中心“入职周年健康体检套餐”预约，预约时间为12月12日上午08:00-10:00，订单号为TJ20261212001，提交时状态为待支付。",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户已支付订单TJ20261212001，金额¥1280，支付成功。",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "医院已发送体检预约确认通知，预约状态为已确认，并要求12月12日08:00前到达、抽血项目保持空腹。",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "订单TJ20261212001显示为已预约、已支付。",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户已创建日程“年度体检（市一医院国际保健中心）”，时间为12月12日08:00-11:00，备注携带身份证、空腹前往。",
+            "source_event_ids": [
+              "e025"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户此次健康服务目的为年度健康体检，且需要空腹抽血检查。",
+            "source_event_ids": [
+              "e001",
+              "e016",
+              "e018",
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户对体检前空腹要求及体检套餐选择有持续关注。",
+            "source_event_ids": [
+              "e002",
+              "e004",
+              "e006",
+              "e012",
+              "e013",
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户计划12月12日早上从家出发，乘地铁前往市一医院国际保健中心，预计约35分钟。",
+            "source_event_ids": [
+              "e025",
+              "e029"
+            ]
+          },
+          {
+            "fact": "上年度体检报告显示低密度脂蛋白偏高且医生建议规律复查，本次体检预约可能与复查需求相关。",
+            "source_event_ids": [
+              "e001",
+              "e016"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否最终在12月12日到场完成体检未知。",
+          "本次体检套餐是个人自费还是单位安排/报销未知。",
+          "用户选择该套餐的具体考虑因素未知。"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e005",
+      "e007",
+      "e009",
+      "e010",
+      "e014",
+      "e015",
+      "e019",
+      "e020",
+      "e022",
+      "e023",
+      "e024",
+      "e027",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c05-s01-81ece03a",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_misuse",
+        "severity": "high",
+        "event_ids": [
+          "e008",
+          "e011",
+          "e012"
+        ],
+        "description": "生成器把 e008（hospital_app 搜索“体检套餐/三甲医院”）、e011（查看市一医院国际保健中心机构详情）、e012（比较两类套餐并倾向选择）标为 supporting，但这三条都只是决策前浏览与比较，没有任何承诺动作。按场景规格，强证据应为已提交预约单、支付成功、确认通知和日历日程；把弱证据计为 supporting，使 supporting_event_count 被高估到 10（实际强证据只有 e016/e017/e018/e021/e025），并让 related_interest 预算 5 与实际语义不符。",
+        "suggested_action": "把 e008/e011/e012 的 event_labels.relation 改为 related_interest（intent_ids 仍保留 i001），把 supporting_event_count 修正为约 5，并同步重新分配 related_event_budget；e016/e017/e018/e021/e025 才继续作为 supporting。"
+      },
+      {
+        "issue_type": "annotation_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e008",
+          "e011",
+          "e012",
+          "e026",
+          "e029"
+        ],
+        "description": "生成器的 event_labels 与 blind_annotation 对同一批事件给出不同关系：生成器：e008/e011/e012/e026/e029 为 supporting；盲标：同一批列为 related_interest。但两层都自称 high confidence，下游无法确定 gold。尤其 e026（设置空腹提醒）与 e029（查询去体检中心路线）是预约支付后的具体落实动作，规格里也把它们列为 optional_evidence，盲标一律降为 related_interest 有低估已被确认的行动闭环之嫌。",
+        "suggested_action": "由裁决器逐条定标，至少对 e026、e029 给出统一口径：若坚持“只有承诺/交易/确认类事件算 supporting”，则 e008/e011/e012 降为 related_interest 并把 e026/e029 明确写入口径；无论采用哪种口径，都必须使 event_labels 与 blind_annotation 完全一致后再入库。"
+      },
+      {
+        "issue_type": "weak_fact_evidence",
+        "severity": "medium",
+        "event_ids": [
+          "e016",
+          "e001"
+        ],
+        "description": "盲标 inferred_facts 第 4 条“上年度体检报告显示低密度脂蛋白偏高且医生建议规律复查，本次体检预约可能与复查需求相关”同时引用了 e001 和 e016。e016 只是套餐预约单，并不包含血脂复查或异常指标信息；“与复查需求相关”的因果关联只能来自 e001，e016 无法支撑该推断。",
+        "suggested_action": "将该条 source_event_ids 改为仅 [e001]，或明确降级为“可能与复查需求相关（推测）”；若要让 e016 支撑，需要套餐明细里出现复查相关项目，不要靠补造事件补证据。"
+      },
+      {
+        "issue_type": "unrelated_label_doubt",
+        "severity": "low",
+        "event_ids": [
+          "e030",
+          "e022",
+          "e028"
+        ],
+        "description": "三条噪音的无关判定存在轻微疑点：e030（支付后 2 小时在 payment_app 查看余额）在刚完成 ¥1280 体检支付后，可能是支付后的自然跟进；e022（calendar_app 查看“下个月”月视图）发生在创建体检日程前 37 分钟，虽因预约在本月（12月12日）而不构成直接证据，但仍属日程规划语境；e028（清理 12 封促销邮件）与 20:38 收到的体检确认邮件同处 mail_app。目前判 unrelated 可以接受，但属于边界样本。",
+        "suggested_action": "保留 unrelated，但在标注说明中记录边界理由（e030 内容为“常规使用记录”、e022 目标月份与预约月份不一致、e028 仅删除促销邮件）；若未来放宽口径，e022 可改判 related_interest，不要直接丢弃样本。"
+      },
+      {
+        "issue_type": "unknown_information_mismatch",
+        "severity": "low",
+        "event_ids": [],
+        "description": "场景规格的 unknown_information 包含“是否有人陪同”“是否加做额外检查项目”，盲标 unknown_information 换成了“是否到场、自费或报销、选择套餐的考虑因素”，把“是否有人陪同”这一原始未知项丢掉，也没有说明加做项目的情况；且盲标新增的“自费或报销”在 e016/e017 中显示为个人支付 ¥1280，部分已被支付事件覆盖。",
+        "suggested_action": "统一 unknown_information 清单：保留“是否有人陪同”“是否加做额外检查项目”“是否到场完成体检”，删除或弱化已被 e017 部分回答的“自费或报销”表述。"
+      }
+    ],
+    "summary": "单意图、purpose=checkup 判定成立：e016 提交预约单（12月12日上午 08:00-10:00、待支付）+ e017 支付成功 + e018 医院确认通知 + e021 订单已预约已支付 + e025 日历日程，构成四 App 闭环，status=confirmed 有直接证据，且无取消/改期/退款信号，时间线（20:23 提交→20:31 支付→20:38 确认→21:47 日程→22:12 空腹提醒→22:44 路线）与规格描述吻合，未发现 intent_name 原样泄露或关键词堆叠。主要问题在 supporting 口径：e008/e011/e012 属决策前搜索、查看机构与套餐比较的弱证据，被计为 supporting，导致 supporting 预算虚高；同时生成器 event_labels 与 blind_annotation 在 e008/e011/e012/e026/e029 五条上关系标签直接冲突，盲标把 e026/e029 这类支付后的落实动作一律降为 related_interest 也偏保守；另有 inferred_fact 误引 e016 支撑“复查需求”、unknown_information 清单不一致等中小问题。因存在 high 级问题，判定不通过；建议裁决器统一 supporting 口径并修正预算后重新入库，无需重建场景或补造事件。"
+  },
+  "adjudication": {
+    "sample_id": "c05-s01-81ece03a",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "预约并确认年度健康体检",
+          "category": "health_service",
+          "purpose": "checkup",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e016",
+            "e017",
+            "e018",
+            "e021",
+            "e025"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e006",
+            "e008",
+            "e011",
+            "e012",
+            "e013",
+            "e026",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户已提交市一医院国际保健中心“入职周年健康体检套餐”预约，预约时间为12月12日上午08:00-10:00，订单号为TJ20261212001，提交时状态为待支付。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户已支付订单TJ20261212001，金额¥1280，支付成功。",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "医院已发送体检预约确认通知，预约状态为已确认，并要求12月12日08:00前到达、抽血项目保持空腹。",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "订单TJ20261212001显示为已预约、已支付。",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户已创建日程“年度体检（市一医院国际保健中心）”，时间为12月12日08:00-11:00，备注携带身份证、空腹前往。",
+              "source_event_ids": [
+                "e025"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "本次健康服务目的为年度健康体检，且套餐与确认通知均提示需要空腹抽血检查。",
+              "source_event_ids": [
+                "e016",
+                "e018",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户对体检前空腹要求及体检套餐选择有持续关注。",
+              "source_event_ids": [
+                "e002",
+                "e004",
+                "e006",
+                "e012",
+                "e013",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户计划12月12日早上从家出发，乘地铁前往市一医院国际保健中心，预计约35分钟。",
+              "source_event_ids": [
+                "e025",
+                "e029"
+              ]
+            },
+            {
+              "fact": "上年度体检报告显示低密度脂蛋白偏高且医生建议规律复查，存在复查需求的可能性。",
+              "source_event_ids": [
+                "e001"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否有人陪同",
+            "是否加做额外检查项目",
+            "是否最终到场完成体检",
+            "体检费用是否由单位报销"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e005",
+        "e007",
+        "e009",
+        "e010",
+        "e014",
+        "e015",
+        "e019",
+        "e020",
+        "e022",
+        "e023",
+        "e024",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c05-s01-81ece03a"
+    },
+    "rationale": "按规则10统一 supporting 口径：仅 e016 提交预约单、e017 支付成功、e018 预约确认通知、e021 订单显示已预约已支付、e025 创建体检日程作为决定性证据；e008/e011/e012 属于搜索、查看机构和套餐比较，e026/e029 属于设置提醒和路线查询，均改为 related_interest。同步修正 event_labels 与意图内事件列表，确保互为镜像；修正 inferred_facts 中“复查需求”只引用 e001 支撑，并统一 unknown_information。无需重新生成场景。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "checkup": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "health_service": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1858,
+      "completion_tokens": 1753,
+      "total_tokens": 3611,
+      "latency_s": 18.02,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1786,
+      "completion_tokens": 7060,
+      "total_tokens": 8846,
+      "latency_s": 125.94,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3532,
+      "completion_tokens": 6019,
+      "total_tokens": 9551,
+      "latency_s": 50.66,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6034,
+      "completion_tokens": 5278,
+      "total_tokens": 11312,
+      "latency_s": 42.84,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10776,
+      "completion_tokens": 3664,
+      "total_tokens": 14440,
+      "latency_s": 23.83,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 261.29
+}

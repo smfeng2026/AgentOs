@@ -1,0 +1,63 @@
+{
+  "title": "深夜刷家装视频与收藏家具",
+  "scenario_category": "family",
+  "subscenario": "日常浏览",
+  "template_id": "C08-S06",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "北欧风布艺沙发",
+      "全屋定制柜",
+      "扫地机器人",
+      "收纳架"
+    ],
+    "people": [
+      "配偶"
+    ],
+    "dates": [],
+    "other": [
+      "家装改造视频",
+      "装修攻略笔记",
+      "家居卖场"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "家装风格兴趣浏览",
+      "category": "family",
+      "purpose": "renovation",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "视频App中连续观看多个家装改造与户型优化视频",
+        "社交笔记App中浏览装修攻略并收藏两篇笔记",
+        "家具App中收藏布艺沙发与全屋定制柜商品",
+        "比价App中查询已收藏沙发的价格走势"
+      ],
+      "optional_evidence": [
+        "把一条家装视频分享给配偶",
+        "在地图App中查看本地家居卖场的位置",
+        "浏览家居卖场的用户评价"
+      ],
+      "unknown_information": [
+        "房屋是否已交付或为旧房翻新",
+        "装修预算与时间表",
+        "是否打算联系装修公司量房"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 9,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 9,
+    "contradicting": 0
+  },
+  "time_profile": "相关事件断续分布在整个夜间窗口：19:00-20:30 饭后连续刷家装视频为主，22:30 之后转为家具App收藏与比价，最后一小时只有收藏和浏览，全程无下单、预约、联系商家等强行为",
+  "variant_note": "本样本以视频App观看家装内容为核心弱证据，辅以社交笔记收藏与家具收藏比价；未出现home_service_app预约量房、银行装修贷等强信号，且购物车无加购；干扰事件由美食外卖、游戏和新闻类浏览构成，容易与泛娱乐浏览混淆",
+  "scenario_id": "c08-s06-2fde485e"
+}

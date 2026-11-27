@@ -1,0 +1,62 @@
+{
+  "title": "深圳客户签约出差筹备",
+  "scenario_category": "travel",
+  "subscenario": "商务出差",
+  "template_id": "C01-S04",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "深圳"
+    ],
+    "products": [],
+    "people": [
+      "客户方陈总监",
+      "销售同事周琳"
+    ],
+    "dates": [
+      "12月15日",
+      "12月16日",
+      "12月17日"
+    ],
+    "other": [
+      "年度框架协议签约会"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "赴深圳客户签约出差",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的12月15日上海到深圳机票订单",
+        "12月15日至17日深圳酒店预订",
+        "日历中12月16日与陈总监的签约会议",
+        "与客户确认拜访安排的工作邮件"
+      ],
+      "optional_evidence": [
+        "12月16日深圳天气查询",
+        "酒店到客户公司的路线搜索",
+        "与同事周琳的出差行程沟通"
+      ],
+      "unknown_information": [
+        "是否需要携带合同打印件",
+        "返程是否改签"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前段是邮件沟通与浏览机票比价（弱信号）；窗口中段集中出现决定性证据：机票下单支付、酒店预订、日历创建签约会议；窗口末段是天气查询、路线搜索与同事即时消息等辅助信号",
+  "variant_note": "与同模板其他样本的差异：出发地为上海、目的地为深圳；App 组合为 flight_booking_app+hotel_app+mail_app+calendar_app+im_app+weather_app+map_app 七类融合；证据顺序为先邮件沟通后集中下单，与模板中先订票后沟通的常见顺序相反；无取消或改期类反向证据",
+  "scenario_id": "c01-s04-7f2e82ab"
+}

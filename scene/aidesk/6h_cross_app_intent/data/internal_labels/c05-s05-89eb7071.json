@@ -1,0 +1,544 @@
+{
+  "sample_id": "c05-s05-89eb7071",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "睡眠与颈椎健康内容关注",
+      "category": "health_service",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "health_app 中多次搜索睡眠改善和颈椎放松相关内容",
+        "在 health_app 收藏多篇健康科普文章并查看文章详情"
+      ],
+      "optional_evidence": [
+        "video_app 观看健康科普短视频",
+        "fitness_app 浏览居家拉伸课程介绍",
+        "reader_app 搜索健康养生类书籍"
+      ],
+      "unknown_information": [
+        "是否存在具体身体不适",
+        "是否打算体检或就医"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bike",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T17:12:07+08:00",
+      "app": "commute_app",
+      "action": "find_shared_bike",
+      "content": {
+        "area": "地铁口"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T17:18:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "健康频道",
+        "article_title": "上班族年度体检项目挑选指南",
+        "publisher": "都市健康报"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T17:42:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "睡前十分钟放松拉伸跟练",
+        "category": "健康科普",
+        "duration_seconds": 618,
+        "uploader": "晚安健康屋"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_utility",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T17:44:09+08:00",
+      "app": "payment_app",
+      "action": "pay_utility_bill",
+      "content": {
+        "bill_type": "电费",
+        "amount": "¥45.20"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T18:05:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "颈椎操 教程",
+        "filter_category": "健康"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T18:31:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "course_name": "居家颈肩拉伸入门",
+        "course_type": "视频课程",
+        "duration_minutes": 20,
+        "difficulty": "入门"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T18:57:00+08:00",
+      "app": "news_app",
+      "action": "view_detail",
+      "content": {
+        "article_title": "长期熬夜对睡眠节律的影响",
+        "channel": "健康",
+        "publisher": "健康时报"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T19:26:00+08:00",
+      "app": "health_app",
+      "action": "search",
+      "content": {
+        "keyword": "睡眠改善方法",
+        "search_scope": "科普文章"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T19:52:00+08:00",
+      "app": "health_app",
+      "action": "collect",
+      "content": {
+        "article_title": "改善睡眠的七个日常习惯",
+        "article_category": "睡眠健康",
+        "author": "科普编辑部"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:11:00+08:00",
+      "app": "health_app",
+      "action": "view_detail",
+      "content": {
+        "article_title": "改善睡眠的七个日常习惯",
+        "article_category": "睡眠健康",
+        "read_seconds": 210
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:22:09+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_ranking",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:25:57+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_now",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:27:09+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_lunch",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:31:10+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:34:00+08:00",
+      "app": "health_app",
+      "action": "search",
+      "content": {
+        "keyword": "颈椎放松动作",
+        "search_scope": "科普文章"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_view",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:39:02+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "下个月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:50:49+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "休闲益智",
+        "duration_min": 10
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T20:58:00+08:00",
+      "app": "health_app",
+      "action": "collect",
+      "content": {
+        "article_title": "办公室颈椎放松五个动作",
+        "article_category": "骨关节健康",
+        "author": "康复科普组"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_album",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:05:38+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "街景与天空"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_read",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:15:26+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "城市公共交通新闻",
+        "source": "都市频道"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:19:00+08:00",
+      "app": "health_app",
+      "action": "collect",
+      "content": {
+        "article_title": "睡前呼吸放松练习指南",
+        "article_category": "睡眠健康"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:33:00+08:00",
+      "app": "health_app",
+      "action": "collect",
+      "content": {
+        "article_title": "久坐族颈椎保养手册",
+        "article_category": "骨关节健康"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_short",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:36:04+08:00",
+      "app": "video_app",
+      "action": "watch_short_video",
+      "content": {
+        "topic": "手工折纸"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_cart",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:41:35+08:00",
+      "app": "shopping_app",
+      "action": "view_shopping_cart",
+      "content": {
+        "item_count": 2,
+        "note": "待凑单"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T21:47:00+08:00",
+      "app": "reader_app",
+      "action": "search",
+      "content": {
+        "keyword": "睡眠 养生 书籍",
+        "category": "生活健康"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T22:06:00+08:00",
+      "app": "fitness_app",
+      "action": "browse_content",
+      "content": {
+        "course_name": "睡前舒缓瑜伽",
+        "course_type": "视频课程",
+        "duration_minutes": 15,
+        "difficulty": "入门"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_steps",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T22:08:43+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 7890
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_science",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T22:36:17+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "材料科学趣闻"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-13T22:38:00+08:00",
+      "app": "health_app",
+      "action": "view_detail",
+      "content": {
+        "article_title": "办公室颈椎放松五个动作",
+        "article_category": "骨关节健康",
+        "read_seconds": 145
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-13T22:45:25+08:00",
+      "app": "map_app",
+      "action": "view_place_history",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

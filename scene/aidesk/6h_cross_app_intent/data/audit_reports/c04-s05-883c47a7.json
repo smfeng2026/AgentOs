@@ -1,0 +1,749 @@
+{
+  "sample_id": "c04-s05-883c47a7",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "场景与事件语义符合“模糊邀约、只看不订”的弱证据社交聚餐设定，单一意图成立，category=social_dining、purpose=socializing、status=considering 合理，无需重新生成。但盲标有两处需修正：(1) 按标签体系第10条，search/browse/view/collect 类动作只能算 related_interest，故 e007、e008、e010、e012 应为 related_interest（盲标已如此，审计建议改回 supporting 与第10条冲突，不予采纳）；e013“回头发你”只是跟进表态而非确认/拒绝消息，应为 related_interest，不应作为 supporting。(2) supporting 应限于构成“口头应下但未定日子”这一决定性的消息往来 e002（邀约）、e003（明确同意）、e004（回头再定时间），盲标把 e002/e004 降为 related_interest 属证据强度倒置。此外，场景为 D3 弱证据（无具体日期、无人数、无预订/支付/日历），confidence_level 必须由 high 下调为 low。审计对置信度过高的意见成立，对 supporting 分配的意见与第10条冲突，故不采纳。修正后 supporting=3、related_interest=12、unrelated=15，与 event_labels 互为镜像。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "mail_newsletter",
+        "ent_trailer",
+        "fin_balance",
+        "health_article",
+        "learn_video",
+        "weather_now",
+        "hn_restaurant_lunch",
+        "read_novel",
+        "video_short",
+        "game_play",
+        "sys_storage",
+        "comm_subway",
+        "map_commute",
+        "news_share",
+        "social_feed_parenting"
+      ],
+      "hard_negative_ids": [
+        "hn_restaurant_lunch"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "老同学聚餐筹划",
+        "category": "social_dining",
+        "purpose": "socializing",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e003",
+          "e013"
+        ],
+        "related_interest_event_ids": [
+          "e002",
+          "e004",
+          "e007",
+          "e008",
+          "e010",
+          "e012",
+          "e016",
+          "e018",
+          "e019",
+          "e020",
+          "e021",
+          "e023",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户回复老同学阿凯，同意改天一起吃饭，但时间尚未确定",
+            "source_event_ids": [
+              "e003"
+            ]
+          },
+          {
+            "fact": "用户表示已看到几家餐厅，之后会发给阿凯",
+            "source_event_ids": [
+              "e013"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户正在为朋友聚餐筛选本帮菜、江浙菜餐厅，关注静安寺/南京西路区域",
+            "source_event_ids": [
+              "e007",
+              "e008",
+              "e010",
+              "e016",
+              "e018",
+              "e019",
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户已将圆苑酒家和小南国加入“聚餐候选”收藏夹",
+            "source_event_ids": [
+              "e012",
+              "e021",
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户通过聊天记录回顾与阿凯的聚餐约定",
+            "source_event_ids": [
+              "e023",
+              "e003",
+              "e004"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "聚餐的具体日期和时间",
+          "参与聚餐的人数",
+          "最终选定的餐厅",
+          "是否已预订餐厅",
+          "聚餐预算"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e005",
+      "e006",
+      "e009",
+      "e011",
+      "e014",
+      "e015",
+      "e017",
+      "e022",
+      "e024",
+      "e025",
+      "e026",
+      "e027",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c04-s05-883c47a7",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_evidence_misclassified",
+        "severity": "high",
+        "event_ids": [
+          "e002",
+          "e003",
+          "e004",
+          "e007",
+          "e008",
+          "e010",
+          "e012",
+          "e013"
+        ],
+        "description": "盲标把 e013（“刚看到几家不错的店，回头发你”，且未继续跟进）列为仅有的两个 supporting 之一，却把 e002 邀约、e004 再定时间、e007/e008 朋友聚餐搜索浏览、e010 餐厅详情、e012 收藏到“聚餐候选”这些直接或必需证据降为 related_interest。这样 supporting 集合既缺少场景要求的收藏候选证据，又依赖口头承诺，证据强度倒置。",
+        "suggested_action": "至少将 e002、e007、e012 改回 supporting；e008/e010/e004 可按标签体系保留 supporting 或 related_interest，但必须确保“IM 邀约+餐厅搜索浏览+收藏候选”三类 required_evidence 在 supporting_event_ids 中有对应事件。"
+      },
+      {
+        "issue_type": "confidence_overstated",
+        "severity": "high",
+        "event_ids": [
+          "e002",
+          "e003",
+          "e004",
+          "e013",
+          "e023"
+        ],
+        "description": "场景是 D3 弱证据：只有“改天/到时候”的口头模糊邀约，无具体日期、无人数、无预订/支付/日历事件；盲标却给 confidence_level=high。即使能确认用户“在考虑”，也不足以支持高置信的聚餐筹划判断。",
+        "suggested_action": "将 confidence_level 下调为 low（或最多 medium），保持 status=considering；不要将其升级为 planned/confirmed。"
+      }
+    ],
+    "summary": "场景和事件本身基本符合模糊邀约、只看不订的社交聚餐设定，未发现明显答案泄露或噪声误判；但盲标在 supporting 证据分配上明显偏弱且倒置，并将弱证据意图的置信度标为 high，导致最终标注不可直接通过。"
+  },
+  "adjudication": {
+    "sample_id": "c04-s05-883c47a7",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "与老同学敲不定日子的那顿饭",
+          "category": "social_dining",
+          "purpose": "socializing",
+          "status": "considering",
+          "confidence_level": "low",
+          "supporting_event_ids": [
+            "e002",
+            "e003",
+            "e004"
+          ],
+          "related_interest_event_ids": [
+            "e007",
+            "e008",
+            "e010",
+            "e012",
+            "e013",
+            "e016",
+            "e018",
+            "e019",
+            "e020",
+            "e021",
+            "e023",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "老同学阿凯发消息提议改天一起吃个饭",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "用户回复同意，表示最近都行、到时候约，但未给出具体时间",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "阿凯表示回头再定时间，双方始终未敲定日期",
+              "source_event_ids": [
+                "e004"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在餐厅App以“本帮菜/静安寺/朋友聚餐”搜索并浏览朋友聚餐推荐列表，筛选本帮菜、江浙菜",
+              "source_event_ids": [
+                "e007",
+                "e008"
+              ]
+            },
+            {
+              "fact": "用户查看圆苑酒家(静安寺店)详情并收藏进“聚餐候选”文件夹",
+              "source_event_ids": [
+                "e010",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户向阿凯表示已看到几家不错的店、之后会发给他",
+              "source_event_ids": [
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户浏览同城餐厅热门榜与江浙菜口碑榜，并用地图搜索静安寺本帮菜餐厅及圆苑酒家位置",
+              "source_event_ids": [
+                "e016",
+                "e018",
+                "e019",
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户另收藏小南国(南京西路店)到“聚餐候选”，并回看该收藏夹（共2家）",
+              "source_event_ids": [
+                "e021",
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户回看与阿凯当日的聊天记录",
+              "source_event_ids": [
+                "e023"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "具体聚餐日期和时间",
+            "最终选定的餐厅",
+            "是否还有其他老同学参加",
+            "是否已预订餐厅",
+            "聚餐预算"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e005",
+        "e006",
+        "e009",
+        "e011",
+        "e014",
+        "e015",
+        "e017",
+        "e022",
+        "e024",
+        "e025",
+        "e026",
+        "e027",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c04-s05-883c47a7"
+    },
+    "rationale": "场景与事件语义符合“模糊邀约、只看不订”的弱证据社交聚餐设定，单一意图成立，category=social_dining、purpose=socializing、status=considering 合理，无需重新生成。但盲标有两处需修正：(1) 按标签体系第10条，search/browse/view/collect 类动作只能算 related_interest，故 e007、e008、e010、e012 应为 related_interest（盲标已如此，审计建议改回 supporting 与第10条冲突，不予采纳）；e013“回头发你”只是跟进表态而非确认/拒绝消息，应为 related_interest，不应作为 supporting。(2) supporting 应限于构成“口头应下但未定日子”这一决定性的消息往来 e002（邀约）、e003（明确同意）、e004（回头再定时间），盲标把 e002/e004 降为 related_interest 属证据强度倒置。此外，场景为 D3 弱证据（无具体日期、无人数、无预订/支付/日历），confidence_level 必须由 high 下调为 low。审计对置信度过高的意见成立，对 supporting 分配的意见与第10条冲突，故不采纳。修正后 supporting=3、related_interest=12、unrelated=15，与 event_labels 互为镜像。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 3,
+      "related_interest": 12,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "considering": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.9,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1866,
+      "completion_tokens": 2582,
+      "total_tokens": 4448,
+      "latency_s": 26.09,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1827,
+      "completion_tokens": 7427,
+      "total_tokens": 9254,
+      "latency_s": 137.27,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3450,
+      "completion_tokens": 6067,
+      "total_tokens": 9517,
+      "latency_s": 49.27,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5769,
+      "completion_tokens": 7875,
+      "total_tokens": 13644,
+      "latency_s": 59.49,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9503,
+      "completion_tokens": 6011,
+      "total_tokens": 15514,
+      "latency_s": 43.42,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 315.55
+}

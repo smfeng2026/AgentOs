@@ -1,0 +1,213 @@
+{
+  "sample_id": "c04-s05-d387a41f",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:31:19+08:00",
+  "task": {
+    "scenario_category": "social_dining",
+    "template_id": "C04-S05",
+    "subscenario": "模糊邀约",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-14T09:30:00+08:00",
+    "window_end": "2026-12-14T15:30:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 2061261925
+  },
+  "spec_summary": {
+    "title": "老同学口头约饭未定档期",
+    "intent_names": [
+      "与老同学的小聚计划"
+    ],
+    "intent_categories": [
+      "social_dining"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [],
+      "products": [],
+      "people": [
+        "老同学周悦"
+      ],
+      "dates": [],
+      "other": [
+        "收藏的三家餐厅：青叶日料、拾光小馆、南山里火锅",
+        "未确定聚餐时间"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 19,
+    "gold_supporting": 2,
+    "gold_related_interest": 9,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "socializing": 1
+    },
+    "gold_statuses": {
+      "considering": 1
+    },
+    "gold_categories": {
+      "social_dining": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "music_search",
+      "news_health",
+      "weather_now",
+      "photo_edit",
+      "read_bookmark",
+      "pay_card_bill",
+      "map_history",
+      "mail_reply",
+      "hn_restaurant_lunch",
+      "ent_ranking",
+      "sys_wallpaper",
+      "social_feed_photo",
+      "video_watch",
+      "learn_video",
+      "shop_coupon"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "composition_deviation",
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 19 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 19,
+      "supporting": 2,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "considering": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1865,
+      "completion_tokens": 1768,
+      "total_tokens": 3633,
+      "latency_s": 19.69,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1728,
+      "completion_tokens": 6073,
+      "total_tokens": 7801,
+      "latency_s": 115.2,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3372,
+      "completion_tokens": 9056,
+      "total_tokens": 12428,
+      "latency_s": 80.79,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5955,
+      "completion_tokens": 9358,
+      "total_tokens": 15313,
+      "latency_s": 75.12,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10388,
+      "completion_tokens": 8526,
+      "total_tokens": 18914,
+      "latency_s": 66.07,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 537.98,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c04-s05-d387a41f.json",
+      "sha256": "f5f0ba824a971f06ccf564b97eb8d4b82aa3b634e5fcd3df502898301044f151"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c04-s05-d387a41f.json",
+      "sha256": "bea6537e26d2d4b318e0c9506003bee0582afcf4f89c4bdcd7b27807f242649c"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c04-s05-d387a41f.json",
+      "sha256": "eaef186f3b8dea188b776bab5438212110fb8df51aa951efb952170f9f223098"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c04-s05-d387a41f.json",
+      "sha256": "36e1befc0f5054bd393401d25a45c46fdece2499527bcbe3dae1382c6eecbc0c"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c04-s05-d387a41f.json",
+      "sha256": "57f44f575ec7422355854cfa5673c753a29f74cc5bd099753308f5ee860ceb89"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "杭州",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

@@ -1,0 +1,843 @@
+{
+  "sample_id": "c10-s01-d11fc556",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "删除盲标新增的 i002：仅有两类运动装备浏览/搜索，无加购、下单或支付，作为 i001 的软性相关兴趣更合适；将 e012、e013 重标为 i001 的 related_interest。按规则10将搜索、浏览、比较、路线查询类事件 e001、e005、e007、e026 标为 related_interest；保留订单创建、支付成功、预约状态、日历创建及明确约课消息 e016、e018、e020、e024、e027 为 supporting。恢复 e022 为 i001 的 related_interest，因其低卡高蛋白轻食搜索与健身场景语义相关。最终意图数 1，无关事件数 15。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "sys_update",
+        "ent_trailer",
+        "social_feed_photo",
+        "hn_match_news",
+        "music_play",
+        "weather_forecast",
+        "news_share",
+        "photo_album",
+        "video_watch",
+        "comm_bus",
+        "pay_transfer",
+        "health_article",
+        "food_grocery",
+        "map_traffic",
+        "work_industry_news"
+      ],
+      "hard_negative_ids": [
+        "hn_match_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "预约并参加静安体育中心搏击操体验课",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e016",
+          "e018",
+          "e020",
+          "e024"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e007",
+          "e010",
+          "e026",
+          "e027",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户在静安体育中心创建了12月05日10:00-11:00李锐教练搏击操体验课订单，金额99元，订单状态为待支付",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "该课程订单已通过银行卡支付成功，金额99元，商户为静安体育中心",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "健身App中该课程预约状态显示为已预约（12月05日10:00-11:00，静安体育中心，李锐）",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户已在日历创建12月05日10:00-11:00「搏击操体验课」日程，地点静安体育中心，并设置提前1小时提醒",
+            "source_event_ids": [
+              "e024"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户计划于12月05日上午前往静安体育中心参加已付费的搏击操体验课",
+            "source_event_ids": [
+              "e016",
+              "e018",
+              "e020",
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户在预约前已对搏击操产生持续兴趣：搜索体验课、观看入门教学视频并与教练/时段进行对比",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e005",
+              "e007",
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户在决策前查看了静安体育中心的用户评价以评估场馆质量",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户已查询从家到静安体育中心12月05日的驾车路线，预计25分钟",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户已告知朋友陈晨课程安排并邀请其一同参加",
+            "source_event_ids": [
+              "e027"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否实际到场参加课程",
+          "是否有朋友一同参加",
+          "最终前往场馆的交通方式",
+          "对教练与课程时段的最终满意度"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "浏览选购运动装备（瑜伽垫、运动水壶）",
+        "category": "fitness",
+        "purpose": "equipment_purchase",
+        "status": "considering",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e012",
+          "e013"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户浏览了加厚防滑瑜伽垫，关注8mm规格，价格区间59-129元",
+            "source_event_ids": [
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户搜索了「运动水壶 大容量」并按销量排序查看运动装备",
+            "source_event_ids": [
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户可能在为健身锻炼添置运动装备，但仅有浏览与搜索行为，未见下单或支付",
+            "source_event_ids": [
+              "e012",
+              "e013"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否最终购买及购买渠道",
+          "预算与品牌偏好",
+          "购买用途（自用练习或课程配套）",
+          "是否已加入购物车或收藏"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e006",
+      "e008",
+      "e009",
+      "e011",
+      "e014",
+      "e015",
+      "e017",
+      "e019",
+      "e021",
+      "e022",
+      "e023",
+      "e025",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 16
+    }
+  },
+  "review": {
+    "sample_id": "c10-s01-d11fc556",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "intent_over_split",
+        "severity": "high",
+        "event_ids": [
+          "e012",
+          "e013"
+        ],
+        "description": "盲标新增 i002“浏览选购运动装备”，但仅有两类浏览/搜索行为，没有加入购物车、下单、支付或明确购买目标；场景变体说明已明确将瑜伽垫、运动水壶等运动装备浏览作为 i001 的软性相关兴趣。将其拆成独立 considering 意图会虚增意图数量。",
+        "suggested_action": "删除 i002 作为独立意图；将 e012、e013 重标为 i001 的 related_interest；intent_count 回退为 1。若需保留此类信号，只作为低置信度兴趣，不作为独立意图。"
+      },
+      {
+        "issue_type": "supporting_weak_evidence",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e005",
+          "e007"
+        ],
+        "description": "原标注将课程搜索、课程浏览和教练/时段比较标为 supporting，但这些只是决策前探索，并非预约、支付、预约成功等决定性证据；要求的核心证据也不包含这些事件。这会虚增 supporting_event_count 并高估证据强度。",
+        "suggested_action": "将 e001、e005、e007 改为 related_interest；保留 e016、e018、e020 等作为 supporting，并视需要保留 e024；同步修正 supporting_event_count。"
+      },
+      {
+        "issue_type": "related_interest_omission",
+        "severity": "medium",
+        "event_ids": [
+          "e022"
+        ],
+        "description": "盲标把 e022（轻食沙拉、低卡高蛋白）标为 unrelated，但场景 variant_note 明确轻食搜索是相关兴趣软性佐证，事件内容也与健身/饮食管理一致。",
+        "suggested_action": "将 e022 重标为 i001 的 related_interest，并从 unrelated_event_ids 中移除。"
+      },
+      {
+        "issue_type": "supporting_underlabel",
+        "severity": "medium",
+        "event_ids": [
+          "e026",
+          "e027"
+        ],
+        "description": "盲标把场馆路线查询和给好友的约课消息仅作为 related_interest，但这两条属于 optional_evidence，且发生在支付/预约后，直接体现前往场馆和约同伴的落地计划，证据强度高于普通兴趣浏览。",
+        "suggested_action": "评估将 e026、e027 标为 i001 的 supporting（至少与 e024 同级），或在不确定时统一按 optional supporting 处理并注明依据。"
+      },
+      {
+        "issue_type": "intent_name_overclaim",
+        "severity": "medium",
+        "event_ids": [
+          "e016",
+          "e018",
+          "e020",
+          "e024"
+        ],
+        "description": "盲标意图名称为“预约并参加…”，但已确认证据仅覆盖预约、支付和日历创建，实际到场参加并未被证明，且 unknown_information 也承认“是否实际到场参加”未知。",
+        "suggested_action": "将意图名称改为“预约静安体育中心搏击操体验课”或“计划参加…”，避免把预约/计划表达为已经参加。"
+      }
+    ],
+    "summary": "核心预约、支付和预约成功证据能支持 i001 的 confirmed 状态，但盲标把运动装备浏览过度拆分为 i002，原标注又将搜索/浏览/比较弱证据标为 supporting；此外 e022 轻食搜索被误判 unrelated，路线和约课消息被低估。建议修正标签与意图数后重审。"
+  },
+  "adjudication": {
+    "sample_id": "c10-s01-d11fc556",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "预约静安体育中心搏击操体验课",
+          "category": "fitness",
+          "purpose": "training",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e016",
+            "e018",
+            "e020",
+            "e024",
+            "e027"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e007",
+            "e010",
+            "e012",
+            "e013",
+            "e022",
+            "e026",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户在静安体育中心创建12月05日10:00-11:00李锐教练搏击操体验课订单，金额99元，订单状态为待支付",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "该课程费用99元已通过银行卡支付成功，商户为静安体育中心",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "健身App中显示该搏击操体验课预约状态为已预约，时间为12月05日10:00-11:00，场馆为静安体育中心，教练为李锐",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户已在日历创建12月05日10:00-11:00「搏击操体验课」日程，地点为静安体育中心，并设置提前1小时提醒",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "用户向好友陈晨发送消息，称已约好12月05日10点李锐的搏击操体验课并邀请其一同参加",
+              "source_event_ids": [
+                "e027"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户计划于12月05日上午前往静安体育中心参加已付费的搏击操体验课",
+              "source_event_ids": [
+                "e016",
+                "e018",
+                "e020",
+                "e024",
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户在预约前已对搏击操形成持续兴趣：搜索体验课、观看入门教学视频、浏览课程信息并比较教练/时段",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e005",
+                "e007",
+                "e028"
+              ]
+            },
+            {
+              "fact": "用户在决策前查看了静安体育中心的用户评价以评估场馆质量",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户已查询从家到静安体育中心12月05日的驾车路线，预计25分钟",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户对运动装备与轻食有辅助兴趣，浏览过瑜伽垫、搜索过运动水壶和低卡高蛋白轻食",
+              "source_event_ids": [
+                "e012",
+                "e013",
+                "e022"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否购买后续正式课包",
+            "上课当天是否由朋友陪同",
+            "是否实际到场参加课程",
+            "最终前往场馆的交通方式",
+            "是否最终购买瑜伽垫或运动水壶"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e006",
+        "e008",
+        "e009",
+        "e011",
+        "e014",
+        "e015",
+        "e017",
+        "e019",
+        "e021",
+        "e023",
+        "e025",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c10-s01-d11fc556"
+    },
+    "rationale": "删除盲标新增的 i002：仅有两类运动装备浏览/搜索，无加购、下单或支付，作为 i001 的软性相关兴趣更合适；将 e012、e013 重标为 i001 的 related_interest。按规则10将搜索、浏览、比较、路线查询类事件 e001、e005、e007、e026 标为 related_interest；保留订单创建、支付成功、预约状态、日历创建及明确约课消息 e016、e018、e020、e024、e027 为 supporting。恢复 e022 为 i001 的 related_interest，因其低卡高蛋白轻食搜索与健身场景语义相关。最终意图数 1，无关事件数 15。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "training": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "fitness": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.933,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1852,
+      "completion_tokens": 1764,
+      "total_tokens": 3616,
+      "latency_s": 35.0,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1745,
+      "completion_tokens": 9058,
+      "total_tokens": 10803,
+      "latency_s": 78.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3580,
+      "completion_tokens": 3848,
+      "total_tokens": 7428,
+      "latency_s": 29.16,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6274,
+      "completion_tokens": 6799,
+      "total_tokens": 13073,
+      "latency_s": 56.92,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10454,
+      "completion_tokens": 6506,
+      "total_tokens": 16960,
+      "latency_s": 43.52,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 243.54
+}

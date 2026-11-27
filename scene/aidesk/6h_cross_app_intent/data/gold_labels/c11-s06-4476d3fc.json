@@ -1,0 +1,312 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "古北水镇周末出行方式调整",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e008",
+        "e012",
+        "e024",
+        "e025",
+        "e027",
+        "e028"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e004",
+        "e005",
+        "e006",
+        "e007",
+        "e017",
+        "e023"
+      ],
+      "contradicting_event_ids": [
+        "e002",
+        "e003"
+      ],
+      "confirmed_facts": [
+        {
+          "fact": "原租车订单CR2026121900385原定12月19日在望京南地铁站门店取车（紧凑型SUV，租2天，486元），曾为已确认状态；后因暴雪预警取消成功并全额退款486元，退款已到账。",
+          "source_event_ids": [
+            "e003",
+            "e008",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户与李晓已购买12月19日市郊铁路怀密线S505次车票2张，清河站08:36开、古北口站10:24到，订单T2026121900216已支付26元。",
+          "source_event_ids": [
+            "e024",
+            "e025",
+            "e028"
+          ]
+        },
+        {
+          "fact": "12月19日日程已更新为“古北水镇周末游（乘市郊铁路）”，07:30至21:00，清河站集合，参与人为本人与李晓，并设置提前1小时提醒。",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户已通过私聊告知李晓最终安排：S505次车票已支付、租车已取消且486元退款到账，周六7点半清河站见。",
+          "source_event_ids": [
+            "e028"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "12月19日北京北部暴雪橙色预警是用户放弃自驾、改乘市郊铁路的直接触发因素。",
+          "source_event_ids": [
+            "e005",
+            "e006",
+            "e007",
+            "e008",
+            "e027"
+          ]
+        },
+        {
+          "fact": "本次出行目的偏向休闲旅游，用户关注古北水镇温泉、夜景、司马台长城等体验。",
+          "source_event_ids": [
+            "e001",
+            "e004",
+            "e027"
+          ]
+        },
+        {
+          "fact": "同行人为李晓，行程为两人同行。",
+          "source_event_ids": [
+            "e006",
+            "e007",
+            "e024",
+            "e027",
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户曾查询古北水镇门票和市郊铁路车次，但景区门票是否购买未见确认。",
+          "source_event_ids": [
+            "e017",
+            "e023"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "古北水镇景区门票是否已购买或预约",
+        "温泉住宿是否已预订",
+        "返程交通方式是否已安排",
+        "12月19日是否实际完成出行",
+        "除火车票和日程外，是否还有其他预订或支付"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e009",
+    "e010",
+    "e011",
+    "e013",
+    "e014",
+    "e015",
+    "e016",
+    "e018",
+    "e019",
+    "e020",
+    "e021",
+    "e022",
+    "e026",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c11-s06-4476d3fc"
+}

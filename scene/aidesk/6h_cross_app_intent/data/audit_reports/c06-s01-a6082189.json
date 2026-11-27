@@ -1,0 +1,784 @@
+{
+  "sample_id": "c06-s01-a6082189",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正标签：e001/e004/e028/e029按动作性质（搜索、查看、设置提醒、提议）降为related_interest，仅保留e014报名成功、e018支付成功、e026与e027已创建日程、e030明确确认作为supporting；status按证据与场景保持planned，不将e027表述为林晓已确认，只记录为已创建的暂定日程事实。e027早于e029/e030存在时序不自然，但事件内容仍可支持备考计划，故修正标签而不重新生成；未发现需新增的独立意图，无关事件15条。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "im_work_reply",
+        "fin_points",
+        "food_grocery",
+        "sys_wallpaper",
+        "comm_bus",
+        "work_industry_news",
+        "game_daily",
+        "hn_course_other_subject",
+        "photo_album",
+        "health_article",
+        "cal_reminder",
+        "mail_newsletter",
+        "pay_balance",
+        "news_share",
+        "fit_steps"
+      ],
+      "hard_negative_ids": [
+        "hn_course_other_subject"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "备考大学英语六级考试",
+        "category": "learning",
+        "purpose": "exam_prep",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e014",
+          "e018",
+          "e026",
+          "e027",
+          "e030"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e007",
+          "e008",
+          "e009",
+          "e012",
+          "e016",
+          "e028",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已成功报名2026年下半年全国大学英语六级考试，考试日期为12月19日15:00-17:25，考点为南京师范大学仙林校区，准考证12月15日起开放打印。",
+            "source_event_ids": [
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户已支付49.80元购买《大学英语六级真题套卷（2021-2025历年真题含详解）》，订单状态为已支付。",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户创建了“六级真题每日刷题计划”日程，12月5日起每日19:00开始、时长2小时，地点为图书馆三楼自习区，重复至12月18日。",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户创建了“六级全真模考（与林晓）”日程，时间为12月12日09:00、时长3小时，地点为教学楼B座203，参与者为林晓。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "林晓确认12月12日上午9点一起进行六级全真模考，并表示会带两套打印好的真题卷和答题卡。",
+            "source_event_ids": [
+              "e030"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户正在系统备考大学英语六级，关注真题、听力技巧、词汇讲义和冲刺网课等多类备考资料。",
+            "source_event_ids": [
+              "e001",
+              "e002",
+              "e004",
+              "e007",
+              "e008",
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户计划与室友或同学一起去图书馆刷六级真题并对答案，并通过即时消息进行协调。",
+            "source_event_ids": [
+              "e009",
+              "e029",
+              "e030"
+            ]
+          },
+          {
+            "fact": "用户查询前往南京师范大学仙林校区的公共交通路线，并设置考试日提醒，说明其在为12月19日考试做出行和到场准备。",
+            "source_event_ids": [
+              "e014",
+              "e016",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否最终购买e007中的六级听力冲刺网课未知",
+          "用户与室友是否最终按e009成行去图书馆未知",
+          "用户12月19日是否实际参加考试及最终成绩未知"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e005",
+      "e006",
+      "e010",
+      "e011",
+      "e013",
+      "e015",
+      "e017",
+      "e019",
+      "e020",
+      "e021",
+      "e022",
+      "e023",
+      "e024",
+      "e025"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c06-s01-a6082189",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "temporal_causality_violation",
+        "severity": "high",
+        "event_ids": [
+          "e027",
+          "e029",
+          "e030"
+        ],
+        "description": "e027在19:46创建“六级全真模考（与林晓）”并把林晓列为参与者，但直到20:12的e029才向林晓提议该模考，20:21的e030才收到确认。参与者/日程在对方确认前已被写入，违反自然业务因果顺序；盲标confirmed_facts又把e027当作既定事实，进一步放大了问题。",
+        "suggested_action": "重排事件：先e029提议、e030确认，再创建e027；或在e030前将e027改为个人计划/待确认，确认后再添加林晓为参与者并更新事实。"
+      },
+      {
+        "issue_type": "supporting_evidence_overreach",
+        "severity": "medium",
+        "event_ids": [
+          "e001"
+        ],
+        "description": "e001仅为一次“大学英语六级真题”搜索，属于弱兴趣信号；Gold将其标为supporting，但单独搜索不能证明冲刺备考行为。虽然e004等后续练习可补强，supporting计数被这一弱事件抬高。",
+        "suggested_action": "将e001降为related_interest，或在同一事件中补充打开/开始练习等更强行为；保持supporting仅用于报名、付费、计划创建、模考约定等决定性证据。"
+      },
+      {
+        "issue_type": "required_evidence_app_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e012",
+          "e018"
+        ],
+        "description": "场景required_evidence要求“shopping_app中已支付的六级真题套卷订单”，但shopping_app仅有e012浏览，实际支付记录e018在payment_app；variant_note的App组合还遗漏payment_app。严格按规格，付费订单证据不在指定App内。",
+        "suggested_action": "补充shopping_app内下单/支付成功事件，或把规格中的required_evidence改为payment_app支付记录并同步variant_note；否则应标记required_evidence未完全满足。"
+      },
+      {
+        "issue_type": "blind_annotation_status_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e014",
+          "e018",
+          "e026",
+          "e027",
+          "e030"
+        ],
+        "description": "盲标将意图status设为confirmed，而场景规格为planned；现有证据显示已报名、已购资料并创建未来复习/模考计划，属于计划/进行中的备考，没有事件证明该意图已完成或被最终确认到可称confirmed的程度。",
+        "suggested_action": "将盲标status改回planned，或明确采用in_progress等状态并给出状态定义；不要用confirmed替代planned，除非证据支持完成或超出计划阶段的确认。"
+      },
+      {
+        "issue_type": "blind_annotation_relation_mislabel",
+        "severity": "low",
+        "event_ids": [
+          "e029",
+          "e030"
+        ],
+        "description": "e029明确向林晓提议12月12日全真模考，是直接计划证据；盲标把它放在related_interest而只把e030确认放supporting，弱化了已发生的备考组织行为。",
+        "suggested_action": "将e029移入supporting_event_ids，或在related_interest中保留但说明其直接计划属性；确保支持性证据标准一致。"
+      }
+    ],
+    "summary": "整体意图“大学英语六级冲刺备考”有e014报名提醒、e018资料付费、e026复习计划、e027模考日程、e030同学确认等强证据，主体成立；但e027在向林晓提议和获得确认之前就写入参与者，构成高严重度时序/业务逻辑问题，且存在e001弱证据被标supporting、付费订单App与规格不符、盲标状态与规格不一致等问题，因此不通过。"
+  },
+  "adjudication": {
+    "sample_id": "c06-s01-a6082189",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "大学英语六级冲刺备考",
+          "category": "learning",
+          "purpose": "exam_prep",
+          "status": "planned",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e014",
+            "e018",
+            "e026",
+            "e027",
+            "e030"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e007",
+            "e008",
+            "e009",
+            "e012",
+            "e016",
+            "e028",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户已成功报名2026年下半年全国大学英语六级考试，考试日期为12月19日15:00-17:25，考点为南京师范大学仙林校区，准考证12月15日起开放打印。",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户已支付49.80元购买《大学英语六级真题套卷（2021-2025历年真题含详解）》，订单状态为已支付。",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户创建了“六级真题每日刷题计划”日程，12月5日起每日19:00开始、时长2小时，地点为图书馆三楼自习区，重复至12月18日。",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户创建了标题为“六级全真模考（与林晓）”的日程，时间为12月12日09:00、时长3小时，地点为教学楼B座203，并将林晓列为参与者。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "林晓确认12月12日上午9点一起进行六级全真模考，并表示会带两套打印好的真题卷和答题卡。",
+              "source_event_ids": [
+                "e030"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户正在系统备考大学英语六级，关注真题搜索、听力技巧、词汇讲义、冲刺网课和真题套卷等多类备考资料。",
+              "source_event_ids": [
+                "e001",
+                "e002",
+                "e004",
+                "e007",
+                "e008",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户计划与同学或室友一起刷六级真题并对答案，并通过即时消息协调模考安排。",
+              "source_event_ids": [
+                "e009",
+                "e029",
+                "e030"
+              ]
+            },
+            {
+              "fact": "用户为12月19日考试做出行和到场准备，查询前往南京师范大学仙林校区的公共交通路线并设置考试日提醒。",
+              "source_event_ids": [
+                "e014",
+                "e016",
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "用户是否最终购买e007中的六级听力冲刺网课未知",
+            "用户与室友陈悦是否最终按e009成行去图书馆未知",
+            "用户12月19日是否实际参加考试及最终成绩未知",
+            "用户是否还报名其他科目考试或参加线下培训班未知"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e005",
+        "e006",
+        "e010",
+        "e011",
+        "e013",
+        "e015",
+        "e017",
+        "e019",
+        "e020",
+        "e021",
+        "e022",
+        "e023",
+        "e024",
+        "e025"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c06-s01-a6082189"
+    },
+    "rationale": "修正标签：e001/e004/e028/e029按动作性质（搜索、查看、设置提醒、提议）降为related_interest，仅保留e014报名成功、e018支付成功、e026与e027已创建日程、e030明确确认作为supporting；status按证据与场景保持planned，不将e027表述为林晓已确认，只记录为已创建的暂定日程事实。e027早于e029/e030存在时序不自然，但事件内容仍可支持备考计划，故修正标签而不重新生成；未发现需新增的独立意图，无关事件15条。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "exam_prep": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "learning": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 2443,
+      "total_tokens": 4299,
+      "latency_s": 32.83,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1788,
+      "completion_tokens": 10846,
+      "total_tokens": 12634,
+      "latency_s": 97.79,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3642,
+      "completion_tokens": 4496,
+      "total_tokens": 8138,
+      "latency_s": 31.38,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6173,
+      "completion_tokens": 7421,
+      "total_tokens": 13594,
+      "latency_s": 61.51,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10479,
+      "completion_tokens": 8029,
+      "total_tokens": 18508,
+      "latency_s": 61.96,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 285.48
+}

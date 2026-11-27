@@ -1,0 +1,62 @@
+{
+  "title": "为偶像巡演出票并安排行程",
+  "scenario_category": "entertainment",
+  "subscenario": "演唱会",
+  "template_id": "C07-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "滨江体育馆"
+    ],
+    "products": [
+      "林知夏巡回演唱会门票",
+      "内场VIP票"
+    ],
+    "people": [
+      "朋友周悦"
+    ],
+    "dates": [
+      "12月26日"
+    ],
+    "other": [
+      "林知夏",
+      "粉丝应援物"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "观演偶像巡演计划",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "ticket_app 中已支付的两张内场票订单",
+        "payment_app 对应的支付成功记录",
+        "calendar_app 新建的演出日程提醒"
+      ],
+      "optional_evidence": [
+        "music_app 收听艺人歌曲和关注动态",
+        "im_app 中与朋友周悦约定同去的聊天",
+        "map_app 搜索前往滨江体育馆的路线"
+      ],
+      "unknown_information": [
+        "是否购买应援周边",
+        "当天具体出发时间"
+      ],
+      "supporting_event_count": 10,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 10,
+    "related_interest": 5,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前半段以 music_app 收听艺人歌单、ticket_app 浏览场次和比价为主，属于弱到中等信号；决定性证据集中在后两小时：im_app 与周悦确认同行后，ticket_app 下单并经 payment_app 完成支付，最后在 calendar_app 创建演出日程与提醒，形成闭环",
+  "variant_note": "与同模板其他样本的差异：证据需融合 ticket_app、payment_app、music_app、im_app、calendar_app、map_app 六类 App 才能确认；粉丝身份由 music_app 长期收听和关注艺人动态支撑而非关键词直述；购票为两张内场票且由用户代付，聊天记录仅隐含分摊约定；未包含抢票失败或转让等反向信号，冲突类干扰留待 D6 样本",
+  "scenario_id": "c07-s01-b12855b4"
+}

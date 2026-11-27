@@ -1,0 +1,56 @@
+{
+  "title": "工作日晚间预约搏击操团课",
+  "scenario_category": "fitness",
+  "subscenario": "健身课程",
+  "template_id": "C10-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [
+      "搏击操团课单次课"
+    ],
+    "people": [
+      "同事李婷"
+    ],
+    "dates": [
+      "12月10日"
+    ],
+    "other": [
+      "动燃健身静安店"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "健身团课训练安排",
+      "category": "fitness",
+      "purpose": "training",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "健身应用内12月10日19:30课程的成功预约记录",
+        "支付应用中199元课程订单支付成功流水",
+        "日历应用中新建的12月10日晚间课程日程"
+      ],
+      "optional_evidence": [
+        "地图应用中到动燃健身静安店的路线搜索",
+        "与同事李婷约伴上课的聊天记录"
+      ],
+      "unknown_information": [
+        "是否计划购买长期课包"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前段（17:15-19:30）以课程搜索、详情浏览和时段比较为主，并夹杂训练视频、歌单等兴趣浏览；决定性证据（预约下单、支付、日历创建）集中在20:30-21:40出现；到馆路线搜索和订单查看出现在最后半小时。",
+  "variant_note": "单一意图无反向证据，但强证据分散在fitness_app、payment_app、calendar_app、map_app四类应用中，需跨应用融合时间戳与场馆名才能确认；干扰主要来自sports_app训练内容浏览、shopping_app运动装备浏览等兴趣级事件，实体上使用晚间团课、同事约伴这一组合，与同模板样本在时段、课种、场馆上区分。",
+  "scenario_id": "c10-s01-e664230d"
+}

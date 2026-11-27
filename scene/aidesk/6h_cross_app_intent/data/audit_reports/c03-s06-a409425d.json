@@ -1,0 +1,896 @@
+{
+  "sample_id": "c03-s06-a409425d",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正了意图口径与事件关系：i001 保留为“平板电脑购置计划撤销”，将下单、支付、取消、退款作为该已取消计划的决定性闭环证据；取消前的搜索、浏览、比价、看评测和查看订单仍属相关兴趣，而非反向证据；负评浏览按规则归为 related_interest。新增 i002“大促前平板换购研究”，将取消后比较替代型号、收藏云驰PadPro、搜索保护壳、浏览双十二优惠榜及设置比价提醒归入该独立计划意图。origin=noise 事件均保持无关，unrelated_event_count 为 15。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "pay_card_bill",
+        "work_industry_news",
+        "photo_backup",
+        "read_bookmark",
+        "news_share",
+        "music_play",
+        "mail_reply",
+        "hn_product_other",
+        "comm_bus",
+        "food_history",
+        "weather_forecast",
+        "hn_product_wishlist_other",
+        "fit_water",
+        "hn_product_compare_other",
+        "map_commute"
+      ],
+      "hard_negative_ids": [
+        "hn_product_other",
+        "hn_product_wishlist_other",
+        "hn_product_compare_other"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "购买星曜Pad11平板电脑",
+        "category": "shopping",
+        "purpose": "unknown",
+        "status": "cancelled",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e007",
+          "e010"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e002",
+          "e003",
+          "e005",
+          "e012",
+          "e014"
+        ],
+        "contradicting_event_ids": [
+          "e016",
+          "e018"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户创建了订单 PO202612051231，购买星曜Pad11平板电脑 1 台，金额 2899 元，预计 12 月 7 日送达至上海市浦东新区。",
+            "source_event_ids": [
+              "e007"
+            ]
+          },
+          {
+            "fact": "该订单已通过银行卡支付成功，商户为星曜官方旗舰店，金额 2899 元。",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "该订单随后被取消，取消原因为续航不符合预期，退款金额 2899 元。",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "退款已原路退回并到账。",
+            "source_event_ids": [
+              "e018"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户曾对比星曜Pad11、灵犀TabS、云驰PadPro的价格，星曜Pad11最低价为 2899 元。",
+            "source_event_ids": [
+              "e003"
+            ]
+          },
+          {
+            "fact": "用户查看了星曜Pad11的评测及差评内容，关注续航和发热问题。",
+            "source_event_ids": [
+              "e005",
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户取消订单与续航不符合预期有关。",
+            "source_event_ids": [
+              "e014",
+              "e016"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "购买用途是个人使用、送礼还是工作相关",
+          "如果继续购买平板，最终会选择哪款产品",
+          "可接受的价格区间"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "双十二平板比价与优惠关注",
+        "category": "shopping",
+        "purpose": "unknown",
+        "status": "planned",
+        "confidence_level": "medium",
+        "supporting_event_ids": [
+          "e028"
+        ],
+        "related_interest_event_ids": [
+          "e019",
+          "e023",
+          "e025",
+          "e026"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户设置了 12 月 12 日 10:00 的提醒，标题为“双十二平板比价提醒”，备注关注云驰PadPro优惠价。",
+            "source_event_ids": [
+              "e028"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户正在比较灵犀TabS和云驰PadPro的价格与续航，云驰PadPro为 2670 元，灵犀TabS为 2799 元。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户收藏了云驰PadPro平板，价格 2670 元，收藏夹为“平板候选”。",
+            "source_event_ids": [
+              "e023"
+            ]
+          },
+          {
+            "fact": "用户浏览了平板电脑优惠榜，并关注双十二预热立减券。",
+            "source_event_ids": [
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户在寻找 11 英寸平板电脑保护壳。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户可能计划在双十二期间进行平板比价并关注优惠。",
+            "source_event_ids": [
+              "e019",
+              "e023",
+              "e026",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "最终想购买的平板型号",
+          "是否会在双十二实际下单",
+          "购买用途和预算上限"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e004",
+      "e006",
+      "e008",
+      "e009",
+      "e011",
+      "e013",
+      "e015",
+      "e017",
+      "e020",
+      "e021",
+      "e022",
+      "e024",
+      "e027",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c03-s06-a409425d",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "missing_intent",
+        "severity": "high",
+        "event_ids": [
+          "e019",
+          "e023",
+          "e025",
+          "e026",
+          "e028"
+        ],
+        "description": "盲标发现了 Gold 未列出的第二个意图“双十二平板比价与优惠关注”。e028 明确设置 12 月 12 日“双十二平板比价提醒”并备注关注云驰PadPro优惠价；e019 比较灵犀TabS与云驰PadPro价格/续航，e023 收藏云驰PadPro，e026 浏览双十二预热优惠榜，e025 搜索平板保护壳。这些都是取消后转向未来平板购买/比价研究的连续证据，足以构成 planned/considering 意图，而 Gold 只保留了 i001 撤销意图，并把相关事件并入 i001。",
+        "suggested_action": "建议裁决器新增独立意图 i002：双十二平板比价与优惠关注，category=shopping，purpose=unknown，status=planned，confidence=medium；将 e019/e023/e025/e026/e028 归入 i002。不要因此丢弃样本。"
+      },
+      {
+        "issue_type": "supporting_misuse",
+        "severity": "high",
+        "event_ids": [
+          "e019",
+          "e023"
+        ],
+        "description": "e019 是取消后比较灵犀TabS与云驰PadPro，e023 是收藏云驰PadPro，这两个事件表明用户仍在研究替代平板，不能作为“平板电脑购置计划撤销”的 supporting 证据。将它们计为 supporting 会人为把 supporting_event_count 抬到 6，并弱化“取消后转为重新比价/关注替代型号”的真实语义。",
+        "suggested_action": "将 e019/e023 从 i001 的 supporting 改为 i002 的 related_interest 或 supporting；i001 的 supporting 应主要保留 e010、e016、e018，e014 可作为取消诱因的 supporting。若暂不拆 i002，也应改标为 related_interest 而非 supporting。"
+      },
+      {
+        "issue_type": "contradicting_mislabel",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e002",
+          "e003",
+          "e007",
+          "e012"
+        ],
+        "description": "Gold 将下单前的搜索、详情浏览、比价、创建订单、查看订单全部标为 i001 的 contradicting，语义不一致：这些是取消前的购买推进轨迹，不是反对“撤销”的证据。尤其 e007 创建订单属于 required_evidence 中“已支付2899元订单”的前置构成，却被标为 contradicting，而 e010 支付又标为 supporting，造成同一订单链路的标签矛盾。e012 查看待发货订单也只是取消前状态，不是反向证据。",
+        "suggested_action": "建议重标：e007/e010 作为 i001 的历史订单/支付 antecedent 或 supporting；e001/e002/e003/e012 作为 i001 的 related_interest/历史背景，而非 contradicting。对“撤销”意图而言，真正的 contradicting 应是取消后重新下单同款、拒绝取消或继续保留订单等事件。"
+      },
+      {
+        "issue_type": "blind_intent_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e014",
+          "e016",
+          "e018"
+        ],
+        "description": "盲标把 i001 命名为“购买星曜Pad11平板电脑”，而 Gold 的 i001 是“平板电脑购置计划撤销”。这导致关键事件关系不一致：盲标把 e016/e018 标为 contradicting（对购买意图合理），却把直接导致取消的负评 e014 只标为 related_interest；若按 Gold 的撤销意图，e014/e016/e018 都应支持“因续航差评而取消并退款”的闭环。",
+        "suggested_action": "裁决器应先统一意图口径：若保留 Gold 的撤销意图，i001 应将 e014/e016/e018 作为 supporting，并保留 e010 作为已支付订单证据；若采用盲标的购买意图，则 e014 应作为负向/contradicting 证据，同时另行保留 i002 作为未来比价计划。"
+      },
+      {
+        "issue_type": "leakage_over_explicit",
+        "severity": "medium",
+        "event_ids": [
+          "e028"
+        ],
+        "description": "e028 的提醒标题“ 双十二平板比价提醒 ”及备注“云驰PadPro 优惠价关注”几乎直接复现了盲标 i002 的名称“双十二平板比价与优惠关注”。若采纳 i002，该事件存在答案泄露/关键词过强的问题，事件文本过于像意图标签本身。",
+        "suggested_action": "若新增 i002，建议调整意图命名为更抽象的“大促前平板换购研究”等，或弱化 e028 标题为自然提醒语（如“12日看看平板价格”），保留其未来比价语义但避免与意图名逐词重合。"
+      }
+    ],
+    "summary": "样本的取消—退款状态闭环本身成立，e016/e018 能支持 i001 的 cancelled 状态，且未发现 origin=noise 事件明显应改标为相关。但 Gold 存在高严重度问题：漏掉盲标发现的双十二平板比价/优惠关注计划意图；把取消后的替代型号比较和收藏错误标为 i001 的 supporting；并把下单前购买推进事件大量标为 contradicting，与 required_evidence 和 e010 的 supporting 标签矛盾。建议裁决器拆分/新增 i002、重标 e019/e023/e025/e026/e028，并统一 i001 的 supporting/contradicting 语义；不要丢弃样本。"
+  },
+  "adjudication": {
+    "sample_id": "c03-s06-a409425d",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "平板电脑购置计划撤销",
+          "category": "shopping",
+          "purpose": "unknown",
+          "status": "cancelled",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e007",
+            "e010",
+            "e016",
+            "e018"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e002",
+            "e003",
+            "e005",
+            "e012",
+            "e014"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户创建了订单 PO202612051231，购买星曜Pad11平板电脑 1 台，订单金额 2899 元，预计 12 月 7 日送达至上海市浦东新区。",
+              "source_event_ids": [
+                "e007"
+              ]
+            },
+            {
+              "fact": "该订单通过银行卡支付成功，商户为星曜官方旗舰店，金额 2899 元，订单状态为已支付。",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "该订单随后被取消，取消原因为续航不符合预期，退款金额 2899 元，订单状态为已取消。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "退款 2899 元已原路退回并到账。",
+              "source_event_ids": [
+                "e018"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在下单前搜索并浏览星曜Pad11，并比较星曜Pad11、灵犀TabS、云驰PadPro的价格，星曜Pad11最低价为 2899 元。",
+              "source_event_ids": [
+                "e001",
+                "e002",
+                "e003"
+              ]
+            },
+            {
+              "fact": "用户查看了星曜Pad11的评测视频和续航差评，关注续航仅 5 小时、发热明显等问题。",
+              "source_event_ids": [
+                "e005",
+                "e014"
+              ]
+            },
+            {
+              "fact": "订单取消与续航差评有关。",
+              "source_event_ids": [
+                "e014",
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户在取消前曾查看该订单，状态为待发货。",
+              "source_event_ids": [
+                "e012"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "取消是否还受预算变化影响",
+            "是否打算在大促时重新下单",
+            "购买用途是个人使用、送礼还是工作相关"
+          ],
+          "conflicts": []
+        },
+        {
+          "intent_id": "i002",
+          "intent_name": "大促前平板换购研究",
+          "category": "shopping",
+          "purpose": "unknown",
+          "status": "planned",
+          "confidence_level": "medium",
+          "supporting_event_ids": [
+            "e028"
+          ],
+          "related_interest_event_ids": [
+            "e019",
+            "e023",
+            "e025",
+            "e026"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户设置了 12 月 12 日 10:00 的提醒，标题为“双十二平板比价提醒”，备注关注云驰PadPro优惠价。",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户比较了灵犀TabS与云驰PadPro的价格与续航，云驰PadPro 2670 元，灵犀TabS 2799 元。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户收藏了云驰PadPro平板，价格 2670 元，收藏夹为“平板候选”。",
+              "source_event_ids": [
+                "e023"
+              ]
+            },
+            {
+              "fact": "用户搜索了 11 英寸平板电脑保护壳。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户浏览了平板电脑优惠榜，关注双十二预热立减券。",
+              "source_event_ids": [
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户可能计划在双十二期间继续比较平板价格并关注优惠。",
+              "source_event_ids": [
+                "e019",
+                "e023",
+                "e026",
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "最终想购买的平板型号",
+            "是否会在双十二实际下单",
+            "购买用途和预算上限"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i002"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e004",
+        "e006",
+        "e008",
+        "e009",
+        "e011",
+        "e013",
+        "e015",
+        "e017",
+        "e020",
+        "e021",
+        "e022",
+        "e024",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 2,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c03-s06-a409425d"
+    },
+    "rationale": "修正了意图口径与事件关系：i001 保留为“平板电脑购置计划撤销”，将下单、支付、取消、退款作为该已取消计划的决定性闭环证据；取消前的搜索、浏览、比价、看评测和查看订单仍属相关兴趣，而非反向证据；负评浏览按规则归为 related_interest。新增 i002“大促前平板换购研究”，将取消后比较替代型号、收藏云驰PadPro、搜索保护壳、浏览双十二优惠榜及设置比价提醒归入该独立计划意图。origin=noise 事件均保持无关，unrelated_event_count 为 15。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 2,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 2
+      },
+      "statuses": {
+        "cancelled": 1,
+        "planned": 1
+      },
+      "categories": {
+        "shopping": 2
+      }
+    }
+  },
+  "blind_relation_agreement": 0.933,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 1862,
+      "total_tokens": 3719,
+      "latency_s": 36.08,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1728,
+      "completion_tokens": 5042,
+      "total_tokens": 6770,
+      "latency_s": 91.24,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3469,
+      "completion_tokens": 11275,
+      "total_tokens": 14744,
+      "latency_s": 90.2,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6141,
+      "completion_tokens": 8782,
+      "total_tokens": 14923,
+      "latency_s": 76.38,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10689,
+      "completion_tokens": 9006,
+      "total_tokens": 19695,
+      "latency_s": 61.31,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 355.22
+}

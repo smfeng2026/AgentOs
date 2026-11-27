@@ -1,0 +1,63 @@
+{
+  "title": "奶奶生日前的周六家宴筹备",
+  "scenario_category": "family",
+  "subscenario": "家庭聚会",
+  "template_id": "C08-S03",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [
+      "生日蛋糕"
+    ],
+    "people": [
+      "妈妈",
+      "奶奶",
+      "二姨",
+      "表弟",
+      "家庭群"
+    ],
+    "dates": [
+      "12月26日"
+    ],
+    "other": [
+      "聚福楼餐厅（徐汇滨江店）",
+      "8人包间"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "奶奶生日家宴安排",
+      "category": "family",
+      "purpose": "family_gathering",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "家庭群中妈妈发起周六为奶奶过生日聚餐的沟通记录",
+        "餐厅App中12月26日18:30的8人包间预订成功订单",
+        "日历中12月26日晚创建的家宴日程"
+      ],
+      "optional_evidence": [
+        "支付餐厅订金的记录",
+        "去聚福楼的路线查询",
+        "生日蛋糕的搜索与收藏"
+      ],
+      "unknown_information": [
+        "最终人数是否还会变动",
+        "是否安排接送奶奶"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "17:40左右家庭群开始讨论奶奶生日聚餐并敲定8人；19:00-20:30集中在餐厅App搜索、看详情和评价；决定性证据（预订包间、支付订金、创建日历日程）集中在21:00前后出现；之后群里同步预订信息，蛋糕浏览与提醒设置收尾，23:00前无新增关键证据",
+  "variant_note": "与同模板其他样本相比：本样本以奶奶生日为聚会由头，证据融合覆盖im_app、restaurant_app、payment_app、calendar_app、map_app、review_app、shopping_app七类；决定性证据是订金支付而非免费留位，人数在群聊中经过一次修正（先说6人后改8人）；无反向证据，干扰完全由程序注入的无关事件承担",
+  "scenario_id": "c08-s03-86cfa2cb"
+}

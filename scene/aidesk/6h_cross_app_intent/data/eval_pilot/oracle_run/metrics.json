@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "generated_at": "2026-11-27T12:29:49+08:00",
+    "match_threshold": 0.4,
+    "n_gold_rows": 6,
+    "n_predictions": 0,
+    "n_evaluated": 0,
+    "n_missing_predictions": 0,
+    "n_format_errors": 6,
+    "format_valid_rate": 0.0
+  },
+  "overall": {
+    "n_samples": 0
+  },
+  "slices": {
+    "category": {},
+    "difficulty": {},
+    "template": {}
+  },
+  "format_errors": [
+    {
+      "sample_id": "c01-s04-7f2e82ab",
+      "reason": "no prediction object"
+    },
+    {
+      "sample_id": "c01-s04-b3e0a654",
+      "reason": "no prediction object"
+    },
+    {
+      "sample_id": "c04-s01-7520a488",
+      "reason": "no prediction object"
+    },
+    {
+      "sample_id": "c04-s01-9e1006a1",
+      "reason": "no prediction object"
+    },
+    {
+      "sample_id": "c08-s03-2b914f19",
+      "reason": "no prediction object"
+    },
+    {
+      "sample_id": "c08-s03-86cfa2cb",
+      "reason": "no prediction object"
+    }
+  ],
+  "missing_predictions": [],
+  "per_sample": [],
+  "design_targets": {
+    "intent_macro_f1": 0.85,
+    "relation_macro_f1": 0.8,
+    "supporting_f1": 0.85,
+    "related_interest_f1": 0.75,
+    "purpose_accuracy": 0.85,
+    "fact_grounding_precision": 0.95,
+    "purpose_unknown_recall": 0.9
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "sample_id": "c04-s01-7520a488",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:27:46+08:00",
+  "task": {
+    "scenario_category": "social_dining",
+    "template_id": "C04-S01",
+    "subscenario": "朋友聚餐",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-15T08:05:00+08:00",
+    "window_end": "2026-12-15T14:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3347243051
+  },
+  "spec_summary": {
+    "title": "周六老友聚餐定店订座",
+    "intent_names": [
+      "周六老友饭局定店安排"
+    ],
+    "intent_categories": [
+      "social_dining"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "湖滨银泰附近日料店"
+      ],
+      "products": [
+        "四人座位"
+      ],
+      "people": [
+        "老周",
+        "阿蕾",
+        "大鹏"
+      ],
+      "dates": [
+        "12月19日"
+      ],
+      "other": [
+        "周六18:30",
+        "人均150元左右",
+        "包间需求"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 6,
+    "gold_related_interest": 9,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "socializing": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "social_dining": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "learn_video",
+      "hn_restaurant_lunch",
+      "cal_view",
+      "music_search",
+      "pay_balance",
+      "weather_forecast",
+      "news_read",
+      "mail_cleanup",
+      "photo_edit",
+      "map_traffic",
+      "ent_trailer",
+      "fit_steps",
+      "health_article",
+      "social_feed_photo",
+      "comm_bus"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 6,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 1185,
+      "total_tokens": 3047,
+      "latency_s": 13.69,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1718,
+      "completion_tokens": 8368,
+      "total_tokens": 10086,
+      "latency_s": 163.04,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3714,
+      "completion_tokens": 5489,
+      "total_tokens": 9203,
+      "latency_s": 43.49,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6138,
+      "completion_tokens": 11007,
+      "total_tokens": 17145,
+      "latency_s": 89.67,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10378,
+      "completion_tokens": 4263,
+      "total_tokens": 14641,
+      "latency_s": 27.6,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 337.49,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c04-s01-7520a488.json",
+      "sha256": "43382f55c3da507eb331c7b86920e8bbb74be6a525d5479d74fb8bc3a9cefeae"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c04-s01-7520a488.json",
+      "sha256": "dc3e837f8cb7d92c5d7f9687d7b2349441e8691386532d48477e7c57aef90db7"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c04-s01-7520a488.json",
+      "sha256": "0607fe176790809a0b7256dc903deef17fd543ac9de6e5a7c8f4e1863844b1f4"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c04-s01-7520a488.json",
+      "sha256": "892fa1807fbc2ee0efc9f81fb70a41f5d9064fea12779942a4c8d319aee335d1"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c04-s01-7520a488.json",
+      "sha256": "8f89a577c102162b675966440cc238aeddde52ce0be2c1fec9a3f94f19706796"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "杭州",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "sample_id": "c10-s01-e664230d",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-07T17:15:00+08:00",
+    "end": "2026-12-07T23:15:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-07T17:36:00+08:00",
+      "app": "fitness_app",
+      "action": "search",
+      "content": {
+        "keyword": "搏击操团课",
+        "city": "上海",
+        "region": "静安区",
+        "preferred_date": "12月10日",
+        "preferred_time_slot": "晚间"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-07T17:44:17+08:00",
+      "app": "sports_app",
+      "action": "read_match_news",
+      "content": {
+        "league": "足球联赛"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-07T17:52:00+08:00",
+      "app": "sports_app",
+      "action": "browse_content",
+      "content": {
+        "content_title": "搏击操基础拳法与步伐训练合集",
+        "duration_minutes": 18,
+        "difficulty": "入门"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-07T18:00:52+08:00",
+      "app": "map_app",
+      "action": "view_commute_traffic",
+      "content": {
+        "road": "常走的环线"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-07T18:14:00+08:00",
+      "app": "music_app",
+      "action": "browse_content",
+      "content": {
+        "playlist_name": "高强度训练节奏歌单",
+        "song_count": 45,
+        "scene": "健身房团课"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-07T18:26:00+08:00",
+      "app": "fitness_app",
+      "action": "view_detail",
+      "content": {
+        "course_name": "搏击操团课单次课",
+        "venue_name": "动燃健身静安店",
+        "class_date": "12月10日",
+        "class_time": "19:30-20:30",
+        "coach": "王悦",
+        "price": 199,
+        "remaining_spots": 6
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-07T18:39:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "category": "运动装备",
+        "keyword": "拳击手套 女款",
+        "price_range": "80-150元"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-07T19:01:37+08:00",
+      "app": "video_app",
+      "action": "watch_livestream",
+      "content": {
+        "host": "美食主播小林",
+        "topic": "木工小凳子"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-07T19:06:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "同事李婷",
+        "message_topic": "约12月10日晚上一起上搏击操团课",
+        "proposed_time": "12月10日19:30",
+        "venue_name": "动燃健身静安店"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-07T19:14:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "chat_with": "同事李婷",
+        "message_topic": "同意周四晚上一起上课，到时馆里见",
+        "confirmed_time": "12月10日19:30"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-07T19:22:53+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-07T19:38:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "30分钟搏击操入门跟练教程",
+        "duration_minutes": 30,
+        "view_progress_percent": 62
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-07T20:05:36+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-07T20:27:01+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "古典音乐"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-07T20:34:00+08:00",
+      "app": "fitness_app",
+      "action": "create_order",
+      "content": {
+        "order_type": "团课单次课",
+        "course_name": "搏击操团课单次课",
+        "venue_name": "动燃健身静安店",
+        "class_date": "12月10日",
+        "class_time": "19:30-20:30",
+        "price": 199,
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-07T20:38:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "动燃健身静安店",
+        "amount": 199,
+        "payment_method": "余额支付",
+        "payment_subject": "搏击操团课单次课订单",
+        "order_status": "支付成功"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-07T20:51:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "event_title": "搏击操团课（和李婷）",
+        "start_time": "12月10日19:30",
+        "end_time": "12月10日20:30",
+        "location": "动燃健身静安店",
+        "reminder": "提前45分钟提醒"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-07T20:59:01+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "护眼小贴士"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-07T21:11:34+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "动画电影预告"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-07T21:25:35+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-07T21:36:00+08:00",
+      "app": "fitness_app",
+      "action": "collect",
+      "content": {
+        "course_name": "晚间阴瑜伽拉伸团课",
+        "venue_name": "动燃健身静安店",
+        "class_time": "20:45-21:30",
+        "collect_status": "已收藏"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-07T21:57:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "stat_type": "本周运动记录",
+        "workout_count": 3,
+        "total_minutes": 150,
+        "calorie_burned": 980
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-07T22:06:51+08:00",
+      "app": "payment_app",
+      "action": "pay_utility_bill",
+      "content": {
+        "bill_type": "水费",
+        "amount": "¥112.00"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-07T22:10:55+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-07T22:15:43+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "上海"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-07T22:19:21+08:00",
+      "app": "mail_app",
+      "action": "read_newsletter",
+      "content": {
+        "subject": "本周科技简报"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-07T22:26:36+08:00",
+      "app": "news_app",
+      "action": "browse_headlines",
+      "content": {
+        "section": "财经"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-07T22:44:06+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "传统茶具介绍"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-07T22:49:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "静安区南京西路公司",
+        "destination": "动燃健身静安店",
+        "travel_mode": "步行",
+        "estimated_minutes": 12,
+        "planned_date": "12月10日",
+        "planned_arrival_time": "19:15"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-07T23:04:00+08:00",
+      "app": "fitness_app",
+      "action": "view_order",
+      "content": {
+        "course_name": "搏击操团课单次课",
+        "venue_name": "动燃健身静安店",
+        "class_date": "12月10日",
+        "class_time": "19:30-20:30",
+        "amount": 199,
+        "order_status": "已预约"
+      }
+    }
+  ]
+}

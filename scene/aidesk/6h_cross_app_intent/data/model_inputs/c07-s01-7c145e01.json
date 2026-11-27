@@ -1,0 +1,342 @@
+{
+  "sample_id": "c07-s01-7c145e01",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-01T14:05:00+08:00",
+    "end": "2026-12-01T20:05:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-01T14:13:00+08:00",
+      "app": "music_app",
+      "action": "search",
+      "content": {
+        "keyword": "沈以辰",
+        "search_scope": "歌手与歌曲",
+        "top_result": "沈以辰《逆光航行》"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-01T14:25:02+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "生抽"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-01T14:34:00+08:00",
+      "app": "music_app",
+      "action": "collect",
+      "content": {
+        "song_title": "逆光航行",
+        "artist": "沈以辰",
+        "collection_name": "我的收藏",
+        "collect_result": "收藏成功"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-01T14:36:40+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "周末散步照片"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-01T14:52:00+08:00",
+      "app": "music_app",
+      "action": "browse_content",
+      "content": {
+        "artist_name": "沈以辰",
+        "content_type": "热门50首歌曲榜",
+        "play_mode": "列表循环"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-01T14:59:25+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "基金定投入门"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-01T15:09:27+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "养猫日常"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-01T15:18:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "community_name": "沈以辰粉丝超话",
+        "post_title": "上海站12月20日滨江体育中心官宣帖",
+        "view_duration": "约8分钟"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-01T15:47:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "沈以辰 演唱会 舞台",
+        "video_title": "沈以辰巡回演唱会广州站全程舞台实录",
+        "search_result_rank": "第1位"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-01T16:06:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "好友小周",
+        "message_topic": "上海站开票提醒",
+        "message_summary": "上海站今天开票了，要不要一起去？"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-01T16:21:25+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "简约风景"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-01T16:24:00+08:00",
+      "app": "ticket_app",
+      "action": "search",
+      "content": {
+        "keyword": "沈以辰 演唱会",
+        "city": "上海",
+        "show_date": "12月20日",
+        "result_title": "沈以辰巡回演唱会上海站"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-01T16:34:34+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "便利店"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-01T16:42:52+08:00",
+      "app": "pet_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "猫咪疫苗时间表"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-01T16:51:00+08:00",
+      "app": "ticket_app",
+      "action": "view_detail",
+      "content": {
+        "show_title": "沈以辰巡回演唱会上海站",
+        "venue": "滨江体育中心体育馆",
+        "show_date": "12月20日",
+        "show_time": "19:30",
+        "price_tiers": [
+          "内场1280元",
+          "看台680元"
+        ]
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-01T17:17:31+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-01T17:19:00+08:00",
+      "app": "ticket_app",
+      "action": "compare",
+      "content": {
+        "show_title": "沈以辰巡回演唱会上海站",
+        "compared_items": [
+          "内场票1280元",
+          "看台票680元"
+        ],
+        "quantity": "2张",
+        "comparison_dimension": [
+          "价位",
+          "距舞台距离"
+        ]
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-01T17:40:59+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-01T17:58:00+08:00",
+      "app": "ticket_app",
+      "action": "create_order",
+      "content": {
+        "order_title": "沈以辰巡回演唱会上海站",
+        "ticket_type": "内场票",
+        "ticket_price": "1280元",
+        "quantity": 2,
+        "total_amount": "2560元",
+        "show_date": "12月20日",
+        "venue": "滨江体育中心体育馆",
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-01T18:01:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "payee": "票务平台",
+        "amount": "2560元",
+        "payment_method": "银行卡",
+        "payment_status": "支付成功",
+        "bill_note": "沈以辰巡回演唱会上海站内场票x2"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-01T18:13:18+08:00",
+      "app": "ticket_app",
+      "action": "browse_movie_schedules",
+      "content": {
+        "movie": "艺术片放映",
+        "date": "工作日晚"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-01T18:22:00+08:00",
+      "app": "ticket_app",
+      "action": "view_order",
+      "content": {
+        "order_title": "沈以辰巡回演唱会上海站",
+        "ticket_type": "内场票",
+        "quantity": 2,
+        "total_amount": "2560元",
+        "order_status": "已支付",
+        "show_date": "12月20日"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-01T18:36:08+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "办公室久坐危害"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-01T18:49:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "event_title": "沈以辰演唱会·上海站",
+        "start_time": "12月20日 19:30",
+        "location": "滨江体育中心体育馆",
+        "notes": "内场票两张，与小周同行，提前出发"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-01T18:54:26+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "化学小实验",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-01T19:10:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "好友小周",
+        "message_topic": "演唱会门票已买好",
+        "message_summary": "12月20日内场票两张已付款，当晚一起去，票我先拿着"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-01T19:15:46+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "历史文化文章"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-01T19:34:28+08:00",
+      "app": "meeting_app",
+      "action": "view_schedule",
+      "content": {
+        "date_range": "本周"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-01T19:38:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure_point": "当前位置",
+        "destination": "滨江体育中心体育馆",
+        "route_type": "地铁+步行",
+        "estimated_duration": "42分钟",
+        "planned_date": "12月20日"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-01T20:02:07+08:00",
+      "app": "taxi_app",
+      "action": "browse_content",
+      "content": {
+        "section": "电子发票",
+        "month": "上月"
+      }
+    }
+  ]
+}

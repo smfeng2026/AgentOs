@@ -1,0 +1,797 @@
+{
+  "sample_id": "c02-s01-68d56630",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "场景成立：客户确认邮件（e001）、用户回信确认（e003）、日历创建带客户地址与参会人的会议日程（e021）、关联该会议的出发提醒（e025）构成决定性证据，意图 category=work / purpose=meeting / status=confirmed / confidence=high 与标签体系一致，无需重新生成。修正盲标与规划标签：(1) 按规则10，search/view/browse 类动作一律为 related_interest，故 e009（文档列表浏览）、e010（文档详情查看）、e011（邮件搜索）、e016（联系人查看）、e020（日程查看/冲突检查）、e027（路线搜索）、e028（天气搜索）归 related_interest，纠正标注器把它们中的多条记为 supporting 的做法，也纠正审查报告将 e010/e027 上提为 supporting 的建议（该建议与规则10冲突）；(2) e005/e006 为内部汇报分工协调及同事的明确确认回复，e013 为向直属领导实际送审 v3 材料，属于推进会议的实质承诺动作，保留为 supporting；(3) e012“标书打印装订”搜索与纸质材料准备弱相关，按真实语义保留 related_interest（低置信），不据此新建意图，也不强行判为无关；(4) 其余15条为语义无关的注入干扰，unrelated 计15条（与预算的15条一致，未为凑数改标）。审查报告提到的“缺少文档实际编辑事件”属实，但仅影响 required_evidence 的措辞（应改为“查看汇报材料”），不改变意图判定，已在 unknown_information 中保留材料是否定稿的不确定性；e025（13:15提醒）与 e027（13:00规划出发）的时间差属轻微表述歧义（提醒可为出发前检查），不构成反向证据，conflicts 留空。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "social_feed_photo",
+        "map_history",
+        "mail_cleanup",
+        "comm_bus",
+        "read_bookmark",
+        "learn_video",
+        "health_article",
+        "news_headlines",
+        "photo_backup",
+        "ent_trailer",
+        "sys_wallpaper",
+        "cal_birthday",
+        "game_store",
+        "weather_now",
+        "shop_coupon"
+      ],
+      "hard_negative_ids": []
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "确认并筹备12月11日客户季度合作方案汇报会议",
+        "category": "work",
+        "purpose": "meeting",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e001",
+          "e003",
+          "e021",
+          "e025"
+        ],
+        "related_interest_event_ids": [
+          "e005",
+          "e006",
+          "e009",
+          "e010",
+          "e011",
+          "e013",
+          "e016",
+          "e020",
+          "e027",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "客户李总监发来邮件确认12月11日14:00-15:30在浦东新区客户公司办公楼3层会议室进行季度合作方案汇报。",
+            "source_event_ids": [
+              "e001"
+            ]
+          },
+          {
+            "fact": "用户回复客户确认届时偕同事张倩准时到访，并说明汇报材料电子版将于会前一天发送。",
+            "source_event_ids": [
+              "e003"
+            ]
+          },
+          {
+            "fact": "用户在日历中创建了12月11日14:00-15:30的客户现场会议日程，参与人包括客户李总监、同事张倩、直属领导周经理。",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户设置了12月11日13:15出发前往浦东客户办公楼的提醒，并关联该会议。",
+            "source_event_ids": [
+              "e025"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户与同事张倩分工准备12月11日客户现场汇报，张倩负责数据回顾与客户案例，用户负责方案总述和报价框架，周经理压场。",
+            "source_event_ids": [
+              "e005",
+              "e006"
+            ]
+          },
+          {
+            "fact": "用户查看了季度合作方案汇报演示文稿v3，文档包含合作回顾、季度目标、报价框架、实施计划与分工等章节。",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户已将季度合作方案汇报_v3.pdf发给直属领导周经理审阅，并请其重点看报价框架页。",
+            "source_event_ids": [
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户查看了12月7日至12月13日日程，并确认12月11日下午空闲。",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户查询了12月11日从公司办公室到浦东客户公司的路线，并查询了浦东新区当天的天气。",
+            "source_event_ids": [
+              "e027",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "客户最终是否接受报价框架",
+          "汇报材料最终版是否已完成",
+          "会议是否实际召开"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e007",
+      "e008",
+      "e012",
+      "e014",
+      "e015",
+      "e017",
+      "e018",
+      "e019",
+      "e022",
+      "e023",
+      "e024",
+      "e026",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 16
+    }
+  },
+  "review": {
+    "sample_id": "c02-s01-68d56630",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_misclassification",
+        "severity": "high",
+        "event_ids": [
+          "e005",
+          "e006",
+          "e010",
+          "e013",
+          "e027"
+        ],
+        "description": "盲标把多条直接支撑客户拜访筹备与会议意图的证据降为 related_interest，且 supporting_event_ids 仅保留 e001/e003/e021/e025。e005/e006 是规格要求的即时通讯分工确认，e010 是规格要求的汇报材料查看，e027 是规格要求的客户办公楼路线搜索；e013 是向直属领导送审 v3 汇报材料，也属于直接筹备证据。将这些标为 related_interest 会削弱 required_evidence 覆盖检查。",
+        "suggested_action": "将 e005、e006、e010、e027 至少改为 supporting；e013 可标为 supporting 或说明为辅助审阅证据。同步更新 supporting_event_ids 与 related_interest_event_ids，避免 required_evidence 被错误降级。"
+      },
+      {
+        "issue_type": "missing_required_evidence",
+        "severity": "medium",
+        "event_ids": [
+          "e009",
+          "e010",
+          "e013"
+        ],
+        "description": "规格要求“文档应用中查看并修改汇报材料”，但现有事件只有 browse_content 和 view_detail；e010 的 last_edited_time 是文档元数据，不能证明用户执行了修改。没有 docs_app 的 edit/update/保存动作。",
+        "suggested_action": "补充一条 docs_app 编辑、保存或版本更新事件；或将 required_evidence 改为“查看汇报材料”，不要从元数据推断用户修改。"
+      },
+      {
+        "issue_type": "label_conflict_or_blind_miss",
+        "severity": "medium",
+        "event_ids": [
+          "e012"
+        ],
+        "description": "e012 在 labeled_events 中为 origin=related、relation=related_interest（搜索“标书打印装订”，可能与纸质材料准备相关，且 unknown_information 包含是否需要纸质材料），但盲标 event_labels 和 unrelated_event_ids 将其判为 unrelated。若该搜索确为会议纸质材料准备，盲标漏标；若确定为无关的标书任务，也应明确为干扰项。",
+        "suggested_action": "建议裁决器按真实语义保留为 related_interest（低置信）或明确标注为 unrelated distractor；不要因单条打印搜索创建新意图，也不要无说明丢弃样本。"
+      },
+      {
+        "issue_type": "temporal_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e025",
+          "e027"
+        ],
+        "description": "e027 路线搜索的 planned_departure_time 为 12月11日13:00，而 e025 的出发提醒设为 13:15；若提醒表示实际出发时间，则晚于规划出发时间，且地铁方案可能迟到。",
+        "suggested_action": "对齐提醒时间与规划出发时间，或将提醒文案改为“出发前检查/准备”以消除歧义。"
+      }
+    ],
+    "summary": "意图本身有直接证据支持：客户邮件确认、用户回复、日历创建会议和出发提醒足以确认 meeting 目的。但盲标将多条 required_evidence 错误降为 related_interest，汇报材料缺少实际修改事件，e012 存在 related_interest/unrelated 标签冲突，且提醒时间与路线规划时间有小幅不一致，因此不通过。"
+  },
+  "adjudication": {
+    "sample_id": "c02-s01-68d56630",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "季度合作方案客户拜访",
+          "category": "work",
+          "purpose": "meeting",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e006",
+            "e013",
+            "e021",
+            "e025"
+          ],
+          "related_interest_event_ids": [
+            "e009",
+            "e010",
+            "e011",
+            "e012",
+            "e016",
+            "e020",
+            "e027",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "客户李总监发邮件确认12月11日14:00-15:30在浦东新区客户公司办公楼3层会议室进行季度合作方案汇报，议程包括季度合作方案汇报、报价框架讨论、后续合作计划，并要求双方项目对接人参加。",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "用户回复客户李总监，确认届时和同事张倩会准时到访，汇报材料电子版将在会前一天发送。",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "用户与同事张倩确认12月11日客户现场汇报分工：张倩负责数据回顾与客户案例，用户负责方案总述与报价框架，周经理负责现场把控；张倩回复收到，表示今晚把数据页并入总稿，明早发终版。",
+              "source_event_ids": [
+                "e005",
+                "e006"
+              ]
+            },
+            {
+              "fact": "用户将《季度合作方案汇报_v3.pdf》发给直属领导周经理审阅，并请其重点查看报价框架页。",
+              "source_event_ids": [
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户已在日历中创建12月11日14:00-15:30的“客户现场会议：季度合作方案汇报”日程，地点为浦东新区客户公司办公楼3层会议室，参与人包括客户李总监、同事张倩、直属领导周经理。",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户设置了12月11日13:15出发前往浦东客户办公楼的提醒，并关联到该客户现场会议日程。",
+              "source_event_ids": [
+                "e025"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在文档应用中浏览最近文件列表，可见“客户拜访纪要模板”“Q3合作复盘数据”“竞品方案参考”等与客户拜访准备相关的材料。",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "汇报材料《季度合作方案汇报》为演示文稿v3版，共22页，包含合作回顾、季度目标、报价框架、实施计划与分工四个章节，最近修改时间为当天15:30。",
+              "source_event_ids": [
+                "e010"
+              ]
+            },
+            {
+              "fact": "用户以“李总监”为关键词检索近三个月邮件，命中12封，最新一封主题为“11月渠道合作对齐会纪要”，说明双方此前已有持续合作沟通。",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户搜索过“标书打印装订”服务（A4胶装当日可取等），可能与会议纸质材料准备有关，也可能属于其他文件任务。",
+              "source_event_ids": [
+                "e012"
+              ]
+            },
+            {
+              "fact": "联系人中存有李总监的信息（客户公司，备注“季度合作方案对接人”），用于会前联系。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户查看了12月7日至13日的日程，确认12月11日下午空闲，可用于客户现场会议。",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户规划了12月11日13:00从公司办公室前往浦东新区客户公司办公楼的路线：驾车约38分钟，地铁约52分钟，午间后段轻度拥堵。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户查询了12月11日上海浦东新区的天气：多云转小雨，8-13℃，需考虑出行与携带雨具。",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "客户方最终参会人数",
+            "是否需要携带纸质材料（打印装订类搜索仅为弱相关线索）",
+            "客户对报价框架的反馈",
+            "汇报材料最终版能否按时定稿"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e007",
+        "e008",
+        "e014",
+        "e015",
+        "e017",
+        "e018",
+        "e019",
+        "e022",
+        "e023",
+        "e024",
+        "e026",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c02-s01-68d56630"
+    },
+    "rationale": "场景成立：客户确认邮件（e001）、用户回信确认（e003）、日历创建带客户地址与参会人的会议日程（e021）、关联该会议的出发提醒（e025）构成决定性证据，意图 category=work / purpose=meeting / status=confirmed / confidence=high 与标签体系一致，无需重新生成。修正盲标与规划标签：(1) 按规则10，search/view/browse 类动作一律为 related_interest，故 e009（文档列表浏览）、e010（文档详情查看）、e011（邮件搜索）、e016（联系人查看）、e020（日程查看/冲突检查）、e027（路线搜索）、e028（天气搜索）归 related_interest，纠正标注器把它们中的多条记为 supporting 的做法，也纠正审查报告将 e010/e027 上提为 supporting 的建议（该建议与规则10冲突）；(2) e005/e006 为内部汇报分工协调及同事的明确确认回复，e013 为向直属领导实际送审 v3 材料，属于推进会议的实质承诺动作，保留为 supporting；(3) e012“标书打印装订”搜索与纸质材料准备弱相关，按真实语义保留 related_interest（低置信），不据此新建意图，也不强行判为无关；(4) 其余15条为语义无关的注入干扰，unrelated 计15条（与预算的15条一致，未为凑数改标）。审查报告提到的“缺少文档实际编辑事件”属实，但仅影响 required_evidence 的措辞（应改为“查看汇报材料”），不改变意图判定，已在 unknown_information 中保留材料是否定稿的不确定性；e025（13:15提醒）与 e027（13:00规划出发）的时间差属轻微表述歧义（提醒可为出发前检查），不构成反向证据，conflicts 留空。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "meeting": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "work": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.867,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 1396,
+      "total_tokens": 3253,
+      "latency_s": 14.19,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1671,
+      "completion_tokens": 9906,
+      "total_tokens": 11577,
+      "latency_s": 88.51,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3686,
+      "completion_tokens": 8213,
+      "total_tokens": 11899,
+      "latency_s": 57.55,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6047,
+      "completion_tokens": 9695,
+      "total_tokens": 15742,
+      "latency_s": 71.53,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10297,
+      "completion_tokens": 6913,
+      "total_tokens": 17210,
+      "latency_s": 48.73,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 280.52
+}

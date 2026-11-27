@@ -1,0 +1,211 @@
+{
+  "sample_id": "c10-s01-e664230d",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:44:33+08:00",
+  "task": {
+    "scenario_category": "fitness",
+    "template_id": "C10-S01",
+    "subscenario": "健身课程",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-07T17:15:00+08:00",
+    "window_end": "2026-12-07T23:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3325229745
+  },
+  "spec_summary": {
+    "title": "工作日晚间预约搏击操团课",
+    "intent_names": [
+      "健身团课训练安排"
+    ],
+    "intent_categories": [
+      "fitness"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [],
+      "products": [
+        "搏击操团课单次课"
+      ],
+      "people": [
+        "同事李婷"
+      ],
+      "dates": [
+        "12月10日"
+      ],
+      "other": [
+        "动燃健身静安店"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 5,
+    "gold_related_interest": 10,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "training": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "fitness": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "hn_match_news",
+      "map_traffic",
+      "video_livestream",
+      "food_history",
+      "cal_birthday",
+      "music_play",
+      "health_article",
+      "ent_trailer",
+      "sys_storage",
+      "pay_utility",
+      "learn_video",
+      "weather_now",
+      "mail_newsletter",
+      "news_headlines",
+      "read_bookmark"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "training": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "fitness": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1852,
+      "completion_tokens": 1538,
+      "total_tokens": 3390,
+      "latency_s": 16.35,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1710,
+      "completion_tokens": 5369,
+      "total_tokens": 7079,
+      "latency_s": 94.37,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3539,
+      "completion_tokens": 7857,
+      "total_tokens": 11396,
+      "latency_s": 61.01,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5910,
+      "completion_tokens": 8622,
+      "total_tokens": 14532,
+      "latency_s": 71.9,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9964,
+      "completion_tokens": 3940,
+      "total_tokens": 13904,
+      "latency_s": 23.05,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 266.69,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c10-s01-e664230d.json",
+      "sha256": "a5222a5ec9092f05ddfca36d8710638492cc5bd90e83de2c99d09eb92b8764f8"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c10-s01-e664230d.json",
+      "sha256": "8dee18ee3342650fca0e8b37f74a5c721e44ab1774d2b5f39912459ec052d675"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c10-s01-e664230d.json",
+      "sha256": "0897e31f03f5ad3a3b905be572b668bc2bae3652a91841b0d9e0ddc39978fceb"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c10-s01-e664230d.json",
+      "sha256": "b534e5e5c3e41e6903b23e35058d18e48d14c0fa69e118c1bd7ab79d39f84ae0"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c10-s01-e664230d.json",
+      "sha256": "fb7a33335186bab45c99306813f4d65048c1142128eec9b7472c091ec958e9d8"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "上海",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

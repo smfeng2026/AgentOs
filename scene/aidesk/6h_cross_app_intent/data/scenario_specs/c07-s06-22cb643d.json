@@ -1,0 +1,61 @@
+{
+  "title": "同伴临时出差，演唱会门票退票",
+  "scenario_category": "entertainment",
+  "subscenario": "退票取消",
+  "template_id": "C07-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "滨江体育中心体育馆"
+    ],
+    "products": [
+      "星野巡回演唱会门票x2"
+    ],
+    "people": [
+      "朋友小周"
+    ],
+    "dates": [
+      "12月26日"
+    ],
+    "other": [
+      "歌手林星野"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与朋友观看星野巡演",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的12月26日演唱会门票订单（2张）",
+        "两张门票的退票申请与退款到账通知",
+        "日历中12月26日演出日程被标记取消"
+      ],
+      "optional_evidence": [
+        "音乐App中反复播放该歌手歌曲",
+        "社交平台浏览演出相关动态",
+        "地图App查询场馆路线",
+        "与朋友沟通当天碰面安排"
+      ],
+      "unknown_information": [
+        "是否改看其他场次",
+        "同伴出差行程是否最终确定"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 4
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 5,
+    "contradicting": 4
+  },
+  "time_profile": "窗口前段（07:15-09:30）以原有观演计划证据为主：查看门票订单和日历日程、与朋友约定当天碰面、查询场馆路线并听歌手歌曲；约10点出现同伴临时出差无法到场的消息，随后一小时内接连发生退票申请、退款到账（含手续费）与日历日程取消，构成决定性反向证据；最后一小时仅剩零散兴趣浏览与无关事件。",
+  "variant_note": "同模板样本中本样本以演唱会而非话剧/展览为对象；取消动因是同伴临时出差而非自身行程冲突；退款含手续费造成部分损失；App 组合为 ticket_app+payment_app+calendar_app+im_app+music_app，决定性反向证据集中在窗口中段而非末尾，与同模板其他样本的证据位置和触发原因形成差异。",
+  "scenario_id": "c07-s06-22cb643d"
+}

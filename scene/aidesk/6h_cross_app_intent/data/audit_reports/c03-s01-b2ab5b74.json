@@ -1,0 +1,787 @@
+{
+  "sample_id": "c03-s01-b2ab5b74",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标与内部标签的偏差：按事件语义与标注规则，e003/e004/e005/e006/e008/e011/e016/e017/e028 均为比价、搜索、浏览、加购或查看订单等非决定性动作，应标为 related_interest；e013 为明确自用换机需求消息，e018 下单、e019 支付成功、e024 发货通知为决定性证据，标为 supporting。意图名去掉可能暗示旧机折抵的“换购”，改为“购买星曜X7 Pro手机自用”；状态取 confirmed，避免在未签收时过度标为 completed。无需重新生成事件。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "cal_view",
+        "hn_product_wishlist_other",
+        "news_headlines",
+        "work_tool_article",
+        "comm_subway",
+        "sys_wallpaper",
+        "hn_product_other",
+        "map_traffic",
+        "video_playlist",
+        "read_bookmark",
+        "hn_product_compare_other",
+        "food_history",
+        "fit_video",
+        "health_article",
+        "pay_balance"
+      ],
+      "hard_negative_ids": [
+        "hn_product_wishlist_other",
+        "hn_product_other",
+        "hn_product_compare_other"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "购买星曜X7 Pro手机自用",
+        "category": "shopping",
+        "purpose": "personal_use",
+        "status": "completed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e013",
+          "e018",
+          "e019",
+          "e024",
+          "e028"
+        ],
+        "related_interest_event_ids": [
+          "e003",
+          "e004",
+          "e005",
+          "e006",
+          "e008",
+          "e011",
+          "e014",
+          "e015",
+          "e016",
+          "e017"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户在消息中表示旧手机电池老化严重，打算这几天换一台新手机自己用。",
+            "source_event_ids": [
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户创建了订单 SO20261214214801，购买星曜X7 Pro手机 12GB+256GB 曜夜黑 1台，金额4899元，订单状态为待支付。",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户通过银行卡支付订单 SO20261214214801，金额4899元，支付成功。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "订单 SO20261214214801 已发货，预计12月16日送达。",
+            "source_event_ids": [
+              "e024",
+              "e028"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户在购买前对星曜X7 Pro手机进行了价格比较、搜索、参数查看、评价浏览和视频评测浏览，处于购买决策调研阶段。",
+            "source_event_ids": [
+              "e003",
+              "e004",
+              "e005",
+              "e011",
+              "e015"
+            ]
+          },
+          {
+            "fact": "用户还比较和查看了该机型配套的保护壳与钢化膜，可能考虑购买配件。",
+            "source_event_ids": [
+              "e006",
+              "e008"
+            ]
+          },
+          {
+            "fact": "用户考虑去品牌线下体验店查看真机。",
+            "source_event_ids": [
+              "e014",
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户曾将该机型加入购物车收藏。",
+            "source_event_ids": [
+              "e016"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "手机是否已实际签收",
+          "是否会购买保护壳、钢化膜等配件",
+          "是否最终前往线下体验店",
+          "旧手机的具体型号及后续处理方式"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e007",
+      "e009",
+      "e010",
+      "e012",
+      "e020",
+      "e021",
+      "e022",
+      "e023",
+      "e025",
+      "e026",
+      "e027",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c03-s01-b2ab5b74",
+    "passed": true,
+    "issues": [
+      {
+        "issue_type": "intent_name_unsupported",
+        "severity": "medium",
+        "event_ids": [
+          "e013",
+          "e018"
+        ],
+        "description": "Gold 意图名“换购旗舰手机自用”中的“换购”通常暗示旧机折抵/换购，但事件只支持旧手机电池老化后购买新机自用，没有旧机回收估价、折抵或换购记录。盲标改为“购买星曜X7 Pro手机自用”更贴合证据。",
+        "suggested_action": "将 Gold 意图名改为“购买/更换星曜X7 Pro手机自用”，或补充明确的旧机回收/折抵事件；否则将旧机回收保留为 unknown。"
+      },
+      {
+        "issue_type": "supporting_weak_evidence",
+        "severity": "medium",
+        "event_ids": [
+          "e004",
+          "e011"
+        ],
+        "description": "Gold 将商品搜索 e004 和用户评价浏览 e011 标为 supporting，但这两类行为只是购买调研/兴趣信号，单独不足以确认购买意图，导致 supporting_event_count 被抬高。盲标将其降为 related_interest 更合理。",
+        "suggested_action": "将 e004、e011 改标为 related_interest；若业务规则确实把调研行为计入 supporting，需在标注规范中写明并同步更新预算。"
+      },
+      {
+        "issue_type": "blind_supporting_omission",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e016"
+        ],
+        "description": "盲标将 e003 多平台比价（场景规格中的 required_evidence）和 e016 加购（决策阶段动作）降为 related_interest，且 supporting_event_ids 未包含 e003。这与规格中的必需证据和 supporting 预算存在冲突，造成 Gold 与盲标的 supporting 数量差异（9 对 5）。",
+        "suggested_action": "统一关系判定口径：若 required_evidence 必须计入 supporting，应将 e003 标为 supporting；e016 可作为 supporting 或 optional related_interest，但需与预算和事实描述保持一致。"
+      },
+      {
+        "issue_type": "status_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e018",
+          "e019",
+          "e024",
+          "e028"
+        ],
+        "description": "盲标将意图状态标为 completed，但证据只到支付成功和已发货，没有签收/完成使用事件，且盲标自身将“手机是否已实际签收”列为 unknown。Gold 使用 confirmed 更稳妥，除非 completed 仅指支付交易完成。",
+        "suggested_action": "将状态改为 confirmed 或 in_progress，或在标注中明确定义 completed 仅表示订单支付完成；同时避免与“是否签收未知”产生语义冲突。"
+      },
+      {
+        "issue_type": "fact_wording_imprecision",
+        "severity": "low",
+        "event_ids": [
+          "e016"
+        ],
+        "description": "盲标推断事实写“加入购物车收藏”，但 e016 的 action 是 collect，target 是购物车；“收藏”和“加购”在电商语义中并不完全相同。",
+        "suggested_action": "将该事实改写为“加入购物车”或“收藏/加购记录”，避免混淆动作类型。"
+      }
+    ],
+    "summary": "核心购买意图证据链完整：比价、搜索、参数查看、评价/视频调研、旧机电池老化对话、下单、支付、发货通知与订单查看均存在，required evidence 基本齐备。未发现 critical/high 问题；主要问题是 Gold 的“换购”措辞略超出证据、Gold 对 e004/e011 的 supporting 标注偏强、盲标对 e003/e016 的 supporting 降级与规格不一致，以及 completed 状态相对签收未知略显过度。未发现 noise 事件被漏标为相关，也未发现多意图错误合并/拆分的明显证据。"
+  },
+  "adjudication": {
+    "sample_id": "c03-s01-b2ab5b74",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "购买星曜X7 Pro手机自用",
+          "category": "shopping",
+          "purpose": "personal_use",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e013",
+            "e018",
+            "e019",
+            "e024"
+          ],
+          "related_interest_event_ids": [
+            "e003",
+            "e004",
+            "e005",
+            "e006",
+            "e008",
+            "e011",
+            "e014",
+            "e015",
+            "e016",
+            "e017",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户在即时通讯中告知同事旧手机电池老化严重，打算这几天换一台新手机自己用。",
+              "source_event_ids": [
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户创建订单 SO20261214214801，购买星曜X7 Pro手机 12GB+256GB 曜夜黑 1台，金额4899元，订单状态为待支付。",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户支付订单 SO20261214214801，金额4899元，支付成功。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "订单 SO20261214214801 已发货，预计12月16日送达。",
+              "source_event_ids": [
+                "e024"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户在购买前对星曜X7 Pro手机进行多平台比价、搜索、参数查看、评价浏览和视频评测浏览，处于购买决策调研阶段。",
+              "source_event_ids": [
+                "e003",
+                "e004",
+                "e005",
+                "e011",
+                "e015"
+              ]
+            },
+            {
+              "fact": "用户还比较和查看了该机型配套的保护壳与钢化膜，可能考虑购买配件。",
+              "source_event_ids": [
+                "e006",
+                "e008"
+              ]
+            },
+            {
+              "fact": "用户考虑去品牌线下体验店查看真机。",
+              "source_event_ids": [
+                "e014",
+                "e017"
+              ]
+            },
+            {
+              "fact": "用户曾将星曜X7 Pro手机加入购物车。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户下单后查看订单，关注订单已发货状态。",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "手机是否已实际签收",
+            "是否会购买保护壳、钢化膜等配件",
+            "是否最终前往线下体验店",
+            "旧手机的具体型号及后续处理方式（是否回收或折抵）",
+            "是否叠加使用平台优惠券之外的赠品"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e007",
+        "e009",
+        "e010",
+        "e012",
+        "e020",
+        "e021",
+        "e022",
+        "e023",
+        "e025",
+        "e026",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c03-s01-b2ab5b74"
+    },
+    "rationale": "修正盲标与内部标签的偏差：按事件语义与标注规则，e003/e004/e005/e006/e008/e011/e016/e017/e028 均为比价、搜索、浏览、加购或查看订单等非决定性动作，应标为 related_interest；e013 为明确自用换机需求消息，e018 下单、e019 支付成功、e024 发货通知为决定性证据，标为 supporting。意图名去掉可能暗示旧机折抵的“换购”，改为“购买星曜X7 Pro手机自用”；状态取 confirmed，避免在未签收时过度标为 completed。无需重新生成事件。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "personal_use": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "shopping": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 2804,
+      "total_tokens": 4666,
+      "latency_s": 36.66,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1836,
+      "completion_tokens": 6246,
+      "total_tokens": 8082,
+      "latency_s": 56.78,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3488,
+      "completion_tokens": 5762,
+      "total_tokens": 9250,
+      "latency_s": 44.39,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5967,
+      "completion_tokens": 18654,
+      "total_tokens": 24621,
+      "latency_s": 137.19,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10137,
+      "completion_tokens": 5404,
+      "total_tokens": 15541,
+      "latency_s": 38.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 313.51
+}

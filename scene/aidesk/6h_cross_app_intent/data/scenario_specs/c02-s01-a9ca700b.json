@@ -1,0 +1,63 @@
+{
+  "title": "客户需求评审会确认与筹备",
+  "scenario_category": "work",
+  "subscenario": "客户会议",
+  "template_id": "C02-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "浦东张江"
+    ],
+    "products": [],
+    "people": [
+      "客户方项目经理刘总",
+      "同事陈晓",
+      "部门主管周经理"
+    ],
+    "dates": [
+      "12月18日"
+    ],
+    "other": [
+      "华信科技",
+      "张江路88号",
+      "需求评审演示材料"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "华信科技需求评审会筹备",
+      "category": "work",
+      "purpose": "meeting",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "客户方回复的会议确认邮件（12月18日，含议程与参会人）",
+        "日历中创建的12月18日客户会议事件",
+        "即时通讯中与同事讨论会议分工与材料的消息",
+        "地图应用中搜索客户公司地址的路线"
+      ],
+      "optional_evidence": [
+        "文档应用中浏览并修改需求评审演示材料",
+        "预约12月18日前往客户公司的网约车",
+        "查询12月18日上海天气"
+      ],
+      "unknown_information": [
+        "客户方参会人员是否全部到场",
+        "是否需要为会议准备线上接入方式"
+      ],
+      "supporting_event_count": 10,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 10,
+    "related_interest": 5,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前段（约13:00-13:40）客户确认邮件到达并查看详情；中段（14:00-16:00）以即时通讯分工讨论、文档材料修改为主；决定性证据（日历创建会议事件、地图路线搜索）集中在最后两小时（16:30-18:20），网约车预约与天气查询收尾",
+  "variant_note": "本样本的客户确认来自邮件而非即时通讯，需要融合 mail_app、im_app、calendar_app、docs_app、map_app 五类应用才能完整判断；会议敲定过程呈邮件先确认、内部后筹备、日历与路线收尾的时间结构；与同模板其他样本相比，本样本确认时点偏早（窗口前段），后段证据多为执行准备类动作，干扰项以求职招聘、购物比价、娱乐类无关事件为主",
+  "scenario_id": "c02-s01-a9ca700b"
+}

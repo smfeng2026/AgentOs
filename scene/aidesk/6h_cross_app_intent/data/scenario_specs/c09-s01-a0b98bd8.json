@@ -1,0 +1,63 @@
+{
+  "title": "护照到期换发办理",
+  "scenario_category": "finance_admin",
+  "subscenario": "证件办理",
+  "template_id": "C09-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "杭州市民中心出入境办证大厅"
+    ],
+    "products": [
+      "护照换发",
+      "出入境证件照拍摄"
+    ],
+    "people": [
+      "母亲"
+    ],
+    "dates": [
+      "12月18日"
+    ],
+    "other": [
+      "旧护照",
+      "证件照回执"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "护照换发办理",
+      "category": "finance_admin",
+      "purpose": "certification",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "government_app 中出入境办证预约成功记录（12月18日上午时段）",
+        "docs_app 中查看/整理证件照电子回执与身份证明材料",
+        "calendar_app 创建12月18日前往办证大厅的日程",
+        "mail_app 收到预约成功确认邮件"
+      ],
+      "optional_evidence": [
+        "map_app 搜索办证大厅的路线",
+        "im_app 与母亲沟通陪同或携带材料",
+        "payment_app 支付证件照拍摄费用"
+      ],
+      "unknown_information": [
+        "是否选择加急办理",
+        "旧护照原件是否已找到"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "前两小时仅在政务App搜索办证材料清单并浏览拍照点，信号较弱；第三至四小时出现材料整理、证件照拍摄与费用支付；决定性证据（预约成功、确认邮件、日历日程）集中在第4.5至5.5小时出现，需跨App融合后才能确认意图",
+  "variant_note": "以护照换发为具体事项，证据分散于 government_app、docs_app、gallery_app、mail_app、calendar_app、map_app、payment_app 多类App；与同模板其他样本相比，证件类型、预约时段、沟通对象与拍照环节不同，预约成功被安排在窗口后段以强化融合要求",
+  "scenario_id": "c09-s01-a0b98bd8"
+}

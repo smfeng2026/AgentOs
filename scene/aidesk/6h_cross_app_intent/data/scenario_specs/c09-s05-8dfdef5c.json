@@ -1,0 +1,59 @@
+{
+  "title": "年末理财资讯浏览与产品比较",
+  "scenario_category": "finance_admin",
+  "subscenario": "金融信息浏览",
+  "template_id": "C09-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "三年期大额存单",
+      "稳健型银行理财产品"
+    ],
+    "people": [
+      "同事小周"
+    ],
+    "dates": [],
+    "other": [
+      "存款利率对比",
+      "基金净值资讯"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年末银行理财产品调研",
+      "category": "finance_admin",
+      "purpose": "banking",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在新闻与阅读类App连续浏览多篇理财资讯文章",
+        "在banking_app查看多款理财产品详情页",
+        "使用比较功能对比不同银行大额存单利率"
+      ],
+      "optional_evidence": [
+        "收藏理财攻略文章",
+        "查看本人银行账户余额",
+        "收到同事分享的理财文章链接并点开浏览"
+      ],
+      "unknown_information": [
+        "是否打算近期实际购买理财产品",
+        "计划投入金额与投资期限",
+        "偏好的购买渠道"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前两小时只有零散的财经资讯浏览和一次余额查看；第3至第5小时集中出现理财产品详情浏览与大额存单利率比较，是判断意图的决定性时段；最后一小时仅收藏一篇文章后活动转向无关内容",
+  "variant_note": "与同模板其他样本的差异：主题聚焦银行存款利率与稳健型理财而非股票或保险；App 组合为 news_app、reader_app、banking_app、payment_app 加一条 im_app 分享链接，全程无下单、无预约、无客服咨询；证据以浏览、查看详情、比较、收藏等弱信号构成，status 停留在 emerging",
+  "scenario_id": "c09-s05-8dfdef5c"
+}

@@ -1,0 +1,861 @@
+{
+  "sample_id": "c01-s06-eda81e89",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "依 rule 10 重标：cancel/refund/改期类动作一律为 contradicting，订单/出票/预订确认/已确认日程/明确确认消息为 supporting，search/view/browse/collect 为 related_interest。据此 e001（已出票订单）、e003（已确认酒店）、e012（已确认日程）、e014（订好机票酒店的确认消息）为 supporting；e020（机票取消）、e022（酒店取消）、e025（日历标记取消）、e029（退款到账）、e030（确认去不成）为 contradicting；e004/e007/e015/e017/e019 为 related_interest。盲标关系方向与 rule 10 一致，主要问题是把 e027（取消后浏览厦门鼓浪屿替代海岛目的地）误标为 unrelated——它是模糊的替代/改期线索，不构成新意图，应为 i001 的 related_interest，故完整重标并恢复意图名为“三亚度假行程”（该行程状态为 cancelled）。审计报告主张“取消事件应为 supporting、取消前订单为 contradicting”，与 rule 10 明文相反，不采纳其关系方向。残余质量问题：台风预警与实时路径出现在 12月2日却针对 12月20日行程（15天趋势与实时台风路径超前约18天，时间线真实性存疑），以及末端消息过度复述、部分硬负例偏易；但这些属生成真实度问题，事件在语义与逻辑上仍能支持“因台风取消三亚行程”这一意图，标签层面可修正，故以 revise_label 处理而非重生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "hn_guide_other_city",
+        "fit_water",
+        "read_novel",
+        "game_play",
+        "mail_cleanup",
+        "photo_backup",
+        "sys_update",
+        "fin_points",
+        "music_search",
+        "video_playlist",
+        "hn_map_other_city",
+        "hn_train_other_city",
+        "work_tool_article",
+        "map_nearby",
+        "cal_birthday"
+      ],
+      "hard_negative_ids": [
+        "hn_guide_other_city",
+        "hn_map_other_city",
+        "hn_train_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "三亚度假旅行",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "cancelled",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e001",
+          "e003",
+          "e012",
+          "e014"
+        ],
+        "related_interest_event_ids": [
+          "e004",
+          "e007",
+          "e015",
+          "e017",
+          "e019"
+        ],
+        "contradicting_event_ids": [
+          "e020",
+          "e022",
+          "e025",
+          "e029",
+          "e030"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户持有杭州至三亚往返机票订单，出发日期12月20日、返回日期12月23日，订单状态为已出票，价格2860元。",
+            "source_event_ids": [
+              "e001"
+            ]
+          },
+          {
+            "fact": "用户持有三亚湾海景度假酒店订单，入住12月20日、退房12月23日共3晚，订单状态为已确认，价格2160元。",
+            "source_event_ids": [
+              "e003"
+            ]
+          },
+          {
+            "fact": "用户日历中存在“三亚度假行程”，时间为12月20日至12月23日，并备注航班与酒店信息。",
+            "source_event_ids": [
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户向李婷发送消息称20号去三亚的机票和酒店都已订好，计划到海边走走并去第一市场吃海鲜。",
+            "source_event_ids": [
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户的杭州至三亚往返机票订单因台风预警影响出行而取消，退款金额2860元，状态为全额退款处理中。",
+            "source_event_ids": [
+              "e020"
+            ]
+          },
+          {
+            "fact": "用户的三亚湾海景度假酒店订单因台风天气原因取消，符合免费取消政策，房费全额退回。",
+            "source_event_ids": [
+              "e022"
+            ]
+          },
+          {
+            "fact": "用户将日历中的“三亚度假行程”标记为已取消，备注为台风橙色预警、机票酒店均已取消。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "2860元杭州至三亚往返机票退款已入账。",
+            "source_event_ids": [
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户向李婷发送消息称机票和酒店都退了、2860元退款已到账，这次三亚去不成了。",
+            "source_event_ids": [
+              "e030"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户原计划在12月20日至12月23日前往三亚进行度假旅游，行程包含往返机票、海景酒店、海边活动和第一市场海鲜。",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e012",
+              "e014"
+            ]
+          },
+          {
+            "fact": "台风预警信息与用户取消三亚机票和酒店的决定相关，用户查询到12月19日至21日三亚受台风影响有大风暴雨、台风橙色预警，并浏览了台风实时路径新闻。",
+            "source_event_ids": [
+              "e015",
+              "e017",
+              "e019",
+              "e020",
+              "e022",
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户的三亚度假计划最终因台风取消，机票退款已到账，用户表示等台风季过了再重新看。",
+            "source_event_ids": [
+              "e020",
+              "e022",
+              "e029",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否会在台风季过后重新预订三亚或其他目的地的行程。",
+          "酒店房费退款是否已有单独的到账通知或凭证。",
+          "同行人员是否包含李婷或其他旅伴。",
+          "用户是否还有其他未展示的机票、酒店或行程订单。"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e005",
+      "e006",
+      "e008",
+      "e009",
+      "e010",
+      "e011",
+      "e013",
+      "e016",
+      "e018",
+      "e021",
+      "e023",
+      "e024",
+      "e026",
+      "e027",
+      "e028"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 16
+    }
+  },
+  "review": {
+    "sample_id": "c01-s06-eda81e89",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "temporal_business_logic_error",
+        "severity": "high",
+        "event_ids": [
+          "e015",
+          "e017",
+          "e019",
+          "e020",
+          "e022"
+        ],
+        "description": "事件时间戳为2026-12-02，行程为12月20日至23日。e015/e017/e019在12月2日就给出12月19日至21日台风生成、15天趋势、台风橙色预警和实时路径信息；15天预报无法覆盖12月20日，台风实时路径提前约18天也不可信。e020/e022又以该预警为由取消，导致核心台风因果链不自然。",
+        "suggested_action": "将台风查询、新闻和取消事件重排到12月17日至19日左右的可预报窗口内，或调整行程日期；若保留12月2日时间戳，不应把远期台风预警写成确定事实。不要补造事件。"
+      },
+      {
+        "issue_type": "label_relation_inversion",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e003",
+          "e012",
+          "e014",
+          "e020",
+          "e022",
+          "e025",
+          "e029",
+          "e030"
+        ],
+        "description": "规格意图是“三亚度假行程取消”且status=cancelled。盲标却把e020/e022/e025/e029/e030这些机票取消、酒店取消、日历标记取消、退款到账、朋友确认等直接证据放入contradicting_event_ids和contradicting event_labels；反而把e001/e003/e012/e014这些取消前的有效订单、日历和出行消息放入supporting_event_ids。这与status=cancelled及confirmed_facts自相矛盾，也导致required_evidence被当成反证。盲标还把意图名改成“三亚度假旅行”，弱化了取消意图。",
+        "suggested_action": "按规格重标：e020/e022/e025/e029/e030应为i001的supporting；e001/e003/e012/e014应为取消前状态/pre-state contradicting或context，不作为取消支持证据；恢复或对齐意图名“三亚度假行程取消”，并重新核对supporting/related/contradicting计数。"
+      },
+      {
+        "issue_type": "related_interest_omitted",
+        "severity": "medium",
+        "event_ids": [
+          "e027"
+        ],
+        "description": "e027是取消后浏览厦门鼓浪屿三日游，generator标为related_interest，variant_note也说明这是模糊异地浏览、不构成新意图；盲标event_labels却标为unrelated且未纳入related_interest。它不足以支持新意图，但语义上可作为改期或替代目的地的弱线索或unknown，不应完全丢弃。",
+        "suggested_action": "保留为i001的related_interest，或在unknown_information中记录为“模糊替代目的地浏览”；不要创建新意图，除非出现更多直接证据。"
+      },
+      {
+        "issue_type": "relation_taxonomy_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e007",
+          "e017"
+        ],
+        "description": "e007三亚浮潜攻略收藏在labeled_events中为contradicting，盲标为related_interest；e017三亚台风天气查询在labeled_events中为supporting，盲标为related_interest。两者都不是取消操作本身：e007是取消前计划兴趣，e017是原因上下文或可选证据。两套标签对supporting、related_interest、contradicting的边界不一致，影响D6冲突状态样本质量。",
+        "suggested_action": "明确关系定义：直接取消、退款、日历取消为supporting；目的地攻略收藏为related_interest或pre-state contradicting；天气查询为related_interest或可选支持，不计入取消的直接证据。然后统一generator和盲标的关系标签。"
+      },
+      {
+        "issue_type": "answer_leakage_over_explicit_confirmation",
+        "severity": "low",
+        "event_ids": [
+          "e025",
+          "e030"
+        ],
+        "description": "e025备注“台风橙色预警，机票酒店均已取消”和e030“机票和酒店都退了，2860的退款也到账了，这次三亚去不成了”几乎逐项复述最终标签和全部关键事实，且2860在多条事件中反复出现，分类过于直接，不够自然。",
+        "suggested_action": "保留必要的状态确认，但降低逐项复述程度并变化措辞，避免在最后一条消息中同时重复所有证据；不要删除用于支撑状态变化的取消和退款事件。"
+      },
+      {
+        "issue_type": "hard_negative_quality",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e021",
+          "e023"
+        ],
+        "description": "这些标为hard_negative=true的噪声是吉隆坡咖啡馆、青岛停车场、杭州到济南火车票，与三亚取消意图语义距离很远，更像easy negatives。真正的近似负例应是与目的地或业务相近但意图无关的事件。",
+        "suggested_action": "将硬负例替换为更接近的负例，例如三亚其他日期天气、三亚其他酒店、台风季一般新闻等；若无法提供近似负例，应将hard_negative置为false。"
+      }
+    ],
+    "summary": "样本当前不通过。最严重的问题是台风预警和取消发生在12月2日、却针对12月20日行程，15天预报和实时台风路径时间线不成立；同时盲标把取消、退款、日历取消等核心支持证据误标为contradicting，却把取消前的有效订单和出行消息标为supporting，关系方向与cancelled状态相反。另有e027弱替代目的地线索被丢弃、e007/e017关系边界不一致、最终消息过度复述以及硬负例质量偏低等问题。建议重排时间线并重标关系后再评估。"
+  },
+  "adjudication": {
+    "sample_id": "c01-s06-eda81e89",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "三亚度假行程",
+          "category": "travel",
+          "purpose": "tourism",
+          "status": "cancelled",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e001",
+            "e003",
+            "e012",
+            "e014"
+          ],
+          "related_interest_event_ids": [
+            "e004",
+            "e007",
+            "e015",
+            "e017",
+            "e019",
+            "e027"
+          ],
+          "contradicting_event_ids": [
+            "e020",
+            "e022",
+            "e025",
+            "e029",
+            "e030"
+          ],
+          "confirmed_facts": [
+            {
+              "fact": "存在杭州至三亚往返机票订单（订单号HZSY202612020918），出发12月20日、返回12月23日，状态为已出票，票价2860元。",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "存在三亚湾海景度假酒店订单（订单号HTL202612020356），入住12月20日、退房12月23日共3晚，海景大床房，状态为已确认，房价2160元。",
+              "source_event_ids": [
+                "e003"
+              ]
+            },
+            {
+              "fact": "日历中存在“三亚度假行程”，时间12月20日至12月23日，并备注航班与酒店信息。",
+              "source_event_ids": [
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户向李婷发消息称12月20日去三亚的机票和酒店都已订好，计划到海边走走并去第一市场吃海鲜。",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "杭州至三亚往返机票订单因台风预警影响出行被取消，退款金额2860元，状态为全额退款处理中。",
+              "source_event_ids": [
+                "e020"
+              ]
+            },
+            {
+              "fact": "三亚湾海景度假酒店订单因台风天气原因被取消，符合免费取消政策，房费全额退回。",
+              "source_event_ids": [
+                "e022"
+              ]
+            },
+            {
+              "fact": "日历中的“三亚度假行程”被标记为已取消，备注为台风橙色预警、机票酒店均已取消。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "2860元杭州至三亚往返机票退款已入账。",
+              "source_event_ids": [
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户向李婷发消息称机票和酒店都已退款、2860元退款已到账，此次三亚去不成。",
+              "source_event_ids": [
+                "e030"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户原计划12月20日至23日前往三亚度假，行程包含往返机票、海景酒店、海边活动与第一市场海鲜。",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e012",
+                "e014"
+              ]
+            },
+            {
+              "fact": "三亚在12月19日至21日受台风影响将有大风暴雨、橙色预警，台风预计于12月19日夜至20日凌晨擦过海南东南沿海，沿海景区或将临时关闭。",
+              "source_event_ids": [
+                "e015",
+                "e017",
+                "e019"
+              ]
+            },
+            {
+              "fact": "台风预警信息与用户取消三亚机票、酒店并标记日历行程取消的决定相关。",
+              "source_event_ids": [
+                "e017",
+                "e019",
+                "e020",
+                "e022",
+                "e025"
+              ]
+            },
+            {
+              "fact": "三亚行程取消后，用户浏览了厦门鼓浪屿等替代海岛目的地，可能仍在考虑改期或另选目的地。",
+              "source_event_ids": [
+                "e027",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "用户是否会在台风季过后重新预订三亚或其他目的地行程",
+            "酒店房费退款是否已有单独的到账通知或凭证",
+            "同行人员是否包含李婷或其他旅伴",
+            "是否存在其他未展示的机票、酒店或行程订单"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "contradicting",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e005",
+        "e006",
+        "e008",
+        "e009",
+        "e010",
+        "e011",
+        "e013",
+        "e016",
+        "e018",
+        "e021",
+        "e023",
+        "e024",
+        "e026",
+        "e028"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c01-s06-eda81e89"
+    },
+    "rationale": "依 rule 10 重标：cancel/refund/改期类动作一律为 contradicting，订单/出票/预订确认/已确认日程/明确确认消息为 supporting，search/view/browse/collect 为 related_interest。据此 e001（已出票订单）、e003（已确认酒店）、e012（已确认日程）、e014（订好机票酒店的确认消息）为 supporting；e020（机票取消）、e022（酒店取消）、e025（日历标记取消）、e029（退款到账）、e030（确认去不成）为 contradicting；e004/e007/e015/e017/e019 为 related_interest。盲标关系方向与 rule 10 一致，主要问题是把 e027（取消后浏览厦门鼓浪屿替代海岛目的地）误标为 unrelated——它是模糊的替代/改期线索，不构成新意图，应为 i001 的 related_interest，故完整重标并恢复意图名为“三亚度假行程”（该行程状态为 cancelled）。审计报告主张“取消事件应为 supporting、取消前订单为 contradicting”，与 rule 10 明文相反，不采纳其关系方向。残余质量问题：台风预警与实时路径出现在 12月2日却针对 12月20日行程（15天趋势与实时台风路径超前约18天，时间线真实性存疑），以及末端消息过度复述、部分硬负例偏易；但这些属生成真实度问题，事件在语义与逻辑上仍能支持“因台风取消三亚行程”这一意图，标签层面可修正，故以 revise_label 处理而非重生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 6,
+      "contradicting": 5,
+      "purposes": {
+        "tourism": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "travel": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.967,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1864,
+      "completion_tokens": 1358,
+      "total_tokens": 3222,
+      "latency_s": 15.1,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1775,
+      "completion_tokens": 8463,
+      "total_tokens": 10238,
+      "latency_s": 78.37,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3640,
+      "completion_tokens": 5745,
+      "total_tokens": 9385,
+      "latency_s": 44.35,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6334,
+      "completion_tokens": 16270,
+      "total_tokens": 22604,
+      "latency_s": 132.12,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11054,
+      "completion_tokens": 25463,
+      "total_tokens": 36517,
+      "latency_s": 176.7,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 446.65
+}

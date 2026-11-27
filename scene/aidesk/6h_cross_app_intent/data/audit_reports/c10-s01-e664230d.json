@@ -1,0 +1,770 @@
+{
+  "sample_id": "c10-s01-e664230d",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "按规则10重新校准关系：e001 课程搜索、e006 课程详情浏览、e009 约同事消息、e029 到馆路线搜索属 search/view/邀约类准备动作，不构成决定性证据，由 supporting 降为 related_interest；真正决定性证据为 e015 下单、e016 支付成功、e017 日历日程创建、e030 订单状态已预约，以及 e010 同事明确同意消息（明确的确认消息），共5条 supporting。盲标把意图名写成“预约并参加”，但事件仅能证明预约、支付、日程与行程安排，是否到场未知，故改为“预约……并安排日程”。e021（同场馆阴瑜伽收藏）与 e022（本周运动记录）属同一健身场景的弱相关兴趣，按真实语义标为 related_interest；origin=noise 事件经语义核查均与本次搏击操预约无关，保持 unrelated。最终 unrelated 事件 15 条，与目标配比一致。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "hn_match_news",
+        "map_traffic",
+        "video_livestream",
+        "food_history",
+        "cal_birthday",
+        "music_play",
+        "health_article",
+        "ent_trailer",
+        "sys_storage",
+        "pay_utility",
+        "learn_video",
+        "weather_now",
+        "mail_newsletter",
+        "news_headlines",
+        "read_bookmark"
+      ],
+      "hard_negative_ids": [
+        "hn_match_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "预约并参加12月10日动燃健身静安店搏击操团课",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e010",
+          "e015",
+          "e016",
+          "e017",
+          "e030"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e005",
+          "e006",
+          "e007",
+          "e009",
+          "e012",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已创建并支付搏击操团课单次课订单，课程时间为12月10日19:30-20:30，地点为动燃健身静安店，金额199元。",
+            "source_event_ids": [
+              "e015",
+              "e016",
+              "e030"
+            ]
+          },
+          {
+            "fact": "该团课订单状态为已预约。",
+            "source_event_ids": [
+              "e030"
+            ]
+          },
+          {
+            "fact": "日历中已创建12月10日19:30-20:30的搏击操团课（和李婷）日程，地点为动燃健身静安店，并设置提前45分钟提醒。",
+            "source_event_ids": [
+              "e017"
+            ]
+          },
+          {
+            "fact": "同事李婷已回复同意12月10日19:30一起上课。",
+            "source_event_ids": [
+              "e010"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户计划12月10日从静安区南京西路公司步行前往动燃健身静安店，预计19:15到达。",
+            "source_event_ids": [
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户为搏击操团课进行训练准备，浏览基础教程、训练歌单，并查看女款拳击手套。",
+            "source_event_ids": [
+              "e003",
+              "e005",
+              "e007",
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户邀请同事李婷共同参加，形成与同事一起健身的安排。",
+            "source_event_ids": [
+              "e009",
+              "e010",
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户对12月10日晚间搏击操团课有明确兴趣，并已查看课程详情。",
+            "source_event_ids": [
+              "e001",
+              "e006"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户12月10日是否最终到场上课",
+          "用户是否已购买拳击手套",
+          "课程费用是否与李婷分摊",
+          "用户是否有更长期的健身计划"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e008",
+      "e011",
+      "e013",
+      "e014",
+      "e018",
+      "e019",
+      "e020",
+      "e021",
+      "e022",
+      "e023",
+      "e024",
+      "e025",
+      "e026",
+      "e027",
+      "e028"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 17
+    }
+  },
+  "review": {
+    "sample_id": "c10-s01-e664230d",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "supporting_label_misuse",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e006",
+          "e009",
+          "e029"
+        ],
+        "description": "生成器把 e001 课程搜索、e006 课程详情浏览、e009 约同事、e029 到馆路线搜索标为 supporting，但这些只是准备/兴趣/行程辅助证据，不能单独确认预约完成；真正决定性证据是 e015 下单、e016 支付、e017 日历创建、e030 订单状态已预约。盲标已将这些事件降为 related_interest，但内部 labeled_events 仍保留 supporting，导致 supporting_event_count 从 9 被抬高，与盲标 supporting 5 不一致。",
+        "suggested_action": "将 e001、e006、e009、e029 的 relation 改为 related_interest，并同步调整 supporting_event_count；仅保留 e015、e016、e017、e030 作为核心 supporting，e010 可作为可选辅助，但不应计入必需证据。"
+      },
+      {
+        "issue_type": "intent_name_overclaim",
+        "severity": "high",
+        "event_ids": [
+          "e015",
+          "e016",
+          "e017",
+          "e029",
+          "e030"
+        ],
+        "description": "盲标意图名称写成“预约并参加12月10日动燃健身静安店搏击操团课”，但所有事件只证明预约、支付、日程和路线安排，且日期在未来，盲标自身 unknown_information 也写明“是否最终到场上课”未知。意图名称中的“参加”超出证据，和 unknown 信息矛盾。",
+        "suggested_action": "将意图名称改为“预约12月10日动燃健身静安店搏击操团课并安排行程/日程”，或将“参加”明确为“计划参加”；最终到场状态保留为 unknown，不要用 confirmed 表达已参加。"
+      },
+      {
+        "issue_type": "relation_label_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e021",
+          "e022"
+        ],
+        "description": "e021 收藏同场馆晚间阴瑜伽拉伸团课、e022 查看本周运动记录，生成器标为 related_interest，盲标 event_labels 却标为 unrelated。两者都不是本次搏击操预约的证据，但至少属于同一健身场景的弱相关兴趣；盲标若按“与具体意图无关”处理可以成立，但应与生成器的 related_interest 标签或场景说明保持一致。",
+        "suggested_action": "若数据规范允许泛健身兴趣关联，将 e021、e022 标为 related_interest 但不计入 supporting；若严格要求只关联本次搏击操预约，则保留 unrelated，并在说明中注明它们是同场景弱干扰而非意图证据。"
+      }
+    ],
+    "summary": "样本核心预约链路完整，e015/e016/e017/e030 能支持 12月10日搏击操团课预约；origin=noise 事件未发现需要改标为相关的明显案例。但内部 supporting 标签明显滥用，且盲标意图名称把“预约”扩写为“参加”，超出未来事件证据，因此不通过。"
+  },
+  "adjudication": {
+    "sample_id": "c10-s01-e664230d",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "预约12月10日动燃健身静安店搏击操团课并安排日程",
+          "category": "fitness",
+          "purpose": "training",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e010",
+            "e015",
+            "e016",
+            "e017",
+            "e030"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e006",
+            "e007",
+            "e009",
+            "e012",
+            "e021",
+            "e022",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户在动燃健身静安店创建搏击操团课单次课订单（12月10日19:30-20:30，199元，待支付）。",
+              "source_event_ids": [
+                "e015"
+              ]
+            },
+            {
+              "fact": "该团课订单通过余额支付成功，金额199元，商户为动燃健身静安店。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "订单状态显示为已预约。",
+              "source_event_ids": [
+                "e030"
+              ]
+            },
+            {
+              "fact": "日历中已创建“搏击操团课（和李婷）”日程，时间为12月10日19:30-20:30，地点动燃健身静安店，并设提前45分钟提醒。",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "同事李婷回复同意12月10日19:30一起上课。",
+              "source_event_ids": [
+                "e010"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户计划12月10日从静安区南京西路公司步行前往动燃健身静安店，预计19:15到达。",
+              "source_event_ids": [
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户通过健身应用搜索12月10日晚间静安区的搏击操团课并查看课程详情。",
+              "source_event_ids": [
+                "e001",
+                "e006"
+              ]
+            },
+            {
+              "fact": "用户为搏击操团课进行训练准备，浏览基础拳法教程、高强度训练歌单，并查看女款拳击手套。",
+              "source_event_ids": [
+                "e003",
+                "e005",
+                "e007",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户主动邀请同事李婷共同参加该团课。",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户对同场馆其他团课（阴瑜伽拉伸）有收藏兴趣，并关注本周运动记录。",
+              "source_event_ids": [
+                "e021",
+                "e022"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "用户12月10日是否最终到场上课",
+            "用户是否已购买拳击手套",
+            "课程费用是否与李婷分摊",
+            "用户是否计划购买长期课包"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e008",
+        "e011",
+        "e013",
+        "e014",
+        "e018",
+        "e019",
+        "e020",
+        "e023",
+        "e024",
+        "e025",
+        "e026",
+        "e027",
+        "e028"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c10-s01-e664230d"
+    },
+    "rationale": "按规则10重新校准关系：e001 课程搜索、e006 课程详情浏览、e009 约同事消息、e029 到馆路线搜索属 search/view/邀约类准备动作，不构成决定性证据，由 supporting 降为 related_interest；真正决定性证据为 e015 下单、e016 支付成功、e017 日历日程创建、e030 订单状态已预约，以及 e010 同事明确同意消息（明确的确认消息），共5条 supporting。盲标把意图名写成“预约并参加”，但事件仅能证明预约、支付、日程与行程安排，是否到场未知，故改为“预约……并安排日程”。e021（同场馆阴瑜伽收藏）与 e022（本周运动记录）属同一健身场景的弱相关兴趣，按真实语义标为 related_interest；origin=noise 事件经语义核查均与本次搏击操预约无关，保持 unrelated。最终 unrelated 事件 15 条，与目标配比一致。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "training": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "fitness": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.933,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1852,
+      "completion_tokens": 1538,
+      "total_tokens": 3390,
+      "latency_s": 16.35,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1710,
+      "completion_tokens": 5369,
+      "total_tokens": 7079,
+      "latency_s": 94.37,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3539,
+      "completion_tokens": 7857,
+      "total_tokens": 11396,
+      "latency_s": 61.01,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5910,
+      "completion_tokens": 8622,
+      "total_tokens": 14532,
+      "latency_s": 71.9,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9964,
+      "completion_tokens": 3940,
+      "total_tokens": 13904,
+      "latency_s": 23.05,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 266.69
+}

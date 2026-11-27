@@ -1,0 +1,53 @@
+{
+  "title": "晚间健康科普内容浏览",
+  "scenario_category": "health_service",
+  "subscenario": "健康兴趣",
+  "template_id": "C05-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [],
+    "people": [],
+    "dates": [],
+    "other": [
+      "睡眠改善",
+      "颈椎放松",
+      "体检项目科普"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "睡眠与颈椎健康内容关注",
+      "category": "health_service",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "health_app 中多次搜索睡眠改善和颈椎放松相关内容",
+        "在 health_app 收藏多篇健康科普文章并查看文章详情"
+      ],
+      "optional_evidence": [
+        "video_app 观看健康科普短视频",
+        "fitness_app 浏览居家拉伸课程介绍",
+        "reader_app 搜索健康养生类书籍"
+      ],
+      "unknown_information": [
+        "是否存在具体身体不适",
+        "是否打算体检或就医"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "前两个小时以 casual 浏览为主（video_app、news_app、fitness_app），信号较弱；第三至第四小时在 health_app 出现搜索与收藏的决定性弱证据集中段；最后一小时只有一次文章详情回看，无任何预约或下单",
+  "variant_note": "与同模板其他样本相比，本样本聚焦睡眠与颈椎两个健康主题，证据全部为浏览、搜索、收藏类弱信号，覆盖 health_app、video_app、fitness_app、reader_app 四类 App，无挂号、预约、问诊或下单动作，兴趣信号集中在窗口中段而非结尾",
+  "scenario_id": "c05-s05-89eb7071"
+}

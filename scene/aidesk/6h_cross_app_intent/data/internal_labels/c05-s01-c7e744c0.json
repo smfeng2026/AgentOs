@@ -1,0 +1,580 @@
+{
+  "sample_id": "c05-s01-c7e744c0",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年度个人体检预约",
+      "category": "health_service",
+      "purpose": "checkup",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "hospital_app 中已创建并支付成功的体检套餐预约订单",
+        "payment_app 中对应金额的支付成功记录",
+        "calendar_app 中12月20日新建的体检日程"
+      ],
+      "optional_evidence": [
+        "health_app 收藏的空腹与检前注意事项",
+        "map_app 搜索到体检中心的路线"
+      ],
+      "unknown_information": [
+        "是否由单位统一报销费用",
+        "后续是否需要加做复查项目"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:38:00+08:00",
+      "app": "hospital_app",
+      "action": "search",
+      "content": {
+        "search_keyword": "体检套餐 预约",
+        "city": "杭州",
+        "target_institution": "滨江分院体检中心",
+        "sort_by": "距离优先",
+        "result_count": 6
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:47:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "体检前为什么要空腹抽血？超过这个时间进食会影响结果",
+        "category": "健康科普",
+        "read_duration_sec": 210
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_points",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:53:16+08:00",
+      "app": "banking_app",
+      "action": "view_credit_card_points",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T12:56:00+08:00",
+      "app": "health_app",
+      "action": "collect",
+      "content": {
+        "item_type": "科普文章",
+        "title": "体检前注意事项：空腹要求与作息建议",
+        "collection_folder": "体检准备"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:08:00+08:00",
+      "app": "hospital_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "全面健康体检套餐B",
+        "institution": "滨江分院体检中心",
+        "price": 1280,
+        "check_item_count": 42,
+        "includes": [
+          "空腹抽血",
+          "腹部彩超",
+          "心电图"
+        ],
+        "report_delivery": "3个工作日"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_cleanup",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:09:19+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_nearby",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:16:53+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "洗衣店"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:21:00+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "target_name": "滨江分院体检中心",
+        "content_type": "用户评价",
+        "rating": 4.7,
+        "hot_keyword": "排队时间"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:35:00+08:00",
+      "app": "hospital_app",
+      "action": "compare",
+      "content": {
+        "items": [
+          "基础体检套餐A",
+          "全面健康体检套餐B"
+        ],
+        "compare_dimensions": [
+          "价格",
+          "检查项目数",
+          "报告出具时长"
+        ],
+        "price_range": "680元-1280元"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:46:28+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "民谣"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T13:53:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "家（西湖区文三路）",
+        "destination": "滨江分院体检中心",
+        "travel_mode": "驾车",
+        "estimated_duration_min": 35,
+        "planned_departure_time": "12月20日 07:20"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_article",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:04:00+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "咖啡豆产地介绍"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:11:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_name": "同事-小周",
+        "message_content": "你今年体检是自己约的还是单位统一安排的？费用能报销吗",
+        "message_type": "text"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_album",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:17:53+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "街景与天空"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:18:53+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "休闲益智",
+        "duration_min": 25
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:24:00+08:00",
+      "app": "health_app",
+      "action": "browse_content",
+      "content": {
+        "title": "体检报告一般多久出？指标异常后多久复查合适",
+        "category": "健康科普",
+        "read_duration_sec": 150
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:48:00+08:00",
+      "app": "hospital_app",
+      "action": "create_order",
+      "content": {
+        "order_no": "HP20261206144823",
+        "product_name": "全面健康体检套餐B",
+        "institution": "滨江分院体检中心",
+        "appointment_date": "12月20日",
+        "appointment_time": "08:00-09:00",
+        "order_amount": 1280,
+        "order_status": "待支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_subway",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:54:09+08:00",
+      "app": "commute_app",
+      "action": "check_subway_crowding",
+      "content": {
+        "line": "早晚高峰线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T14:57:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "滨江分院体检中心",
+        "amount": 1280,
+        "payment_method": "银行卡",
+        "payment_status": "支付成功",
+        "related_order_no": "HP20261206144823"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T15:13:00+08:00",
+      "app": "hospital_app",
+      "action": "receive_message",
+      "content": {
+        "message_type": "预约通知",
+        "title": "体检预约成功提醒",
+        "appointment_date": "12月20日",
+        "appointment_time": "08:00-09:00",
+        "order_no": "HP20261206144823",
+        "order_status": "已支付",
+        "tips": "检前一晚22点后请勿进食"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T15:32:32+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "化学小实验",
+        "duration_min": 9
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_lunch",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T16:12:52+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_transfer",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T16:27:41+08:00",
+      "app": "payment_app",
+      "action": "transfer",
+      "content": {
+        "to": "朋友小赵",
+        "amount": "¥35.00",
+        "note": "昨天外卖AA"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_ranking",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T16:32:16+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_steps",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T16:39:08+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 7890
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T16:47:00+08:00",
+      "app": "weather_app",
+      "action": "browse_content",
+      "content": {
+        "city": "杭州",
+        "forecast_date": "12月20日",
+        "weather": "晴",
+        "temperature_range": "4℃~13℃"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_birthday",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T17:01:48+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T17:41:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "滨江分院体检中心体检（套餐B）",
+        "start_time": "12月20日 08:00",
+        "end_time": "12月20日 10:00",
+        "location": "滨江分院体检中心",
+        "note": "带身份证，早上空腹"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-06T17:56:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "reminder_title": "体检空腹提醒：今晚22点后勿进食，明早空腹前往",
+        "remind_time": "12月19日 21:00",
+        "repeat_rule": "不重复",
+        "linked_event_title": "滨江分院体检中心体检（套餐B）"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_watch",
+      "hard_negative": false,
+      "timestamp": "2026-12-06T18:01:17+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "咖啡拉花教程",
+        "duration_min": 5
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

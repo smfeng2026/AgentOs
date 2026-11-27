@@ -1,0 +1,55 @@
+{
+  "title": "午后的编程自学兴趣萌芽",
+  "scenario_category": "learning",
+  "subscenario": "学习兴趣",
+  "template_id": "C06-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "Python入门课程",
+      "数据分析书籍"
+    ],
+    "people": [],
+    "dates": [],
+    "other": [
+      "学习主题：Python与数据分析"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "数据分析自学意向",
+      "category": "learning",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在learning_app搜索零基础编程关键词并浏览课程详情",
+        "在video_app观看编程教学类短视频",
+        "在reader_app收藏编程入门文章"
+      ],
+      "optional_evidence": [
+        "在shopping_app查看数据分析书籍详情并收藏",
+        "在learning_app对比两门入门课程的价格与评价"
+      ],
+      "unknown_information": [
+        "学习动机是转行、工作需要还是纯兴趣",
+        "是否会报名付费课程",
+        "是否有备考或认证计划"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "首次搜索出现在窗口开始约半小时内，随后以零散的课程详情浏览和教学短视频观看为主，收藏文章与收藏书籍的行为集中在窗口中后段；全程六小时没有任何下单、报名、支付或日程创建，兴趣信号弱且分散",
+  "variant_note": "本样本主题为编程与数据分析，内容偏向职业技能但缺少求职、考试或付费证据，故purpose为unknown；证据全部由搜索、浏览、观看、收藏、比较构成，跨learning_app、video_app、reader_app、shopping_app、news_app五类App弱信号融合，与同模板中偏纯娱乐科普类主题的样本形成差异；无日历、支付、订单类强证据，status停留在emerging",
+  "scenario_id": "c06-s05-6dc0e110"
+}

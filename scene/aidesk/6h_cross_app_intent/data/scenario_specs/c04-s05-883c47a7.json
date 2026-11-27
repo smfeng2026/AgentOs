@@ -1,0 +1,57 @@
+{
+  "title": "老同学随口约饭，餐厅只看不订",
+  "scenario_category": "social_dining",
+  "subscenario": "模糊邀约",
+  "template_id": "C04-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [],
+    "people": [
+      "老同学阿凯"
+    ],
+    "dates": [],
+    "other": [
+      "偏好菜系：本帮菜、江浙菜",
+      "聚餐时间未定（仅口头说改天）",
+      "候选区域：静安寺、南京西路附近"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "与老同学敲不定日子的那顿饭",
+      "category": "social_dining",
+      "purpose": "socializing",
+      "status": "considering",
+      "confidence_level": "low",
+      "required_evidence": [
+        "im_app 中与老同学阿凯的对话：对方提议改天一起吃个饭，用户回复同意但双方都没有给出具体时间",
+        "restaurant_app 搜索并浏览适合朋友聚餐的餐厅列表",
+        "restaurant_app 收藏至少一家候选餐厅"
+      ],
+      "optional_evidence": [
+        "review_app 浏览同城餐厅热门榜",
+        "map_app 搜索某商圈的餐厅位置",
+        "im_app 再次向阿凯发送『看到几家不错的店，回头发你』后未继续跟进"
+      ],
+      "unknown_information": [
+        "具体聚餐日期和时间",
+        "最终选定的餐厅",
+        "是否还有其他老同学一起参加"
+      ],
+      "supporting_event_count": 7,
+      "related_interest_event_count": 8,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 7,
+    "related_interest": 8,
+    "contradicting": 0
+  },
+  "time_profile": "窗口开始约 30 分钟后 im_app 收到阿凯『改天吃饭』的消息并来回几句（均未定时间），随后一小时在 restaurant_app 集中搜索、浏览、收藏餐厅；午后转为零星行为：review_app 看榜单、map_app 查位置、回看聊天记录、再收藏一家店；临近窗口结束仅再次翻看收藏列表。全程无下单、无预订、无日历事件，证据随时间递减。",
+  "variant_note": "与同模板其他样本的差异：邀约由对方发起、用户被动应下（非主动发起）；证据集中在前两小时，午后只剩低强度回看；App 组合为 im_app + restaurant_app + review_app + map_app，未使用 calendar_app 与 payment_app；聊天中始终以『改天』『到时候』等模糊表述出现，避免出现任何具体日期，以维持 emerging/considering 的弱证据特征。",
+  "scenario_id": "c04-s05-883c47a7"
+}

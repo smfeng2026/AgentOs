@@ -1,0 +1,204 @@
+{
+  "sample_id": "c03-s01-9c49fd63",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:22:09+08:00",
+  "task": {
+    "scenario_category": "shopping",
+    "template_id": "C03-S01",
+    "subscenario": "手机购买",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-21T17:10:00+08:00",
+    "window_end": "2026-12-21T23:10:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3299574645
+  },
+  "spec_summary": {
+    "title": "旧手机电池老化引发的换机之夜",
+    "intent_names": [
+      "更换新手机"
+    ],
+    "intent_categories": [
+      "shopping"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [],
+      "products": [
+        "星耀X7 Pro手机（曜石黑 12GB+256GB）",
+        "麒麟G12手机",
+        "星耀X7手机壳"
+      ],
+      "people": [
+        "朋友李娜"
+      ],
+      "dates": [
+        "12月23日"
+      ],
+      "other": [
+        "以旧换新",
+        "电池健康度78%"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 4,
+    "gold_related_interest": 11,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "personal_use": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "shopping": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "im_work_reply",
+      "mail_cleanup",
+      "work_tool_article",
+      "music_search",
+      "comm_bus",
+      "map_history",
+      "hn_product_compare_other",
+      "pay_balance",
+      "hn_product_other",
+      "fin_points",
+      "ent_trailer",
+      "read_novel",
+      "food_history",
+      "game_play",
+      "hn_product_wishlist_other"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "accept",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "personal_use": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "shopping": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 2337,
+      "total_tokens": 4199,
+      "latency_s": 49.59,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1742,
+      "completion_tokens": 5838,
+      "total_tokens": 7580,
+      "latency_s": 50.58,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3519,
+      "completion_tokens": 3537,
+      "total_tokens": 7056,
+      "latency_s": 27.23,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6039,
+      "completion_tokens": 7104,
+      "total_tokens": 13143,
+      "latency_s": 58.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10769,
+      "completion_tokens": 5492,
+      "total_tokens": 16261,
+      "latency_s": 37.74,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 223.62,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c03-s01-9c49fd63.json",
+      "sha256": "ddcea6577ba45775394633ab939fb900f4f5444d51e555a2e32834c8c4e73bc8"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c03-s01-9c49fd63.json",
+      "sha256": "88ec44a4abf521caf15bca43f2a84a3b8d986d0522932f5f9e1d3460e23478df"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c03-s01-9c49fd63.json",
+      "sha256": "f34fa513c388e3f0470289dffe1c0ccb79740be319aec65b5771433e39ccf651"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c03-s01-9c49fd63.json",
+      "sha256": "e663b7ae25a895266ff0ac2cf1c98000ed6d9f5b3e393583154f78213265d57d"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c03-s01-9c49fd63.json",
+      "sha256": "538e972d27aec407ae4a49db6f9747320cdaa20c9dd9adaf913809885ddf3e78"
+    }
+  },
+  "updated_at": "2026-11-27T11:22:09+08:00"
+}

@@ -1,0 +1,212 @@
+{
+  "sample_id": "c09-s01-18124adb",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T11:40:41+08:00",
+  "task": {
+    "scenario_category": "finance_admin",
+    "template_id": "C09-S01",
+    "subscenario": "证件办理",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-16T07:10:00+08:00",
+    "window_end": "2026-12-16T13:10:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 394705364
+  },
+  "spec_summary": {
+    "title": "护照换发预约与材料准备",
+    "intent_names": [
+      "出入境证件换发办理"
+    ],
+    "intent_categories": [
+      "finance_admin"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "杭州市出入境接待大厅"
+      ],
+      "products": [
+        "护照换发",
+        "证件照回执"
+      ],
+      "people": [],
+      "dates": [
+        "12月18日"
+      ],
+      "other": [
+        "材料清单"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 3,
+    "gold_related_interest": 12,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "certification": 1
+    },
+    "gold_statuses": {
+      "planned": 1
+    },
+    "gold_categories": {
+      "finance_admin": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.1",
+    "pool_ids": [
+      "food_lunch",
+      "learn_video",
+      "mail_newsletter",
+      "hn_bank_news",
+      "map_traffic",
+      "cal_view",
+      "weather_forecast",
+      "work_industry_news",
+      "ent_trailer",
+      "health_article",
+      "read_article",
+      "game_play",
+      "news_headlines",
+      "fit_video",
+      "photo_backup"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "5a5554a78a9ffa0713db377f769e65ef44271b9abeb8d1147df9b3b40ac33c3b",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 3,
+      "related_interest": 12,
+      "contradicting": 0,
+      "purposes": {
+        "certification": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "finance_admin": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1854,
+      "completion_tokens": 1409,
+      "total_tokens": 3263,
+      "latency_s": 15.59,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1668,
+      "completion_tokens": 6971,
+      "total_tokens": 8639,
+      "latency_s": 132.45,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3558,
+      "completion_tokens": 4657,
+      "total_tokens": 8215,
+      "latency_s": 40.59,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5828,
+      "completion_tokens": 9884,
+      "total_tokens": 15712,
+      "latency_s": 72.35,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 9897,
+      "completion_tokens": 5076,
+      "total_tokens": 14973,
+      "latency_s": 36.25,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 300.26,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c09-s01-18124adb.json",
+      "sha256": "e3aab34d987f9392b077fd5b401360d54a42a052d1b6233b9a60b51ecbd11e07"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c09-s01-18124adb.json",
+      "sha256": "e8b236692f129032dfdb361532f01592ff6470fc127287a835dfbba588c74be5"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c09-s01-18124adb.json",
+      "sha256": "e5a786d44bb8ca044c62c01041cf4cc8e0204092e7152d52d379bc6245cd79be"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c09-s01-18124adb.json",
+      "sha256": "2a88f6857c22bc3a893587deef95ce36f4caf62a6dc48cec4a98c2818e433a21"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c09-s01-18124adb.json",
+      "sha256": "183b562f90e3c888969c2ffbbd160e8826d6a46f408c9ddd0ebf8fbcdec63c77"
+    }
+  },
+  "updated_at": "2026-11-27T12:06:18+08:00",
+  "repairs": [
+    {
+      "tool": "repair_noise_placeholder",
+      "at": "2026-11-27T12:06:18+08:00",
+      "from": "当前所在城市",
+      "to": "杭州",
+      "replacements": 1,
+      "note": "label unaffected; pool fixed in 2026-11-27.1+ (weather_now / weather_forecast)"
+    }
+  ]
+}

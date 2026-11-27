@@ -1,0 +1,304 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "大学英语六级冲刺备考",
+      "category": "learning",
+      "purpose": "exam_prep",
+      "status": "planned",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e014",
+        "e018",
+        "e026",
+        "e027",
+        "e030"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e007",
+        "e008",
+        "e009",
+        "e012",
+        "e016",
+        "e028",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已成功报名2026年下半年全国大学英语六级考试，考试日期为12月19日15:00-17:25，考点为南京师范大学仙林校区，准考证12月15日起开放打印。",
+          "source_event_ids": [
+            "e014"
+          ]
+        },
+        {
+          "fact": "用户已支付49.80元购买《大学英语六级真题套卷（2021-2025历年真题含详解）》，订单状态为已支付。",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户创建了“六级真题每日刷题计划”日程，12月5日起每日19:00开始、时长2小时，地点为图书馆三楼自习区，重复至12月18日。",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户创建了标题为“六级全真模考（与林晓）”的日程，时间为12月12日09:00、时长3小时，地点为教学楼B座203，并将林晓列为参与者。",
+          "source_event_ids": [
+            "e027"
+          ]
+        },
+        {
+          "fact": "林晓确认12月12日上午9点一起进行六级全真模考，并表示会带两套打印好的真题卷和答题卡。",
+          "source_event_ids": [
+            "e030"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户正在系统备考大学英语六级，关注真题搜索、听力技巧、词汇讲义、冲刺网课和真题套卷等多类备考资料。",
+          "source_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e007",
+            "e008",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户计划与同学或室友一起刷六级真题并对答案，并通过即时消息协调模考安排。",
+          "source_event_ids": [
+            "e009",
+            "e029",
+            "e030"
+          ]
+        },
+        {
+          "fact": "用户为12月19日考试做出行和到场准备，查询前往南京师范大学仙林校区的公共交通路线并设置考试日提醒。",
+          "source_event_ids": [
+            "e014",
+            "e016",
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "用户是否最终购买e007中的六级听力冲刺网课未知",
+        "用户与室友陈悦是否最终按e009成行去图书馆未知",
+        "用户12月19日是否实际参加考试及最终成绩未知",
+        "用户是否还报名其他科目考试或参加线下培训班未知"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e005",
+    "e006",
+    "e010",
+    "e011",
+    "e013",
+    "e015",
+    "e017",
+    "e019",
+    "e020",
+    "e021",
+    "e022",
+    "e023",
+    "e024",
+    "e025"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c06-s01-a6082189"
+}

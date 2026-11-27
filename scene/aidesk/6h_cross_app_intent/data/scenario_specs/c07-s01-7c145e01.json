@@ -1,0 +1,59 @@
+{
+  "title": "粉丝购票观演本地演唱会",
+  "scenario_category": "entertainment",
+  "subscenario": "演唱会",
+  "template_id": "C07-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [
+      "沈以辰巡回演唱会上海站内场门票x2"
+    ],
+    "people": [
+      "好友小周",
+      "歌手沈以辰"
+    ],
+    "dates": [
+      "12月20日"
+    ],
+    "other": [
+      "滨江体育中心体育馆"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "沈以辰上海站观演计划",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "票务App中已创建并支付的两张内场门票订单",
+        "支付App中的成功扣款记录",
+        "日历App中12月20日晚的场馆日程"
+      ],
+      "optional_evidence": [
+        "与好友小周商议同行的聊天记录",
+        "到场馆的路线查询",
+        "反复播放与收藏歌手歌曲"
+      ],
+      "unknown_information": [
+        "是否购买应援周边",
+        "具体座位排号"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "前两小时仅有音乐App播放歌手歌曲、浏览粉丝社区和往期舞台视频等兴趣信号；票务搜索、票档比较集中在第3至第4小时；决定性证据（创建订单并支付成功）出现在第4小时前后；日历创建与告知好友的消息在最后两小时出现",
+  "variant_note": "本地场馆观演，不涉及跨城交通与酒店，避免与travel意图混淆；购买双张票并约好友同行，聊天记录作为可选证据而非独立意图；证据分散在music_app、ticket_app、payment_app、calendar_app、im_app五类App，需融合才能确认；与同模板其他样本相比，下单发生在窗口中后段，且无退票改签等反向证据",
+  "scenario_id": "c07-s01-7c145e01"
+}

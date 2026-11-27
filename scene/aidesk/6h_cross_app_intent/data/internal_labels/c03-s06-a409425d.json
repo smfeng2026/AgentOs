@@ -1,0 +1,568 @@
+{
+  "sample_id": "c03-s06-a409425d",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "平板电脑购置计划撤销",
+      "category": "shopping",
+      "purpose": "unknown",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付2899元的星曜Pad11订单",
+        "订单取消操作记录",
+        "2899元原路退款到账记录"
+      ],
+      "optional_evidence": [
+        "取消前浏览该型号差评",
+        "取消后重新比较其他型号价格",
+        "取消后收藏替代型号"
+      ],
+      "unknown_information": [
+        "取消是否还受预算变化影响",
+        "是否打算在大促时重新下单"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 4,
+      "contradicting_event_count": 5
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T11:22:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "星曜Pad11平板电脑",
+        "filter_price_range": "2500元-3500元",
+        "sort_by": "综合排序"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T11:38:00+08:00",
+      "app": "shopping_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "星曜Pad11平板电脑",
+        "price": "2899元",
+        "screen_size": "11英寸",
+        "storage": "128GB",
+        "stock_status": "上海现货"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T11:55:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "compare_items": [
+          "星曜Pad11平板电脑",
+          "灵犀TabS平板",
+          "云驰PadPro平板"
+        ],
+        "compare_focus": "价格",
+        "result": "星曜Pad11最低价2899元"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_card_bill",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:00:27+08:00",
+      "app": "payment_app",
+      "action": "view_credit_card_bill",
+      "content": {
+        "month": "上月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:14:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "星曜Pad11一周真实使用评测",
+        "channel": "科技评测社",
+        "watch_duration": "8分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_industry_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:16:05+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "行业季度报告摘要"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:31:00+08:00",
+      "app": "shopping_app",
+      "action": "create_order",
+      "content": {
+        "order_id": "PO202612051231",
+        "product_name": "星曜Pad11平板电脑",
+        "quantity": 1,
+        "order_amount": "2899元",
+        "expected_delivery_date": "12月07日",
+        "delivery_address": "上海市浦东新区"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_backup",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:32:11+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_bookmark",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:45:36+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "传统茶具介绍"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:47:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "order_id": "PO202612051231",
+        "merchant": "星曜官方旗舰店",
+        "amount": "2899元",
+        "payment_method": "银行卡",
+        "order_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_share",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:54:28+08:00",
+      "app": "news_app",
+      "action": "share_article",
+      "content": {
+        "title": "周末街头艺术节回顾",
+        "shared_to": "朋友圈"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:02:00+08:00",
+      "app": "shopping_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "PO202612051231",
+        "product_name": "星曜Pad11平板电脑",
+        "order_status": "待发货",
+        "order_amount": "2899元",
+        "expected_delivery_date": "12月07日"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:09:33+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "摇滚"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:28:00+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "target_product": "星曜Pad11平板电脑",
+        "review_type": "差评",
+        "filter_keyword": "续航",
+        "negative_point": "续航仅5小时，发热明显"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_reply",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:32:49+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "会议室投影仪报修"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:52:00+08:00",
+      "app": "shopping_app",
+      "action": "cancel",
+      "content": {
+        "order_id": "PO202612051231",
+        "product_name": "星曜Pad11平板电脑",
+        "order_amount": "2899元",
+        "cancel_reason": "续航不符合预期",
+        "refund_amount": "2899元",
+        "order_status": "已取消"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_product_other",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T13:58:40+08:00",
+      "app": "shopping_app",
+      "action": "view_product_detail",
+      "content": {
+        "product": "洗碗机"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:08:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "order_id": "PO202612051231",
+        "merchant": "星曜官方旗舰店",
+        "refund_amount": "2899元",
+        "refund_method": "原路退回",
+        "refund_status": "已到账"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:36:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "compare_items": [
+          "灵犀TabS平板",
+          "云驰PadPro平板"
+        ],
+        "compare_focus": "价格与续航",
+        "result": "灵犀TabS 2799元，云驰PadPro 2670元"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bus",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:46:33+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_history",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:47:38+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_forecast",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:59:06+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T15:03:00+08:00",
+      "app": "shopping_app",
+      "action": "collect",
+      "content": {
+        "product_name": "云驰PadPro平板",
+        "price": "2670元",
+        "collect_folder": "平板候选"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_product_wishlist_other",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T15:07:57+08:00",
+      "app": "shopping_app",
+      "action": "add_to_wishlist",
+      "content": {
+        "product": "净水器"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T15:27:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "平板电脑保护壳 11英寸",
+        "sort_by": "销量"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T15:58:00+08:00",
+      "app": "price_compare_app",
+      "action": "browse_content",
+      "content": {
+        "page_title": "平板电脑优惠榜",
+        "highlighted_deal": "双十二预热 立减券"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_water",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T16:09:48+08:00",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": 4
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T16:24:00+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "双十二平板比价提醒",
+        "reminder_date": "12月12日",
+        "reminder_time": "10:00",
+        "notes": "云驰PadPro 优惠价关注"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_product_compare_other",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T16:42:38+08:00",
+      "app": "price_compare_app",
+      "action": "compare_prices",
+      "content": {
+        "product": "空气炸锅",
+        "platforms": 3
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "map_commute",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T16:50:15+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "驾车"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

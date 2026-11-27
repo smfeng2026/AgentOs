@@ -1,0 +1,58 @@
+{
+  "title": "年底个人体检预约安排",
+  "scenario_category": "health_service",
+  "subscenario": "体检预约",
+  "template_id": "C05-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "滨江分院体检中心"
+    ],
+    "products": [
+      "全面健康体检套餐B"
+    ],
+    "people": [],
+    "dates": [
+      "12月20日"
+    ],
+    "other": [
+      "空腹抽血",
+      "体检报告"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年度个人体检预约",
+      "category": "health_service",
+      "purpose": "checkup",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "hospital_app 中已创建并支付成功的体检套餐预约订单",
+        "payment_app 中对应金额的支付成功记录",
+        "calendar_app 中12月20日新建的体检日程"
+      ],
+      "optional_evidence": [
+        "health_app 收藏的空腹与检前注意事项",
+        "map_app 搜索到体检中心的路线"
+      ],
+      "unknown_information": [
+        "是否由单位统一报销费用",
+        "后续是否需要加做复查项目"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前两小时为体检中心搜索、套餐比较与检前注意事项浏览；中间两小时出现预约下单、支付与确认通知等决定性证据；最后一小时在日历中新建12月20日日程并设置空腹提醒",
+  "variant_note": "与同模板其他样本相比，本样本以医院类App搜索浏览起手、以支付加日历建程收尾，体检机构改为城市另一侧的分院，套餐类型为全面体检B，且证据簇中包含地图路线与健康科普浏览等辅助信号，支付与日历事件出现在窗口后段，需要跨至少三类App融合才能确认",
+  "scenario_id": "c05-s01-c7e744c0"
+}

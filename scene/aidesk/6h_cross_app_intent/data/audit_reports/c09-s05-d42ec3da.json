@@ -1,0 +1,811 @@
+{
+  "sample_id": "c09-s05-d42ec3da",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标中的意图过度升级：全窗口只有浏览、查看、对比、收藏和 IM 闲聊，没有下单、支付、签约、预约等决定性证据，按规则 10 所有理财相关事件均为 related_interest，不能标为 supporting；因此 supporting_event_ids 为空，confirmed_facts 为空，相关事实记入 inferred_facts。意图名回退为中性“年末理财信息关注”，purpose=unknown、status=emerging、confidence_level=low，以匹配仅信息浏览级证据。e029 是母亲建议先别急着买，属于相关语境与购买时点不确定性，并非取消/退款/改期类 contradicting 事件。噪声事件与理财主题无实质关联，unrelated_event_count 为 15。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "hn_bank_news",
+        "photo_album",
+        "fit_video",
+        "map_nearby",
+        "learn_video",
+        "cal_reminder",
+        "comm_bus",
+        "weather_forecast",
+        "music_playlist",
+        "game_play",
+        "ent_ranking",
+        "food_history",
+        "shop_browse",
+        "video_short",
+        "work_tool_article"
+      ],
+      "hard_negative_ids": [
+        "hn_bank_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "年终奖闲钱稳健理财配置研究",
+        "category": "finance_admin",
+        "purpose": "personal_admin",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e011",
+          "e012",
+          "e013",
+          "e014",
+          "e016",
+          "e018",
+          "e019",
+          "e020",
+          "e021",
+          "e022",
+          "e023",
+          "e026",
+          "e027",
+          "e028",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户在银行 App 中筛选并浏览 R2 稳健型理财产品列表，查看多只产品。",
+            "source_event_ids": [
+              "e013"
+            ]
+          },
+          {
+            "fact": "用户查看了具体稳健型理财产品详情（安稳盈90天持有期，R2中低风险，业绩比较基准2.60%，1元起购）。",
+            "source_event_ids": [
+              "e014"
+            ]
+          },
+          {
+            "fact": "用户查看了3年期大额存单详情（利率2.15%，20万元起购），对存款类产品也有兴趣。",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户将稳健型理财产品与大额存单按业绩比较基准、风险等级、起购金额、流动性等维度做了对比。",
+            "source_event_ids": [
+              "e014",
+              "e016",
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户在财经内容中关注存款利率下调、年末资金配置、货币基金收益率等话题。",
+            "source_event_ids": [
+              "e011",
+              "e012",
+              "e022"
+            ]
+          },
+          {
+            "fact": "用户搜索货币基金七日年化收益率排名，阅读个人理财专栏并收藏理财科普文章（存款利率走低后的闲钱去处、稳健型理财产品挑选指南）。",
+            "source_event_ids": [
+              "e019",
+              "e020",
+              "e021",
+              "e023"
+            ]
+          },
+          {
+            "fact": "用户观看理财科普视频，了解大额存单与定期的区别以及年末闲钱打理的稳健思路。",
+            "source_event_ids": [
+              "e026",
+              "e027"
+            ]
+          },
+          {
+            "fact": "用户向母亲表示年终奖即将到账，正在比较稳健理财与大额存单的利率。",
+            "source_event_ids": [
+              "e028"
+            ]
+          },
+          {
+            "fact": "母亲建议先不要急着购买，等利率稳定后再考虑，并提示不要选择高风险产品。",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "年终奖及可用于理财的实际金额",
+          "预计投资期限与流动性需求",
+          "最终是否购买、购买哪一类产品及购买金额",
+          "是否还有其他资金用途或负债需要安排"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e003",
+      "e004",
+      "e005",
+      "e006",
+      "e007",
+      "e008",
+      "e009",
+      "e010",
+      "e015",
+      "e017",
+      "e024",
+      "e025",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c09-s05-d42ec3da",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "intent_status_overclaim",
+        "severity": "high",
+        "event_ids": [
+          "e011",
+          "e012",
+          "e013",
+          "e014",
+          "e016",
+          "e018",
+          "e020",
+          "e021",
+          "e022",
+          "e028"
+        ],
+        "description": "盲标把 i001 判定为 status=considering、confidence_level=high、purpose=personal_admin，但全窗口只有浏览、收藏、对比，以及与母亲的一次闲聊，完全没有下单、签约、转账、预约等强证据，也未见明确的资金规模或期限规划。规格本身标注 D3_weak_evidence、purpose=unknown、status=emerging、confidence=low，盲标将信息浏览兴趣升级为“正在考虑配置”属过度推断。",
+        "suggested_action": "将 status 回退为 emerging（或保持 considering 但 confidence 降为 low），purpose 回退为 unknown 或在 inferred 中说明“仅为自有资金信息浏览”，并在 unknown_information 中明确是否近期购买仍未知。"
+      },
+      {
+        "issue_type": "evidence_role_misclassification",
+        "severity": "high",
+        "event_ids": [
+          "e011",
+          "e012",
+          "e013",
+          "e014",
+          "e016",
+          "e018",
+          "e020",
+          "e021",
+          "e022"
+        ],
+        "description": "盲标把全部 15 个相关事件都放进 related_interest_event_ids，supporting_event_ids 为空；但 e011、e012（新闻App财经频道多篇存款利率/年末配置）、e013、e014、e016（银行App理财产品列表+两个稳健型/存单详情）、e018（产品对比）、e020、e021（阅读App收藏理财科普）恰好逐条满足规格 required_evidence，属于直接支持证据，被降级为 related_interest 会低估证据强度，且与 high 置信度自相矛盾。",
+        "suggested_action": "把 e011、e012、e013、e014、e016、e018、e020、e021、e022 改回 supporting；e019、e023、e026、e027、e028、e029 保持 related_interest（或按 optional_evidence 将 e026、e027、e028 标为可选支持）。"
+      },
+      {
+        "issue_type": "fact_type_misclassification",
+        "severity": "medium",
+        "event_ids": [
+          "e013",
+          "e014",
+          "e016",
+          "e018",
+          "e023"
+        ],
+        "description": "confirmed_facts 为空，而 inferred_facts 中混入了多条可由事件直接读出的观测事实（如“筛选并浏览 R2 稳健型列表”“查看安稳盈90天详情，基准2.60%、1元起购”“查看3年期大额存单2.15%、20万起购”“按四维度对比”“搜索货币基金七日年化排名”），这些属于直接证据而非推断。",
+        "suggested_action": "将可直读的条目移入 confirmed_facts 并保留 source_event_ids；inferred_facts 只保留“关注年末闲钱去向”“可能在为年终奖寻找稳健去处”等推断性结论。"
+      },
+      {
+        "issue_type": "unresolved_contradiction",
+        "severity": "medium",
+        "event_ids": [
+          "e028",
+          "e029"
+        ],
+        "description": "e029 中母亲回复“先别急着买，等利率稳一点再说，别碰风险高的”，是对购买时点/风险偏好的明确降温信号；盲标 conflicts 为空、contradicting_event_ids 为空，未体现该信息对“正在考虑购买”判定的削弱作用。",
+        "suggested_action": "在 conflicts 中记录该降温信号（或作为 inferred_fact 说明“购买意愿被家庭意见推迟”），并据此进一步压低置信度，而不是当作纯 supporting 语境。"
+      },
+      {
+        "issue_type": "intent_name_over_specification",
+        "severity": "low",
+        "event_ids": [
+          "e028"
+        ],
+        "description": "盲标意图名“年终奖闲钱稳健理财配置研究”中的“年终奖”仅来自单条 IM 消息，“配置研究”也比实际行为（浏览+收藏+一次对比）更强；规格意图为较中性的“年末理财信息关注”。",
+        "suggested_action": "改回中性命名（如“年末闲钱理财信息关注/浏览”），把年终奖作为 inferred 上下文而非意图标签的一部分。"
+      }
+    ],
+    "summary": "噪声侧无问题：15 条 unrelated 事件（信用卡积分、街景相册、拉伸/化学视频、充电宝、理发提醒、公交、天气、歌单、游戏、电影榜、外卖历史、宠物用品、变装短视频、Excel 技巧）均与年末理财主题无实质关联，不需要按真实语义改标。相关事件链本身自洽、时间集中在中后段、无关键词堆叠或意图名泄露、无不当多意图合并/拆分，无下单/退款/改期等状态变化需要表达。核心问题在盲标：把只有浏览级证据的意图标为 considering/high 置信并保持 purpose=personal_admin，同时把满足 required_evidence 的 9 条直接支持事件全部降级为 related_interest（supporting 计数 0，与规格的 9 和 high 置信冲突），confirmed_facts 为空、事实层级错置，并遗漏了 e029 的降温/矛盾信号。建议按上述条目修正标注后重审；在未修正前判为不通过。"
+  },
+  "adjudication": {
+    "sample_id": "c09-s05-d42ec3da",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "年末理财信息关注",
+          "category": "finance_admin",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e011",
+            "e012",
+            "e013",
+            "e014",
+            "e016",
+            "e018",
+            "e019",
+            "e020",
+            "e021",
+            "e022",
+            "e023",
+            "e026",
+            "e027",
+            "e028",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户在新闻App财经频道浏览存款利率下调、年末资金配置、货币基金收益等主题文章。",
+              "source_event_ids": [
+                "e011",
+                "e012",
+                "e022"
+              ]
+            },
+            {
+              "fact": "用户在银行App筛选R2稳健型理财产品并浏览产品列表，查看约12只产品。",
+              "source_event_ids": [
+                "e013"
+              ]
+            },
+            {
+              "fact": "用户查看“安稳盈90天持有期稳健型理财产品”详情，风险等级R2中低风险，业绩比较基准2.60%，1元起购。",
+              "source_event_ids": [
+                "e014"
+              ]
+            },
+            {
+              "fact": "用户查看3年期大额存单详情，利率2.15%，20万元起购。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户将稳健型理财产品与大额存单按业绩比较基准、风险等级、起购金额、流动性等维度进行对比。",
+              "source_event_ids": [
+                "e014",
+                "e016",
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户在阅读App浏览个人理财入门专栏，并收藏存款利率走低后闲钱去处、稳健型理财产品挑选指南等理财科普文章。",
+              "source_event_ids": [
+                "e019",
+                "e020",
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户搜索货币基金七日年化收益率排名。",
+              "source_event_ids": [
+                "e023"
+              ]
+            },
+            {
+              "fact": "用户观看理财科普视频，了解大额存单与定期的区别以及年末闲钱打理的稳健思路。",
+              "source_event_ids": [
+                "e026",
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户向母亲提到年终奖将到账，询问闲钱是买稳健理财还是存大额存单，并表示自己在看利率。",
+              "source_event_ids": [
+                "e028"
+              ]
+            },
+            {
+              "fact": "母亲建议先不要急着购买，等利率稳定后再考虑，并提示不要碰高风险产品。",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否打算近期实际购买理财产品",
+            "可投资金规模（如年终奖具体金额）",
+            "关注理财的具体目标、资金使用期限与流动性需求",
+            "最终是否购买、购买哪类产品及购买金额",
+            "母亲建议是否会影响用户推迟购买"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e003",
+        "e004",
+        "e005",
+        "e006",
+        "e007",
+        "e008",
+        "e009",
+        "e010",
+        "e015",
+        "e017",
+        "e024",
+        "e025",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c09-s05-d42ec3da"
+    },
+    "rationale": "修正盲标中的意图过度升级：全窗口只有浏览、查看、对比、收藏和 IM 闲聊，没有下单、支付、签约、预约等决定性证据，按规则 10 所有理财相关事件均为 related_interest，不能标为 supporting；因此 supporting_event_ids 为空，confirmed_facts 为空，相关事实记入 inferred_facts。意图名回退为中性“年末理财信息关注”，purpose=unknown、status=emerging、confidence_level=low，以匹配仅信息浏览级证据。e029 是母亲建议先别急着买，属于相关语境与购买时点不确定性，并非取消/退款/改期类 contradicting 事件。噪声事件与理财主题无实质关联，unrelated_event_count 为 15。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "finance_admin": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 2334,
+      "total_tokens": 4190,
+      "latency_s": 23.0,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1735,
+      "completion_tokens": 5542,
+      "total_tokens": 7277,
+      "latency_s": 45.87,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3443,
+      "completion_tokens": 3511,
+      "total_tokens": 6954,
+      "latency_s": 22.03,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5897,
+      "completion_tokens": 4293,
+      "total_tokens": 10190,
+      "latency_s": 32.99,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10370,
+      "completion_tokens": 8298,
+      "total_tokens": 18668,
+      "latency_s": 64.9,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 188.79
+}

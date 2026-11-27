@@ -1,0 +1,321 @@
+{
+  "sample_id": "c06-s05-e58bfd9c",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-03T18:10:00+08:00",
+    "end": "2026-12-04T00:10:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-03T19:11:27+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "家人群",
+        "topic": "周末是否回家吃饭"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-03T19:24:22+08:00",
+      "app": "shopping_app",
+      "action": "view_order",
+      "content": {
+        "order_type": "已完成的日用品订单"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-03T19:43:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "三分钟看懂双子座流星雨",
+        "category": "科普短视频",
+        "duration_seconds": 185,
+        "watch_progress": "播放完毕"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-03T19:54:03+08:00",
+      "app": "banking_app",
+      "action": "view_credit_card_points",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-03T19:58:26+08:00",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": 8
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-03T20:06:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "手机也能拍星空？试试这几个参数",
+        "uploader": "夜空笔记",
+        "views": "21.4万",
+        "duration_minutes": 8
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-03T20:39:13+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-03T20:41:26+08:00",
+      "app": "learning_app",
+      "action": "browse_course",
+      "content": {
+        "subject": "手机摄影入门"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-03T20:52:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "科技频道",
+        "headline": "双子座流星雨12月14日迎来极大，每小时可见上百颗",
+        "source": "新华社"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-03T21:00:16+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "城市马拉松报名启动",
+        "source": "科技晚报"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-03T21:08:16+08:00",
+      "app": "calendar_app",
+      "action": "view_reminder",
+      "content": {
+        "title": "妈妈生日"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-03T21:18:00+08:00",
+      "app": "news_app",
+      "action": "view_detail",
+      "content": {
+        "headline": "双子座流星雨12月14日极大，观测指南请查收",
+        "source": "科普时报",
+        "read_progress": "阅读约七成"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-03T21:30:25+08:00",
+      "app": "mail_app",
+      "action": "read_newsletter",
+      "content": {
+        "subject": "本周科技简报"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-03T21:36:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "冬季星空辨认指南（上）：从猎户座开始",
+        "category": "天文科普",
+        "duration_minutes": 15,
+        "watch_progress": "观看至92%"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-03T21:39:04+08:00",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "家常菜做法"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-03T21:42:13+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "纪录片预告"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-03T21:52:02+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "北京"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-03T21:55:55+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "护眼小贴士"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-03T21:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "十分钟带你认全冬季星空",
+        "uploader": "星空课堂",
+        "duration_minutes": 11,
+        "watch_progress": "播放完毕"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-03T22:01:04+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-03T22:10:00+08:00",
+      "app": "learning_app",
+      "action": "search",
+      "content": {
+        "keyword": "星座辨认 入门",
+        "result_count": 36,
+        "filter": "视频课程"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-03T22:14:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "星空摄影",
+        "section": "热门帖子",
+        "top_post": "雪夜在坝上拍银河"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-03T22:32:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "天文望远镜入门：第一台望远镜怎么选",
+        "uploader": "观星者联盟",
+        "duration_minutes": 18,
+        "watch_progress": "观看至61%"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-03T22:37:36+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "洗衣店"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-03T22:41:00+08:00",
+      "app": "learning_app",
+      "action": "search",
+      "content": {
+        "keyword": "天文望远镜 新手 入门",
+        "result_count": 24,
+        "filter": "图文专栏"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-03T22:47:00+08:00",
+      "app": "social_app",
+      "action": "view_detail",
+      "content": {
+        "post_title": "零下十度拍双子座流星雨的整晚",
+        "author": "追星的老王",
+        "likes": "8600",
+        "topic": "星空摄影"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-03T22:58:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "video_title": "流星雨观测全攻略：时间、地点与器材",
+        "category": "天文科普",
+        "duration_minutes": 13,
+        "watch_progress": "播放完毕"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-03T23:12:00+08:00",
+      "app": "reader_app",
+      "action": "collect",
+      "content": {
+        "article_title": "新手观星指南：从肉眼到双筒望远镜",
+        "column": "天文爱好者",
+        "collection_folder": "稍后阅读"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-03T23:26:00+08:00",
+      "app": "social_app",
+      "action": "collect",
+      "content": {
+        "object_type": "话题",
+        "topic": "星空摄影",
+        "operation": "关注"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-03T23:34:00+08:00",
+      "app": "reader_app",
+      "action": "collect",
+      "content": {
+        "article_title": "双子座流星雨观测时间与地点攻略",
+        "column": "夜空观察",
+        "collection_folder": "观星入门"
+      }
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "sample_id": "c09-s01-a0b98bd8",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "样本可用，无需重生成：单一意图“护照换发办理”由跨 App 证据链支持（政务预约成功 e025、预约确认邮件 e027、日历日程 e029、证件照缴费 e016、母亲确认陪同 e019）。事件分层按规则 10/12 修正：仅订单/支付/预约确认/创建日程/明确确认消息计 supporting（e016、e019、e025、e027、e029）；search/view/browse 类动作（e001、e003、e006、e007、e012、e014、e018、e021、e024）及征询陪同的 e017 计 related_interest，虽然这些事件中 e012、e018、e024 在种子标签里被标为 supporting，但其动作语义为浏览/查看/路线搜索，不构成决定性证据；e014 查看相册既有证件照亦仅为相关兴趣。因此 supporting=5、related_interest=10，与 seed 预算不同，但按规则 7 配比非硬约束，以真实语义为准。purpose 改为 personal_admin：现有证据只体现个人证件行政办理，未出现任何认证/公证或出境用途证据，不能支撑 certification，也不宜编造用途；status 定为 planned：12月18日到场办理尚未发生，预约成功仅代表预约确认，最终办理与领证仍属 unknown；并在 unknown_information 补回“是否选择加急办理”等信息。15 条 origin=noise 事件经语义复核均与护照换发无关，保持 unrelated，unrelated_event_count=15。所有 confirmed_facts 仅引用 supporting 事件，inferred_facts 仅引用该意图相关事件，字段与 event_labels 互为镜像一致。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "read_novel",
+        "video_search",
+        "game_play",
+        "music_playlist",
+        "comm_bike",
+        "social_feed_parenting",
+        "mail_cleanup",
+        "cal_reminder",
+        "shop_coupon",
+        "learn_video",
+        "weather_now",
+        "news_headlines",
+        "hn_bank_news",
+        "food_lunch",
+        "photo_edit"
+      ],
+      "hard_negative_ids": [
+        "hn_bank_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "办理护照换发",
+        "category": "finance_admin",
+        "purpose": "personal_admin",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e016",
+          "e019",
+          "e025",
+          "e027",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e003",
+          "e006",
+          "e007",
+          "e012",
+          "e014",
+          "e017",
+          "e018",
+          "e021",
+          "e024"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已支付星光影像证件照馆的出入境证件照拍摄及回执费用55元，支付状态为已支付。",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "母亲回复确认12月18日上午陪同用户去市民中心出入境大厅换新护照。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户已成功预约普通护照换发，时间为12月18日上午09:30-10:00，地点为杭州市民中心出入境办证大厅。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户收到杭州公安出入境发送的预约成功通知，预约号为HZCRJ20261218-0930。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "用户已创建12月18日08:30-11:00“去市民中心办护照换发”的日程，地点为杭州市民中心出入境办证大厅，参与人包括我和母亲。",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户正在筹备普通护照换发，搜索了所需材料、办理指南、证件照采集点，并查看了个人证件材料。",
+            "source_event_ids": [
+              "e001",
+              "e003",
+              "e006",
+              "e007",
+              "e012"
+            ]
+          },
+          {
+            "fact": "用户已准备出入境证件照并取得采集回执，回执签发商家为星光影像证件照馆，有效期6个月。",
+            "source_event_ids": [
+              "e014",
+              "e016",
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户计划在12月18日上午前往杭州市民中心出入境办证大厅办理护照换发，并已查看当天空闲时间和地铁路线。",
+            "source_event_ids": [
+              "e021",
+              "e024",
+              "e025",
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户曾向母亲询问是否陪同前往，母亲表示会帮忙找旧护照。",
+            "source_event_ids": [
+              "e017",
+              "e019"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "护照换发是否最终办理完成并领取新护照",
+          "用户办理护照的真实用途及是否有后续出境计划",
+          "12月18日是否携带齐全材料并按时到达",
+          "旧护照是否已找到",
+          "是否还有其他同行人员"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e004",
+      "e005",
+      "e008",
+      "e009",
+      "e010",
+      "e011",
+      "e013",
+      "e015",
+      "e020",
+      "e022",
+      "e023",
+      "e026",
+      "e028",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c09-s01-a0b98bd8",
+    "passed": true,
+    "issues": [
+      {
+        "issue_type": "证据分层与预算不一致（supporting/related_interest计数错误）",
+        "severity": "medium",
+        "event_ids": [
+          "e014"
+        ],
+        "description": "labeled_events 中的 supporting 实际有 9 条（e012、e014、e016、e018、e019、e024、e025、e027、e029），related_interest 只有 6 条，与场景规格 supporting=8、related_interest=7 的预算不一致。e014 仅是在 gallery_app 查看已拍摄的证件照文件（不属于 docs_app 必需证据），作为 supporting 偏弱；若把它改为 related_interest，计数正好恢复为 8/7，也符合规格“必需证据+可选证据=支持”的设计（必需：e012、e018、e025、e027、e029；可选：e016、e019、e024）。",
+        "suggested_action": "将 e014 的 relation 改为 related_interest（保留 intent_ids=[i001]）；若确需保留 supporting，则应在规格中说明其为额外支持证据并同步预算，避免只在本样本内不一致。"
+      },
+      {
+        "issue_type": "盲标把必需/强支持证据降级",
+        "severity": "medium",
+        "event_ids": [
+          "e012",
+          "e018",
+          "e024"
+        ],
+        "description": "e012（docs_app 查看身份证、户口簿、旧护照等身份证明材料）和 e018（查看出入境证件照采集回执）是规格 required_evidence 明确要求的事件，e024（搜索12月18日08:30去杭州市民中心出入境办证大厅的地铁路线）是可选支持证据；盲标将三者全部降为 related_interest，使盲标 supporting 仅 5 条（e016、e019、e025、e027、e029），既与规格 8 条支持证据不符，也弱化了“材料准备—拍照缴费—预约—路线—日程”的证据链。",
+        "suggested_action": "裁决器按真实语义将 e012、e018、e024 恢复为 supporting，并保持 e014 为 related_interest；这样最终 supporting=8（e012、e016、e018、e019、e024、e025、e027、e029）、related_interest=7（e001、e003、e006、e007、e014、e017、e021），与规格完全对齐。不要因此丢弃样本。"
+      },
+      {
+        "issue_type": "status 标注不一致",
+        "severity": "medium",
+        "event_ids": [
+          "e025",
+          "e027",
+          "e029"
+        ],
+        "description": "规格 status=planned（12月18日才去大厅办理，当前只有预约、缴费与日程），盲标却标为 confirmed。e025/e027 的“预约成功”只说明预约已确认，并不表示“护照换发办理”已完成；盲标自身把“是否最终办理完成并领取新护照”列为 unknown，与 status=confirmed 存在语义冲突。",
+        "suggested_action": "将 intent status 统一为 planned；若保留 confirmed，需在字段说明中明确其仅表示“预约已确认”，并在 unknown/conflicts 中说明事项本身尚未发生。"
+      },
+      {
+        "issue_type": "purpose 标注不一致",
+        "severity": "medium",
+        "event_ids": [
+          "e025",
+          "e029"
+        ],
+        "description": "场景规格 purpose=certification，盲标 purpose=personal_admin，同一意图的 purpose 不唯一。现有证据（普通护照换发预约、日历日程）只能证明“办理护照换发”这一行政事项，不能证明证件用途（如出境或认证需求）；盲标把真实用途列入 unknown 的方向正确，但 purpose 字段本身需按模板统一。",
+        "suggested_action": "按场景模板统一 purpose 取值（certification 与 personal_admin 择一，并在字段说明中定义），不要依据现有证据推断真实出行/认证用途，也不要补造用途事件。"
+      },
+      {
+        "issue_type": "unknown 信息遗漏",
+        "severity": "low",
+        "event_ids": [
+          "e025"
+        ],
+        "description": "规格 unknown_information 包含“是否选择加急办理”，盲标的 unknown_information 未保留该项；预约记录中也没有加急字段，属未决信息，应显式保留。",
+        "suggested_action": "在盲标/最终注释的 unknown_information 中补回“是否选择加急办理”。"
+      }
+    ],
+    "summary": "样本整体可用：单一意图“护照换发办理”由预约成功记录（e025）、确认邮件（e027）、日历日程（e029）、身份材料与证件照回执（e012、e018）、缴费（e016）及陪同沟通（e019）、路线（e024）等跨 App 证据充分支持，未见意图漏检、误合并或事实缺少证据 ID 的问题，也未发现 origin=noise 事件实际与意图相关而应改标的情况。主要问题在证据分层：Gold 将 e014（相册查看既有证件照）标为 supporting，导致 supporting=9 与规格 8 不符；盲标反向把必需证据 e012、e018 及路线 e024 降为 related_interest，supporting 仅 5。另有 status（planned vs confirmed）、purpose（certification vs personal_admin）不一致及 unknown 遗漏“加急”信息。以上均为中低严重度，建议按语义调整分层并统一 status/purpose，无需重新生成。"
+  },
+  "adjudication": {
+    "sample_id": "c09-s01-a0b98bd8",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "护照换发办理",
+          "category": "finance_admin",
+          "purpose": "personal_admin",
+          "status": "planned",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e016",
+            "e019",
+            "e025",
+            "e027",
+            "e029"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e003",
+            "e006",
+            "e007",
+            "e012",
+            "e014",
+            "e017",
+            "e018",
+            "e021",
+            "e024"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户已支付星光影像证件照馆的出入境证件照拍摄及回执费用55元，支付状态为已支付。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "母亲回复确认12月18日上午陪同用户前往市民中心出入境大厅换新护照，并表示会帮忙找旧护照。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "用户已成功预约普通护照换发，时间为12月18日上午09:30-10:00，地点为杭州市民中心出入境办证大厅，申请人1人。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户收到杭州公安出入境发送的“出入境证件预约成功通知”邮件，预约号为HZCRJ20261218-0930。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "用户已创建12月18日08:30-11:00“去市民中心办护照换发”的日历日程，地点为杭州市民中心出入境办证大厅，参与人为我及母亲。",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户正在筹备普通护照换发：在政务App搜索换发所需材料与办理指南、查询出入境证件照采集点，并浏览了个人证件材料文件夹中的身份证、户口簿与旧护照扫描件。",
+              "source_event_ids": [
+                "e001",
+                "e003",
+                "e006",
+                "e007",
+                "e012"
+              ]
+            },
+            {
+              "fact": "用户已完成出入境证件照拍摄并取得采集回执（签发商家为星光影像证件照馆，有效期6个月），且在相册查看过白底证件照文件。",
+              "source_event_ids": [
+                "e014",
+                "e016",
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户计划12月18日上午前往杭州市民中心出入境办证大厅办理换发，已查看当天空闲时段并查询08:30出发的地铁出行路线（约32分钟）。",
+              "source_event_ids": [
+                "e021",
+                "e024",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户邀请母亲陪同办理，母亲同意并表示会协助寻找旧护照。",
+              "source_event_ids": [
+                "e017",
+                "e019"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否选择加急办理",
+            "旧护照原件是否已找到",
+            "护照换发是否已实际到场办理并最终领取新护照",
+            "办理护照的真实用途及是否有后续出境计划",
+            "12月18日是否携带齐全材料并按时到达"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e004",
+        "e005",
+        "e008",
+        "e009",
+        "e010",
+        "e011",
+        "e013",
+        "e015",
+        "e020",
+        "e022",
+        "e023",
+        "e026",
+        "e028",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c09-s01-a0b98bd8"
+    },
+    "rationale": "样本可用，无需重生成：单一意图“护照换发办理”由跨 App 证据链支持（政务预约成功 e025、预约确认邮件 e027、日历日程 e029、证件照缴费 e016、母亲确认陪同 e019）。事件分层按规则 10/12 修正：仅订单/支付/预约确认/创建日程/明确确认消息计 supporting（e016、e019、e025、e027、e029）；search/view/browse 类动作（e001、e003、e006、e007、e012、e014、e018、e021、e024）及征询陪同的 e017 计 related_interest，虽然这些事件中 e012、e018、e024 在种子标签里被标为 supporting，但其动作语义为浏览/查看/路线搜索，不构成决定性证据；e014 查看相册既有证件照亦仅为相关兴趣。因此 supporting=5、related_interest=10，与 seed 预算不同，但按规则 7 配比非硬约束，以真实语义为准。purpose 改为 personal_admin：现有证据只体现个人证件行政办理，未出现任何认证/公证或出境用途证据，不能支撑 certification，也不宜编造用途；status 定为 planned：12月18日到场办理尚未发生，预约成功仅代表预约确认，最终办理与领证仍属 unknown；并在 unknown_information 补回“是否选择加急办理”等信息。15 条 origin=noise 事件经语义复核均与护照换发无关，保持 unrelated，unrelated_event_count=15。所有 confirmed_facts 仅引用 supporting 事件，inferred_facts 仅引用该意图相关事件，字段与 event_labels 互为镜像一致。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "personal_admin": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "finance_admin": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1856,
+      "completion_tokens": 2015,
+      "total_tokens": 3871,
+      "latency_s": 18.99,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1732,
+      "completion_tokens": 7756,
+      "total_tokens": 9488,
+      "latency_s": 141.77,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3412,
+      "completion_tokens": 7687,
+      "total_tokens": 11099,
+      "latency_s": 53.84,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5881,
+      "completion_tokens": 17136,
+      "total_tokens": 23017,
+      "latency_s": 133.21,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10317,
+      "completion_tokens": 6657,
+      "total_tokens": 16974,
+      "latency_s": 48.55,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 399.38
+}

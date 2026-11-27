@@ -1,0 +1,203 @@
+{
+  "sample_id": "c06-s05-6dc0e110",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:04:33+08:00",
+  "task": {
+    "scenario_category": "learning",
+    "template_id": "C06-S05",
+    "subscenario": "学习兴趣",
+    "difficulty": "D3_weak_evidence",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-14T11:45:00+08:00",
+    "window_end": "2026-12-14T17:45:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 559296947
+  },
+  "spec_summary": {
+    "title": "午后的编程自学兴趣萌芽",
+    "intent_names": [
+      "数据分析自学意向"
+    ],
+    "intent_categories": [
+      "learning"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [],
+      "products": [
+        "Python入门课程",
+        "数据分析书籍"
+      ],
+      "people": [],
+      "dates": [],
+      "other": [
+        "学习主题：Python与数据分析"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 16,
+    "gold_supporting": 0,
+    "gold_related_interest": 14,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "unknown": 1
+    },
+    "gold_statuses": {
+      "emerging": 1
+    },
+    "gold_categories": {
+      "learning": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "photo_album",
+      "pay_bill",
+      "hn_course_other_subject",
+      "video_watch",
+      "sys_wallpaper",
+      "im_family_reply",
+      "contacts_search_repair",
+      "food_history",
+      "game_play",
+      "shop_coupon",
+      "ent_trailer",
+      "tax_deduction_guide",
+      "home_ac_cleaning_search",
+      "parking_fee_standard",
+      "pet_vaccine_schedule"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "composition_deviation",
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 16 differs from target 15"
+    ],
+    "stats": {
+      "intents": 1,
+      "unrelated": 16,
+      "supporting": 0,
+      "related_interest": 14,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "learning": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1853,
+      "completion_tokens": 2355,
+      "total_tokens": 4208,
+      "latency_s": 90.93,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1734,
+      "completion_tokens": 5829,
+      "total_tokens": 7563,
+      "latency_s": 89.02,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3414,
+      "completion_tokens": 5123,
+      "total_tokens": 8537,
+      "latency_s": 64.93,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6233,
+      "completion_tokens": 12070,
+      "total_tokens": 18303,
+      "latency_s": 101.27,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10956,
+      "completion_tokens": 5444,
+      "total_tokens": 16400,
+      "latency_s": 99.95,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 446.1,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c06-s05-6dc0e110.json",
+      "sha256": "6a71d4139d9ec286d318bb8f1c7172cf75f1929c843c295f613e8f2fa6854f0d"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c06-s05-6dc0e110.json",
+      "sha256": "8261311917a9a116d65112100b229735b725ba6bd827080b7567d9d2654735e5"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c06-s05-6dc0e110.json",
+      "sha256": "5185408fd20aabde433317f2a3b2ed30ed1781dcba02badd0e2ae48db3938690"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c06-s05-6dc0e110.json",
+      "sha256": "02241e60fb09fd41c0b2f7bb1b81fa28621e257ab83f373de804c0ecbe3dbffc"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c06-s05-6dc0e110.json",
+      "sha256": "e397d4ad9309c87ae514f38317550ca2edacd47d722d2ec8c7c61f409bc1d409"
+    }
+  },
+  "updated_at": "2026-11-27T12:04:33+08:00"
+}

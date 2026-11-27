@@ -1,0 +1,288 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "家装风格与家居用品兴趣浏览",
+      "category": "family",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e002",
+        "e006",
+        "e008",
+        "e010",
+        "e011",
+        "e012",
+        "e014",
+        "e015",
+        "e020",
+        "e021",
+        "e023",
+        "e025",
+        "e026",
+        "e029",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户连续观看小户型改造、户型优化与家装软装类视频，对家装改造内容有持续兴趣。",
+          "source_event_ids": [
+            "e002",
+            "e006",
+            "e008",
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户在社交笔记平台浏览装修攻略，并收藏装修全流程与预算相关笔记，处于家装信息收集阶段。",
+          "source_event_ids": [
+            "e010",
+            "e011",
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户浏览并收藏北欧风布艺沙发、全屋定制柜，并对已收藏沙发查询价格走势和跨平台比价。",
+          "source_event_ids": [
+            "e020",
+            "e021",
+            "e023",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户查询杭州家居卖场并浏览卖场评价，表现出对线下家居选购信息的关注。",
+          "source_event_ids": [
+            "e014",
+            "e015"
+          ]
+        },
+        {
+          "fact": "用户搜索浴室收纳架、浏览家居好物热销榜并比较扫地机器人，表现出泛家居用品浏览兴趣。",
+          "source_event_ids": [
+            "e026",
+            "e029",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "房屋是否已交付、是旧房翻新还是局部改造",
+        "装修预算、时间表以及是否打算联系装修公司量房",
+        "是否决定购买已收藏的沙发、全屋定制柜或其他家居商品",
+        "是否计划前往城西家居生活广场及具体日期",
+        "扫地机器人、收纳架等浏览是否属于同一家居采购计划",
+        "配偶对改造方案的态度与参与程度"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e003",
+    "e004",
+    "e005",
+    "e007",
+    "e009",
+    "e013",
+    "e016",
+    "e017",
+    "e018",
+    "e019",
+    "e022",
+    "e024",
+    "e027",
+    "e028"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c08-s06-2fde485e"
+}

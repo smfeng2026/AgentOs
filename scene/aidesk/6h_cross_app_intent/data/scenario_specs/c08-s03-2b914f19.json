@@ -1,0 +1,61 @@
+{
+  "title": "年底家庭聚餐订包间",
+  "scenario_category": "family",
+  "subscenario": "家庭聚会",
+  "template_id": "C08-S03",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "城隍庙商圈"
+    ],
+    "products": [],
+    "people": [
+      "妈妈",
+      "二叔",
+      "姑姑",
+      "表弟"
+    ],
+    "dates": [
+      "12月27日"
+    ],
+    "other": [
+      "本帮菜餐厅（10人包间）",
+      "8-10人聚餐"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年终家庭聚餐",
+      "category": "family",
+      "purpose": "family_gathering",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "家庭群里确定12月27日晚聚餐时间和人数的聊天记录",
+        "餐厅包间预订成功并支付定金的订单",
+        "日历中创建的12月27日聚餐日程"
+      ],
+      "optional_evidence": [
+        "查询去餐厅的路线",
+        "浏览候选餐厅的用户评价"
+      ],
+      "unknown_information": [
+        "是否需要为长辈安排接送",
+        "最终到场人数是否还会变动"
+      ],
+      "supporting_event_count": 10,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 10,
+    "related_interest": 5,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前一小时（18:10-19:05）只有家庭群消息往来确定日期和人数；中段（20:00-21:30）在餐厅类App搜索、查看详情并比较两家本帮菜馆；21:45左右完成包间预订并用支付App付定金，随后创建日历日程、把订单截图发回家庭群（决定性证据集中在窗口后三分之一）；23点后只剩看路线、查天气、找停车位等弱相关行为",
+  "variant_note": "与同模板其他样本相比：本样本以餐厅包间预订+定金支付为核心强证据（而非在家做饭或订外卖），App组合为 im_app+restaurant_app+payment_app+calendar_app 四类融合，另用 map_app/weather_app/parking_app/review_app 提供干扰性相关行为；群聊中用'周日晚上''8个人'等口语指代日期人数，不直接出现意图名称；无反向证据，状态为confirmed",
+  "scenario_id": "c08-s03-2b914f19"
+}

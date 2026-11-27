@@ -1,0 +1,787 @@
+{
+  "sample_id": "c07-s01-b12855b4",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "保留单一意图 i001（盲标的“观看林知夏巡回演唱会上海站”与场景一致，粉丝目的由 music/social 长期收听与应援内容支撑，无新增独立意图）。按规则10修正证据分级：e004 搜索、e007 场次浏览、e008 票档详情、e011 比价、e016 路线搜索、e019 邀约均属 search/view/browse/compare 类动作，改判 related_interest；supporting 仅保留决定性证据——e021 同行确认、e024 下单（内场VIP 2 张连座）、e025 支付成功（同一 order_id 的¥2560支付）、e028 日历日程落定。因此 supporting 为 4 条、related_interest 11 条，未按场景预设的 10/5 配比强凑（规则7以真实语义为准），并如实记录 unrelated_event_count=15。e018 仅为上海城市级逐小时天气，无日期/场馆/观演上下文，按规则8保持 unrelated。关于审查报告指出的票务状态问题：e024 下单时确为“待支付”且窗口内无 ticket_app 出票事件，故 i001 的 confirmed_facts 如实记录订单下单时状态与 payment_app 的支付成功，并将 e028 备注中的“已出票”表述限定为日历备注内容而非票务系统已确认事实；由于下单+支付成功+日历落定已构成闭环，status 维持 confirmed、confidence 维持 high，仅把“具体座位号”“是否已转账”“是否购买应援物”等留作 unknown；同时删除与 e028/e016 矛盾的“当天具体出发时间”未知项，改为可推出的约17:30出发。事件本身足以支撑场景，无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "read_science",
+        "cal_view",
+        "mail_reply",
+        "news_headlines",
+        "tax_deduction_guide",
+        "hospital_oral_schedule",
+        "hn_movie_schedule",
+        "weather_forecast",
+        "contacts_search_repair",
+        "food_grocery",
+        "furniture_office_chair",
+        "home_ac_cleaning_search",
+        "job_market_salary_report",
+        "comm_bus",
+        "learn_video"
+      ],
+      "hard_negative_ids": [
+        "hn_movie_schedule"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "观看林知夏巡回演唱会上海站",
+        "category": "entertainment",
+        "purpose": "fan",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e021",
+          "e024",
+          "e025",
+          "e028"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e004",
+          "e005",
+          "e007",
+          "e008",
+          "e011",
+          "e012",
+          "e014",
+          "e016",
+          "e017",
+          "e019"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户创建了林知夏巡回演唱会门票-上海站订单，内场VIP票2张连座，总价¥2560，订单状态为待支付。",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户通过银行卡尾号6688成功支付¥2560.00，收款方为官方票务平台。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "周悦回复确认同行，并说明票钱明天转账、希望选靠前连座。",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户创建了12月26日19:30至22:00的演唱会日程，地点为滨江体育馆，参与人包含周悦，备注称两张内场票已出票。",
+            "source_event_ids": [
+              "e028"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户对林知夏有粉丝兴趣，收藏其歌曲、查看艺人主页并浏览粉丝应援内容。",
+            "source_event_ids": [
+              "e001",
+              "e005",
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户计划于12月26日晚在上海滨江体育馆观看林知夏巡回演唱会，并与周悦同行。",
+            "source_event_ids": [
+              "e019",
+              "e021",
+              "e024",
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户曾比较官方票务、猫眼、纷玩岛的价格，结论为官方票务价格最低且可连座。",
+            "source_event_ids": [
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户关注演出当天的天气和从家到场馆的交通路线。",
+            "source_event_ids": [
+              "e014",
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户浏览过林知夏应援物相关商品。",
+            "source_event_ids": [
+              "e012"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "具体座位号未在事件中给出",
+          "周悦是否已实际转账票款",
+          "用户是否会购买应援物",
+          "用户最终是否按搜索路线前往场馆"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e003",
+      "e006",
+      "e009",
+      "e010",
+      "e013",
+      "e015",
+      "e018",
+      "e020",
+      "e022",
+      "e023",
+      "e026",
+      "e027",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c07-s01-b12855b4",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "missing_required_evidence",
+        "severity": "high",
+        "event_ids": [
+          "e024",
+          "e025",
+          "e028"
+        ],
+        "description": "场景规格要求的关键证据包含 ticket_app 中已支付的两张内场票订单，但 e024 的 order_status 仍是“待支付”；e025 只在 payment_app 显示支付成功，之后没有任何 ticket_app 事件把订单 TP20261215200831 更新为已支付/已出票。e028 日历备注“两张内场票已出票”以及盲标的 status=confirmed 因此缺少票务侧状态闭环。",
+        "suggested_action": "在 e025 之后补一条 ticket_app 订单状态更新（已支付/已出票）并与同一 order_id 关联；否则应降低该意图的 status/confidence，并弱化 e028 备注中的“已出票”。"
+      },
+      {
+        "issue_type": "supporting_overuse",
+        "severity": "medium",
+        "event_ids": [
+          "e004",
+          "e007",
+          "e008",
+          "e011"
+        ],
+        "description": "Gold 将 e004 搜索、e007 场次浏览、e008 票档详情、e011 比价都标为 supporting，但这些主要是购票前的兴趣/考虑信号，场景自身 time_profile 也称前半段为“弱到中等信号”。盲标把上述事件归为 related_interest 更符合语义；将其计入 supporting 会虚增 supporting_event_count 并削弱与 e021/e024/e025/e028 等决定性证据的区分。e016 路线和 e019 邀约属于边界，可视标准保留 supporting，但 e004/e007/e008/e011 明显偏弱。",
+        "suggested_action": "将 e004/e007/e008/e011 调整为 related_interest；supporting 保留给支付成功、订单创建/支付、日历落定以及可选的直接同行确认 e021。同步修正 budget 计数。"
+      },
+      {
+        "issue_type": "unknown_information_conflict",
+        "severity": "medium",
+        "event_ids": [
+          "e028",
+          "e016"
+        ],
+        "description": "场景规格把“当天具体出发时间”列为 unknown_information，但 e028 备注写明“提前2小时从家出发”，结合 19:30 开演可推出约 17:30 出发；e016 还给出了路线耗时。该 unknown 字段与事件内容不一致。",
+        "suggested_action": "删除或更新“当天具体出发时间”的 unknown 状态（可改为已知约 17:30 出发），或把 e028 备注改成不包含具体提前量的提醒。"
+      },
+      {
+        "issue_type": "ambiguous_noise_label",
+        "severity": "low",
+        "event_ids": [
+          "e018"
+        ],
+        "description": "e018 是 weather_app 查看上海逐小时预报，城市与演出城市相同；虽然缺少 12月26日/场馆上下文且 home_city 也是上海，仍存在被生成器作为观演天气准备信号的可能。当前标为 unrelated 有一定歧义。",
+        "suggested_action": "核对该事件是否仅为本地通用天气；若存在演出日期或场馆上下文，应按真实语义改为 related_interest 而非丢弃。若确认无日期/场馆上下文，可保留 unrelated。"
+      }
+    ],
+    "summary": "核心意图和购票-支付-日历闭环大体成立，但 required evidence 中 ticket_app 已支付订单缺失，e024 仍为待支付，e028 提前宣称“已出票”导致状态确认过强；Gold 将多项浏览/比价弱证据标为 supporting，且“当天具体出发时间”的 unknown 与 e028 冲突。建议补齐票务订单状态或降级确认状态，并调整支持证据标签后复审。"
+  },
+  "adjudication": {
+    "sample_id": "c07-s01-b12855b4",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "观看林知夏巡回演唱会上海站",
+          "category": "entertainment",
+          "purpose": "fan",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e021",
+            "e024",
+            "e025",
+            "e028"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e004",
+            "e005",
+            "e007",
+            "e008",
+            "e011",
+            "e012",
+            "e014",
+            "e016",
+            "e017",
+            "e019"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户创建了“林知夏巡回演唱会门票-上海站”订单（order_id TP20261215200831），内场VIP票2张、内场A区连座，总价¥2560，下单时订单状态为待支付。",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "用户使用银行卡尾号6688向官方票务平台支付¥2560.00，支付状态为支付成功，且对应同一 order_id TP20261215200831。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "周悦回复确认同行，表示票钱明天转账，并要求选靠前一点的连座。",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户在日历创建了12月26日19:30至22:00的演唱会日程，地点为滨江体育馆，参与人包含周悦，提前120分钟提醒，备注写明“两张内场票已出票，提前2小时从家出发”。",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户是林知夏的粉丝：收藏其歌曲、查看艺人主页动态并浏览粉丝应援话题。",
+              "source_event_ids": [
+                "e001",
+                "e005",
+                "e017"
+              ]
+            },
+            {
+              "fact": "用户计划于12月26日晚在上海滨江体育馆观看林知夏巡回演唱会，并与朋友周悦同行、由用户先垫付两张连座票款。",
+              "source_event_ids": [
+                "e019",
+                "e021",
+                "e024",
+                "e028"
+              ]
+            },
+            {
+              "fact": "用户在购票前比较过官方票务、猫眼、纷玩岛的价格，结论为官方票务价格最低且可连座。",
+              "source_event_ids": [
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户关注演出当天（12月26日）上海的天气并查询了从家到滨江体育馆的地铁路线（约50分钟）。",
+              "source_event_ids": [
+                "e014",
+                "e016"
+              ]
+            },
+            {
+              "fact": "用户浏览过林知夏应援物相关商品（应援手幅、姓名灯牌、巡演纪念徽章）。",
+              "source_event_ids": [
+                "e012"
+              ]
+            },
+            {
+              "fact": "结合日历备注的“提前2小时出发”与路线耗时，用户大概率在演出当天约17:30前后从家出发。",
+              "source_event_ids": [
+                "e016",
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "具体座位号未在事件中给出",
+            "周悦是否已实际转账票款",
+            "用户最终是否购买应援物",
+            "用户是否按搜索到的地铁路线前往场馆"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e003",
+        "e006",
+        "e009",
+        "e010",
+        "e013",
+        "e015",
+        "e018",
+        "e020",
+        "e022",
+        "e023",
+        "e026",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c07-s01-b12855b4"
+    },
+    "rationale": "保留单一意图 i001（盲标的“观看林知夏巡回演唱会上海站”与场景一致，粉丝目的由 music/social 长期收听与应援内容支撑，无新增独立意图）。按规则10修正证据分级：e004 搜索、e007 场次浏览、e008 票档详情、e011 比价、e016 路线搜索、e019 邀约均属 search/view/browse/compare 类动作，改判 related_interest；supporting 仅保留决定性证据——e021 同行确认、e024 下单（内场VIP 2 张连座）、e025 支付成功（同一 order_id 的¥2560支付）、e028 日历日程落定。因此 supporting 为 4 条、related_interest 11 条，未按场景预设的 10/5 配比强凑（规则7以真实语义为准），并如实记录 unrelated_event_count=15。e018 仅为上海城市级逐小时天气，无日期/场馆/观演上下文，按规则8保持 unrelated。关于审查报告指出的票务状态问题：e024 下单时确为“待支付”且窗口内无 ticket_app 出票事件，故 i001 的 confirmed_facts 如实记录订单下单时状态与 payment_app 的支付成功，并将 e028 备注中的“已出票”表述限定为日历备注内容而非票务系统已确认事实；由于下单+支付成功+日历落定已构成闭环，status 维持 confirmed、confidence 维持 high，仅把“具体座位号”“是否已转账”“是否购买应援物”等留作 unknown；同时删除与 e028/e016 矛盾的“当天具体出发时间”未知项，改为可推出的约17:30出发。事件本身足以支撑场景，无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 4,
+      "related_interest": 11,
+      "contradicting": 0,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 976,
+      "total_tokens": 2835,
+      "latency_s": 9.78,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1783,
+      "completion_tokens": 5615,
+      "total_tokens": 7398,
+      "latency_s": 56.19,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3652,
+      "completion_tokens": 4291,
+      "total_tokens": 7943,
+      "latency_s": 29.19,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6094,
+      "completion_tokens": 13971,
+      "total_tokens": 20065,
+      "latency_s": 105.62,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10395,
+      "completion_tokens": 3824,
+      "total_tokens": 14219,
+      "latency_s": 23.22,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 224.01
+}

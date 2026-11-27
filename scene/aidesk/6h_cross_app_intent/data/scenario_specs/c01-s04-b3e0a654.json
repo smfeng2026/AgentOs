@@ -1,0 +1,65 @@
+{
+  "title": "上海至深圳客户评审出差安排",
+  "scenario_category": "travel",
+  "subscenario": "商务出差",
+  "template_id": "C01-S04",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [
+      "深圳"
+    ],
+    "products": [],
+    "people": [
+      "客户方陈总监",
+      "同事李锐"
+    ],
+    "dates": [
+      "12月15日",
+      "12月16日",
+      "12月17日"
+    ],
+    "other": [
+      "深圳湾万丽酒店",
+      "浦东机场",
+      "宝安机场",
+      "客户公司前海办公室"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "深圳客户项目评审出差",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的上海浦东至深圳宝安往返机票订单",
+        "客户方项目评审会议邀请邮件",
+        "酒店预订确认（深圳湾万丽酒店，12月15日入住）",
+        "日历中新建的客户会议日程"
+      ],
+      "optional_evidence": [
+        "同事询问是否同行的聊天消息",
+        "地图搜索宝安机场至客户公司路线",
+        "深圳出差期间天气查询"
+      ],
+      "unknown_information": [
+        "是否需要顺访深圳其他客户",
+        "差旅报销与同行人最终名单"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "窗口前段（10:00-11:30）为客户会议邮件到达与航班、高铁备选比较；中段（11:30-13:00）机票下单与支付并查看支付记录；后段（13:00-15:00）酒店搜索与预订、创建客户会议日历；最后一小时为机场路线、天气查询与同事沟通，决定性证据集中在中后段",
+  "variant_note": "与同模板其他样本差异：出发地上海、目的地深圳；证据链为邮件邀请+机票支付+酒店确认+自建日历四类 App 融合，无第三方日历邀请；含高铁备选查询和同事同行询问作为干扰性兴趣事件；无反向证据，状态为 confirmed",
+  "scenario_id": "c01-s04-b3e0a654"
+}

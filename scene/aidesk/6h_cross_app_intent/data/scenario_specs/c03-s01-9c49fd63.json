@@ -1,0 +1,61 @@
+{
+  "title": "旧手机电池老化引发的换机之夜",
+  "scenario_category": "shopping",
+  "subscenario": "手机购买",
+  "template_id": "C03-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [
+      "星耀X7 Pro手机（曜石黑 12GB+256GB）",
+      "麒麟G12手机",
+      "星耀X7手机壳"
+    ],
+    "people": [
+      "朋友李娜"
+    ],
+    "dates": [
+      "12月23日"
+    ],
+    "other": [
+      "以旧换新",
+      "电池健康度78%"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "更换新手机",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "购物App中已创建的星耀X7 Pro订单",
+        "支付App的4299元支付成功记录",
+        "比价App中星耀X7 Pro与麒麟G12的横向比较",
+        "查看订单预计12月23日送达"
+      ],
+      "optional_evidence": [
+        "银行消费提醒通知",
+        "与朋友讨论换机建议的聊天记录"
+      ],
+      "unknown_information": [
+        "是否加购碎屏保障服务",
+        "旧手机是否走以旧换新回收"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "前约三小时以搜索、看评测、比价和询问朋友为主，无下单动作；约21:40收藏商品后进入决策期，22:20创建订单，22:45支付成功，之后查看物流，决定性证据集中在最后一小时",
+  "variant_note": "本样本动机由旧机电池老化触发（settings_app查看电池健康），决策链为视频评测+比价+好友建议三路融合；与同模板其他样本相比，本样本不含线下门店线索，也未使用购物车直接下单，而是收藏后隔一段时间再下单，支付金额为4299元，收货日期为12月23日，干扰项可注入同类目数码配件与其他电子产品的无关浏览",
+  "scenario_id": "c03-s01-9c49fd63"
+}

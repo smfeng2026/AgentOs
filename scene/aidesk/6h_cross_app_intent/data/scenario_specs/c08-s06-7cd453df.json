@@ -1,0 +1,65 @@
+{
+  "title": "周末上午的家居翻新内容闲逛",
+  "scenario_category": "family",
+  "subscenario": "日常浏览",
+  "template_id": "C08-S06",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "上海",
+    "destinations": [],
+    "products": [
+      "实木置物架",
+      "扫地机器人",
+      "收纳用品"
+    ],
+    "people": [
+      "姐姐"
+    ],
+    "dates": [],
+    "other": [
+      "住了多年的老房子",
+      "附近家居卖场"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "旧居翻新兴趣探索",
+      "category": "family",
+      "purpose": "renovation",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "在社交App浏览老房改造话题图文",
+        "在视频App观看小户型翻新vlog",
+        "搜索装修预算清单类攻略",
+        "在家具App搜索并查看置物架详情",
+        "在点评类App搜索装修口碑"
+      ],
+      "optional_evidence": [
+        "收藏收纳用品",
+        "比较扫地机器人价格",
+        "浏览开荒保洁服务",
+        "搜索家居卖场位置",
+        "家人群里的建材市场打折消息"
+      ],
+      "unknown_information": [
+        "是否有明确的装修时间表",
+        "预算范围",
+        "是否已与装修公司实际接触",
+        "打算改造的具体房间范围"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 9,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 9,
+    "contradicting": 0
+  },
+  "time_profile": "整个六小时窗口内均匀散落，无决定性时刻：清晨刷到改造图文和翻新视频，上午中段搜索攻略并浏览家具详情，午前出现比价、卖场搜索和家人消息，最后以浏览软装内容收尾；全程只有浏览、搜索、收藏和比较",
+  "variant_note": "与同模板其他样本相比：本样本以社交App+视频App的内容消费开篇，中段过渡到家具App和点评App的主动搜索，且包含一条来自家人群的建材打折消息作为弱关联干扰性关联事件；全程无加购、无下单、无预约量房、无联系装修公司，保持兴趣浏览而非装修计划的定位",
+  "scenario_id": "c08-s06-7cd453df"
+}

@@ -1,0 +1,318 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "预约静安体育中心搏击操体验课",
+      "category": "fitness",
+      "purpose": "training",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e016",
+        "e018",
+        "e020",
+        "e024",
+        "e027"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e005",
+        "e007",
+        "e010",
+        "e012",
+        "e013",
+        "e022",
+        "e026",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户在静安体育中心创建12月05日10:00-11:00李锐教练搏击操体验课订单，金额99元，订单状态为待支付",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "该课程费用99元已通过银行卡支付成功，商户为静安体育中心",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "健身App中显示该搏击操体验课预约状态为已预约，时间为12月05日10:00-11:00，场馆为静安体育中心，教练为李锐",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户已在日历创建12月05日10:00-11:00「搏击操体验课」日程，地点为静安体育中心，并设置提前1小时提醒",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "用户向好友陈晨发送消息，称已约好12月05日10点李锐的搏击操体验课并邀请其一同参加",
+          "source_event_ids": [
+            "e027"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户计划于12月05日上午前往静安体育中心参加已付费的搏击操体验课",
+          "source_event_ids": [
+            "e016",
+            "e018",
+            "e020",
+            "e024",
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户在预约前已对搏击操形成持续兴趣：搜索体验课、观看入门教学视频、浏览课程信息并比较教练/时段",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e007",
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户在决策前查看了静安体育中心的用户评价以评估场馆质量",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户已查询从家到静安体育中心12月05日的驾车路线，预计25分钟",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户对运动装备与轻食有辅助兴趣，浏览过瑜伽垫、搜索过运动水壶和低卡高蛋白轻食",
+          "source_event_ids": [
+            "e012",
+            "e013",
+            "e022"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否购买后续正式课包",
+        "上课当天是否由朋友陪同",
+        "是否实际到场参加课程",
+        "最终前往场馆的交通方式",
+        "是否最终购买瑜伽垫或运动水壶"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e006",
+    "e008",
+    "e009",
+    "e011",
+    "e014",
+    "e015",
+    "e017",
+    "e019",
+    "e021",
+    "e023",
+    "e025",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c10-s01-d11fc556"
+}

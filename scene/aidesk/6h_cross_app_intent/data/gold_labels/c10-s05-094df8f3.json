@@ -1,0 +1,300 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "居家健身兴趣",
+      "category": "fitness",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e003",
+        "e008",
+        "e009",
+        "e011",
+        "e012",
+        "e013",
+        "e016",
+        "e018",
+        "e019",
+        "e022",
+        "e023",
+        "e025",
+        "e027",
+        "e028",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在社交平台浏览零基础徒手训练经验分享内容",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户在fitness_app搜索入门、居家场景的新手训练课程并浏览零基础徒手入门课详情",
+          "source_event_ids": [
+            "e008",
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户在video_app搜索健身教程视频，浏览并收藏15分钟新手全身跟练教程",
+          "source_event_ids": [
+            "e011",
+            "e012",
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户查看21天新手训练计划详情页，该计划每天20分钟、需瑜伽垫",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户收藏弹力带全身塑形跟练视频并浏览核心训练动作库",
+          "source_event_ids": [
+            "e018",
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户在购物平台搜索8mm瑜伽垫并浏览瑜伽垫+弹力带套装商品",
+          "source_event_ids": [
+            "e022",
+            "e023"
+          ]
+        },
+        {
+          "fact": "用户搜索北京附近3公里内健身房并浏览望京某健身房单次价格与距离",
+          "source_event_ids": [
+            "e025",
+            "e027"
+          ]
+        },
+        {
+          "fact": "用户搜索健身场景运动歌单并收藏燃脂运动BGM歌单",
+          "source_event_ids": [
+            "e028",
+            "e029"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否已实际开始训练或报名任何训练计划",
+        "是否打算购买瑜伽垫、弹力带等器械",
+        "是否考虑去线下健身房",
+        "具体训练目标、频率与周期"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e004",
+    "e005",
+    "e006",
+    "e007",
+    "e010",
+    "e014",
+    "e015",
+    "e017",
+    "e020",
+    "e021",
+    "e024",
+    "e026",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c10-s05-094df8f3"
+}

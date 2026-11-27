@@ -1,0 +1,313 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年度个人体检预约（滨江分院全面健康体检套餐B）",
+      "category": "health_service",
+      "purpose": "checkup",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e017",
+        "e019",
+        "e020",
+        "e028",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e005",
+        "e008",
+        "e009",
+        "e011",
+        "e013",
+        "e016",
+        "e026"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户在滨江分院体检中心创建全面健康体检套餐B订单（订单号HP20261206144823），预约12月20日08:00-09:00，金额1280元，初始状态为待支付。",
+          "source_event_ids": [
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户向滨江分院体检中心支付1280元，支付状态为成功，关联订单号HP20261206144823。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户收到体检预约成功提醒，预约日期12月20日08:00-09:00，订单状态为已支付，并提示检前一晚22点后请勿进食。",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户在日历中创建12月20日08:00-10:00的体检日程，地点为滨江分院体检中心，备注带身份证、早上空腹。",
+          "source_event_ids": [
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户为12月19日21:00设置了体检空腹提醒，且关联该体检日历事件。",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户在预约前搜索体检套餐、查看套餐B详情、比较套餐A与B、浏览体检中心评价并阅读检前空腹与注意事项科普，显示其正在选择并准备体检。",
+          "source_event_ids": [
+            "e001",
+            "e002",
+            "e004",
+            "e005",
+            "e008",
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户查询从家（西湖区文三路）到滨江分院体检中心的驾车路线，预计35分钟，计划12月20日07:20出发，用于体检当天出行安排。",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户查询12月20日杭州天气（晴，4℃~13℃），服务于体检当天的出行安排。",
+          "source_event_ids": [
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户向同事询问体检是自行预约还是单位统一安排、费用能否报销，显示其对体检费用承担方式存在关注。",
+          "source_event_ids": [
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户关注体检报告出具时长与指标异常后的复查间隔，为体检后结果跟进做准备。",
+          "source_event_ids": [
+            "e016"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "体检费用是否可以报销以及具体报销方式",
+        "此次体检是个人自行安排还是与单位安排有关",
+        "体检套餐B是否完全满足用户全部检查需求",
+        "体检后是否需要加做复查项目",
+        "体检当天是否有人陪同前往"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e006",
+    "e007",
+    "e010",
+    "e012",
+    "e014",
+    "e015",
+    "e018",
+    "e021",
+    "e022",
+    "e023",
+    "e024",
+    "e025",
+    "e027",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c05-s01-c7e744c0"
+}

@@ -1,0 +1,355 @@
+{
+  "sample_id": "c06-s05-6dc0e110",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-14T11:45:00+08:00",
+    "end": "2026-12-14T17:45:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-14T11:52:46+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "周末散步照片"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-14T12:03:23+08:00",
+      "app": "payment_app",
+      "action": "view_bill",
+      "content": {
+        "bill_type": "宽带续费提醒"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-14T12:12:00+08:00",
+      "app": "learning_app",
+      "action": "search",
+      "content": {
+        "keyword": "Python 零基础入门",
+        "difficulty_filter": "零基础",
+        "sort_by": "人气优先",
+        "result_count": 86
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-14T12:39:00+08:00",
+      "app": "learning_app",
+      "action": "view_detail",
+      "content": {
+        "course_title": "Python零基础入门到实战",
+        "price": "199元",
+        "rating": "4.7",
+        "learner_count": "12400人",
+        "lesson_count": 48,
+        "course_type": "录播+答疑",
+        "next_start_date": "12月21日"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-14T12:52:01+08:00",
+      "app": "learning_app",
+      "action": "browse_course",
+      "content": {
+        "subject": "粤语入门"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-14T13:02:29+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "手机摄影入门",
+        "duration_min": 5
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-14T13:04:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "10分钟写出你的第一个Python程序",
+        "author": "编程小课堂",
+        "duration": "09:42",
+        "view_count": "21.3万",
+        "category": "编程教学"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-14T13:17:26+08:00",
+      "app": "settings_app",
+      "action": "change_wallpaper",
+      "content": {
+        "theme": "纯色渐变"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-14T13:18:54+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "家人群",
+        "topic": "家里的绿萝浇水"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-14T13:31:00+08:00",
+      "app": "news_app",
+      "action": "view_detail",
+      "content": {
+        "article_title": "数据分析师连续三年入围新职业热度榜",
+        "source": "科技早报",
+        "section": "科技职场",
+        "read_duration": "约4分钟"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-14T13:43:59+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-14T13:46:53+08:00",
+      "app": "food_delivery_app",
+      "action": "view_order_history",
+      "content": {
+        "restaurant": "公司楼下面馆"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-14T13:49:00+08:00",
+      "app": "learning_app",
+      "action": "compare",
+      "content": {
+        "compare_items": [
+          "Python零基础入门到实战",
+          "21天Python数据分析训练营"
+        ],
+        "compare_dimensions": [
+          "价格",
+          "评分",
+          "学习人数"
+        ],
+        "price_list": [
+          "199元",
+          "399元"
+        ],
+        "rating_list": [
+          "4.7",
+          "4.5"
+        ]
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-14T14:05:15+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "休闲益智",
+        "duration_min": 10
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-14T14:06:31+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "平台满减活动"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-14T14:17:50+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "动画电影预告"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-14T14:23:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "用Pandas五分钟读取Excel数据表",
+        "author": "数据小站",
+        "duration": "05:58",
+        "view_count": "8.6万",
+        "category": "数据分析教学"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-14T14:37:17+08:00",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-14T14:47:00+08:00",
+      "app": "learning_app",
+      "action": "browse_content",
+      "content": {
+        "category": "数据分析",
+        "sort_by": "综合推荐",
+        "visible_courses": [
+          "SQL七日入门",
+          "Excel数据分析速成",
+          "数据可视化从零开始"
+        ]
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-14T15:09:00+08:00",
+      "app": "reader_app",
+      "action": "collect",
+      "content": {
+        "article_title": "自学Python三个月，我的学习路线复盘",
+        "column": "技术成长",
+        "author": "阿伦写代码",
+        "collect_folder": "学习清单"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-14T15:14:54+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-14T15:24:10+08:00",
+      "app": "parking_app",
+      "action": "view_detail",
+      "content": {
+        "parking_lot": "公司楼下停车场",
+        "section": "收费标准"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-14T15:41:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "数据分析 入门书籍",
+        "sort_by": "销量",
+        "result_count": 132
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-14T15:47:00+08:00",
+      "app": "pet_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "猫咪疫苗时间表"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-14T16:03:00+08:00",
+      "app": "shopping_app",
+      "action": "view_detail",
+      "content": {
+        "product_title": "深入浅出数据分析（修订版）",
+        "price": "59.8元",
+        "rating": "4.6",
+        "publisher": "人民邮电出版社",
+        "paperback_pages": 460
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-14T16:27:00+08:00",
+      "app": "shopping_app",
+      "action": "collect",
+      "content": {
+        "product_title": "深入浅出数据分析（修订版）",
+        "price": "59.8元",
+        "collect_folder": "稍后再看"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-14T16:52:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "知识区",
+        "feed_position": "推荐流第3屏",
+        "visible_items": [
+          "程序员日常vlog",
+          "三分钟看懂什么是算法",
+          "Excel函数小技巧"
+        ]
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-14T17:06:00+08:00",
+      "app": "reader_app",
+      "action": "search",
+      "content": {
+        "keyword": "数据分析 学习路线",
+        "sort_by": "相关度",
+        "result_count": 41
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-14T17:24:00+08:00",
+      "app": "video_app",
+      "action": "search",
+      "content": {
+        "keyword": "Excel 数据分析 教程",
+        "duration_filter": "5-10分钟",
+        "result_count": 210
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-14T17:41:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "section": "科技频道",
+        "visible_headlines": [
+          "年度十大技术趋势盘点",
+          "低代码平台走热",
+          "数据安全新规解读"
+        ]
+      }
+    }
+  ]
+}

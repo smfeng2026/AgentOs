@@ -1,0 +1,63 @@
+{
+  "title": "莫干山周末租车自驾小出游",
+  "scenario_category": "local_transport",
+  "subscenario": "周边自驾",
+  "template_id": "C11-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "莫干山"
+    ],
+    "products": [
+      "紧凑型SUV租车两日"
+    ],
+    "people": [
+      "大学同学小陈",
+      "同事老周"
+    ],
+    "dates": [
+      "12月05日",
+      "12月06日"
+    ],
+    "other": [
+      "庾村景区",
+      "山间餐厅"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "莫干山周末自驾出游",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "租车App中12月05日至12月06日杭州取车的已支付订单",
+        "地图App中杭州至莫干山的驾车路线搜索与时长查看",
+        "即时通讯中与同伴确认周六早晨出发的往返消息"
+      ],
+      "optional_evidence": [
+        "天气App查询莫干山周末天气",
+        "攻略App浏览莫干山景点内容",
+        "景区门票或餐厅的预订记录"
+      ],
+      "unknown_information": [
+        "是否预订莫干山住宿",
+        "周日具体返程时间"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "前两小时以即时通讯约时间、天气与攻略浏览等弱信号为主；第3至4小时出现租车下单与支付的决定性证据，随后地图路线规划与门票预订跟进；最后一小时为同伴确认出发时间与集合地点的消息收尾",
+  "variant_note": "采用租车而非自有车，决定性证据落在租车App订单加支付App扣款的双App组合；路线、天气、门票、聊天分散在五类App中需融合；目的地为杭州周边莫干山两日周末行程，同行人为大学同学而非家人，与同模板中单日往返、自有车加停车缴费的组合形成区分",
+  "scenario_id": "c11-s01-688fa56f"
+}

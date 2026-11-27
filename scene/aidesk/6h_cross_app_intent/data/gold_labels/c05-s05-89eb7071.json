@@ -1,0 +1,299 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "睡眠、颈椎与体检健康科普内容关注",
+      "category": "health_service",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e002",
+        "e003",
+        "e005",
+        "e006",
+        "e007",
+        "e008",
+        "e009",
+        "e010",
+        "e015",
+        "e018",
+        "e021",
+        "e022",
+        "e025",
+        "e026",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在多个 App 中浏览健康科普内容，主题覆盖睡眠改善、颈椎放松和体检项目。",
+          "source_event_ids": [
+            "e002",
+            "e003",
+            "e005",
+            "e006",
+            "e007",
+            "e008",
+            "e009",
+            "e010",
+            "e015",
+            "e018",
+            "e021",
+            "e022",
+            "e025",
+            "e026",
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户多次在 health_app 搜索睡眠改善方法和颈椎放松动作，并收藏、阅读相关文章。",
+          "source_event_ids": [
+            "e008",
+            "e009",
+            "e010",
+            "e015",
+            "e018",
+            "e021",
+            "e022",
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户观看睡前放松拉伸视频，并浏览睡前舒缓瑜伽、居家颈肩拉伸等课程。",
+          "source_event_ids": [
+            "e003",
+            "e006",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户搜索睡眠养生类书籍。",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户浏览上班族年度体检项目挑选指南，显示对体检科普也有兴趣。",
+          "source_event_ids": [
+            "e002"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否存在具体身体不适",
+        "是否打算体检或就医",
+        "是否计划报名课程、购买书籍或采取其他改善措施",
+        "当前睡眠与颈肩状况及改善目标",
+        "该兴趣是短期浏览还是持续关注"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e004",
+    "e011",
+    "e012",
+    "e013",
+    "e014",
+    "e016",
+    "e017",
+    "e019",
+    "e020",
+    "e023",
+    "e024",
+    "e027",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c05-s05-89eb7071"
+}

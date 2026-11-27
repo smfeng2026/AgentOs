@@ -1,0 +1,350 @@
+{
+  "sample_id": "c02-s05-f11f9cc3",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-04T08:10:00+08:00",
+    "end": "2026-12-04T14:10:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-04T08:12:27+08:00",
+      "app": "shopping_app",
+      "action": "view_order",
+      "content": {
+        "order_type": "已完成的日用品订单"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-04T08:17:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "人工智能频道",
+        "entry": "首页推荐",
+        "articles_viewed": [
+          "大模型公司新一轮融资动态",
+          "AI芯片产能最新消息"
+        ],
+        "duration_sec": 240
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-04T08:39:00+08:00",
+      "app": "news_app",
+      "action": "search",
+      "content": {
+        "keyword": "人工智能 大模型",
+        "content_type": "资讯",
+        "result_count": 36
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-04T09:02:00+08:00",
+      "app": "news_app",
+      "action": "view_detail",
+      "content": {
+        "title": "2026年大模型行业人才需求观察",
+        "source": "科技日报",
+        "read_progress": "全文读完",
+        "topic_tags": [
+          "人工智能",
+          "岗位需求"
+        ]
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-04T09:24:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "科技频道",
+        "articles_viewed": [
+          "互联网公司组织架构调整传闻",
+          "智能硬件新品发布会回顾"
+        ],
+        "duration_sec": 170
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-04T09:27:21+08:00",
+      "app": "video_app",
+      "action": "watch_trailer",
+      "content": {
+        "movie": "即将上映的喜剧片"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-04T09:38:26+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "上海"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-04T09:40:59+08:00",
+      "app": "health_app",
+      "action": "read_health_article",
+      "content": {
+        "topic": "熬夜后如何恢复"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-04T09:42:20+08:00",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": 6
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-04T10:16:33+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-04T10:33:00+08:00",
+      "app": "job_app",
+      "action": "search",
+      "content": {
+        "keyword": "算法工程师",
+        "city": "上海",
+        "experience": "3-5年",
+        "sort": "相关性",
+        "result_count": 128
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-04T10:51:00+08:00",
+      "app": "job_app",
+      "action": "view_detail",
+      "content": {
+        "job_title": "推荐算法工程师",
+        "company_type": "互联网平台",
+        "salary_range": "35K-60K·16薪",
+        "city": "上海",
+        "requirements_viewed": [
+          "机器学习基础",
+          "推荐系统项目经验"
+        ]
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-04T11:03:55+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "基金定投入门"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-04T11:08:00+08:00",
+      "app": "job_app",
+      "action": "collect",
+      "content": {
+        "job_title": "大模型算法工程师",
+        "company_type": "人工智能创业公司",
+        "salary_range": "40K-70K·15薪",
+        "city": "上海",
+        "collect_folder": "默认收藏夹"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-04T11:24:12+08:00",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-04T11:26:00+08:00",
+      "app": "job_app",
+      "action": "browse_content",
+      "content": {
+        "category": "算法类职位",
+        "filters": {
+          "city": "上海",
+          "sort": "最新发布"
+        },
+        "jobs_viewed_count": 12
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-04T11:34:31+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "from": "公司",
+        "to": "家",
+        "mode": "公交"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-04T11:48:00+08:00",
+      "app": "video_app",
+      "action": "browse_content",
+      "content": {
+        "channel": "科技区",
+        "videos_viewed": [
+          "大厂算法岗一天的工作日常",
+          "程序员谈换工作的时机"
+        ],
+        "duration_sec": 300
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-04T12:13:00+08:00",
+      "app": "video_app",
+      "action": "view_detail",
+      "content": {
+        "video_title": "算法工程师职业发展路径解读",
+        "uploader": "科技职场说",
+        "watch_progress": "播放至百分之六十"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-04T12:37:00+08:00",
+      "app": "learning_app",
+      "action": "search",
+      "content": {
+        "keyword": "机器学习 课程",
+        "difficulty": "入门",
+        "result_count": 45
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-04T12:39:23+08:00",
+      "app": "im_app",
+      "action": "reply_message",
+      "content": {
+        "chat": "朋友群",
+        "topic": "拼单奶茶"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-04T12:45:54+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 9
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-04T12:59:23+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "拼图"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-04T13:02:42+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "城市公共交通新闻",
+        "source": "科技晚报"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-04T13:06:00+08:00",
+      "app": "job_app",
+      "action": "search",
+      "content": {
+        "keyword": "NLP算法工程师",
+        "city": "上海",
+        "experience": "不限",
+        "sort": "薪资",
+        "result_count": 64
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-04T13:21:18+08:00",
+      "app": "video_app",
+      "action": "watch_livestream",
+      "content": {
+        "host": "旅行博主阿May",
+        "topic": "木工小凳子"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-04T13:29:36+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-04T13:33:00+08:00",
+      "app": "job_app",
+      "action": "collect",
+      "content": {
+        "job_title": "机器学习工程师",
+        "company_type": "智能驾驶公司",
+        "salary_range": "30K-55K·14薪",
+        "city": "上海",
+        "collect_folder": "默认收藏夹"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-04T13:52:00+08:00",
+      "app": "learning_app",
+      "action": "browse_content",
+      "content": {
+        "course_title": "机器学习实战入门",
+        "instructor": "高校在职讲师",
+        "lesson_count": 42,
+        "price_info": "前五节免费试听",
+        "page_viewed": "课程详情页"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-04T14:02:00+08:00",
+      "app": "learning_app",
+      "action": "collect",
+      "content": {
+        "course_title": "深度学习基础与行业应用",
+        "collect_type": "加入学习清单",
+        "lesson_count": 30
+      }
+    }
+  ]
+}

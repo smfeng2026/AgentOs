@@ -1,0 +1,839 @@
+{
+  "sample_id": "c10-s05-bb8d9331",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标把同一健身入门探索拆成居家训练、线下健身房/体验课、装备购买三个意图，但本窗口没有任何预约、下单、加购、课程创建或完成训练等决定性证据，三组行为共享同一“健身入门探索”语义，按规则11应合并为单一意图。按规则10，搜索、浏览、查看、收藏均为 related_interest，因此 supporting_event_ids 为空；purpose 无法从证据确定，保持 unknown；状态为 emerging、置信度为 low。语义相关的15条事件均标为 i001 的 related_interest，其余15条保持 unrelated，数量与全局观察一致。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "work_tool_article",
+        "cal_reminder",
+        "weather_now",
+        "read_bookmark",
+        "video_search",
+        "sys_update",
+        "learn_video",
+        "music_playlist",
+        "shop_cart",
+        "hn_match_news",
+        "food_grocery",
+        "comm_subway",
+        "mail_reply",
+        "map_nearby",
+        "ent_trailer"
+      ],
+      "hard_negative_ids": [
+        "hn_match_news"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "居家零基础健身训练",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "considering",
+        "confidence_level": "high",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e002",
+          "e004",
+          "e005",
+          "e008",
+          "e009",
+          "e011",
+          "e013",
+          "e029"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户连续搜索并浏览零基础居家训练视频，内容包括15分钟全身跟练、新手核心训练和20分钟HIIT入门。",
+            "source_event_ids": [
+              "e002",
+              "e004",
+              "e005",
+              "e008"
+            ]
+          },
+          {
+            "fact": "用户查看并收藏了“居家零基础 · 7天唤醒训练”录播跟练课程。",
+            "source_event_ids": [
+              "e009",
+              "e011"
+            ]
+          },
+          {
+            "fact": "用户阅读了健身新手训练频率和冬季居家锻炼指南。",
+            "source_event_ids": [
+              "e013",
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已开始实际训练",
+          "训练频率与周期安排",
+          "是否报名或购买课程",
+          "具体训练目标（减脂/增肌/健康等）"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "线下健身体验课与健身房探索",
+        "category": "fitness",
+        "purpose": "training",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e015",
+          "e016",
+          "e019",
+          "e021"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户搜索附近3公里健身房并查看乐刻运动健身望京SOHO店详情。",
+            "source_event_ids": [
+              "e015",
+              "e016"
+            ]
+          },
+          {
+            "fact": "用户浏览12月6日北京周末健身体验课列表，并查看超级猩猩三元桥店新人一站式体验课，当前显示未预约。",
+            "source_event_ids": [
+              "e019",
+              "e021"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否预约具体时段",
+          "是否到店体验",
+          "偏好私教、团课还是自由训练"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i003",
+        "intent_name": "购买居家健身装备",
+        "category": "fitness",
+        "purpose": "equipment_purchase",
+        "status": "considering",
+        "confidence_level": "medium",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e022",
+          "e024",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户搜索并查看加厚防滑瑜伽垫，关注109元TPE双面加厚8mm款。",
+            "source_event_ids": [
+              "e022",
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户浏览运动服饰速干训练套装。",
+            "source_event_ids": [
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否下单",
+          "最终选购商品与规格",
+          "预算上限",
+          "是否仅为比较价格"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i003"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e003",
+      "e006",
+      "e007",
+      "e010",
+      "e012",
+      "e014",
+      "e017",
+      "e018",
+      "e020",
+      "e023",
+      "e025",
+      "e026",
+      "e027",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 3,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c10-s05-bb8d9331",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "label_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e002",
+          "e004",
+          "e005",
+          "e009",
+          "e011"
+        ],
+        "description": "Gold 将 e002、e004、e005（连续搜索并观看零基础居家训练视频）与 e009、e011（浏览并收藏入门课程）标为 supporting，这些恰好命中场景要求的两条 required_evidence；但盲标把这些事件全部降级为 related_interest，三个意图的 supporting_event_ids 全为空，却又给 i001 打 confidence_level=high。该样本本身是 D3_weak_evidence、低置信度、emerging 的设计，盲标既清空了支撑证据，又抬高了置信度，自相矛盾，也无法解释为何满足 required_evidence 却不记为 supporting。",
+        "suggested_action": "要求裁决器重新裁决：将 e002、e004、e005、e009、e011 至少标为 i001 的 supporting，并将 i001 置信度降为 low/medium，与弱证据难度保持一致。"
+      },
+      {
+        "issue_type": "intent_over_split",
+        "severity": "high",
+        "event_ids": [
+          "e015",
+          "e016",
+          "e019",
+          "e021",
+          "e022",
+          "e024",
+          "e028"
+        ],
+        "description": "Gold 只有一个意图 i001，并明确把「地图搜索附近健身房」「查看周末体验课未预约」「浏览瑜伽垫和运动服饰」列为该意图的 optional_evidence。盲标却拆出 i002（线下健身体验课与健身房探索）和 i003（购买居家健身装备）。其中 i003 完全是居家训练意图的使能行为（没有加购、下单或比价动作），i002 也只有浏览、无任何预约或到店行为，三者共享同一批「健身入门」语义，且时间线上交错出现，属于按行为类型拆分而非按真实意图拆分，放大了证据确定性。",
+        "suggested_action": "建议合并：至少把 i003 的事件并回 i001 作为 related_interest；i002 若保留，需在推理中说明这与 i001 是否为独立意图，并明确其证据仅为浏览、无预约，置信度不得高于 low。"
+      },
+      {
+        "issue_type": "purpose_overclaim",
+        "severity": "medium",
+        "event_ids": [
+          "e015",
+          "e016",
+          "e019",
+          "e021",
+          "e022",
+          "e024",
+          "e028"
+        ],
+        "description": "盲标给 i002 的 purpose 定为 training、i003 定为 equipment_purchase。实际证据只有地图搜索健身房、查看体验课详情（booking_status=未预约）和搜索、浏览瑜伽垫、运动服饰，没有任何预约、下单、加购、咨询或价格比较动作，purpose 应属未知而非确定。Gold 对 i001 使用 purpose=unknown 是更稳妥的处理。",
+        "suggested_action": "将 i002、i003 的 purpose 改为 unknown，或至少在 inferred_facts 中显式声明 purpose 为推断且证据不足。"
+      },
+      {
+        "issue_type": "causal_chain_integrity",
+        "severity": "medium",
+        "event_ids": [
+          "e002",
+          "e005",
+          "e011",
+          "e013",
+          "e019",
+          "e022",
+          "e028"
+        ],
+        "description": "多条 origin=related 事件的 generator_event_id 指向 origin=noise 的事件（例如 e002←e001 为「会议纪要模板」、e005←e003 为「给绿植浇水」提醒、e011←e006 为天气查看、e013←e007 为茶具收藏、e019←e010 为「阳台种菜」搜索、e022←e012 为应用更新、e028←e014 为天文科普视频）。噪声事件在语义上不可能生成健身相关行为，该因果链是人为拼接痕迹，会污染「证据链可追溯性」。",
+        "suggested_action": "修复生成器的事件链，使 related 事件的 parent 只指向同意图内的 related 事件，或将噪声事件的 generator_event_id 置空，不要作为因果父节点。"
+      },
+      {
+        "issue_type": "weak_evidence_for_intent",
+        "severity": "low",
+        "event_ids": [
+          "e018"
+        ],
+        "description": "e018 被标为 unrelated 的「查看购物车（item_count=2，待凑单）」，虽然内容未写商品品类，但与同窗口频繁的装备浏览存在潜在相关性，属于可疑的硬性丢弃点。",
+        "suggested_action": "若该购物车包含运动装备，应按真实语义改标为与 i001、i003 相关的 related_interest；若确为无关商品，请在内容中显式写明品类以避免歧义。"
+      },
+      {
+        "issue_type": "answer_leakage",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e004",
+          "e009",
+          "e011"
+        ],
+        "description": "搜索关键词「零基础居家训练」以及视频与课程标题「零基础居家」「居家零基础 · 7天唤醒训练」高度复刻意图名与 required_evidence 的描述用词，存在关键词堆叠、暗示答案的痕迹，导致模型仅靠字面匹配即可命中意图。",
+        "suggested_action": "在保持证据可支持的前提下，改用更自然、多样的措辞（如「在家怎么开始练」「15分钟跟练」等），避免与意图名逐字对应。"
+      },
+      {
+        "issue_type": "annotation_inconsistency",
+        "severity": "low",
+        "event_ids": [
+          "e009",
+          "e011",
+          "e021"
+        ],
+        "description": "状态与事实记录不一致：Gold 标 i001 为 emerging，盲标标为 considering；此外盲标三个意图的 confirmed_facts 全部为空，但「搜索了什么」「收藏了哪门课」「体验课显示未预约」属于可直接观察到的事实，被全部归入 inferred_facts，削弱了事实与证据 ID 的对应关系。",
+        "suggested_action": "统一 status 的判定标准；把可直接观察到的行为写入 confirmed_facts 并列出来源事件 ID，只有需要推断的结论（练什么目标、是否办卡）放入 inferred_facts。"
+      }
+    ],
+    "summary": "本样本的核心问题是 Gold 与盲标之间存在结构性冲突：Gold 使用单意图、purpose=unknown、低置信，并把健身房搜索、体验课浏览、装备浏览设为可选证据；而盲标把同一个较弱的「居家训练入门」线索拆成三个意图，给 i001 打了 high 置信，却把所有事件降级为 related_interest、supporting_event_ids 全空，同时把满足 required_evidence 的 e002、e004、e005、e009、e011 一并降级，这属于对弱证据的过度确定。另外还有若干 related 事件的因果链挂在 origin=noise 事件上，属于生成器内部链条错误；事件标题与搜索词高度复刻意图描述，存在泄漏痕迹。建议裁决器回归单意图（或至少把 i003 并回 i001），按真实语义修正 supporting 与置信度，并修复噪声父节点的事件链；样本不宜直接通过。"
+  },
+  "adjudication": {
+    "sample_id": "c10-s05-bb8d9331",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "居家训练入门探索",
+          "category": "fitness",
+          "purpose": "unknown",
+          "status": "emerging",
+          "confidence_level": "low",
+          "supporting_event_ids": [],
+          "related_interest_event_ids": [
+            "e002",
+            "e004",
+            "e005",
+            "e008",
+            "e009",
+            "e011",
+            "e013",
+            "e015",
+            "e016",
+            "e019",
+            "e021",
+            "e022",
+            "e024",
+            "e028",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [],
+          "inferred_facts": [
+            {
+              "fact": "用户搜索并连续浏览零基础居家训练视频，包括15分钟全身跟练、新手核心训练和20分钟HIIT入门。",
+              "source_event_ids": [
+                "e002",
+                "e004",
+                "e005",
+                "e008"
+              ]
+            },
+            {
+              "fact": "用户在健身应用浏览并收藏“居家零基础 · 7天唤醒训练”录播跟练课程。",
+              "source_event_ids": [
+                "e009",
+                "e011"
+              ]
+            },
+            {
+              "fact": "用户阅读健身新手训练频率及冬季居家锻炼指南等训练知识。",
+              "source_event_ids": [
+                "e013",
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户查看附近健身房及12月6日周末健身体验课，但未预约。",
+              "source_event_ids": [
+                "e015",
+                "e016",
+                "e019",
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户搜索并浏览加厚防滑瑜伽垫及运动服饰，但无下单或加购动作。",
+              "source_event_ids": [
+                "e022",
+                "e024",
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "目标是减脂还是增肌",
+            "是否打算办卡或购买课程",
+            "是否已有具体训练计划",
+            "是否会预约线下体验课或购买装备"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e003",
+        "e006",
+        "e007",
+        "e010",
+        "e012",
+        "e014",
+        "e017",
+        "e018",
+        "e020",
+        "e023",
+        "e025",
+        "e026",
+        "e027",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c10-s05-bb8d9331"
+    },
+    "rationale": "盲标把同一健身入门探索拆成居家训练、线下健身房/体验课、装备购买三个意图，但本窗口没有任何预约、下单、加购、课程创建或完成训练等决定性证据，三组行为共享同一“健身入门探索”语义，按规则11应合并为单一意图。按规则10，搜索、浏览、查看、收藏均为 related_interest，因此 supporting_event_ids 为空；purpose 无法从证据确定，保持 unknown；状态为 emerging、置信度为 low。语义相关的15条事件均标为 i001 的 related_interest，其余15条保持 unrelated，数量与全局观察一致。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 0,
+      "related_interest": 15,
+      "contradicting": 0,
+      "purposes": {
+        "unknown": 1
+      },
+      "statuses": {
+        "emerging": 1
+      },
+      "categories": {
+        "fitness": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1849,
+      "completion_tokens": 2265,
+      "total_tokens": 4114,
+      "latency_s": 43.48,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1686,
+      "completion_tokens": 5503,
+      "total_tokens": 7189,
+      "latency_s": 89.02,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3471,
+      "completion_tokens": 9997,
+      "total_tokens": 13468,
+      "latency_s": 72.99,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6001,
+      "completion_tokens": 4846,
+      "total_tokens": 10847,
+      "latency_s": 37.13,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10865,
+      "completion_tokens": 3507,
+      "total_tokens": 14372,
+      "latency_s": 24.64,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 267.26
+}

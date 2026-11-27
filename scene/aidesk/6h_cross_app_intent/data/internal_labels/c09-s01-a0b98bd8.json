@@ -1,0 +1,566 @@
+{
+  "sample_id": "c09-s01-a0b98bd8",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "护照换发办理",
+      "category": "finance_admin",
+      "purpose": "certification",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "government_app 中出入境办证预约成功记录（12月18日上午时段）",
+        "docs_app 中查看/整理证件照电子回执与身份证明材料",
+        "calendar_app 创建12月18日前往办证大厅的日程",
+        "mail_app 收到预约成功确认邮件"
+      ],
+      "optional_evidence": [
+        "map_app 搜索办证大厅的路线",
+        "im_app 与母亲沟通陪同或携带材料",
+        "payment_app 支付证件照拍摄费用"
+      ],
+      "unknown_information": [
+        "是否选择加急办理",
+        "旧护照原件是否已找到"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T08:52:14+08:00",
+      "app": "government_app",
+      "action": "search",
+      "content": {
+        "query": "护照换发 所需材料",
+        "region": "杭州"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_novel",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:09:42+08:00",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "悬疑推理",
+        "chapter": "第103章"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:21:37+08:00",
+      "app": "government_app",
+      "action": "browse_content",
+      "content": {
+        "title": "出入境证件办理服务指南",
+        "service_item": "普通护照换发",
+        "office": "杭州市民中心出入境办证大厅"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:40:09+08:00",
+      "app": "video_app",
+      "action": "search_video",
+      "content": {
+        "query": "阳台种菜"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_play",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:46:10+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "卡牌对战",
+        "duration_min": 15
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T09:48:52+08:00",
+      "app": "government_app",
+      "action": "search",
+      "content": {
+        "query": "出入境证件照片采集点",
+        "city": "杭州"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:12:09+08:00",
+      "app": "map_app",
+      "action": "search",
+      "content": {
+        "keyword": "出入境证件照 拍照点",
+        "city": "杭州",
+        "filter": "离家最近"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "music_playlist",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:13:39+08:00",
+      "app": "music_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "睡前放松"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "comm_bike",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:20:18+08:00",
+      "app": "commute_app",
+      "action": "find_shared_bike",
+      "content": {
+        "area": "地铁口"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_parenting",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:23:09+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "亲子手工"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_cleanup",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:47:06+08:00",
+      "app": "mail_app",
+      "action": "delete_promotional_emails",
+      "content": {
+        "count": 12
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:48:33+08:00",
+      "app": "docs_app",
+      "action": "browse_content",
+      "content": {
+        "folder_name": "个人证件材料",
+        "files": [
+          "身份证正反面扫描件",
+          "居民户口簿首页",
+          "旧护照信息页"
+        ],
+        "sort_by": "最近修改"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_reminder",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T10:55:34+08:00",
+      "app": "calendar_app",
+      "action": "set_reminder",
+      "content": {
+        "title": "给绿植浇水"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:05:21+08:00",
+      "app": "gallery_app",
+      "action": "view_detail",
+      "content": {
+        "file_name": "出入境证件照_白底.jpg",
+        "spec": "33×48毫米",
+        "tag": "证件照",
+        "created_time": "今天上午"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "shop_coupon",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:19:09+08:00",
+      "app": "shopping_app",
+      "action": "view_coupons",
+      "content": {
+        "promotion": "会员日折扣"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:32:46+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "星光影像证件照馆",
+        "item": "出入境证件照拍摄及回执",
+        "amount": 55,
+        "currency": "CNY",
+        "pay_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:35:12+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "recipient": "母亲",
+        "message": "18号上午陪我去市民中心出入境大厅一趟吗？去换新护照"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T11:58:27+08:00",
+      "app": "docs_app",
+      "action": "view_detail",
+      "content": {
+        "file_name": "出入境证件照采集回执",
+        "issuing_merchant": "星光影像证件照馆",
+        "validity_months": 6,
+        "purpose": "出入境证件办理"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:14:40+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "母亲",
+        "message": "可以，18号上午我陪你去，旧护照我再帮你翻翻抽屉"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:21:19+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:26:58+08:00",
+      "app": "calendar_app",
+      "action": "view_schedule",
+      "content": {
+        "date": "12月18日",
+        "conflicts": 0,
+        "free_slot": "09:00-11:30"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "weather_now",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:40:31+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "当前所在城市"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "news_headlines",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T12:54:20+08:00",
+      "app": "news_app",
+      "action": "browse_headlines",
+      "content": {
+        "section": "体育"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:06:19+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "origin": "家",
+        "destination": "杭州市民中心出入境办证大厅",
+        "travel_mode": "地铁",
+        "depart_time": "12月18日 08:30",
+        "duration_minutes": 32
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:24:47+08:00",
+      "app": "government_app",
+      "action": "book",
+      "content": {
+        "service_type": "普通护照换发",
+        "office_name": "杭州市民中心出入境办证大厅",
+        "appointment_date": "12月18日",
+        "time_slot": "上午 09:30-10:00",
+        "applicant_count": 1,
+        "booking_status": "预约成功"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_bank_news",
+      "hard_negative": true,
+      "timestamp": "2026-12-15T13:27:06+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "储蓄险利弊分析"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:44:03+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "subject": "出入境证件预约成功通知",
+        "sender": "杭州公安出入境",
+        "appointment_date": "12月18日",
+        "time_slot": "09:30-10:00",
+        "office_name": "杭州市民中心出入境办证大厅",
+        "booking_no": "HZCRJ20261218-0930"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "food_lunch",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:48:39+08:00",
+      "app": "food_delivery_app",
+      "action": "browse_restaurants",
+      "content": {
+        "meal": "工作日午餐",
+        "sort_by": "距离最近"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-15T13:58:31+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "去市民中心办护照换发",
+        "date": "12月18日",
+        "start_time": "08:30",
+        "end_time": "11:00",
+        "location": "杭州市民中心出入境办证大厅",
+        "participants": [
+          "我",
+          "母亲"
+        ],
+        "reminder": "提前1小时"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_edit",
+      "hard_negative": false,
+      "timestamp": "2026-12-15T14:28:07+08:00",
+      "app": "gallery_app",
+      "action": "edit_photo",
+      "content": {
+        "tool": "拼图"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

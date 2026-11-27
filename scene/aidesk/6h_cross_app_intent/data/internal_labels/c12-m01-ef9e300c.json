@@ -1,0 +1,624 @@
+{
+  "sample_id": "c12-m01-ef9e300c",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "深圳客户签约差旅",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的上海到深圳机票订单（12月16日去程、12月18日返程）",
+        "客户陈总监发来的会议邀请邮件（深圳湾科技园，12月17日）",
+        "日历中已创建的客户签约会议日程"
+      ],
+      "optional_evidence": [
+        "深圳酒店预订确认",
+        "与同事李工沟通出差安排的聊天记录"
+      ],
+      "unknown_information": [
+        "酒店具体房型偏好"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 2,
+      "contradicting_event_count": 0
+    },
+    {
+      "intent_id": "i002",
+      "intent_name": "旗舰手机换新采购",
+      "category": "shopping",
+      "purpose": "personal_use",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "购物App内创建的新款旗舰手机订单并完成支付",
+        "比价App中对同型号手机的比价记录"
+      ],
+      "optional_evidence": [
+        "浏览同型号手机壳和贴膜等配件",
+        "收藏该手机商品"
+      ],
+      "unknown_information": [
+        "是否使用旧机以旧换新"
+      ],
+      "supporting_event_count": 5,
+      "related_interest_event_count": 2,
+      "contradicting_event_count": 0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "work_industry_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T08:37:01+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "topic": "行业季度报告摘要"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "photo_album",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T08:48:38+08:00",
+      "app": "gallery_app",
+      "action": "view_album",
+      "content": {
+        "album": "周末散步照片"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_handmade",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T08:54:40+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "木工制作"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T09:05:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "陈总监",
+        "subject": "签约会议邀请确认",
+        "meeting_date": "12月17日",
+        "meeting_time": "10:00-11:30",
+        "location": "深圳湾科技园A栋12层",
+        "attendees": [
+          "陈总监",
+          "我"
+        ]
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T09:12:00+08:00",
+      "app": "flight_booking_app",
+      "action": "search",
+      "content": {
+        "departure_city": "上海",
+        "destination": "深圳",
+        "departure_date": "12月16日",
+        "return_date": "12月18日",
+        "trip_type": "往返",
+        "passenger_count": 1,
+        "cabin_class": "经济舱"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_guide_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T09:31:27+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "合肥",
+        "topic": "本地交通卡使用攻略"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T09:40:00+08:00",
+      "app": "flight_booking_app",
+      "action": "pay",
+      "content": {
+        "route": "上海-深圳往返",
+        "outbound_date": "12月16日",
+        "outbound_flight": "MU2357 浦东T1 09:30-12:05",
+        "return_date": "12月18日",
+        "return_flight": "MU2338 宝安T3 18:20-20:55",
+        "total_price": "2240元",
+        "order_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_ranking",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T10:18:36+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T10:20:00+08:00",
+      "app": "hotel_app",
+      "action": "book",
+      "content": {
+        "hotel_name": "深圳湾科技园亚朵酒店",
+        "city": "深圳",
+        "district": "南山区",
+        "checkin_date": "12月16日",
+        "checkout_date": "12月18日",
+        "nights": 2,
+        "price": "786元/晚",
+        "order_status": "已预订"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T10:38:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "客户签约会议（陈总监）",
+        "date": "12月17日",
+        "start_time": "10:00",
+        "end_time": "11:30",
+        "location": "深圳湾科技园A栋12层",
+        "participants": [
+          "陈总监",
+          "李工",
+          "我"
+        ],
+        "reminder": "提前30分钟提醒"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T10:52:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "李工",
+        "message_type": "文本",
+        "content": "行程已定：16日飞深圳、18日返回，机票和酒店都已订好。17日上午10点和陈总监当面签约，合同终版材料请提前发我一份。"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T10:58:00+08:00",
+      "app": "weather_app",
+      "action": "browse_content",
+      "content": {
+        "city": "深圳",
+        "date_range": "12月16日-12月18日",
+        "forecast": "多云转晴，18℃~24℃，降水概率10%"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "contacts_search_repair",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T11:07:27+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T11:10:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "origin": "深圳湾科技园亚朵酒店",
+        "destination": "深圳湾科技园A栋",
+        "date": "12月17日",
+        "transport_mode": "步行",
+        "estimated_duration": "约8分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T11:50:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "新款旗舰手机 12GB+256GB",
+        "filters": [
+          "内存:12GB",
+          "存储:256GB",
+          "颜色:黑色"
+        ],
+        "sort_by": "综合排序"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:15:00+08:00",
+      "app": "shopping_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "新款旗舰手机 12GB+256GB",
+        "color": "黑色",
+        "price": "5999元",
+        "stock_status": "现货",
+        "warranty": "全国联保一年"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_storage",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:28:24+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:45:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "product_model": "旗舰手机 12GB+256GB 黑色",
+        "platforms": [
+          "官方商城",
+          "京东自营",
+          "天猫旗舰店"
+        ],
+        "lowest_price": "5699元",
+        "lowest_platform": "官方商城",
+        "price_range": "5699-5999元"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T12:58:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "category": "手机配件",
+        "keywords": [
+          "适配手机壳",
+          "钢化贴膜"
+        ],
+        "viewed_items": [
+          "黑色磨砂保护壳",
+          "高清钢化膜两片装"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "game_daily",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:01:44+08:00",
+      "app": "game_app",
+      "action": "claim_daily_reward",
+      "content": {
+        "detail": "常规使用记录"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "cal_view",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:09:52+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:12:00+08:00",
+      "app": "review_app",
+      "action": "browse_content",
+      "content": {
+        "product_model": "旗舰手机 12GB+256GB",
+        "content_type": "用户评价",
+        "overall_rating": "4.8分",
+        "hot_topics": [
+          "续航表现",
+          "屏幕素质",
+          "系统流畅度"
+        ]
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_bookmark",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:16:15+08:00",
+      "app": "reader_app",
+      "action": "bookmark_article",
+      "content": {
+        "topic": "传统茶具介绍"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_hotel_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T13:26:37+08:00",
+      "app": "hotel_app",
+      "action": "view_hotel_detail",
+      "content": {
+        "city": "济南",
+        "check_in": "12月17日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:35:00+08:00",
+      "app": "shopping_app",
+      "action": "create_order",
+      "content": {
+        "product_name": "新款旗舰手机 12GB+256GB",
+        "color": "黑色",
+        "quantity": 1,
+        "unit_price": "5699元",
+        "delivery_address": "上海市浦东新区",
+        "order_status": "待支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-05T13:40:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "官方商城",
+        "amount": "5699元",
+        "payment_method": "银行卡支付",
+        "payment_status": "支付成功",
+        "order_number": "SO20261205133402"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i002"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "video_playlist",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:03:27+08:00",
+      "app": "video_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "粤语老歌"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fit_steps",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:12:49+08:00",
+      "app": "fitness_app",
+      "action": "view_step_count",
+      "content": {
+        "steps": 4321
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_train_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-05T14:14:19+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "上海",
+        "arrival": "郑州",
+        "date": "12月17日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "home_ac_cleaning_search",
+      "hard_negative": false,
+      "timestamp": "2026-12-05T14:27:40+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

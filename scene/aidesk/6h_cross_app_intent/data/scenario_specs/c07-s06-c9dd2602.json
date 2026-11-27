@@ -1,0 +1,59 @@
+{
+  "title": "Livehouse演出取消退票",
+  "scenario_category": "entertainment",
+  "subscenario": "退票取消",
+  "template_id": "C07-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "12月19日乐队现场演出门票2张",
+      "乐队应援周边"
+    ],
+    "people": [
+      "朋友小柯"
+    ],
+    "dates": [
+      "12月19日"
+    ],
+    "other": [
+      "滨江某livehouse场馆"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "观演计划落空",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的12月19日现场演出门票订单",
+        "主办方发布的演出取消公告",
+        "退票申请记录与退款到账通知",
+        "日历中12月19日观演日程被取消"
+      ],
+      "optional_evidence": [
+        "与朋友沟通退票的消息",
+        "此前查询场馆路线与天气的记录"
+      ],
+      "unknown_information": [
+        "演出是否会改期补办",
+        "同行朋友是否也完成退票"
+      ],
+      "supporting_event_count": 7,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 2
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 7,
+    "related_interest": 6,
+    "contradicting": 2
+  },
+  "time_profile": "前约两个半小时（15:05-17:30）只有相关兴趣行为：反复查看已购门票详情、收藏乐队周边、查场馆路线、看演出当天天气、听乐队歌曲；约17:45主办方取消公告与朋友转告消息出现，同时夹杂'演出照常'的传言和'不支持自愿退票'的条款页形成干扰；18:30后提交退票，决定性证据（退款到账通知、日历日程取消）集中在最后一小时内出现",
+  "variant_note": "与同模板其他样本的差异：本样本为本地观演而非异地行程，取消由主办方公告触发而非用户单方原因； purpose 为 fan，由音乐播放、周边收藏等可观察行为支撑；干扰项为'演出照常'传言消息与退票政策页，与官方公告和实际退款成功形成张力；决定性证据全部压在窗口末段，前半段均为正向兴趣信号，体现状态反转",
+  "scenario_id": "c07-s06-c9dd2602"
+}

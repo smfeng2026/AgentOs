@@ -1,0 +1,780 @@
+{
+  "sample_id": "c04-s01-7520a488",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "已修正审计指出的标签不一致：e001 是发起提议，e010 是搜索，e018 是路线查询，均按规则归为 related_interest；决定性证据仅保留 e002/e004（明确确认）与 e021/e022/e023/e025（预订、预订成功通知、押金支付、创建日程）。同时修正事实证据引用，保留单一社交聚餐意图，unrelated_event_ids 与 15 条无关事件完全对应。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "learn_video",
+        "hn_restaurant_lunch",
+        "cal_view",
+        "music_search",
+        "pay_balance",
+        "weather_forecast",
+        "news_read",
+        "mail_cleanup",
+        "photo_edit",
+        "map_traffic",
+        "ent_trailer",
+        "fit_steps",
+        "health_article",
+        "social_feed_photo",
+        "comm_bus"
+      ],
+      "hard_negative_ids": [
+        "hn_restaurant_lunch"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "老友周末日料聚餐",
+        "category": "social_dining",
+        "purpose": "socializing",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002",
+          "e004",
+          "e021",
+          "e022",
+          "e023",
+          "e025"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e010",
+          "e014",
+          "e016",
+          "e017",
+          "e018",
+          "e020",
+          "e024",
+          "e028"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "群内已确认周六18:30吃日料并订包间",
+            "source_event_ids": [
+              "e002",
+              "e004"
+            ]
+          },
+          {
+            "fact": "已在鮨风·湖滨银泰店预订12月19日18:30四人包间，预订号RC20261219003，状态为已预订",
+            "source_event_ids": [
+              "e021",
+              "e022"
+            ]
+          },
+          {
+            "fact": "已支付100元订座押金，关联订单RC20261219003，状态为已支付",
+            "source_event_ids": [
+              "e021",
+              "e023"
+            ]
+          },
+          {
+            "fact": "已创建12月19日18:30-20:30的老友聚餐日程，地点为湖滨银泰鮨风·湖滨银泰店，参与人包括老周、阿蕾、大鹏",
+            "source_event_ids": [
+              "e025"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "该活动是与老友的社交聚餐，群名为“老友周末饭局”，参与者包括本人及老周、阿蕾、大鹏",
+            "source_event_ids": [
+              "e001",
+              "e002",
+              "e004",
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户在比较鮨风·湖滨银泰店与汐屋日料后，最终选择鮨风·湖滨银泰店",
+            "source_event_ids": [
+              "e017",
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户曾查询从家（西湖区文二西路）乘地铁前往鮨风·湖滨银泰店的路线，12月19日17:40出发约28分钟",
+            "source_event_ids": [
+              "e018"
+            ]
+          },
+          {
+            "fact": "用户查看了12月19日杭州天气，可能用于聚餐出行参考",
+            "source_event_ids": [
+              "e024"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "老周本人是否在群内明确回复参加（当前仅见阿蕾、大鹏回复）",
+          "饭后去湖边清吧的安排是否会成行（e028仅为大鹏提议，未见本人响应）",
+          "最终费用如何分摊、订座押金由谁承担",
+          "是否会因天气或交通情况调整到店时间"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e005",
+      "e006",
+      "e007",
+      "e008",
+      "e009",
+      "e011",
+      "e012",
+      "e013",
+      "e015",
+      "e019",
+      "e026",
+      "e027",
+      "e029",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c04-s01-7520a488",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "label_inconsistency_supporting_weak_evidence",
+        "severity": "high",
+        "event_ids": [
+          "e001",
+          "e010",
+          "e018"
+        ],
+        "description": "`labeled_events` 将 e001 初始提议、e010 餐厅搜索、e018 路线查询标为 supporting，但 `event_labels`/盲标把它们归为 related_interest；同时场景规格的 supporting=9 与最终/盲标 supporting=6 不一致。e010/e018 只是准备性或可选证据，e001 是提议而非敲定，不应作为决定性 supporting。",
+        "suggested_action": "统一标签：保留 e002/e004/e021/e022/e023/e025 为 supporting，将 e001/e010/e018 改为 related_interest，并同步更新 related_event_budget；不要为凑数补造 supporting。"
+      },
+      {
+        "issue_type": "fact_evidence_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e002",
+          "e004",
+          "e021",
+          "e022"
+        ],
+        "description": "盲标 confirmed_fact 写“群内已确认周六18:30吃日料并订包间”，但只引用 e002/e004；这两条只能支持群内确认周六18:30及提出包间需求，不能支持“已订包间”。完成预订需要 e021/e022。",
+        "suggested_action": "拆分事实或更正 source_event_ids：群内确认用 e002/e004；已完成包间预订用 e021/e022。"
+      },
+      {
+        "issue_type": "unnatural_business_logic",
+        "severity": "medium",
+        "event_ids": [
+          "e001",
+          "e021",
+          "e023",
+          "e025"
+        ],
+        "description": "用户本人发起、搜索、支付押金并创建日程，但预订 contact_name 为“老周”；群内未见老周明确回复参加。若老周只是参与者而非订座联系人，该字段不自然，会暗示错误的订座联系归属。",
+        "suggested_action": "将 contact_name 改为“本人”/用户姓名，或补充老周回复或说明由老周作为联系人；否则移除该字段。"
+      },
+      {
+        "issue_type": "spec_evidence_mismatch",
+        "severity": "medium",
+        "event_ids": [
+          "e001",
+          "e002",
+          "e004",
+          "e025"
+        ],
+        "description": "required_evidence 写“三人小群”，但 e001 显示群内包含本人、老周、阿蕾、大鹏，且订座 party_size=4，并非三人小群。",
+        "suggested_action": "将 required_evidence 改为“老友群/四人饭局群”等，或调整群成员/人数，保持规格与事件一致。"
+      }
+    ],
+    "summary": "核心社交聚餐意图和 socializing 目的有直接证据，订座、支付、日历提醒链完整；但存在高风险的 supporting 标签与预算/最终标签不一致，e010/e018 等弱证据被当作 supporting。另有多处事实证据引用不精确、订座联系人“老周”不自然以及“三人小群”与四人饭局不一致，建议修正标签和事实表述后再使用。"
+  },
+  "adjudication": {
+    "sample_id": "c04-s01-7520a488",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "老友周末日料聚餐",
+          "category": "social_dining",
+          "purpose": "socializing",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e004",
+            "e021",
+            "e022",
+            "e023",
+            "e025"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e010",
+            "e014",
+            "e016",
+            "e017",
+            "e018",
+            "e020",
+            "e024",
+            "e028"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "群内阿蕾与大鹏已明确确认周六12月19日18:30聚餐，并提到日料及包间需求",
+              "source_event_ids": [
+                "e002",
+                "e004"
+              ]
+            },
+            {
+              "fact": "已在鮨风·湖滨银泰店预订12月19日18:30四人包间，预订号RC20261219003，状态为已预订",
+              "source_event_ids": [
+                "e021",
+                "e022"
+              ]
+            },
+            {
+              "fact": "已向鮨风·湖滨银泰店支付100元订座押金，关联订单RC20261219003，状态为已支付",
+              "source_event_ids": [
+                "e023"
+              ]
+            },
+            {
+              "fact": "已创建12月19日18:30-20:30的老友聚餐日程，地点为湖滨银泰鮨风·湖滨银泰店，参与人包括老周、阿蕾、大鹏，并设置提前1小时提醒",
+              "source_event_ids": [
+                "e025"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "该活动由本人发起，参与者包括老周、阿蕾、大鹏，属于老友社交聚餐",
+              "source_event_ids": [
+                "e001",
+                "e002",
+                "e004",
+                "e025"
+              ]
+            },
+            {
+              "fact": "用户在比较鮨风·湖滨银泰店与汐屋日料后偏好鮨风，并最终预订鮨风·湖滨银泰店",
+              "source_event_ids": [
+                "e017",
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户查询从家乘地铁前往鮨风·湖滨银泰店的路线，计划12月19日17:40出发，约28分钟",
+              "source_event_ids": [
+                "e018"
+              ]
+            },
+            {
+              "fact": "用户查看了12月19日杭州天气，可能用于聚餐出行参考",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "大鹏询问包间是否订好，并提议饭后去湖边清吧坐坐，是否成行尚未确定",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "老周本人是否在群内明确回复参加（当前仅见阿蕾、大鹏回复）",
+            "饭后去湖边清吧的安排是否会成行（e028仅为大鹏提议，未见本人响应）",
+            "聚餐总费用如何分摊、订座押金由谁承担",
+            "是否会因天气或交通情况调整到店时间"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e005",
+        "e006",
+        "e007",
+        "e008",
+        "e009",
+        "e011",
+        "e012",
+        "e013",
+        "e015",
+        "e019",
+        "e026",
+        "e027",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c04-s01-7520a488"
+    },
+    "rationale": "已修正审计指出的标签不一致：e001 是发起提议，e010 是搜索，e018 是路线查询，均按规则归为 related_interest；决定性证据仅保留 e002/e004（明确确认）与 e021/e022/e023/e025（预订、预订成功通知、押金支付、创建日程）。同时修正事实证据引用，保留单一社交聚餐意图，unrelated_event_ids 与 15 条无关事件完全对应。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 6,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "socializing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "social_dining": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1862,
+      "completion_tokens": 1185,
+      "total_tokens": 3047,
+      "latency_s": 13.69,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1718,
+      "completion_tokens": 8368,
+      "total_tokens": 10086,
+      "latency_s": 163.04,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3714,
+      "completion_tokens": 5489,
+      "total_tokens": 9203,
+      "latency_s": 43.49,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6138,
+      "completion_tokens": 11007,
+      "total_tokens": 17145,
+      "latency_s": 89.67,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10378,
+      "completion_tokens": 4263,
+      "total_tokens": 14641,
+      "latency_s": 27.6,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 337.49
+}

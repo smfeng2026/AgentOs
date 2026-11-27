@@ -1,0 +1,331 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "莫干山周末自驾出游",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e016",
+        "e017",
+        "e023",
+        "e028",
+        "e029"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e004",
+        "e006",
+        "e007",
+        "e008",
+        "e010",
+        "e013",
+        "e014",
+        "e018",
+        "e019"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "已创建紧凑型SUV两日租车订单：12月05日杭州东站店取车、12月06日还车，总价516元，下单时状态为待支付",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "租车订单已通过银行卡支付516.00元，订单状态为已支付",
+          "source_event_ids": [
+            "e017"
+          ]
+        },
+        {
+          "fact": "已预订12月05日庾村景区门票2张（本人、小陈），单价80元，订单状态为已预订",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "大学同学小陈回复确认周六早上出发，并询问碰头地点",
+          "source_event_ids": [
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户告知小陈车已订好，约定周六7:50在杭州东站西广场取车点集合、8点出发",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "计划于12月05日至12月06日自驾前往莫干山（庾村）进行周末短途出游",
+          "source_event_ids": [
+            "e001",
+            "e004",
+            "e006",
+            "e007",
+            "e018",
+            "e019"
+          ]
+        },
+        {
+          "fact": "同行人为大学同学小陈",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "游玩与用餐意向包括庾村景区和莫干山镇的山间餐厅（12月05日用餐）",
+          "source_event_ids": [
+            "e007",
+            "e010"
+          ]
+        },
+        {
+          "fact": "租车方案为杭州东站店取还、紧凑型SUV两日（日租约258元）",
+          "source_event_ids": [
+            "e013",
+            "e014"
+          ]
+        },
+        {
+          "fact": "规划的驾车路线为杭州东站至莫干山庾村，约82公里、约1小时50分钟、过路费约35元",
+          "source_event_ids": [
+            "e018",
+            "e019"
+          ]
+        },
+        {
+          "fact": "因周六全天在外地，用户向同事老周提出将评审会改到周一下午",
+          "source_event_ids": [
+            "e008"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否已预订莫干山住宿",
+        "山间餐厅是否已预订或确定",
+        "12月06日具体返程时间及返程后的安排"
+      ],
+      "confirmed_facts_note": null,
+      "contradicting_event_ids_note": null,
+      "conflicts": [
+        {
+          "description": "租车订单e016的取车时间为12月05日10:00，但地图路线e018规划12月05日08:00从杭州东站出发、聊天e029约定7:50在杭州东站西广场取车点集合、8:00出发，取车时间与集合出发时间存在约2小时矛盾",
+          "source_event_ids": [
+            "e016",
+            "e018",
+            "e029"
+          ]
+        }
+      ]
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e003",
+    "e005",
+    "e009",
+    "e011",
+    "e012",
+    "e015",
+    "e020",
+    "e021",
+    "e022",
+    "e024",
+    "e025",
+    "e026",
+    "e027",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c11-s01-688fa56f"
+}

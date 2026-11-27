@@ -1,0 +1,320 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "华信科技需求评审会确认与筹备",
+      "category": "work",
+      "purpose": "meeting",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e004",
+        "e009",
+        "e021",
+        "e027"
+      ],
+      "related_interest_event_ids": [
+        "e005",
+        "e007",
+        "e011",
+        "e013",
+        "e015",
+        "e016",
+        "e017",
+        "e023",
+        "e025",
+        "e028"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "客户方项目经理刘总发来邮件，确认12月18日14:00-16:00在浦东张江张江路88号华信科技3楼会议室召开需求评审会，附会议议程，参会人含刘总、客户方产品代表、客户方研发代表",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "已与同事陈晓明确评审会分工：陈晓负责更新演示材料，本人整理需求文档，周四前互相对稿",
+          "source_event_ids": [
+            "e009"
+          ]
+        },
+        {
+          "fact": "已在日历中创建“华信科技需求评审会”日程，时间为12月18日14:00-16:00，地点为张江路88号华信科技3楼会议室，参与人含刘总、陈晓、周经理，并设置提前1小时提醒",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "已预订12月18日12:30从南京西路公司楼下前往张江路88号华信科技的舒适型网约车，预估费用86元，订单状态为已预订",
+          "source_event_ids": [
+            "e027"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "会议议程包括项目背景介绍、需求方案演示和评审意见讨论",
+          "source_event_ids": [
+            "e005"
+          ]
+        },
+        {
+          "fact": "已查找客户方联系人刘总的联系方式，显示其为华信科技项目经理",
+          "source_event_ids": [
+            "e007"
+          ]
+        },
+        {
+          "fact": "陈晓回复演示材料今晚改完发送，并询问是否需要确认周经理参会时间",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "正在准备客户需求评审演示材料V3，共28页，重点涉及“需求方案演示”部分并有6条评论；另收藏了通用汇报模板",
+          "source_event_ids": [
+            "e013",
+            "e015",
+            "e017"
+          ]
+        },
+        {
+          "fact": "已浏览线上会议接入方案与会议室投屏连接说明，可能考虑线上或混合会议形式",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "从南京西路办公点驾车至张江路88号华信科技约42分钟，也可选择地铁2号线转张江有轨电车",
+          "source_event_ids": [
+            "e023"
+          ]
+        },
+        {
+          "fact": "计划会后在张江路88号附近咖啡厅进行商务洽谈，已搜索距离优先的咖啡厅",
+          "source_event_ids": [
+            "e025"
+          ]
+        },
+        {
+          "fact": "已查询12月18日上海天气：多云转阴，6℃~11℃，降水概率20%，东北风3级",
+          "source_event_ids": [
+            "e028"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "客户方参会人员是否全部到场",
+        "周经理是否确认参会",
+        "是否需要线上接入或采用线上线下结合形式",
+        "会后商务洽谈的咖啡厅是否确定并预订",
+        "是否需要安排午餐等其他事项"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e003",
+    "e006",
+    "e008",
+    "e010",
+    "e012",
+    "e014",
+    "e018",
+    "e019",
+    "e020",
+    "e022",
+    "e024",
+    "e026",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 16
+  },
+  "sample_id": "c02-s01-a9ca700b"
+}

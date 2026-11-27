@@ -1,0 +1,309 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "预约并确认年度健康体检",
+      "category": "health_service",
+      "purpose": "checkup",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e016",
+        "e017",
+        "e018",
+        "e021",
+        "e025"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e006",
+        "e008",
+        "e011",
+        "e012",
+        "e013",
+        "e026",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已提交市一医院国际保健中心“入职周年健康体检套餐”预约，预约时间为12月12日上午08:00-10:00，订单号为TJ20261212001，提交时状态为待支付。",
+          "source_event_ids": [
+            "e016"
+          ]
+        },
+        {
+          "fact": "用户已支付订单TJ20261212001，金额¥1280，支付成功。",
+          "source_event_ids": [
+            "e017"
+          ]
+        },
+        {
+          "fact": "医院已发送体检预约确认通知，预约状态为已确认，并要求12月12日08:00前到达、抽血项目保持空腹。",
+          "source_event_ids": [
+            "e018"
+          ]
+        },
+        {
+          "fact": "订单TJ20261212001显示为已预约、已支付。",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户已创建日程“年度体检（市一医院国际保健中心）”，时间为12月12日08:00-11:00，备注携带身份证、空腹前往。",
+          "source_event_ids": [
+            "e025"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "本次健康服务目的为年度健康体检，且套餐与确认通知均提示需要空腹抽血检查。",
+          "source_event_ids": [
+            "e016",
+            "e018",
+            "e025"
+          ]
+        },
+        {
+          "fact": "用户对体检前空腹要求及体检套餐选择有持续关注。",
+          "source_event_ids": [
+            "e002",
+            "e004",
+            "e006",
+            "e012",
+            "e013",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户计划12月12日早上从家出发，乘地铁前往市一医院国际保健中心，预计约35分钟。",
+          "source_event_ids": [
+            "e025",
+            "e029"
+          ]
+        },
+        {
+          "fact": "上年度体检报告显示低密度脂蛋白偏高且医生建议规律复查，存在复查需求的可能性。",
+          "source_event_ids": [
+            "e001"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否有人陪同",
+        "是否加做额外检查项目",
+        "是否最终到场完成体检",
+        "体检费用是否由单位报销"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e003",
+    "e005",
+    "e007",
+    "e009",
+    "e010",
+    "e014",
+    "e015",
+    "e019",
+    "e020",
+    "e022",
+    "e023",
+    "e024",
+    "e027",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c05-s01-81ece03a"
+}

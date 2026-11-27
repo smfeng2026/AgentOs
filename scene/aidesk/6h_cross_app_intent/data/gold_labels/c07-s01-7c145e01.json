@@ -1,0 +1,308 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "沈以辰上海站观演计划",
+      "category": "entertainment",
+      "purpose": "fan",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e019",
+        "e020",
+        "e024",
+        "e026"
+      ],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e005",
+        "e008",
+        "e009",
+        "e010",
+        "e012",
+        "e015",
+        "e017",
+        "e022",
+        "e029"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户已在票务App创建沈以辰巡回演唱会上海站内场票2张订单，总金额2560元，订单状态为待支付",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "用户已通过银行卡支付2560元，支付成功，账单备注为“沈以辰巡回演唱会上海站内场票x2”",
+          "source_event_ids": [
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户已在日历创建12月20日19:30沈以辰演唱会上海站日程，地点为滨江体育中心体育馆，备注内场票两张、与小周同行、提前出发",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "用户已告知好友小周12月20日内场票两张已付款，当晚一起去，票由用户先拿着",
+          "source_event_ids": [
+            "e026"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户对歌手沈以辰有明确兴趣，曾搜索、收藏其歌曲并浏览热门歌曲榜、粉丝超话及演唱会舞台视频",
+          "source_event_ids": [
+            "e001",
+            "e003",
+            "e005",
+            "e008",
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户收到好友小周关于上海站开票并邀约同行的消息",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户在购票前搜索上海站演出、查看场次票档并比较内场票与看台票，按2张考虑",
+          "source_event_ids": [
+            "e012",
+            "e015",
+            "e017"
+          ]
+        },
+        {
+          "fact": "用户曾查看该演唱会订单状态为已支付",
+          "source_event_ids": [
+            "e022"
+          ]
+        },
+        {
+          "fact": "用户已查询前往滨江体育中心体育馆的路线，计划12月20日出行，预计地铁+步行42分钟",
+          "source_event_ids": [
+            "e029"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否已收到电子票或出票凭证",
+        "好友小周是否已最终确认同行及票款分担",
+        "12月20日具体出发时间及是否按查询路线执行",
+        "是否购买应援周边",
+        "具体座位排号"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e002",
+    "e004",
+    "e006",
+    "e007",
+    "e011",
+    "e013",
+    "e014",
+    "e016",
+    "e018",
+    "e021",
+    "e023",
+    "e025",
+    "e027",
+    "e028",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c07-s01-7c145e01"
+}

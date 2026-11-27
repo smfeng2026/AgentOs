@@ -1,0 +1,222 @@
+{
+  "sample_id": "c12-m05-df2dd78e",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:17:59+08:00",
+  "task": {
+    "scenario_category": "multi_intent",
+    "template_id": "C12-M05",
+    "subscenario": "成都旅游 + 工作项目会议",
+    "difficulty": "D5_multi_intent",
+    "intent_count": 2,
+    "split": "unassigned",
+    "window_start": "2026-12-08T16:20:00+08:00",
+    "window_end": "2026-12-08T22:20:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 430729168
+  },
+  "spec_summary": {
+    "title": "先开评审会，周末去成都玩两天",
+    "intent_names": [
+      "成都周末观光行程",
+      "Q1项目评审会准备"
+    ],
+    "intent_categories": [
+      "travel",
+      "work"
+    ],
+    "key_entities": {
+      "home_city": "上海",
+      "destinations": [
+        "成都"
+      ],
+      "products": [
+        "大熊猫基地门票"
+      ],
+      "people": [
+        "项目经理李阳",
+        "同事赵琳"
+      ],
+      "dates": [
+        "12月16日",
+        "12月19日",
+        "12月20日",
+        "12月21日"
+      ],
+      "other": [
+        "春熙路",
+        "Q1项目评审会"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 3,
+    "gold_unrelated": 13,
+    "gold_supporting": 8,
+    "gold_related_interest": 9,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "tourism": 1,
+      "meeting": 1,
+      "unknown": 1
+    },
+    "gold_statuses": {
+      "confirmed": 2,
+      "considering": 1
+    },
+    "gold_categories": {
+      "travel": 2,
+      "work": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "hn_flight_other_city",
+      "learn_video",
+      "hn_train_other_city",
+      "cal_birthday",
+      "shop_coupon",
+      "home_ac_cleaning_search",
+      "sys_wallpaper",
+      "gov_residence_progress",
+      "review_brunch_browse",
+      "fin_balance",
+      "map_nearby",
+      "hn_map_other_city",
+      "venue_badminton_schedule",
+      "music_playlist",
+      "video_watch"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "35089f73e12536c50b907ed5d459e42d0cddd37b268108666d082700673e682c",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "d9248e8c7c73d3ed35de90b91acdd0813d6f2d9a112d7b3ce5b1ee421e63b79e"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "composition_deviation"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "unrelated count 13 differs from target 15"
+    ],
+    "stats": {
+      "intents": 3,
+      "unrelated": 13,
+      "supporting": 8,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "tourism": 1,
+        "meeting": 1,
+        "unknown": 1
+      },
+      "statuses": {
+        "confirmed": 2,
+        "considering": 1
+      },
+      "categories": {
+        "travel": 2,
+        "work": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1877,
+      "completion_tokens": 3389,
+      "total_tokens": 5266,
+      "latency_s": 30.95,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1996,
+      "completion_tokens": 7345,
+      "total_tokens": 9341,
+      "latency_s": 60.96,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3610,
+      "completion_tokens": 11278,
+      "total_tokens": 14888,
+      "latency_s": 93.85,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6637,
+      "completion_tokens": 13284,
+      "total_tokens": 19921,
+      "latency_s": 93.66,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11239,
+      "completion_tokens": 9662,
+      "total_tokens": 20901,
+      "latency_s": 122.42,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 401.84,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c12-m05-df2dd78e.json",
+      "sha256": "7b8ca1d8f91a509f15c470ed5d8a16f5ace44a53b0e64f5f83784042fef66598"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c12-m05-df2dd78e.json",
+      "sha256": "13fb29a6472f73dbe5da98ae727ad376baf6cdf03be68ac233a98a312ff89431"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c12-m05-df2dd78e.json",
+      "sha256": "5dc18112e2c7bc24efa6e315d696e5a1c757fcb7b4889f6b1c109d92b7e26652"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c12-m05-df2dd78e.json",
+      "sha256": "902c18bdc740f7d043dbe32fd5b7f8c423bce141b8649bdc3bdb1568f86d40bd"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c12-m05-df2dd78e.json",
+      "sha256": "41423324a1010cfaae67361017581247e9cd727936580d9cddcb0629eaac992a"
+    }
+  },
+  "updated_at": "2026-11-27T12:17:59+08:00"
+}

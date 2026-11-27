@@ -1,0 +1,60 @@
+{
+  "title": "胶囊咖啡机下单后取消并重新选型",
+  "scenario_category": "shopping",
+  "subscenario": "取消购买",
+  "template_id": "C03-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "胶囊咖啡机",
+      "便携咖啡机"
+    ],
+    "people": [
+      "妻子"
+    ],
+    "dates": [
+      "12月23日"
+    ],
+    "other": [
+      "厨房台面尺寸",
+      "订单金额1299元"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "家用咖啡机购置计划",
+      "category": "shopping",
+      "purpose": "household",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "胶囊咖啡机已支付订单记录",
+        "取消订单操作",
+        "退款到账通知"
+      ],
+      "optional_evidence": [
+        "与家人聊天中提到厨房台面放不下该机型",
+        "取消后重新比较更紧凑的机型",
+        "取消前浏览商品评价和比价"
+      ],
+      "unknown_information": [
+        "最终会改选哪个替代型号",
+        "是否会在近期重新下单"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 2,
+      "contradicting_event_count": 4
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 2,
+    "contradicting": 4
+  },
+  "time_profile": "前半段（15:30-17:00）集中出现搜索、收藏、看评价、比价、下单、支付等正向证据；18:40 起出现家人在聊天中提出台面放不下的反对意见；19:10 左右取消订单并发起退款，19:15 收到退款到账通知，决定性反向证据位于窗口中后段；20:00 后出现重新比较紧凑机型的行为",
+  "variant_note": "本样本的取消动因来自家庭沟通（厨房台面尺寸不足）而非价格或差评，取消路径为完整闭环：下单-支付-取消-退款到账；取消后仍有替代品再比较行为但未重新下单，故最终状态为 cancelled。证据横跨 shopping、price_compare、review、payment、delivery、im 六类 App，其中 im_app 承担矛盾触发角色，区别于同模板中以差评或降价为取消原因的样本",
+  "scenario_id": "c03-s06-95f38eb6"
+}

@@ -1,0 +1,203 @@
+{
+  "sample_id": "c07-s06-22cb643d",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T12:04:47+08:00",
+  "task": {
+    "scenario_category": "entertainment",
+    "template_id": "C07-S06",
+    "subscenario": "退票取消",
+    "difficulty": "D6_conflict_state_change",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-07T07:15:00+08:00",
+    "window_end": "2026-12-07T13:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 327766412
+  },
+  "spec_summary": {
+    "title": "同伴临时出差，演唱会门票退票",
+    "intent_names": [
+      "与朋友观看星野巡演"
+    ],
+    "intent_categories": [
+      "entertainment"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "滨江体育中心体育馆"
+      ],
+      "products": [
+        "星野巡回演唱会门票x2"
+      ],
+      "people": [
+        "朋友小周"
+      ],
+      "dates": [
+        "12月26日"
+      ],
+      "other": [
+        "歌手林星野"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 1,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 5,
+    "gold_related_interest": 6,
+    "gold_contradicting": 4,
+    "gold_purposes": {
+      "fan": 1
+    },
+    "gold_statuses": {
+      "cancelled": 1
+    },
+    "gold_categories": {
+      "entertainment": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "hn_movie_schedule",
+      "mail_newsletter",
+      "comm_bus",
+      "social_feed_parenting",
+      "pay_balance",
+      "taxi_invoice_history",
+      "learn_video",
+      "cal_reminder",
+      "contacts_search_repair",
+      "food_lunch",
+      "read_science",
+      "parking_fee_standard",
+      "fit_water",
+      "shop_coupon",
+      "map_commute"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "524cc8a1889c81a7926a1a291831294945e9c2109be1e9ee350e7c480c8a0218",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "af392993d134b47a6523c01dfec2ccf8e6922dd8c4d148e89a73bfd3e6bf45d7"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 6,
+      "contradicting": 4,
+      "purposes": {
+        "fan": 1
+      },
+      "statuses": {
+        "cancelled": 1
+      },
+      "categories": {
+        "entertainment": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1857,
+      "completion_tokens": 3009,
+      "total_tokens": 4866,
+      "latency_s": 62.51,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1793,
+      "completion_tokens": 5437,
+      "total_tokens": 7230,
+      "latency_s": 109.71,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3652,
+      "completion_tokens": 8451,
+      "total_tokens": 12103,
+      "latency_s": 74.01,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6206,
+      "completion_tokens": 10211,
+      "total_tokens": 16417,
+      "latency_s": 97.03,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10835,
+      "completion_tokens": 7938,
+      "total_tokens": 18773,
+      "latency_s": 116.26,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 459.53,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c07-s06-22cb643d.json",
+      "sha256": "a88223453c5129d77ee92057c96f8a9d78528dbf8ab708facbad12d33cc8da6b"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c07-s06-22cb643d.json",
+      "sha256": "4a6d4e3cdb3e19fc742f3e28949d1c61e570228fb1e81b37378efdb60e5215ef"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c07-s06-22cb643d.json",
+      "sha256": "07e5784e7a562f2cb7daa165a4f677a5a64a5d8421966cdf106c172a8fced81a"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c07-s06-22cb643d.json",
+      "sha256": "4f9b8887376cd6fba85f7e55bda7b921ef6945be3b38f13862f6919ee943c8d3"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c07-s06-22cb643d.json",
+      "sha256": "45f543bc7abbc46041a15abb813946ed22c1bc0e118b3bac8e54736f35fbdef1"
+    }
+  },
+  "updated_at": "2026-11-27T12:04:47+08:00"
+}

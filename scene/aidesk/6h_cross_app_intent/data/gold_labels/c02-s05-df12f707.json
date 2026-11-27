@@ -1,0 +1,286 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "关注AI行业动态与岗位机会",
+      "category": "work",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
+      "related_interest_event_ids": [
+        "e003",
+        "e004",
+        "e005",
+        "e009",
+        "e011",
+        "e012",
+        "e014",
+        "e016",
+        "e018",
+        "e019",
+        "e022",
+        "e025",
+        "e026",
+        "e027",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [],
+      "inferred_facts": [
+        {
+          "fact": "用户在新闻、视频等应用中浏览大模型技术、商业化与AI芯片等人工智能行业内容。",
+          "source_event_ids": [
+            "e003",
+            "e004",
+            "e005",
+            "e011"
+          ]
+        },
+        {
+          "fact": "用户在杭州搜索“大模型算法”“算法工程师”岗位并浏览推荐职位流。",
+          "source_event_ids": [
+            "e009",
+            "e016",
+            "e018"
+          ]
+        },
+        {
+          "fact": "用户查看两个大模型算法相关岗位详情，包含公司、薪资和任职要求。",
+          "source_event_ids": [
+            "e019",
+            "e022"
+          ]
+        },
+        {
+          "fact": "用户搜索并浏览大模型在线课程及12月18日AI行业峰会直播信息。",
+          "source_event_ids": [
+            "e012",
+            "e014",
+            "e025",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户收藏大模型人才缺口和生成式AI行业落地案例相关文章。",
+          "source_event_ids": [
+            "e027",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否准备投递简历或更换工作",
+        "浏览岗位是出于职业规划还是行业好奇",
+        "当前从事的具体工作方向",
+        "是否打算报名或购买大模型相关课程",
+        "是否会实际观看12月18日AI行业峰会直播"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e006",
+    "e007",
+    "e008",
+    "e010",
+    "e013",
+    "e015",
+    "e017",
+    "e020",
+    "e021",
+    "e023",
+    "e024",
+    "e028",
+    "e029"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c02-s05-df12f707"
+}

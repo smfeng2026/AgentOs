@@ -1,0 +1,355 @@
+{
+  "sample_id": "c07-s01-b12855b4",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-15T15:15:00+08:00",
+    "end": "2026-12-15T21:15:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-15T15:22:00+08:00",
+      "app": "music_app",
+      "action": "collect",
+      "content": {
+        "item_type": "歌曲",
+        "song_title": "《晚风信笺》",
+        "artist": "林知夏",
+        "playlist_name": "我的收藏",
+        "album": "巡演同名专辑"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-15T15:31:04+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "材料科学趣闻"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-15T15:37:03+08:00",
+      "app": "calendar_app",
+      "action": "view_month_view",
+      "content": {
+        "month": "本月"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-15T15:39:00+08:00",
+      "app": "ticket_app",
+      "action": "search",
+      "content": {
+        "keyword": "林知夏巡回演唱会",
+        "city": "上海",
+        "category": "演唱会"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-15T15:58:00+08:00",
+      "app": "music_app",
+      "action": "view_detail",
+      "content": {
+        "page_type": "艺人主页",
+        "artist": "林知夏",
+        "followers": "1286万",
+        "latest_post": "巡回演唱会上海站12月26日开演，应援指南已发布"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-15T16:16:01+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "失物招领"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-15T16:19:00+08:00",
+      "app": "ticket_app",
+      "action": "browse_content",
+      "content": {
+        "list_type": "演出场次",
+        "show_name": "林知夏巡回演唱会",
+        "city": "上海",
+        "venue": "滨江体育馆",
+        "show_date": "12月26日",
+        "show_time": "19:30"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-15T16:45:00+08:00",
+      "app": "ticket_app",
+      "action": "view_detail",
+      "content": {
+        "product_name": "林知夏巡回演唱会门票-上海站",
+        "ticket_tier": "内场VIP票",
+        "price": "¥1280/张",
+        "seat_area": "内场A区",
+        "stock": "少量余票",
+        "refund_policy": "不支持退换"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-15T16:53:30+08:00",
+      "app": "news_app",
+      "action": "browse_headlines",
+      "content": {
+        "section": "体育"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-15T17:06:40+08:00",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-15T17:12:00+08:00",
+      "app": "price_compare_app",
+      "action": "compare",
+      "content": {
+        "product": "林知夏巡回演唱会内场VIP票（12月26日上海站）",
+        "platforms": [
+          "官方票务",
+          "猫眼",
+          "纷玩岛"
+        ],
+        "lowest_price": "¥1280",
+        "conclusion": "官方票务价格最低且可连座"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-15T17:38:00+08:00",
+      "app": "shopping_app",
+      "action": "browse_content",
+      "content": {
+        "keyword": "林知夏 应援物",
+        "items": [
+          "应援手幅",
+          "姓名灯牌",
+          "巡演纪念徽章"
+        ],
+        "price_range": "¥15-¥89"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-15T18:00:33+08:00",
+      "app": "hospital_app",
+      "action": "view_detail",
+      "content": {
+        "section": "门诊排班",
+        "department": "口腔科"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-15T18:06:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "city": "上海",
+        "date": "12月26日",
+        "weather": "晴",
+        "temperature": "3℃~11℃",
+        "suggestion": "晚间观演注意保暖"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-15T18:14:29+08:00",
+      "app": "ticket_app",
+      "action": "browse_movie_schedules",
+      "content": {
+        "movie": "艺术片放映",
+        "date": "工作日晚"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-15T18:31:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "家（上海市静安区）",
+        "destination": "滨江体育馆",
+        "travel_date": "12月26日",
+        "route_preference": "地铁优先",
+        "estimated_duration": "约50分钟"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-15T18:57:00+08:00",
+      "app": "social_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "#林知夏巡回演唱会#",
+        "feed_type": "粉丝应援",
+        "hot_post": "12月26日上海站应援色与入场攻略公布"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-15T19:24:57+08:00",
+      "app": "weather_app",
+      "action": "view_hourly_forecast",
+      "content": {
+        "city": "上海"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-15T19:27:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "contact": "周悦",
+        "message_type": "text",
+        "message_text": "12月26日林知夏上海站还有内场VIP票，我先垫钱买两张连座，一起去吗？"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-15T19:30:49+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-15T19:43:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "contact": "周悦",
+        "message_type": "text",
+        "message_text": "去去去！票钱我明天转你，记得选靠前一点的连座"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-15T19:46:23+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-15T20:03:25+08:00",
+      "app": "furniture_app",
+      "action": "browse_content",
+      "content": {
+        "category": "办公椅",
+        "sort": "最新"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-15T20:08:00+08:00",
+      "app": "ticket_app",
+      "action": "create_order",
+      "content": {
+        "order_id": "TP20261215200831",
+        "product_name": "林知夏巡回演唱会门票-上海站",
+        "ticket_tier": "内场VIP票",
+        "quantity": 2,
+        "seat_info": "内场A区 连座",
+        "venue": "滨江体育馆",
+        "show_date": "12月26日",
+        "show_time": "19:30",
+        "total_price": "¥2560",
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-15T20:11:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "payment_id": "PAY20261215201107",
+        "order_id": "TP20261215200831",
+        "payee": "官方票务平台",
+        "amount": "¥2560.00",
+        "payment_method": "银行卡尾号6688",
+        "payment_status": "支付成功"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-15T20:14:51+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-15T20:23:07+08:00",
+      "app": "job_app",
+      "action": "browse_content",
+      "content": {
+        "keyword": "行业薪资报告",
+        "content_type": "资讯"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-15T20:52:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "林知夏巡回演唱会·上海站（内场VIP）",
+        "location": "滨江体育馆",
+        "start_time": "12月26日 19:30",
+        "end_time": "12月26日 22:00",
+        "participants": "周悦",
+        "reminder_minutes_before": 120,
+        "note": "两张内场票已出票，提前2小时从家出发"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-15T21:00:49+08:00",
+      "app": "commute_app",
+      "action": "view_bus_arrival",
+      "content": {
+        "line": "常坐的公交线路"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-15T21:02:28+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      }
+    }
+  ]
+}

@@ -1,0 +1,815 @@
+{
+  "sample_id": "c11-s01-688fa56f",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "1) 事件关系按规则10校正：支持性证据只保留决策性事件，即租车订单创建（e016）、支付（e017）、庾村门票已预订（e023）、小陈明确确认周六早上出发（e028）、用户告知已订车并约定集合与出发时间（e029）；e013/e014（租车搜索与详情浏览）、e018/e019（路线搜索与路线详情）均为search或view类动作，统一标为related_interest，同时纠正内部labeled_events把它们标为supporting的做法；最终supporting 5条、related_interest 10条、unrelated 15条，与规则7一致（配比不是硬性约束，按真实语义标注）。2) 盲标新增的意图不成立：e008只是因出游调整评审会时间，属于i001的相关兴趣事件，不构成独立的work意图（规则11），因此不新增意图。3) 分类口径采用场景层local_transport+outing：本场景核心是杭州本地取还车的周边自驾出行，taxonomy的local_transport/outing完全匹配，盲标的travel/tourism虽可辩，但无证据支持改类；status保持planned——租车与门票虽已支付或预订，但住宿未订、返程时间未定，尚未达到对整体行程的明确confirmed，confidence_level维持high。4) 记录高严重度时间线冲突为conflicts：e016取车时间10:00与e018/e029的8:00出发、7:50集合相互矛盾；该矛盾属事件内容细节瑕疵，不影响“已支付租车订单＋门票预订＋同伴确认＋路线规划”证据链对莫干山周末自驾出游意图的支撑，故不判regenerate，仅在conflicts与unknown_information中如实披露，建议后续生成时统一时间口径。5) 噪声复核：e003仅泛化查看本周日程、e027相册为泛指“周末散步照片”，均无指向莫干山或本次行程的内容，维持unrelated，不按位置或App名称推断（规则8）；e002济南车票、e009天津停车场、e025太原天气等硬负例标注正确。6) 所有confirmed_facts只引用supporting事件，inferred_facts只引用related_interest事件；supporting/related_interest/unrelated集合与event_labels完全镜像，计数一致。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "hn_train_other_city",
+        "meeting_app_week_schedule",
+        "read_novel",
+        "hn_map_other_city",
+        "fit_steps",
+        "learn_video",
+        "food_grocery",
+        "pet_vaccine_schedule",
+        "sys_storage",
+        "mail_reply",
+        "map_nearby",
+        "hn_weather_other_city",
+        "home_ac_cleaning_search",
+        "photo_album",
+        "tax_deduction_guide"
+      ],
+      "hard_negative_ids": [
+        "hn_train_other_city",
+        "hn_map_other_city",
+        "hn_weather_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "莫干山周末自驾两日游",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e016",
+          "e017",
+          "e023",
+          "e028",
+          "e029"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e004",
+          "e006",
+          "e007",
+          "e008",
+          "e010",
+          "e013",
+          "e014",
+          "e018",
+          "e019"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已支付租车订单516元，车型为紧凑型SUV，12月5日10:00在杭州东站店取车，12月6日18:00还车",
+            "source_event_ids": [
+              "e016",
+              "e017"
+            ]
+          },
+          {
+            "fact": "用户已预订12月5日庾村景区门票2张，游客为本人和小陈",
+            "source_event_ids": [
+              "e023"
+            ]
+          },
+          {
+            "fact": "小陈确认周六早上出发，并询问碰头地点",
+            "source_event_ids": [
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户告知小陈车已订好，约定周六7:50在杭州东站西广场取车点集合、8点出发",
+            "source_event_ids": [
+              "e029"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "计划12月5日至6日到莫干山/庾村进行周末短途自驾游",
+            "source_event_ids": [
+              "e001",
+              "e004",
+              "e006",
+              "e007",
+              "e018",
+              "e019",
+              "e023"
+            ]
+          },
+          {
+            "fact": "同行人为大学同学小陈",
+            "source_event_ids": [
+              "e001",
+              "e023",
+              "e028",
+              "e029"
+            ]
+          },
+          {
+            "fact": "行程有庾村景区和山间餐厅等游玩/用餐意向",
+            "source_event_ids": [
+              "e007",
+              "e010",
+              "e023"
+            ]
+          },
+          {
+            "fact": "租车从杭州东站店取还，路线为杭州东站至莫干山庾村",
+            "source_event_ids": [
+              "e013",
+              "e014",
+              "e016",
+              "e018",
+              "e019"
+            ]
+          },
+          {
+            "fact": "用户周六全天在外地，并据此协调工作安排",
+            "source_event_ids": [
+              "e008",
+              "e029"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "是否已预订莫干山住宿",
+          "山间餐厅是否已预订或确定",
+          "12月6日返程后的具体安排"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e002",
+      "e003",
+      "e005",
+      "e009",
+      "e011",
+      "e012",
+      "e015",
+      "e020",
+      "e021",
+      "e022",
+      "e024",
+      "e025",
+      "e026",
+      "e027",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c11-s01-688fa56f",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "business_logic_inconsistency",
+        "severity": "high",
+        "event_ids": [
+          "e016",
+          "e018",
+          "e029",
+          "e014"
+        ],
+        "description": "租车订单 e016 的取车时间为12月05日 10:00，但聊天 e029 约定\"周六早上7点50杭州东站西广场取车点集合，8点出发\"，地图路线 e018 的 planned_departure 也是12月05日 08:00。用户不可能在取车前两小时就从取车点出发，核心支持证据内部时间线自相矛盾，会直接削弱\"已支付订单+路线+同伴确认\"这条决定性证据链的可信度。",
+        "suggested_action": "统一时间口径：将 e016 取车时间改为12月05日 08:00 前后（或 07:50 取车），保留 12月06日 18:00 还车；或调整 e018/e029 的出发时间为 10:00 之后。修改后重新核对支付金额与租期天数不变。"
+      },
+      {
+        "issue_type": "relation_label_inconsistency",
+        "severity": "medium",
+        "event_ids": [
+          "e013",
+          "e014",
+          "e018",
+          "e019"
+        ],
+        "description": "spec 声明 supporting_event_count=9、related_interest_event_count=6，但 actual event_labels 中 supporting 仅 5 条（e016/e017/e023/e028/e029），related_interest 达 10 条。更关键的是，e018（杭州东站→莫干山庾村的驾车路线搜索）与 e019（路线时长/里程查看）属于 spec 的 required_evidence，e013/e014 是已支付订单的直接前置（同车型、同门店、同日期），却都被降级为 related_interest，导致\"必需证据\"与事件关系标签自相矛盾，支持计数不可信。",
+        "suggested_action": "将 e018、e019（以及口径上同属租车决策链的 e013、e014）改标为 supporting 并同步修订 spec 的 supporting/related_interest 预算；若坚持只把已支付订单、门票和同伴确认算 supporting，则需下调 spec 的 supporting_event_count 并把路线搜索从 required_evidence 移入 optional_evidence。"
+      },
+      {
+        "issue_type": "blind_annotation_taxonomy_divergence",
+        "severity": "medium",
+        "event_ids": [],
+        "description": "盲标把 i001 的 category 由 local_transport 改为 travel、purpose 由 outing 改为 tourism、status 由 planned 改为 confirmed，intent_name 也加了\"两日游\"。其中 purpose 的改动尚可由目的地属性解释，但 category 变更无据；status 改为 confirmed 与同一条盲标自身保留的 unknown_information（住宿未订、返程时间未定、餐厅未确定）存在张力，Gold 与盲标在状态与类目上没有对齐说明。",
+        "suggested_action": "裁决时明确 category/purpose 采用场景层口径（local_transport + outing）还是盲标口径，并给出理由；status 建议保持 planned（或写为 planned 且注明已支付租车/门票、住宿返程未定），不要因部分证据成立就升格为 confirmed。"
+      },
+      {
+        "issue_type": "noise_mislabel_suspicion",
+        "severity": "low",
+        "event_ids": [
+          "e003",
+          "e027"
+        ],
+        "description": "e003（meeting_app 查看本周日程）紧邻 e008（因周六外地而将评审会挪到周一下午），查看本周日程很可能是为改期做前置确认，属于弱相关可考虑 related_interest；e027（相册\"周末散步照片\"）虽为通用相册，但与\"周末出游\"语义接近，至少需要说明为何判为无关。真正无关的硬负例（e002 济南车票、e009 天津停车场、e025 太原天气）标注正确。",
+        "suggested_action": "不删除样本，交由裁决器按真实语义复核：e003 可改标 related_interest(弱)；e027 若确认无指向莫干山/本次行程的内容则维持 unrelated，并在裁决说明中记录判断依据。"
+      }
+    ],
+    "summary": "该样本主干证据齐备（租车下单+支付、庾村门票、地图路线、同伴确认消息），莫干山周末自驾出游的 purpose=outing 有天气/攻略/餐厅/门票/路线等多源直接证据支撑，未发现答案泄露，硬负例（济南车票、天津停车场、太原天气）标注合理，取消/退款类状态变化不涉及。但存在一处高严重度的业务逻辑矛盾：取车时间 10:00 与\"7:50 集合、8:00 出发\"冲突，必须修正。此外 supporting/related_interest 的实际标注与 spec 预算不一致，且地图路线这一 required_evidence 被降级为 related_interest；盲标在 category/purpose/status 上与 Gold 口径不一致且 status 升格缺说明。因存在 high 级问题，本样本判为不通过，需修正时间线并统一关系标签口径后重审。"
+  },
+  "adjudication": {
+    "sample_id": "c11-s01-688fa56f",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "莫干山周末自驾出游",
+          "category": "local_transport",
+          "purpose": "outing",
+          "status": "planned",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e016",
+            "e017",
+            "e023",
+            "e028",
+            "e029"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e004",
+            "e006",
+            "e007",
+            "e008",
+            "e010",
+            "e013",
+            "e014",
+            "e018",
+            "e019"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "已创建紧凑型SUV两日租车订单：12月05日杭州东站店取车、12月06日还车，总价516元，下单时状态为待支付",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "租车订单已通过银行卡支付516.00元，订单状态为已支付",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "已预订12月05日庾村景区门票2张（本人、小陈），单价80元，订单状态为已预订",
+              "source_event_ids": [
+                "e023"
+              ]
+            },
+            {
+              "fact": "大学同学小陈回复确认周六早上出发，并询问碰头地点",
+              "source_event_ids": [
+                "e028"
+              ]
+            },
+            {
+              "fact": "用户告知小陈车已订好，约定周六7:50在杭州东站西广场取车点集合、8点出发",
+              "source_event_ids": [
+                "e029"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "计划于12月05日至12月06日自驾前往莫干山（庾村）进行周末短途出游",
+              "source_event_ids": [
+                "e001",
+                "e004",
+                "e006",
+                "e007",
+                "e018",
+                "e019"
+              ]
+            },
+            {
+              "fact": "同行人为大学同学小陈",
+              "source_event_ids": [
+                "e001"
+              ]
+            },
+            {
+              "fact": "游玩与用餐意向包括庾村景区和莫干山镇的山间餐厅（12月05日用餐）",
+              "source_event_ids": [
+                "e007",
+                "e010"
+              ]
+            },
+            {
+              "fact": "租车方案为杭州东站店取还、紧凑型SUV两日（日租约258元）",
+              "source_event_ids": [
+                "e013",
+                "e014"
+              ]
+            },
+            {
+              "fact": "规划的驾车路线为杭州东站至莫干山庾村，约82公里、约1小时50分钟、过路费约35元",
+              "source_event_ids": [
+                "e018",
+                "e019"
+              ]
+            },
+            {
+              "fact": "因周六全天在外地，用户向同事老周提出将评审会改到周一下午",
+              "source_event_ids": [
+                "e008"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否已预订莫干山住宿",
+            "山间餐厅是否已预订或确定",
+            "12月06日具体返程时间及返程后的安排"
+          ],
+          "confirmed_facts_note": null,
+          "contradicting_event_ids_note": null,
+          "conflicts": [
+            {
+              "description": "租车订单e016的取车时间为12月05日10:00，但地图路线e018规划12月05日08:00从杭州东站出发、聊天e029约定7:50在杭州东站西广场取车点集合、8:00出发，取车时间与集合出发时间存在约2小时矛盾",
+              "source_event_ids": [
+                "e016",
+                "e018",
+                "e029"
+              ]
+            }
+          ]
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e002",
+        "e003",
+        "e005",
+        "e009",
+        "e011",
+        "e012",
+        "e015",
+        "e020",
+        "e021",
+        "e022",
+        "e024",
+        "e025",
+        "e026",
+        "e027",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c11-s01-688fa56f"
+    },
+    "rationale": "1) 事件关系按规则10校正：支持性证据只保留决策性事件，即租车订单创建（e016）、支付（e017）、庾村门票已预订（e023）、小陈明确确认周六早上出发（e028）、用户告知已订车并约定集合与出发时间（e029）；e013/e014（租车搜索与详情浏览）、e018/e019（路线搜索与路线详情）均为search或view类动作，统一标为related_interest，同时纠正内部labeled_events把它们标为supporting的做法；最终supporting 5条、related_interest 10条、unrelated 15条，与规则7一致（配比不是硬性约束，按真实语义标注）。2) 盲标新增的意图不成立：e008只是因出游调整评审会时间，属于i001的相关兴趣事件，不构成独立的work意图（规则11），因此不新增意图。3) 分类口径采用场景层local_transport+outing：本场景核心是杭州本地取还车的周边自驾出行，taxonomy的local_transport/outing完全匹配，盲标的travel/tourism虽可辩，但无证据支持改类；status保持planned——租车与门票虽已支付或预订，但住宿未订、返程时间未定，尚未达到对整体行程的明确confirmed，confidence_level维持high。4) 记录高严重度时间线冲突为conflicts：e016取车时间10:00与e018/e029的8:00出发、7:50集合相互矛盾；该矛盾属事件内容细节瑕疵，不影响“已支付租车订单＋门票预订＋同伴确认＋路线规划”证据链对莫干山周末自驾出游意图的支撑，故不判regenerate，仅在conflicts与unknown_information中如实披露，建议后续生成时统一时间口径。5) 噪声复核：e003仅泛化查看本周日程、e027相册为泛指“周末散步照片”，均无指向莫干山或本次行程的内容，维持unrelated，不按位置或App名称推断（规则8）；e002济南车票、e009天津停车场、e025太原天气等硬负例标注正确。6) 所有confirmed_facts只引用supporting事件，inferred_facts只引用related_interest事件；supporting/related_interest/unrelated集合与event_labels完全镜像，计数一致。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 5,
+      "related_interest": 10,
+      "contradicting": 0,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1858,
+      "completion_tokens": 1095,
+      "total_tokens": 2953,
+      "latency_s": 17.81,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1763,
+      "completion_tokens": 10461,
+      "total_tokens": 12224,
+      "latency_s": 84.82,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3546,
+      "completion_tokens": 7572,
+      "total_tokens": 11118,
+      "latency_s": 53.37,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 5969,
+      "completion_tokens": 6236,
+      "total_tokens": 12205,
+      "latency_s": 46.94,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 10492,
+      "completion_tokens": 5713,
+      "total_tokens": 16205,
+      "latency_s": 35.59,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 238.54
+}

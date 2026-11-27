@@ -1,0 +1,58 @@
+{
+  "title": "睡前浏览年末理财资讯",
+  "scenario_category": "finance_admin",
+  "subscenario": "金融信息浏览",
+  "template_id": "C09-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [
+      "稳健型理财产品",
+      "货币基金",
+      "大额存单"
+    ],
+    "people": [],
+    "dates": [],
+    "other": [
+      "存款利率",
+      "年末资金配置",
+      "理财科普"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年末理财信息关注",
+      "category": "finance_admin",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "新闻App财经频道多次浏览理财与存款利率主题文章",
+        "银行App浏览理财产品列表并查看稳健型产品详情页",
+        "阅读App收藏多篇理财科普文章"
+      ],
+      "optional_evidence": [
+        "视频App观看理财科普短视频",
+        "IM中与家人简短提及年末闲钱如何处理"
+      ],
+      "unknown_information": [
+        "是否打算近期实际购买理财产品",
+        "可投资金规模",
+        "关注理财的具体目标"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "相关证据集中在窗口中后段（约19:40-21:45）：先在新闻App财经频道零星浏览，随后在银行App查看理财产品列表与两个稳健型产品详情并做对比，最后在阅读App收藏文章、在视频App看理财科普短视频；窗口前段（16:00-19:30）以无关事件为主；全程无下单、签约、预约等强证据，无决定性事件",
+  "variant_note": "以'年末资金配置'为暗线，App 组合为 news_app + banking_app + reader_app + video_app，动作为 browse_content / view_detail / collect / compare，刻意不含任何购买或预约；与同模板其他样本相比主题聚焦存款利率与稳健理财（而非税务、贷款或养老金开户），且银行App仅承担信息浏览角色，可在其他样本中改为承担转账或办卡角色",
+  "scenario_id": "c09-s05-d42ec3da"
+}

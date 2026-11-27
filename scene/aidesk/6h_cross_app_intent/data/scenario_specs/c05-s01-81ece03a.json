@@ -1,0 +1,60 @@
+{
+  "title": "年底为自己安排一次全面体检",
+  "scenario_category": "health_service",
+  "subscenario": "体检预约",
+  "template_id": "C05-S01",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "市一医院国际保健中心"
+    ],
+    "products": [
+      "入职周年健康体检套餐"
+    ],
+    "people": [],
+    "dates": [
+      "12月12日"
+    ],
+    "other": [
+      "体检中心",
+      "空腹抽血"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "年度健康检查安排",
+      "category": "health_service",
+      "purpose": "checkup",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "hospital_app 中已提交的体检套餐预约单（含 12月12日 上午时段）",
+        "payment_app 对应体检机构的支付成功记录",
+        "calendar_app 中新建的体检日程（12月12日 上午）",
+        "mail_app 收到体检预约确认通知"
+      ],
+      "optional_evidence": [
+        "map_app 搜索前往体检中心的路线",
+        "health_app 设置体检前空腹提醒",
+        "health_app 查看既往体检报告"
+      ],
+      "unknown_information": [
+        "是否有人陪同",
+        "是否加做额外检查项目"
+      ],
+      "supporting_event_count": 10,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 10,
+    "related_interest": 5,
+    "contradicting": 0
+  },
+  "time_profile": "窗口为工作日晚间 17:25-23:25：前段（17:30-19:30）只有 health_app 查看既往报告、浏览体检科普以及 hospital_app 搜索机构与比较套餐等弱证据；决定性证据集中在 20:00-21:30（提交预约单、完成支付、收到确认通知）；后段（21:30 之后）在日历中创建体检日程、设置空腹提醒并在地图中查看路线，形成跨 App 闭环。",
+  "variant_note": "本样本实体为本地三甲医院保健中心与含空腹项目的体检套餐，需要融合 hospital_app、payment_app、calendar_app、mail_app 四类证据才能确认为已确认的体检安排；相比同模板其他样本，本样本无改期或取消信号（contradicting 为 0），且将路线查询与空腹提醒置于支付之后作为收尾行为，事件顺序与 App 组合均与以搜索浏览为主的弱证据变体明显不同。",
+  "scenario_id": "c05-s01-81ece03a"
+}

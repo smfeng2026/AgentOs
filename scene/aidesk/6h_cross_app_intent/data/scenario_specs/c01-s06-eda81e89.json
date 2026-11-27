@@ -1,0 +1,62 @@
+{
+  "title": "台风来袭取消三亚度假行程",
+  "scenario_category": "travel",
+  "subscenario": "计划取消或改变",
+  "template_id": "C01-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "三亚"
+    ],
+    "products": [
+      "三亚湾海景度假酒店",
+      "杭州至三亚往返机票"
+    ],
+    "people": [
+      "朋友李婷"
+    ],
+    "dates": [
+      "12月20日",
+      "12月23日"
+    ],
+    "other": [
+      "台风预警",
+      "refund amount 2860"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "三亚度假行程取消",
+      "category": "travel",
+      "purpose": "tourism",
+      "status": "cancelled",
+      "confidence_level": "high",
+      "required_evidence": [
+        "flight_booking_app 中杭州至三亚 12月20日 往返机票的取消操作",
+        "payment_app 收到机票退款的入账通知",
+        "hotel_app 中三亚湾海景度假酒店 12月20日至23日 订单的取消确认"
+      ],
+      "optional_evidence": [
+        "calendar_app 中原行程日程被删除或更新",
+        "im_app 中告知朋友行程取消的消息",
+        "weather_app 查询三亚台风天气"
+      ],
+      "unknown_information": [
+        "是否改期或另选目的地仍未确定"
+      ],
+      "supporting_event_count": 6,
+      "related_interest_event_count": 4,
+      "contradicting_event_count": 5
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 6,
+    "related_interest": 4,
+    "contradicting": 5
+  },
+  "time_profile": "前两小时为原计划的既有证据：查看机票与酒店订单、浏览三亚攻略收藏景点、查看日历中的行程安排，并与朋友发消息讨论度假安排；约第三小时查询三亚天气发现台风预警成为转折点；第四至五小时连续出现机票取消、酒店取消、日历日程更新等反向操作；最后一小时支付应用收到退款到账通知，与朋友确认取消，状态落定为 cancelled",
+  "variant_note": "以天气突变作为取消动因（区别于会议冲突或临时加班动因），退款金额与酒店房型等实体细节具体化；取消证据集中在窗口后半段，前半段保持 planned/confirmed 假象，干扰与同模板其他样本主要差异在目的地（三亚 vs 其他城市）、出行日期（12月20日）及是否留下改期线索（本样本仅有一条模糊的异地浏览，不构成新意图）",
+  "scenario_id": "c01-s06-eda81e89"
+}

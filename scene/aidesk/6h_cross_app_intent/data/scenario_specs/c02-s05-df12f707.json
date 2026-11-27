@@ -1,0 +1,55 @@
+{
+  "title": "行业资讯与岗位浏览型工作兴趣",
+  "scenario_category": "work",
+  "subscenario": "工作兴趣",
+  "template_id": "C02-S05",
+  "difficulty": "D3_weak_evidence",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [],
+    "products": [],
+    "people": [],
+    "dates": [
+      "12月18日"
+    ],
+    "other": [
+      "人工智能行业",
+      "大模型算法岗位",
+      "行业年度峰会"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "关注AI行业动态与岗位机会",
+      "category": "work",
+      "purpose": "unknown",
+      "status": "emerging",
+      "confidence_level": "low",
+      "required_evidence": [
+        "job_app中搜索并查看多个大模型相关岗位详情",
+        "news_app中浏览并收藏多篇人工智能行业分析文章"
+      ],
+      "optional_evidence": [
+        "learning_app浏览大模型相关课程介绍",
+        "查看12月18日线上行业峰会的直播信息"
+      ],
+      "unknown_information": [
+        "是否准备投递简历或更换工作",
+        "浏览岗位是出于职业规划还是行业好奇",
+        "当前从事的具体工作方向"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 7,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 7,
+    "contradicting": 0
+  },
+  "time_profile": "相关事件分散在整个6小时窗口：早间通勤时段以新闻类浏览为主，上午穿插少量岗位关键词搜索，午休前后集中查看岗位详情并收藏文章；全程无投递、申请、日程创建等强证据",
+  "variant_note": "与同模板其他样本相比：本样本仅使用 news_app、job_app、learning_app、video_app 的搜索/浏览/收藏行为，不含 im_app 或 mail_app 沟通证据，也不含简历上传、职位申请等动作；证据全部为弱信号，status 为 emerging 且 purpose 无法判定，干扰项与相关事件在行为形态上相似（同为浏览类），增加区分难度",
+  "scenario_id": "c02-s05-df12f707"
+}
