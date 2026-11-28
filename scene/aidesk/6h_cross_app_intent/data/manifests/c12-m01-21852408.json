@@ -185,10 +185,10 @@
   },
   "elapsed_s": 458.3,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T23:04:21+08:00",
+    "note": "人工陪审通过：critical(盲标ID对调)已修复；D5两意图分离正确，e015双挂为合法跨意图共享事件(非泄漏)；购机confirmed符合口径E；时间线缺陷(e024 15:30晚于14:00会议)已登记unknown，不影响标签；改进项：generator_event_id命名空间伪引用、行程时间真实性"
   },
   "artefacts": {
     "scenario_spec": {
@@ -212,5 +212,5 @@
       "sha256": "272a722bde33d8eadc40c2a1a808c30b8b895ab89fb7f47c8f82e1dda6fb04f7"
     }
   },
-  "updated_at": "2026-11-27T12:16:10+08:00"
+  "updated_at": "2026-11-27T23:04:21+08:00"
 }

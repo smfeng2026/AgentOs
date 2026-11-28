@@ -172,10 +172,10 @@
   },
   "elapsed_s": 446.1,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:42:23+08:00",
+    "note": "人工陪审通过：D3弱证据emerging/low克制合格，S空、purpose为兴趣主题非断言计划，盲标过度拆分/断言已被gold拒绝（口径D）"
   },
   "artefacts": {
     "scenario_spec": {
@@ -199,5 +199,5 @@
       "sha256": "e397d4ad9309c87ae514f38317550ca2edacd47d722d2ec8c7c61f409bc1d409"
     }
   },
-  "updated_at": "2026-11-27T12:04:33+08:00"
+  "updated_at": "2026-11-28T09:42:23+08:00"
 }

@@ -1,8 +1,7 @@
 # Dataset build report
 
-- builder 1.1.0，生成于 2026-11-27T12:29:02+08:00
-- 样本：48 条可用，跳过 0 条
-- ⚠️ 包含 48 条**未经人工批准**的样本（--allow-unapproved），只能用于冒烟测试，不得用于训练
+- builder 1.1.0，生成于 2026-11-28T10:01:06+08:00
+- 样本：48 条可用，跳过 1 条
 
 ## 切分
 
@@ -41,11 +40,11 @@
 
 ## 标签分布
 
-- 每样本意图数：{1: 43, 2: 4, 3: 1}
-- 每样本无关事件数：{13: 1, 15: 43, 16: 3, 19: 1}
-- 事件关系：{'related_interest': 513, 'unrelated': 725, 'supporting': 181, 'contradicting': 21}
-- 意图类别：{'travel': 9, 'work': 6, 'shopping': 7, 'social_dining': 4, 'health_service': 4, 'learning': 4, 'entertainment': 4, 'family': 4, 'finance_admin': 4, 'fitness': 4, 'local_transport': 4}
-- 状态：{'confirmed': 26, 'cancelled': 5, 'emerging': 12, 'considering': 4, 'planned': 6, 'completed': 1}；置信度：{'high': 38, 'low': 14, 'medium': 2}
+- 每样本意图数：{1: 43, 2: 5}
+- 每样本无关事件数：{15: 44, 16: 3, 19: 1}
+- 事件关系：{'related_interest': 547, 'unrelated': 727, 'supporting': 163, 'contradicting': 3}
+- 意图类别：{'travel': 8, 'work': 6, 'shopping': 7, 'social_dining': 4, 'health_service': 4, 'learning': 4, 'entertainment': 4, 'family': 4, 'finance_admin': 4, 'fitness': 4, 'local_transport': 4}
+- 状态：{'confirmed': 32, 'cancelled': 6, 'emerging': 13, 'considering': 2}；置信度：{'high': 38, 'low': 15}
 
 purpose（类别->目的）：
 
@@ -71,13 +70,12 @@ purpose（类别->目的）：
 - social_dining->socializing: 4
 - travel->business: 4
 - travel->tourism: 4
-- travel->unknown: 1
 - work->meeting: 4
 - work->unknown: 2
 
 ## 长度（估算 token，非分词器计数）
 
-- 输入：p50 2026 / p90 2204 / max 2279
+- 输入：p50 2026 / p90 2199 / max 2268
 - 目标：p50 1099 / p90 1304 / max 1551
 - 合计：p50 3141 / p90 3469 / max 3779
 
@@ -86,4 +84,4 @@ purpose（类别->目的）：
 - 错误：0；警告：0
 
 - 仅在测试集出现的 App：['pharmacy_app']
-- 仅在训练集出现的 App：['delivery_app', 'docs_app', 'exam_app', 'furniture_app', 'hospital_app', 'learning_app', 'meeting_app', 'sports_app', 'venue_booking_app']
+- 仅在训练集出现的 App：['delivery_app', 'docs_app', 'exam_app', 'furniture_app', 'hospital_app', 'learning_app', 'meeting_app', 'sports_app']

@@ -90,26 +90,18 @@
       "intent_name": "大促前平板换购研究",
       "category": "shopping",
       "purpose": "unknown",
-      "status": "planned",
-      "confidence_level": "medium",
-      "supporting_event_ids": [
-        "e028"
-      ],
+      "status": "emerging",
+      "confidence_level": "low",
+      "supporting_event_ids": [],
       "related_interest_event_ids": [
         "e019",
         "e023",
         "e025",
-        "e026"
+        "e026",
+        "e028"
       ],
       "contradicting_event_ids": [],
-      "confirmed_facts": [
-        {
-          "fact": "用户设置了 12 月 12 日 10:00 的提醒，标题为“双十二平板比价提醒”，备注关注云驰PadPro优惠价。",
-          "source_event_ids": [
-            "e028"
-          ]
-        }
-      ],
+      "confirmed_facts": [],
       "inferred_facts": [
         {
           "fact": "用户比较了灵犀TabS与云驰PadPro的价格与续航，云驰PadPro 2670 元，灵犀TabS 2799 元。",
@@ -141,6 +133,12 @@
             "e019",
             "e023",
             "e026",
+            "e028"
+          ]
+        },
+        {
+          "fact": "用户设置了 12 月 12 日 10:00 的提醒，标题为“双十二平板比价提醒”，备注关注云驰PadPro优惠价。",
+          "source_event_ids": [
             "e028"
           ]
         }
@@ -319,7 +317,7 @@
     },
     {
       "event_id": "e028",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i002"
       ]

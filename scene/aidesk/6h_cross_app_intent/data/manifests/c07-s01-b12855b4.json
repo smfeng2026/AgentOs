@@ -174,10 +174,10 @@
   },
   "elapsed_s": 224.01,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:31+08:00",
+    "note": "人工陪审通过：演唱会confirmed，S=友确认/下单/支付2560/日历，无修正"
   },
   "artefacts": {
     "scenario_spec": {
@@ -201,5 +201,5 @@
       "sha256": "1ea2d573a89af4a7ca83ac659d3c15177023da95e5ba707d6683324997fa40e0"
     }
   },
-  "updated_at": "2026-11-27T12:06:57+08:00"
+  "updated_at": "2026-11-28T09:45:31+08:00"
 }

@@ -1,0 +1,61 @@
+{
+  "title": "雪天改道：取消租车改为打车赴京郊短途游",
+  "scenario_category": "local_transport",
+  "subscenario": "行程变化",
+  "template_id": "C11-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [
+      "古北水镇"
+    ],
+    "products": [
+      "经济型轿车租赁（12月26日至12月27日）"
+    ],
+    "people": [
+      "朋友张伟"
+    ],
+    "dates": [
+      "12月26日",
+      "12月27日"
+    ],
+    "other": [
+      "京承高速",
+      "降雪封路信息"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "京郊短途出游交通调整",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "medium",
+      "required_evidence": [
+        "12月26日租车订单的取消与退款记录",
+        "取消后针对12月26日出发的新路线搜索与打车预订",
+        "日历中12月26日出行日程的更新"
+      ],
+      "optional_evidence": [
+        "与朋友张伟沟通行程变化的聊天记录",
+        "出发日降雪的天气查询",
+        "京承高速路况浏览"
+      ],
+      "unknown_information": [
+        "返程是继续打车还是改乘大巴尚未最终确定"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 2
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 5,
+    "contradicting": 2
+  },
+  "time_profile": "前两小时为原租车计划的确认行为（查看租车订单、地图规划京承高速自驾路线、与朋友张伟确认集合时间）；第3至4小时出现京承高速降雪封路与天气预警信息后，用户在租车应用执行取消并收到退款；最后两小时重新搜索公共交通与打车路线、预订网约车并更新日历日程，完成方案切换。",
+  "variant_note": "与同模板其他样本相比：目的地为古北水镇（京郊短途），变更原因为降雪导致高速封路而非个人原因；替代方案是网约车而非火车或飞机，保持 local_transport 属性；最终状态为计划变更后仍出行（planned），而非整体取消；App 组合为租车+地图+天气+即时通讯+日历+支付，取消与退款记录构成反向证据簇。",
+  "scenario_id": "c11-s06-0f813ab3"
+}

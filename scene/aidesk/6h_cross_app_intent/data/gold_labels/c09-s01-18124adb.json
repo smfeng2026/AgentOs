@@ -5,7 +5,7 @@
       "intent_name": "普通护照换发办理",
       "category": "finance_admin",
       "purpose": "certification",
-      "status": "planned",
+      "status": "confirmed",
       "confidence_level": "high",
       "supporting_event_ids": [
         "e019",

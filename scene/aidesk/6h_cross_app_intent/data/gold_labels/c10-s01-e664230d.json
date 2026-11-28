@@ -11,8 +11,7 @@
         "e010",
         "e015",
         "e016",
-        "e017",
-        "e030"
+        "e017"
       ],
       "related_interest_event_ids": [
         "e001",
@@ -24,7 +23,8 @@
         "e012",
         "e021",
         "e022",
-        "e029"
+        "e029",
+        "e030"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
@@ -38,12 +38,6 @@
           "fact": "该团课订单通过余额支付成功，金额199元，商户为动燃健身静安店。",
           "source_event_ids": [
             "e016"
-          ]
-        },
-        {
-          "fact": "订单状态显示为已预约。",
-          "source_event_ids": [
-            "e030"
           ]
         },
         {
@@ -93,6 +87,12 @@
           "source_event_ids": [
             "e021",
             "e022"
+          ]
+        },
+        {
+          "fact": "订单状态显示为已预约。",
+          "source_event_ids": [
+            "e030"
           ]
         }
       ],
@@ -281,7 +281,7 @@
     },
     {
       "event_id": "e030",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

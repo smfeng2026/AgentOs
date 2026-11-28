@@ -171,10 +171,10 @@
   },
   "elapsed_s": 210.83,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:31+08:00",
+    "note": "人工陪审通过：体检confirmed，S=下单/支付1280/预约通知/日历/空腹提醒(核心事件提醒S)，无修正"
   },
   "artefacts": {
     "scenario_spec": {
@@ -198,5 +198,5 @@
       "sha256": "6167ec48ce29aecb30a78d636ee1ee0311b3343b800a5c663eca20839091962e"
     }
   },
-  "updated_at": "2026-11-27T11:28:21+08:00"
+  "updated_at": "2026-11-28T09:45:31+08:00"
 }

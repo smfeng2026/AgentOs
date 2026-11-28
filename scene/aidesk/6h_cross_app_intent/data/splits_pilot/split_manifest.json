@@ -1,9 +1,15 @@
 {
   "builder_version": "1.1.0",
-  "generated_at": "2026-11-27T12:29:02+08:00",
-  "allow_unapproved": true,
+  "generated_at": "2026-11-28T10:01:06+08:00",
+  "allow_unapproved": false,
   "n_records": 48,
-  "skipped": [],
+  "skipped": [
+    {
+      "sample_id": "c11-s06-9b9b5104",
+      "reason": "not_approved",
+      "detail": "rejected"
+    }
+  ],
   "files": {
     "train": {
       "path": "data/splits_pilot/train.jsonl",
@@ -275,13 +281,13 @@
       "category": "local_transport",
       "difficulty": "D2_multi_app_fusion"
     },
-    "c11-s06-4476d3fc": {
+    "c11-s06-0f813ab3": {
       "split": "challenge_test",
       "group": "C11-S06",
       "category": "local_transport",
       "difficulty": "D6_conflict_state_change"
     },
-    "c11-s06-9b9b5104": {
+    "c11-s06-4476d3fc": {
       "split": "challenge_test",
       "group": "C11-S06",
       "category": "local_transport",
@@ -428,8 +434,7 @@
         "hospital_app",
         "learning_app",
         "meeting_app",
-        "sports_app",
-        "venue_booking_app"
+        "sports_app"
       ],
       "app_frequency": {
         "train": {
@@ -548,40 +553,41 @@
         "challenge_test": {
           "video_app": 18,
           "health_app": 17,
-          "shopping_app": 13,
-          "map_app": 10,
+          "shopping_app": 12,
+          "map_app": 12,
           "reader_app": 8,
           "news_app": 8,
-          "calendar_app": 8,
+          "im_app": 8,
           "fitness_app": 7,
           "weather_app": 7,
           "payment_app": 7,
-          "im_app": 7,
+          "calendar_app": 7,
+          "travel_guide_app": 6,
           "rail_ticket_app": 6,
           "game_app": 5,
-          "travel_guide_app": 5,
-          "car_rental_app": 5,
-          "ticket_app": 5,
-          "gallery_app": 4,
+          "car_rental_app": 4,
           "mail_app": 4,
           "flight_booking_app": 4,
           "hotel_app": 4,
-          "food_delivery_app": 3,
-          "home_service_app": 3,
+          "gallery_app": 3,
+          "settings_app": 3,
           "contacts_app": 3,
-          "settings_app": 2,
+          "tax_app": 3,
+          "banking_app": 2,
           "commute_app": 2,
-          "tax_app": 2,
+          "food_delivery_app": 2,
+          "social_app": 2,
           "pet_app": 2,
+          "ticket_app": 2,
+          "home_service_app": 2,
           "price_compare_app": 2,
           "review_app": 2,
-          "banking_app": 1,
+          "venue_booking_app": 1,
+          "taxi_app": 1,
           "music_app": 1,
           "job_app": 1,
           "clinic_app": 1,
-          "taxi_app": 1,
-          "pharmacy_app": 1,
-          "social_app": 1
+          "pharmacy_app": 1
         }
       }
     }
@@ -654,23 +660,21 @@
     },
     "intents_per_sample": {
       "1": 43,
-      "2": 4,
-      "3": 1
+      "2": 5
     },
     "unrelated_per_sample": {
-      "13": 1,
-      "15": 43,
+      "15": 44,
       "16": 3,
       "19": 1
     },
     "relation_counts": {
-      "related_interest": 513,
-      "unrelated": 725,
-      "supporting": 181,
-      "contradicting": 21
+      "related_interest": 547,
+      "unrelated": 727,
+      "supporting": 163,
+      "contradicting": 3
     },
     "intent_categories": {
-      "travel": 9,
+      "travel": 8,
       "work": 6,
       "shopping": 7,
       "social_dining": 4,
@@ -705,32 +709,28 @@
       "social_dining->socializing": 4,
       "travel->business": 4,
       "travel->tourism": 4,
-      "travel->unknown": 1,
       "work->meeting": 4,
       "work->unknown": 2
     },
     "status": {
-      "confirmed": 26,
-      "cancelled": 5,
-      "emerging": 12,
-      "considering": 4,
-      "planned": 6,
-      "completed": 1
+      "confirmed": 32,
+      "cancelled": 6,
+      "emerging": 13,
+      "considering": 2
     },
     "confidence": {
       "high": 38,
-      "low": 14,
-      "medium": 2
+      "low": 15
     },
     "length": {
       "input_chars": {
         "p50": 5590,
-        "p90": 5947,
+        "p90": 5945,
         "max": 6127
       },
       "target_chars": {
-        "p50": 3503,
-        "p90": 4032,
+        "p50": 3522,
+        "p90": 3937,
         "max": 4412
       },
       "est_tokens_total": {
@@ -740,8 +740,8 @@
       },
       "est_tokens_input": {
         "p50": 2026,
-        "p90": 2204,
-        "max": 2279
+        "p90": 2199,
+        "max": 2268
       },
       "est_tokens_target": {
         "p50": 1099,
@@ -751,5 +751,5 @@
     },
     "est_tokens_note": "heuristic estimate (src/utils.estimate_tokens), not a tokenizer count"
   },
-  "unapproved_included": 48
+  "unapproved_included": 0
 }

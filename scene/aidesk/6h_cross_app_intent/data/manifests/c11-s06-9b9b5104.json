@@ -175,10 +175,10 @@
   },
   "elapsed_s": 390.27,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "rejected",
+    "by": "sumi",
+    "at": "2026-11-27T22:54:43+08:00",
+    "note": "D6口径冲突：本条用「出行」框架（取消/退款=C、旧订单=i），与已批准样本9 c11-s06-4476d3fc的「方式调整」框架（取消/退款=S、旧计划=C）相反；reject重建以对齐样本9框架"
   },
   "artefacts": {
     "scenario_spec": {
@@ -202,5 +202,5 @@
       "sha256": "58d93631672979df80469b6872cd3f02abd8ca0de24bc23b79059a3454ea0056"
     }
   },
-  "updated_at": "2026-11-27T12:11:17+08:00"
+  "updated_at": "2026-11-27T22:54:43+08:00"
 }

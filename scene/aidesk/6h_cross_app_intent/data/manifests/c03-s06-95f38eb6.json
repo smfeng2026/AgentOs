@@ -174,10 +174,10 @@
   },
   "elapsed_s": 407.9,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:40:34+08:00",
+    "note": "人工陪审通过+修正：considering→cancelled（订单已取消退款1299，口径F）；e019/e020升S，妻子异议e018/原下单支付/迷你款研究降i，C清空；fact迁移；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -201,7 +201,7 @@
       "sha256": "a6a6b027ef93e3b05849a2152d77ed91ce0ae373457ce25d8a6cfba162668402"
     }
   },
-  "updated_at": "2026-11-27T12:06:18+08:00",
+  "updated_at": "2026-11-28T09:40:34+08:00",
   "repairs": [
     {
       "tool": "repair_noise_placeholder",

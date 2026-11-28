@@ -168,10 +168,10 @@
   },
   "elapsed_s": 316.23,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T22:43:40+08:00",
+    "note": "人工陪审通过：盲标4意图过拆均被正确拒绝；口径D补充粒度规则（同域弱兴趣合并，独立承诺簇才拆）；改进项：e011/e028应标hard_negative、e014周日工作日午餐噪声文案"
   },
   "artefacts": {
     "scenario_spec": {
@@ -195,7 +195,7 @@
       "sha256": "b39fd6137eb420674876ed5859ff52b9d56c77db4355a63e806c6d47ca4d936d"
     }
   },
-  "updated_at": "2026-11-27T12:06:18+08:00",
+  "updated_at": "2026-11-27T22:43:40+08:00",
   "repairs": [
     {
       "tool": "repair_noise_placeholder",

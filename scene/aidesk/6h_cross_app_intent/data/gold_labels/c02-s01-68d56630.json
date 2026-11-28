@@ -10,11 +10,7 @@
       "supporting_event_ids": [
         "e001",
         "e003",
-        "e005",
-        "e006",
-        "e013",
-        "e021",
-        "e025"
+        "e021"
       ],
       "related_interest_event_ids": [
         "e009",
@@ -24,7 +20,11 @@
         "e016",
         "e020",
         "e027",
-        "e028"
+        "e028",
+        "e005",
+        "e006",
+        "e013",
+        "e025"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
@@ -41,28 +41,9 @@
           ]
         },
         {
-          "fact": "用户与同事张倩确认12月11日客户现场汇报分工：张倩负责数据回顾与客户案例，用户负责方案总述与报价框架，周经理负责现场把控；张倩回复收到，表示今晚把数据页并入总稿，明早发终版。",
-          "source_event_ids": [
-            "e005",
-            "e006"
-          ]
-        },
-        {
-          "fact": "用户将《季度合作方案汇报_v3.pdf》发给直属领导周经理审阅，并请其重点查看报价框架页。",
-          "source_event_ids": [
-            "e013"
-          ]
-        },
-        {
           "fact": "用户已在日历中创建12月11日14:00-15:30的“客户现场会议：季度合作方案汇报”日程，地点为浦东新区客户公司办公楼3层会议室，参与人包括客户李总监、同事张倩、直属领导周经理。",
           "source_event_ids": [
             "e021"
-          ]
-        },
-        {
-          "fact": "用户设置了12月11日13:15出发前往浦东客户办公楼的提醒，并关联到该客户现场会议日程。",
-          "source_event_ids": [
-            "e025"
           ]
         }
       ],
@@ -114,6 +95,25 @@
           "source_event_ids": [
             "e028"
           ]
+        },
+        {
+          "fact": "用户与同事张倩确认12月11日客户现场汇报分工：张倩负责数据回顾与客户案例，用户负责方案总述与报价框架，周经理负责现场把控；张倩回复收到，表示今晚把数据页并入总稿，明早发终版。",
+          "source_event_ids": [
+            "e005",
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户将《季度合作方案汇报_v3.pdf》发给直属领导周经理审阅，并请其重点查看报价框架页。",
+          "source_event_ids": [
+            "e013"
+          ]
+        },
+        {
+          "fact": "用户设置了12月11日13:15出发前往浦东客户办公楼的提醒，并关联到该客户现场会议日程。",
+          "source_event_ids": [
+            "e025"
+          ]
         }
       ],
       "unknown_information": [
@@ -152,14 +152,14 @@
     },
     {
       "event_id": "e005",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e006",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -204,7 +204,7 @@
     },
     {
       "event_id": "e013",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -272,7 +272,7 @@
     },
     {
       "event_id": "e025",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

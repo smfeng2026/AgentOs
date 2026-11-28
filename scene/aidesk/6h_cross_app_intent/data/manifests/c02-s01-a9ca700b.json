@@ -178,10 +178,10 @@
   },
   "elapsed_s": 351.74,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:33+08:00",
+    "note": "人工陪审通过+修正：e009分工协同 S→i（口径A）；S保留客户确认/日历/用车预订；无关16在硬边界内；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -205,7 +205,7 @@
       "sha256": "b431d24e3ae57bcfb845fced8f7191306c5e64fd34389b26f019d2f66a97b0f0"
     }
   },
-  "updated_at": "2026-11-27T12:06:18+08:00",
+  "updated_at": "2026-11-28T09:45:33+08:00",
   "repairs": [
     {
       "tool": "repair_noise_placeholder",

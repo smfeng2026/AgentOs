@@ -1,0 +1,207 @@
+{
+  "sample_id": "c11-s06-0f813ab3",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-27T23:01:44+08:00",
+  "task": {
+    "scenario_category": "local_transport",
+    "template_id": "C11-S06",
+    "subscenario": "行程变化",
+    "difficulty": "D6_conflict_state_change",
+    "intent_count": 1,
+    "split": "challenge",
+    "window_start": "2026-12-21T14:00:00+08:00",
+    "window_end": "2026-12-21T20:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 3914600565
+  },
+  "spec_summary": {
+    "title": "雪天改道：取消租车改为打车赴京郊短途游",
+    "intent_names": [
+      "京郊短途出游交通调整"
+    ],
+    "intent_categories": [
+      "local_transport"
+    ],
+    "key_entities": {
+      "home_city": "北京",
+      "destinations": [
+        "古北水镇"
+      ],
+      "products": [
+        "经济型轿车租赁（12月26日至12月27日）"
+      ],
+      "people": [
+        "朋友张伟"
+      ],
+      "dates": [
+        "12月26日",
+        "12月27日"
+      ],
+      "other": [
+        "京承高速",
+        "降雪封路信息"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 7,
+    "gold_related_interest": 8,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "outing": 1
+    },
+    "gold_statuses": {
+      "planned": 1
+    },
+    "gold_categories": {
+      "local_transport": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "mail_newsletter",
+      "read_novel",
+      "pay_bill",
+      "contacts_search_repair",
+      "learn_video",
+      "tax_deduction_guide",
+      "hn_train_other_city",
+      "venue_badminton_schedule",
+      "fin_news",
+      "sys_update",
+      "hn_map_other_city",
+      "social_feed_pets",
+      "pet_vaccine_schedule",
+      "ent_ranking",
+      "hn_guide_other_city"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "e0a553be28ce598c1d89a59a7852df2439e4810b23fa0ed0687697aa6eb9fce7",
+      "annotator": "35089f73e12536c50b907ed5d459e42d0cddd37b268108666d082700673e682c",
+      "reviewer": "0f91cb4af299cfb1be510da1c722d39efe8a32f4b1c8bcecd9805dc48c95c6a3",
+      "adjudicator": "d9248e8c7c73d3ed35de90b91acdd0813d6f2d9a112d7b3ce5b1ee421e63b79e"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "reviewer_critical_issue"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1860,
+      "completion_tokens": 1650,
+      "total_tokens": 3510,
+      "latency_s": 27.06,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1812,
+      "completion_tokens": 8418,
+      "total_tokens": 10230,
+      "latency_s": 79.03,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3829,
+      "completion_tokens": 12861,
+      "total_tokens": 16690,
+      "latency_s": 90.14,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6320,
+      "completion_tokens": 13171,
+      "total_tokens": 19491,
+      "latency_s": 100.2,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11182,
+      "completion_tokens": 14908,
+      "total_tokens": 26090,
+      "latency_s": 94.52,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 390.95,
+  "approval": {
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T23:05:36+08:00",
+    "note": "人工陪审通过+人工修正：重建对齐样本9框架（取消/退款e016/e017=S）；status planned→confirmed、confidence medium→high（网约车已支付420，口径E）；旧计划e001/e002保持i（与样本9的C为轻微变体，记录在案）；替代被reject的c11-s06-9b9b5104"
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c11-s06-0f813ab3.json",
+      "sha256": "ec63b5a8ec5f3b77939b0bec3a7fe3f6f227cae7a8aaad585a682b9083fbc3f3"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c11-s06-0f813ab3.json",
+      "sha256": "ad5194384a3e25f26a9a6036e7eee24b1f7542b1363a1c1036d1265473d76594"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c11-s06-0f813ab3.json",
+      "sha256": "ecacb3746149feb9e9b12d7ccc3d9ac9a3f5b5968fedaa22cee8325583608bbf"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c11-s06-0f813ab3.json",
+      "sha256": "6cbafe4b6b1c7539a5220f5a21fbd00fe103d19f05147c3de5b9c91fdb79d074"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c11-s06-0f813ab3.json",
+      "sha256": "350720f18b0e228a070efbf58e88e79e7908855e41fe966981267194abbd8151"
+    }
+  },
+  "updated_at": "2026-11-27T23:05:36+08:00"
+}

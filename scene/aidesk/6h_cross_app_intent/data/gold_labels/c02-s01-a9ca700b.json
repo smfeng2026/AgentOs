@@ -9,7 +9,6 @@
       "confidence_level": "high",
       "supporting_event_ids": [
         "e004",
-        "e009",
         "e021",
         "e027"
       ],
@@ -23,7 +22,8 @@
         "e017",
         "e023",
         "e025",
-        "e028"
+        "e028",
+        "e009"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
@@ -31,12 +31,6 @@
           "fact": "客户方项目经理刘总发来邮件，确认12月18日14:00-16:00在浦东张江张江路88号华信科技3楼会议室召开需求评审会，附会议议程，参会人含刘总、客户方产品代表、客户方研发代表",
           "source_event_ids": [
             "e004"
-          ]
-        },
-        {
-          "fact": "已与同事陈晓明确评审会分工：陈晓负责更新演示材料，本人整理需求文档，周四前互相对稿",
-          "source_event_ids": [
-            "e009"
           ]
         },
         {
@@ -102,6 +96,12 @@
           "source_event_ids": [
             "e028"
           ]
+        },
+        {
+          "fact": "已与同事陈晓明确评审会分工：陈晓负责更新演示材料，本人整理需求文档，周四前互相对稿",
+          "source_event_ids": [
+            "e009"
+          ]
         }
       ],
       "unknown_information": [
@@ -163,7 +163,7 @@
     },
     {
       "event_id": "e009",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

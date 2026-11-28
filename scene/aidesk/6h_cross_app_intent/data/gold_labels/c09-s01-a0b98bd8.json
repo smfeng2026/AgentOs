@@ -5,11 +5,10 @@
       "intent_name": "护照换发办理",
       "category": "finance_admin",
       "purpose": "personal_admin",
-      "status": "planned",
+      "status": "confirmed",
       "confidence_level": "high",
       "supporting_event_ids": [
         "e016",
-        "e019",
         "e025",
         "e027",
         "e029"
@@ -24,7 +23,8 @@
         "e017",
         "e018",
         "e021",
-        "e024"
+        "e024",
+        "e019"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
@@ -32,12 +32,6 @@
           "fact": "用户已支付星光影像证件照馆的出入境证件照拍摄及回执费用55元，支付状态为已支付。",
           "source_event_ids": [
             "e016"
-          ]
-        },
-        {
-          "fact": "母亲回复确认12月18日上午陪同用户前往市民中心出入境大厅换新护照，并表示会帮忙找旧护照。",
-          "source_event_ids": [
-            "e019"
           ]
         },
         {
@@ -90,6 +84,12 @@
           "fact": "用户邀请母亲陪同办理，母亲同意并表示会协助寻找旧护照。",
           "source_event_ids": [
             "e017",
+            "e019"
+          ]
+        },
+        {
+          "fact": "母亲回复确认12月18日上午陪同用户前往市民中心出入境大厅换新护照，并表示会帮忙找旧护照。",
+          "source_event_ids": [
             "e019"
           ]
         }
@@ -215,7 +215,7 @@
     },
     {
       "event_id": "e019",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

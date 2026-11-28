@@ -8,51 +8,26 @@
       "status": "cancelled",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e001",
-        "e003",
-        "e012",
-        "e014"
-      ],
-      "related_interest_event_ids": [
-        "e004",
-        "e007",
-        "e015",
-        "e017",
-        "e019",
-        "e027"
-      ],
-      "contradicting_event_ids": [
         "e020",
         "e022",
         "e025",
         "e029",
         "e030"
       ],
+      "related_interest_event_ids": [
+        "e001",
+        "e003",
+        "e004",
+        "e007",
+        "e012",
+        "e014",
+        "e015",
+        "e017",
+        "e019",
+        "e027"
+      ],
+      "contradicting_event_ids": [],
       "confirmed_facts": [
-        {
-          "fact": "存在杭州至三亚往返机票订单（订单号HZSY202612020918），出发12月20日、返回12月23日，状态为已出票，票价2860元。",
-          "source_event_ids": [
-            "e001"
-          ]
-        },
-        {
-          "fact": "存在三亚湾海景度假酒店订单（订单号HTL202612020356），入住12月20日、退房12月23日共3晚，海景大床房，状态为已确认，房价2160元。",
-          "source_event_ids": [
-            "e003"
-          ]
-        },
-        {
-          "fact": "日历中存在“三亚度假行程”，时间12月20日至12月23日，并备注航班与酒店信息。",
-          "source_event_ids": [
-            "e012"
-          ]
-        },
-        {
-          "fact": "用户向李婷发消息称12月20日去三亚的机票和酒店都已订好，计划到海边走走并去第一市场吃海鲜。",
-          "source_event_ids": [
-            "e014"
-          ]
-        },
         {
           "fact": "杭州至三亚往返机票订单因台风预警影响出行被取消，退款金额2860元，状态为全额退款处理中。",
           "source_event_ids": [
@@ -118,6 +93,30 @@
             "e027",
             "e030"
           ]
+        },
+        {
+          "fact": "存在杭州至三亚往返机票订单（订单号HZSY202612020918），出发12月20日、返回12月23日，状态为已出票，票价2860元。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "存在三亚湾海景度假酒店订单（订单号HTL202612020356），入住12月20日、退房12月23日共3晚，海景大床房，状态为已确认，房价2160元。",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "日历中存在“三亚度假行程”，时间12月20日至12月23日，并备注航班与酒店信息。",
+          "source_event_ids": [
+            "e012"
+          ]
+        },
+        {
+          "fact": "用户向李婷发消息称12月20日去三亚的机票和酒店都已订好，计划到海边走走并去第一市场吃海鲜。",
+          "source_event_ids": [
+            "e014"
+          ]
         }
       ],
       "unknown_information": [
@@ -132,7 +131,7 @@
   "event_labels": [
     {
       "event_id": "e001",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -144,7 +143,7 @@
     },
     {
       "event_id": "e003",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -195,7 +194,7 @@
     },
     {
       "event_id": "e012",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -207,7 +206,7 @@
     },
     {
       "event_id": "e014",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -245,7 +244,7 @@
     },
     {
       "event_id": "e020",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
@@ -257,7 +256,7 @@
     },
     {
       "event_id": "e022",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
@@ -274,7 +273,7 @@
     },
     {
       "event_id": "e025",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
@@ -298,14 +297,14 @@
     },
     {
       "event_id": "e029",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e030",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]

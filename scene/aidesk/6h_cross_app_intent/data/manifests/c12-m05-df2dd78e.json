@@ -191,10 +191,10 @@
   },
   "elapsed_s": 401.84,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:33+08:00",
+    "note": "人工陪审通过+修正：删除噪声升格意图i003（e002/e007为难负例hn_flight/train_other_city），还原unrelated，intent_count3→2（口径D）；保留成都观光/评审会双意图；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -218,5 +218,5 @@
       "sha256": "41423324a1010cfaae67361017581247e9cd727936580d9cddcb0629eaac992a"
     }
   },
-  "updated_at": "2026-11-27T12:17:59+08:00"
+  "updated_at": "2026-11-28T09:45:33+08:00"
 }

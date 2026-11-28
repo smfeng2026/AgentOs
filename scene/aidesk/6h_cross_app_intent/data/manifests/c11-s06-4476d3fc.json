@@ -174,10 +174,10 @@
   },
   "elapsed_s": 452.81,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T22:49:52+08:00",
+    "note": "人工陪审通过+人工修正：critical已由裁决修复（保留方式调整核心意图，取消/退款=S、旧计划=C）；status由planned改confirmed对齐样本1-6；口径E锁定（confirmed=有支付/预订/对方确认强承诺，不论未来；completed=实际发生）"
   },
   "artefacts": {
     "scenario_spec": {
@@ -201,5 +201,5 @@
       "sha256": "0a3ac87d3ff54aedae9470075c14a6187879f7ed45e01270bfd821b4d575f55d"
     }
   },
-  "updated_at": "2026-11-27T12:14:30+08:00"
+  "updated_at": "2026-11-27T22:49:52+08:00"
 }

@@ -1,0 +1,586 @@
+{
+  "sample_id": "c11-s06-0f813ab3",
+  "spec_intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "京郊短途出游交通调整",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "medium",
+      "required_evidence": [
+        "12月26日租车订单的取消与退款记录",
+        "取消后针对12月26日出发的新路线搜索与打车预订",
+        "日历中12月26日出行日程的更新"
+      ],
+      "optional_evidence": [
+        "与朋友张伟沟通行程变化的聊天记录",
+        "出发日降雪的天气查询",
+        "京承高速路况浏览"
+      ],
+      "unknown_information": [
+        "返程是继续打车还是改乘大巴尚未最终确定"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 2
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e001",
+      "origin": "related",
+      "generator_event_id": "e001",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T14:08:00+08:00",
+      "app": "car_rental_app",
+      "action": "view_order",
+      "content": {
+        "order_no": "ZU88203947",
+        "car_type": "经济型轿车",
+        "pickup_store": "朝阳门租车门店",
+        "pickup_date": "12月26日 08:00",
+        "return_date": "12月27日 18:00",
+        "order_status": "已预订",
+        "total_price": "¥386"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "origin": "related",
+      "generator_event_id": "e002",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T14:35:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "朝阳区朝阳门",
+        "destination": "古北水镇",
+        "route_type": "自驾",
+        "main_road": "京承高速",
+        "distance": "145公里",
+        "estimated_duration": "2小时10分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "mail_newsletter",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:08:26+08:00",
+      "app": "mail_app",
+      "action": "read_newsletter",
+      "content": {
+        "subject": "商场促销活动"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "origin": "related",
+      "generator_event_id": "e003",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:12:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "张伟",
+        "chat_topic": "周六古北水镇行程",
+        "message": "周六早上7:30楼下集合没问题，我带相机和保温壶，住的问题到了再定"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "read_novel",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:26:24+08:00",
+      "app": "reader_app",
+      "action": "read_novel",
+      "content": {
+        "title": "科幻连载",
+        "chapter": "第12章"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pay_bill",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:30:04+08:00",
+      "app": "payment_app",
+      "action": "view_bill",
+      "content": {
+        "bill_type": "宽带续费提醒"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "contacts_search_repair",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:31:18+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "learn_video",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:43:35+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "历史冷知识",
+        "duration_min": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "tax_deduction_guide",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:45:26+08:00",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "origin": "related",
+      "generator_event_id": "e004",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T15:47:00+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_content",
+      "content": {
+        "title": "古北水镇冬季夜游攻略：司马台长城与温泉",
+        "destination": "古北水镇",
+        "section": "交通出行",
+        "read_duration": "5分钟"
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "origin": "related",
+      "generator_event_id": "e005",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T16:02:00+08:00",
+      "app": "weather_app",
+      "action": "search",
+      "content": {
+        "city": "北京",
+        "target_date": "12月26日",
+        "forecast": "中雪转小雪",
+        "temperature_range": "-5℃至0℃",
+        "warning": "暴雪蓝色预警"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_train_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-21T16:04:19+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "北京",
+        "arrival": "石家庄",
+        "date": "01月16日"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e013",
+      "origin": "related",
+      "generator_event_id": "e006",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T16:21:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "title": "降雪影响 京承高速密云段双向封闭 请提前绕行",
+        "source": "北京交通广播",
+        "category": "交通",
+        "key_info": "预计封闭持续至12月26日夜间"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "venue_badminton_schedule",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T16:27:35+08:00",
+      "app": "venue_booking_app",
+      "action": "view_court_schedule",
+      "content": {
+        "venue": "家附近羽毛球馆",
+        "date": "本周六"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e015",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "fin_news",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T16:39:41+08:00",
+      "app": "banking_app",
+      "action": "read_finance_article",
+      "content": {
+        "topic": "房贷利率解读"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "origin": "related",
+      "generator_event_id": "e007",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T16:47:00+08:00",
+      "app": "car_rental_app",
+      "action": "cancel",
+      "content": {
+        "order_no": "ZU88203947",
+        "cancel_reason": "降雪导致高速封路",
+        "cancel_fee": "¥0",
+        "refund_amount": "¥386",
+        "order_status": "取消成功"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e017",
+      "origin": "related",
+      "generator_event_id": "e008",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:08:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "transaction_id": "TK20261221170833",
+        "merchant": "朝阳门租车门店",
+        "amount": "¥386",
+        "refund_channel": "原路退回",
+        "refund_status": "退款到账"
+      },
+      "relation": "contradicting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "sys_update",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:35:01+08:00",
+      "app": "settings_app",
+      "action": "update_apps",
+      "content": {
+        "count": 6
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e019",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_map_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-21T17:37:38+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "哈尔滨",
+        "query": "机场大巴站点"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e020",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "social_feed_pets",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:52:06+08:00",
+      "app": "social_app",
+      "action": "view_feed",
+      "content": {
+        "topic": "养猫日常"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "pet_vaccine_schedule",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T17:53:45+08:00",
+      "app": "pet_app",
+      "action": "browse_content",
+      "content": {
+        "topic": "猫咪疫苗时间表"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "origin": "related",
+      "generator_event_id": "e009",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:06:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "朝阳区朝阳门",
+        "destination": "古北水镇",
+        "route_type": "打车",
+        "distance": "152公里",
+        "estimated_duration": "2小时35分钟",
+        "estimated_fare": "¥420",
+        "note": "绕开京承高速封闭路段"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e023",
+      "origin": "related",
+      "generator_event_id": "e010",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:23:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure": "东直门交通枢纽",
+        "destination": "古北水镇",
+        "route_type": "公共交通",
+        "option": "古北水镇直达大巴",
+        "estimated_duration": "2小时50分钟",
+        "first_departure_time": "08:00"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "origin": "related",
+      "generator_event_id": "e011",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:41:00+08:00",
+      "app": "taxi_app",
+      "action": "create_order",
+      "content": {
+        "order_no": "DD20261221184102",
+        "departure": "朝阳区朝阳门",
+        "destination": "古北水镇",
+        "pickup_time": "12月26日 07:30",
+        "passenger_count": 2,
+        "car_type": "舒适型",
+        "estimated_fare": "¥420",
+        "order_status": "预约成功"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "origin": "related",
+      "generator_event_id": "e012",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:43:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "order_no": "DD20261221184102",
+        "payee": "网约车平台",
+        "amount": "¥420",
+        "pay_method": "账户余额",
+        "pay_status": "已支付"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "ent_ranking",
+      "hard_negative": false,
+      "timestamp": "2026-12-21T18:47:19+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e027",
+      "origin": "related",
+      "generator_event_id": "e013",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:02:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "张伟",
+        "chat_topic": "周六古北水镇行程",
+        "message": "周六京承高速因降雪封路，租车已经退了，我约好7:30的网约车直接送到古北水镇，车费我先垫付，返程到时候看情况坐大巴或再打车"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "origin": "related",
+      "generator_event_id": "e014",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:26:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "previous_title": "自驾古北水镇两日游",
+        "event_title": "打车前往古北水镇",
+        "event_date": "12月26日",
+        "start_time": "07:30",
+        "location": "朝阳门楼下集合",
+        "participants": [
+          "我",
+          "张伟"
+        ],
+        "note": "网约车已预约，返程方式待定"
+      },
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "origin": "related",
+      "generator_event_id": "e015",
+      "pool_id": null,
+      "hard_negative": false,
+      "timestamp": "2026-12-21T19:45:00+08:00",
+      "app": "ticket_app",
+      "action": "search",
+      "content": {
+        "keyword": "古北水镇返程大巴",
+        "departure": "古北水镇",
+        "destination": "东直门",
+        "travel_date": "12月27日",
+        "result_count": 4
+      },
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "origin": "noise",
+      "generator_event_id": null,
+      "pool_id": "hn_guide_other_city",
+      "hard_negative": true,
+      "timestamp": "2026-12-21T19:49:45+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "洛阳",
+        "topic": "本地交通卡使用攻略"
+      },
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ]
+}

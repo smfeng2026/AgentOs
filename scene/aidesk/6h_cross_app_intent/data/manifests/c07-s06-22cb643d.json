@@ -172,10 +172,10 @@
   },
   "elapsed_s": 459.53,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:32:43+08:00",
+    "note": "人工陪审通过+口径F重构：cancelled以被取消计划为框架，取消证据e019-e022升S、原计划e002/e005/e006/e007/e014降i、C清空；原计划confirmed_fact迁inferred；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -199,5 +199,5 @@
       "sha256": "45f543bc7abbc46041a15abb813946ed22c1bc0e118b3bac8e54736f35fbdef1"
     }
   },
-  "updated_at": "2026-11-27T12:04:47+08:00"
+  "updated_at": "2026-11-28T09:32:43+08:00"
 }

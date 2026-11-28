@@ -1,0 +1,851 @@
+{
+  "sample_id": "c11-s06-0f813ab3",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "reviewer_critical_issue"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "盲标把意图泛化为 travel/tourism/confirmed/high，且把租车取消与退款放到 contradicting，均不符合本样本核心语义。保留单一 i001（local_transport/outing/planned/medium）；e016/e017 是原租车方案被交通调整替代的支撑证据，不是取消出行意图。按 taxonomy，e011/e013/e022/e023 等搜索/浏览动作仍为 related_interest；e004 作为明确确认消息为 supporting。修正后无需重新生成。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "mail_newsletter",
+        "read_novel",
+        "pay_bill",
+        "contacts_search_repair",
+        "learn_video",
+        "tax_deduction_guide",
+        "hn_train_other_city",
+        "venue_badminton_schedule",
+        "fin_news",
+        "sys_update",
+        "hn_map_other_city",
+        "social_feed_pets",
+        "pet_vaccine_schedule",
+        "ent_ranking",
+        "hn_guide_other_city"
+      ],
+      "hard_negative_ids": [
+        "hn_train_other_city",
+        "hn_map_other_city",
+        "hn_guide_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "周末古北水镇两日游",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e004",
+          "e024",
+          "e025",
+          "e027",
+          "e028"
+        ],
+        "related_interest_event_ids": [
+          "e001",
+          "e002",
+          "e010",
+          "e011",
+          "e013",
+          "e022",
+          "e023",
+          "e029"
+        ],
+        "contradicting_event_ids": [
+          "e016",
+          "e017"
+        ],
+        "confirmed_facts": [
+          {
+            "fact": "用户与张伟约定12月26日07:30在楼下集合，住宿到达后再定。",
+            "source_event_ids": [
+              "e004"
+            ]
+          },
+          {
+            "fact": "用户已成功预约12月26日07:30从朝阳门到古北水镇的舒适型网约车，2人，订单状态为预约成功。",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户已支付该网约车订单420元，支付状态为已支付。",
+            "source_event_ids": [
+              "e025"
+            ]
+          },
+          {
+            "fact": "用户已更新日历：12月26日07:30打车前往古北水镇，参与者为我、张伟，备注网约车已预约、返程方式待定。",
+            "source_event_ids": [
+              "e028"
+            ]
+          },
+          {
+            "fact": "用户告知张伟：京承高速因降雪封路，租车已退，已约7:30网约车直达古北水镇，车费先垫付，返程待定。",
+            "source_event_ids": [
+              "e027"
+            ]
+          },
+          {
+            "fact": "租车订单ZU88203947已取消，取消原因为降雪导致高速封路，退款386元，订单状态为取消成功。",
+            "source_event_ids": [
+              "e016"
+            ]
+          },
+          {
+            "fact": "租车退款386元已原路退回并到账。",
+            "source_event_ids": [
+              "e017"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "用户原本计划12月26日至27日自驾前往古北水镇，并已预订经济型轿车。",
+            "source_event_ids": [
+              "e001",
+              "e002"
+            ]
+          },
+          {
+            "fact": "受12月26日北京降雪及京承高速封闭影响，用户取消自驾租车并改为网约车出行。",
+            "source_event_ids": [
+              "e011",
+              "e013",
+              "e016",
+              "e017",
+              "e022",
+              "e027"
+            ]
+          },
+          {
+            "fact": "古北水镇行程仍计划在12月26日至27日进行，但返程交通尚未确定。",
+            "source_event_ids": [
+              "e023",
+              "e027",
+              "e028",
+              "e029"
+            ]
+          },
+          {
+            "fact": "该行程目的为旅游休闲。",
+            "source_event_ids": [
+              "e010",
+              "e028"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "住宿是否已预订及具体住宿地点",
+          "返程具体采用大巴还是打车",
+          "是否已购买古北水镇门票或温泉等景点门票",
+          "同行人数是否只有2人",
+          "行程是否会因天气进一步调整"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e002",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e013",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e017",
+        "relation": "contradicting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e019",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e027",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "unrelated",
+        "intent_ids": []
+      }
+    ],
+    "unrelated_event_ids": [
+      "e003",
+      "e005",
+      "e006",
+      "e007",
+      "e008",
+      "e009",
+      "e012",
+      "e014",
+      "e015",
+      "e018",
+      "e019",
+      "e020",
+      "e021",
+      "e026",
+      "e030"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c11-s06-0f813ab3",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "state_change_mislabel",
+        "severity": "critical",
+        "event_ids": [
+          "e016",
+          "e017"
+        ],
+        "description": "预设意图 i001 是『京郊短途出游交通调整』（local_transport/outing/planned），取消租车与退款是完成交通调整的核心 required evidence；但 labeled_events 和 blind_annotation 都把 e016/e017 标为 contradicting，blind 还将其放入 contradicting_event_ids 并排除出 supporting。这样会把方案切换误读为对出行意图的反证，状态变化语义错误。",
+        "suggested_action": "按交通调整意图将 e016/e017 改标为 supporting（或至少 related_interest）；若采用更宽泛的周末游意图，也应保留/新增交通调整子意图，并把取消/退款作为该子意图的支持证据，不要作为整体出行意图的 contradicting。"
+      },
+      {
+        "issue_type": "intent_definition_mismatch",
+        "severity": "high",
+        "event_ids": [
+          "e004",
+          "e010",
+          "e022",
+          "e023",
+          "e024",
+          "e027",
+          "e028"
+        ],
+        "description": "盲标将 i001 从『京郊短途出游交通调整』（local_transport/outing/planned/medium）改名为『周末古北水镇两日游』（travel/tourism/confirmed/high），把核心的交通调整状态变化合并进泛化旅行意图，并把 status 从 planned 升为 confirmed。现有事件只能证明出城交通已改约、返程未定，不能支持整体行程已 confirmed/high。",
+        "suggested_action": "按 scenario_spec 保留『交通调整』意图，或拆成『周末出游』与『交通调整』两个意图；整体行程状态应保持 planned/medium，返程未知信息要保留；不要让泛化旅行意图替代交通调整意图。"
+      },
+      {
+        "issue_type": "supporting_evidence_missing",
+        "severity": "high",
+        "event_ids": [
+          "e022",
+          "e023"
+        ],
+        "description": "e022（打车路线搜索）和 e023（公共交通/直达大巴路线搜索）是 required evidence 中『取消后针对12月26日出发的新路线搜索』，但在 blind event_labels 中被降为 related_interest，且未进入 supporting_event_ids，导致方案切换的关键证据被漏计。",
+        "suggested_action": "在交通调整意图下将 e022/e023 改标为 supporting；若采用周末游意图，也应明确将其作为改道决策的支持证据，而不是普通兴趣浏览。"
+      },
+      {
+        "issue_type": "cause_evidence_downgrade",
+        "severity": "medium",
+        "event_ids": [
+          "e011",
+          "e013"
+        ],
+        "description": "e011 的12月26日北京降雪预警和 e013 的京承高速封闭新闻是取消租车与改道的直接原因证据；labeled_events 标为 supporting，但 blind event_labels 降为 related_interest。虽然 spec 将其列为 optional，但其因果支持强度高于普通兴趣浏览。",
+        "suggested_action": "在交通调整意图下保留为 supporting 或至少明确为强 related_interest；不要与一般攻略浏览等同处理。"
+      },
+      {
+        "issue_type": "unknown_information_inconsistent",
+        "severity": "medium",
+        "event_ids": [
+          "e004",
+          "e024",
+          "e028"
+        ],
+        "description": "盲标 unknown_information 写『同行人数是否只有2人』，但 e024 的 passenger_count=2、e028 的 participants=['我','张伟']，以及 e004 中张伟同行聊天已确认本次出行为2人。该信息不应列为 unknown。",
+        "suggested_action": "从 unknown_information 移除该项，或改为『是否还有其他未在订单/日历中体现的同行者』并说明证据边界。"
+      },
+      {
+        "issue_type": "conflict_representation_inconsistent",
+        "severity": "medium",
+        "event_ids": [
+          "e016",
+          "e017"
+        ],
+        "description": "blind_annotation 同时把 e016/e017 放入 contradicting_event_ids，又把 conflicts 设为空数组；如果它们是矛盾证据，应在 conflicts 中说明；如果只是租车方案取消这一已解决的状态变化，则不应标为 contradicting。",
+        "suggested_action": "统一处理：要么在 conflicts 中记录该状态变化及解决方式，要么按真实语义改标为 supporting/related_interest 并从 contradicting_event_ids 移除。"
+      },
+      {
+        "issue_type": "unnatural_business_logic",
+        "severity": "low",
+        "event_ids": [
+          "e025"
+        ],
+        "description": "e024 是未来12月26日的预约网约车订单，e025 在预约后2分钟即显示『已支付』420元；部分平台可能只预授权或行程后支付，当前流程略显不自然。",
+        "suggested_action": "核实平台支付流程；若为预授权/定金，改为相应状态；若确为预付，保留但补充说明。"
+      }
+    ],
+    "summary": "样本核心事件链完整，取消租车、退款、改约网约车和更新日历均有证据；但关系标签在『交通调整』与泛化『周末游』之间摇摆，导致取消/退款被误标为矛盾证据，盲标还改变了意图名称、类别、purpose、status 与 confidence，并漏计新路线搜索这一 required evidence。建议优先修正意图定义和 e016/e017、e022/e023 的关系标签，再重新生成盲标。"
+  },
+  "adjudication": {
+    "sample_id": "c11-s06-0f813ab3",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "京郊短途出游交通调整",
+          "category": "local_transport",
+          "purpose": "outing",
+          "status": "planned",
+          "confidence_level": "medium",
+          "supporting_event_ids": [
+            "e004",
+            "e016",
+            "e017",
+            "e024",
+            "e025",
+            "e027",
+            "e028"
+          ],
+          "related_interest_event_ids": [
+            "e001",
+            "e002",
+            "e010",
+            "e011",
+            "e013",
+            "e022",
+            "e023",
+            "e029"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "与张伟约定12月26日07:30楼下集合，住宿到达后再定。",
+              "source_event_ids": [
+                "e004"
+              ]
+            },
+            {
+              "fact": "租车订单ZU88203947已取消，取消原因为降雪导致高速封路，退款386元，订单状态为取消成功。",
+              "source_event_ids": [
+                "e016"
+              ]
+            },
+            {
+              "fact": "租车退款386元已原路退回并到账。",
+              "source_event_ids": [
+                "e017"
+              ]
+            },
+            {
+              "fact": "已预约12月26日07:30从朝阳门到古北水镇的舒适型网约车，2人，订单状态为预约成功。",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "网约车订单420元已通过账户余额支付。",
+              "source_event_ids": [
+                "e025"
+              ]
+            },
+            {
+              "fact": "已告知张伟：京承高速因降雪封路，租车已退，已约7:30网约车直达古北水镇，车费先垫付，返程待定。",
+              "source_event_ids": [
+                "e027"
+              ]
+            },
+            {
+              "fact": "日历已更新为12月26日07:30打车前往古北水镇，参与者为我、张伟，备注网约车已预约、返程方式待定。",
+              "source_event_ids": [
+                "e028"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户原计划12月26日至27日自驾前往古北水镇，并已预订经济型轿车。",
+              "source_event_ids": [
+                "e001",
+                "e002"
+              ]
+            },
+            {
+              "fact": "受12月26日北京降雪及京承高速封闭影响，用户取消租车并改约网约车。",
+              "source_event_ids": [
+                "e011",
+                "e013",
+                "e016",
+                "e022",
+                "e024"
+              ]
+            },
+            {
+              "fact": "古北水镇行程仍计划在12月26日至27日进行，但返程交通尚未确定。",
+              "source_event_ids": [
+                "e004",
+                "e023",
+                "e027",
+                "e028",
+                "e029"
+              ]
+            },
+            {
+              "fact": "本次出行目的为京郊短途休闲出游。",
+              "source_event_ids": [
+                "e010",
+                "e028"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "返程具体采用大巴还是网约车尚未最终确定",
+            "住宿是否已预订及具体住宿地点",
+            "是否已购买古北水镇门票或温泉等景点门票",
+            "行程是否会因天气进一步调整"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e002",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e013",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e019",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e027",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e003",
+        "e005",
+        "e006",
+        "e007",
+        "e008",
+        "e009",
+        "e012",
+        "e014",
+        "e015",
+        "e018",
+        "e019",
+        "e020",
+        "e021",
+        "e026",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c11-s06-0f813ab3"
+    },
+    "rationale": "盲标把意图泛化为 travel/tourism/confirmed/high，且把租车取消与退款放到 contradicting，均不符合本样本核心语义。保留单一 i001（local_transport/outing/planned/medium）；e016/e017 是原租车方案被交通调整替代的支撑证据，不是取消出行意图。按 taxonomy，e011/e013/e022/e023 等搜索/浏览动作仍为 related_interest；e004 作为明确确认消息为 supporting。修正后无需重新生成。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "planned": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.933,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1860,
+      "completion_tokens": 1650,
+      "total_tokens": 3510,
+      "latency_s": 27.06,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1812,
+      "completion_tokens": 8418,
+      "total_tokens": 10230,
+      "latency_s": 79.03,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 3829,
+      "completion_tokens": 12861,
+      "total_tokens": 16690,
+      "latency_s": 90.14,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6320,
+      "completion_tokens": 13171,
+      "total_tokens": 19491,
+      "latency_s": 100.2,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11182,
+      "completion_tokens": 14908,
+      "total_tokens": 26090,
+      "latency_s": 94.52,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 390.95
+}

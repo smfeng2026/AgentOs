@@ -176,10 +176,10 @@
   },
   "elapsed_s": 250.32,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T17:55:15+08:00",
+    "note": "人工陪审通过：会议邀请e001=S、协同e030=i符合口径A；审查员medium为裁决前状态已修正"
   },
   "artefacts": {
     "scenario_spec": {
@@ -203,5 +203,5 @@
       "sha256": "3d99a364d8a7f03f7d07c4af8232845a30aebc17a6eaf6dcf2966c9106babf3e"
     }
   },
-  "updated_at": "2026-11-27T11:17:13+08:00"
+  "updated_at": "2026-11-27T17:55:15+08:00"
 }

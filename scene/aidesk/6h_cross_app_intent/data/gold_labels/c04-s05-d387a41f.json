@@ -7,10 +7,7 @@
       "purpose": "socializing",
       "status": "considering",
       "confidence_level": "low",
-      "supporting_event_ids": [
-        "e003",
-        "e004"
-      ],
+      "supporting_event_ids": [],
       "related_interest_event_ids": [
         "e006",
         "e009",
@@ -20,23 +17,12 @@
         "e019",
         "e022",
         "e024",
-        "e028"
+        "e028",
+        "e003",
+        "e004"
       ],
       "contradicting_event_ids": [],
-      "confirmed_facts": [
-        {
-          "fact": "周悦在私聊中提出“好久没见了，改天一起吃个饭吧？”，未提及具体时间。",
-          "source_event_ids": [
-            "e003"
-          ]
-        },
-        {
-          "fact": "用户回复周悦“好啊，到时候约”，同意改天一起吃饭但未约定具体时间。",
-          "source_event_ids": [
-            "e004"
-          ]
-        }
-      ],
+      "confirmed_facts": [],
       "inferred_facts": [
         {
           "fact": "用户在杭州搜索适合聚餐的餐厅，并筛选有包厢、人均100-200元的条件。",
@@ -71,6 +57,18 @@
             "e024",
             "e028"
           ]
+        },
+        {
+          "fact": "周悦在私聊中提出“好久没见了，改天一起吃个饭吧？”，未提及具体时间。",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "用户回复周悦“好啊，到时候约”，同意改天一起吃饭但未约定具体时间。",
+          "source_event_ids": [
+            "e004"
+          ]
         }
       ],
       "unknown_information": [
@@ -96,14 +94,14 @@
     },
     {
       "event_id": "e003",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e004",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

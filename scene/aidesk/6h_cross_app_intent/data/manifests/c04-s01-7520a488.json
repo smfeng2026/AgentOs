@@ -176,10 +176,10 @@
   },
   "elapsed_s": 337.49,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T17:56:25+08:00",
+    "note": "人工陪审通过：high/medium标签问题已由裁决修正；备注瑕疵：订座contact_name=老周而本人付押金（自然度）、spec三人小群实际4人（生成保真）"
   },
   "artefacts": {
     "scenario_spec": {
@@ -203,7 +203,7 @@
       "sha256": "8f89a577c102162b675966440cc238aeddde52ce0be2c1fec9a3f94f19706796"
     }
   },
-  "updated_at": "2026-11-27T12:06:18+08:00",
+  "updated_at": "2026-11-27T17:56:25+08:00",
   "repairs": [
     {
       "tool": "repair_noise_placeholder",

@@ -175,10 +175,10 @@
   },
   "elapsed_s": 352.43,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:38:03+08:00",
+    "note": "人工陪审通过+口径F重构：三亚度假cancelled，取消证据e024/e026/e027/e029/e030升S，原计划view/出发约定降i，C清空；fact机械迁移；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -202,5 +202,5 @@
       "sha256": "6a2c8600c30fb6bb5895d38275a3208e00c4661fd366c51dc58b0a4d7772553a"
     }
   },
-  "updated_at": "2026-11-27T11:18:55+08:00"
+  "updated_at": "2026-11-28T09:38:03+08:00"
 }

@@ -97,7 +97,7 @@
       "intent_name": "旗舰手机采购",
       "category": "shopping",
       "purpose": "personal_use",
-      "status": "completed",
+      "status": "confirmed",
       "confidence_level": "high",
       "supporting_event_ids": [
         "e025",

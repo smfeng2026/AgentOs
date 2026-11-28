@@ -174,10 +174,10 @@
   },
   "elapsed_s": 313.51,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:32:42+08:00",
+    "note": "人工陪审通过+修正：e013意向沟通消息 S→i（口径A），fact迁inferred；e024发货通知保留S；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -201,5 +201,5 @@
       "sha256": "98ba373c73f447a9bc4bfbdc0362041fd4c0dff8654763caa8851cb487d37fbc"
     }
   },
-  "updated_at": "2026-11-27T11:24:08+08:00"
+  "updated_at": "2026-11-28T09:32:42+08:00"
 }

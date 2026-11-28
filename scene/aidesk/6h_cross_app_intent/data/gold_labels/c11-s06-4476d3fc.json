@@ -5,7 +5,7 @@
       "intent_name": "古北水镇周末出行方式调整",
       "category": "local_transport",
       "purpose": "outing",
-      "status": "planned",
+      "status": "confirmed",
       "confidence_level": "high",
       "supporting_event_ids": [
         "e008",

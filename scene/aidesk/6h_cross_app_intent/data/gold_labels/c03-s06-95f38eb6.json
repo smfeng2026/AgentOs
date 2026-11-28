@@ -5,12 +5,11 @@
       "intent_name": "家用咖啡机购置计划",
       "category": "shopping",
       "purpose": "household",
-      "status": "considering",
+      "status": "cancelled",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e009",
-        "e010",
-        "e011"
+        "e019",
+        "e020"
       ],
       "related_interest_event_ids": [
         "e001",
@@ -18,41 +17,17 @@
         "e005",
         "e006",
         "e008",
+        "e009",
+        "e010",
+        "e011",
         "e013",
+        "e018",
         "e024",
         "e025",
         "e030"
       ],
-      "contradicting_event_ids": [
-        "e018",
-        "e019",
-        "e020"
-      ],
+      "contradicting_event_ids": [],
       "confirmed_facts": [
-        {
-          "fact": "用户创建了全自动胶囊咖啡机订单 SO202612211648，数量1，金额1299元，订单状态为待支付。",
-          "source_event_ids": [
-            "e009"
-          ]
-        },
-        {
-          "fact": "用户使用银行卡支付该订单1299元，支付成功。",
-          "source_event_ids": [
-            "e010"
-          ]
-        },
-        {
-          "fact": "用户告知妻子咖啡机已拍好，1299元，预计12月23日送到家。",
-          "source_event_ids": [
-            "e011"
-          ]
-        },
-        {
-          "fact": "妻子指出该咖啡机宽30多厘米，厨房台面放不下。",
-          "source_event_ids": [
-            "e018"
-          ]
-        },
         {
           "fact": "该订单因商品尺寸与厨房台面不匹配被取消，退款金额1299元。",
           "source_event_ids": [
@@ -98,6 +73,30 @@
           "source_event_ids": [
             "e008",
             "e030"
+          ]
+        },
+        {
+          "fact": "用户创建了全自动胶囊咖啡机订单 SO202612211648，数量1，金额1299元，订单状态为待支付。",
+          "source_event_ids": [
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户使用银行卡支付该订单1299元，支付成功。",
+          "source_event_ids": [
+            "e010"
+          ]
+        },
+        {
+          "fact": "用户告知妻子咖啡机已拍好，1299元，预计12月23日送到家。",
+          "source_event_ids": [
+            "e011"
+          ]
+        },
+        {
+          "fact": "妻子指出该咖啡机宽30多厘米，厨房台面放不下。",
+          "source_event_ids": [
+            "e018"
           ]
         }
       ],
@@ -166,21 +165,21 @@
     },
     {
       "event_id": "e009",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e010",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e011",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -219,21 +218,21 @@
     },
     {
       "event_id": "e018",
-      "relation": "contradicting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e019",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e020",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]

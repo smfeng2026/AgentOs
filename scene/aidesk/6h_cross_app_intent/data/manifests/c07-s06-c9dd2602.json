@@ -174,10 +174,10 @@
   },
   "elapsed_s": 433.3,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:38:04+08:00",
+    "note": "人工陪审通过+口径F重构：夜航电台cancelled，官方取消公告/退票/到账/日历e013/e014/e021/e023/e028/e030升S；e015群传照常用于官方取消构成真实冲突保留C；e002 view_order降i；镜像校验通过"
   },
   "artefacts": {
     "scenario_spec": {
@@ -201,5 +201,5 @@
       "sha256": "ee6332268c9e41abefbb797622185856feb5f4e919c97de09d6b83bbec407d6f"
     }
   },
-  "updated_at": "2026-11-27T12:04:20+08:00"
+  "updated_at": "2026-11-28T09:38:04+08:00"
 }

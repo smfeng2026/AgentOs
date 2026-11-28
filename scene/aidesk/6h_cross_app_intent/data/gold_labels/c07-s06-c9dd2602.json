@@ -8,7 +8,6 @@
       "status": "cancelled",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e002",
         "e013",
         "e014",
         "e021",
@@ -17,6 +16,7 @@
         "e030"
       ],
       "related_interest_event_ids": [
+        "e002",
         "e004",
         "e006",
         "e007",
@@ -29,12 +29,6 @@
         "e015"
       ],
       "confirmed_facts": [
-        {
-          "fact": "用户已支付两张12月19日20:00夜航电台「午夜航行」巡演·杭州站预售票，订单号TK202612190031，总价¥560",
-          "source_event_ids": [
-            "e002"
-          ]
-        },
         {
           "fact": "主办方官方账号发布12月19日「午夜航行」杭州站演出取消公告，并说明已购门票票款将于7个工作日内原路退回",
           "source_event_ids": [
@@ -70,12 +64,6 @@
           "source_event_ids": [
             "e030"
           ]
-        },
-        {
-          "fact": "用户收到群聊消息称有人传言演出照常举行、只是换到隔壁厅，并称现在退票会亏",
-          "source_event_ids": [
-            "e015"
-          ]
         }
       ],
       "inferred_facts": [
@@ -100,6 +88,18 @@
           "source_event_ids": [
             "e017"
           ]
+        },
+        {
+          "fact": "用户已支付两张12月19日20:00夜航电台「午夜航行」巡演·杭州站预售票，订单号TK202612190031，总价¥560",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "用户收到群聊消息称有人传言演出照常举行、只是换到隔壁厅，并称现在退票会亏",
+          "source_event_ids": [
+            "e015"
+          ]
         }
       ],
       "unknown_information": [
@@ -121,7 +121,7 @@
     },
     {
       "event_id": "e002",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

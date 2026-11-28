@@ -177,10 +177,10 @@
   },
   "elapsed_s": 340.96,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T22:35:40+08:00",
+    "note": "人工陪审通过：蛋糕浏览合并回i001正确（未下单、无独立证据簇）；口径A细化：核心事件提醒=S（样本1 e024）、后勤出发提醒=i（本条e028）；备注：6→8人数可自洽（表弟重叠）、日历参与人4/8"
   },
   "artefacts": {
     "scenario_spec": {
@@ -204,7 +204,7 @@
       "sha256": "cd88b0d1eec245443c77f9b47c127bfb76acdf3ef7040ff416ccba40aacbd199"
     }
   },
-  "updated_at": "2026-11-27T12:06:18+08:00",
+  "updated_at": "2026-11-27T22:35:40+08:00",
   "repairs": [
     {
       "tool": "repair_noise_placeholder",

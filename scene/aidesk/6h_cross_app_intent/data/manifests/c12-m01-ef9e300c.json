@@ -182,10 +182,10 @@
   },
   "elapsed_s": 374.68,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T23:06:29+08:00",
+    "note": "人工陪审通过+人工修正：i002 status completed→confirmed（仅下单支付5699未签收，口径E+样本11一致）；D5两意图分离正确，命名去换新、personal_use标推断；改进项：generator_event_id命名空间伪引用"
   },
   "artefacts": {
     "scenario_spec": {
@@ -209,5 +209,5 @@
       "sha256": "1b39ad8b0ecaaf3c47ec1cf7424579ba54e4a26c24d5aa4ddd11d0022e15d118"
     }
   },
-  "updated_at": "2026-11-27T12:16:26+08:00"
+  "updated_at": "2026-11-27T23:06:29+08:00"
 }

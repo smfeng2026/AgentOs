@@ -8,51 +8,26 @@
       "status": "cancelled",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e001",
-        "e004",
-        "e006",
-        "e009",
+        "e024",
+        "e026",
+        "e027",
+        "e029",
         "e030"
       ],
       "related_interest_event_ids": [
+        "e001",
         "e003",
+        "e004",
         "e005",
+        "e006",
         "e008",
+        "e009",
         "e010",
         "e015",
         "e019"
       ],
-      "contradicting_event_ids": [
-        "e024",
-        "e026",
-        "e027",
-        "e029"
-      ],
+      "contradicting_event_ids": [],
       "confirmed_facts": [
-        {
-          "fact": "存在一笔已支付的杭州—三亚往返机票订单F2026120501，12月12日出发、12月15日返回，乘客本人和小林，总价¥2,980。",
-          "source_event_ids": [
-            "e001"
-          ]
-        },
-        {
-          "fact": "存在已预订的三亚海景酒店订单H2026112801，高级海景双床房，12月12日入住、12月15日退房，共3晚。",
-          "source_event_ids": [
-            "e004"
-          ]
-        },
-        {
-          "fact": "日历中已有“三亚度假（杭州—三亚）”日程，日期12月12日至15日，并设置12月12日06:30出发去萧山机场提醒。",
-          "source_event_ids": [
-            "e006"
-          ]
-        },
-        {
-          "fact": "用户与小林确认12号早上7点萧山机场T4集合，并由用户办理网上值机。",
-          "source_event_ids": [
-            "e009"
-          ]
-        },
         {
           "fact": "机票订单F2026120501已提交退票申请，手续费¥330，退款金额¥2,650，订单状态为退票处理中。",
           "source_event_ids": [
@@ -127,6 +102,30 @@
             "e029",
             "e030"
           ]
+        },
+        {
+          "fact": "存在一笔已支付的杭州—三亚往返机票订单F2026120501，12月12日出发、12月15日返回，乘客本人和小林，总价¥2,980。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "存在已预订的三亚海景酒店订单H2026112801，高级海景双床房，12月12日入住、12月15日退房，共3晚。",
+          "source_event_ids": [
+            "e004"
+          ]
+        },
+        {
+          "fact": "日历中已有“三亚度假（杭州—三亚）”日程，日期12月12日至15日，并设置12月12日06:30出发去萧山机场提醒。",
+          "source_event_ids": [
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户与小林确认12号早上7点萧山机场T4集合，并由用户办理网上值机。",
+          "source_event_ids": [
+            "e009"
+          ]
         }
       ],
       "unknown_information": [
@@ -142,7 +141,7 @@
   "event_labels": [
     {
       "event_id": "e001",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -161,7 +160,7 @@
     },
     {
       "event_id": "e004",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -175,7 +174,7 @@
     },
     {
       "event_id": "e006",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -194,7 +193,7 @@
     },
     {
       "event_id": "e009",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -277,7 +276,7 @@
     },
     {
       "event_id": "e024",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
@@ -289,14 +288,14 @@
     },
     {
       "event_id": "e026",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e027",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
@@ -308,7 +307,7 @@
     },
     {
       "event_id": "e029",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]

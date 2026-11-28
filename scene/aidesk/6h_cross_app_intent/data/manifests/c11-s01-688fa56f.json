@@ -175,10 +175,10 @@
   },
   "elapsed_s": 238.54,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:33+08:00",
+    "note": "人工陪审通过+修正：planned→confirmed（租车支付516+门票预订+敲定消息，口径E）"
   },
   "artefacts": {
     "scenario_spec": {
@@ -202,5 +202,5 @@
       "sha256": "2f07222eeec0ab7300c367e4789e7fc3a32a052d3d2bb0da673baa7a20a0ae1b"
     }
   },
-  "updated_at": "2026-11-27T12:08:32+08:00"
+  "updated_at": "2026-11-28T09:45:33+08:00"
 }

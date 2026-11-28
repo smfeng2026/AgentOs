@@ -11,7 +11,6 @@
         "e016",
         "e017",
         "e018",
-        "e021",
         "e025"
       ],
       "related_interest_event_ids": [
@@ -24,7 +23,8 @@
         "e012",
         "e013",
         "e026",
-        "e029"
+        "e029",
+        "e021"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
@@ -44,12 +44,6 @@
           "fact": "医院已发送体检预约确认通知，预约状态为已确认，并要求12月12日08:00前到达、抽血项目保持空腹。",
           "source_event_ids": [
             "e018"
-          ]
-        },
-        {
-          "fact": "订单TJ20261212001显示为已预约、已支付。",
-          "source_event_ids": [
-            "e021"
           ]
         },
         {
@@ -90,6 +84,12 @@
           "fact": "上年度体检报告显示低密度脂蛋白偏高且医生建议规律复查，存在复查需求的可能性。",
           "source_event_ids": [
             "e001"
+          ]
+        },
+        {
+          "fact": "订单TJ20261212001显示为已预约、已支付。",
+          "source_event_ids": [
+            "e021"
           ]
         }
       ],
@@ -227,7 +227,7 @@
     },
     {
       "event_id": "e021",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

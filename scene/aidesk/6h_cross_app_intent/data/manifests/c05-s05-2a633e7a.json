@@ -168,10 +168,10 @@
   },
   "elapsed_s": 183.87,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T22:39:22+08:00",
+    "note": "人工陪审通过：弱证据反过度推断样板；口径D锁定（纯浏览样本supporting可空/unknown/emerging/low；日常缴费噪声不升格意图）；盲标fitness/training/high与噪声意图i002均被正确拒绝"
   },
   "artefacts": {
     "scenario_spec": {
@@ -195,7 +195,7 @@
       "sha256": "34284c453f68bed2692d84e3f9abb194a874cd92bfe0ecb1f2ec2ac50d1fb8ac"
     }
   },
-  "updated_at": "2026-11-27T12:06:18+08:00",
+  "updated_at": "2026-11-27T22:39:22+08:00",
   "repairs": [
     {
       "tool": "repair_noise_placeholder",

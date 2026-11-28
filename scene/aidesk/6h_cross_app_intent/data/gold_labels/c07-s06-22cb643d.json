@@ -8,47 +8,26 @@
       "status": "cancelled",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e002",
-        "e005",
-        "e006",
-        "e007",
-        "e014"
-      ],
-      "related_interest_event_ids": [
-        "e003",
-        "e010",
-        "e011",
-        "e016",
-        "e026",
-        "e030"
-      ],
-      "contradicting_event_ids": [
         "e019",
         "e020",
         "e021",
         "e022"
       ],
+      "related_interest_event_ids": [
+        "e002",
+        "e003",
+        "e005",
+        "e006",
+        "e007",
+        "e010",
+        "e011",
+        "e014",
+        "e016",
+        "e026",
+        "e030"
+      ],
+      "contradicting_event_ids": [],
       "confirmed_facts": [
-        {
-          "fact": "用户持有一笔已支付的星野巡回演唱会·杭州站订单，时间为12月26日，2张票，内场B区12排，总价¥1360。",
-          "source_event_ids": [
-            "e002"
-          ]
-        },
-        {
-          "fact": "用户与小周约定12月26日17:30在滨江体育中心体育馆西门碰面，并确认两张票在用户处。",
-          "source_event_ids": [
-            "e005",
-            "e006"
-          ]
-        },
-        {
-          "fact": "用户日历中已有12月26日19:30林星野巡回演唱会（与小周同行）日程，并设置了12月26日17:30开演前2小时提醒。",
-          "source_event_ids": [
-            "e007",
-            "e014"
-          ]
-        },
         {
           "fact": "小周因12月24日至28日去深圳出差，无法参加12月26日演唱会，提出退票并愿意补手续费。",
           "source_event_ids": [
@@ -70,6 +49,26 @@
         }
       ],
       "inferred_facts": [
+        {
+          "fact": "用户持有一笔已支付的星野巡回演唱会·杭州站订单，时间为12月26日，2张票，内场B区12排，总价¥1360。",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "用户与小周约定12月26日17:30在滨江体育中心体育馆西门碰面，并确认两张票在用户处。",
+          "source_event_ids": [
+            "e005",
+            "e006"
+          ]
+        },
+        {
+          "fact": "用户日历中已有12月26日19:30林星野巡回演唱会（与小周同行）日程，并设置了12月26日17:30开演前2小时提醒。",
+          "source_event_ids": [
+            "e007",
+            "e014"
+          ]
+        },
         {
           "fact": "用户对林星野演唱会具有粉丝兴趣，曾浏览歌手歌曲、官方后援会演出话题，并收藏巡演歌单。",
           "source_event_ids": [
@@ -113,7 +112,7 @@
     },
     {
       "event_id": "e002",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -132,21 +131,21 @@
     },
     {
       "event_id": "e005",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e006",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e007",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -187,7 +186,7 @@
     },
     {
       "event_id": "e014",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -216,28 +215,28 @@
     },
     {
       "event_id": "e019",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e020",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e021",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e022",
-      "relation": "contradicting",
+      "relation": "supporting",
       "intent_ids": [
         "i001"
       ]

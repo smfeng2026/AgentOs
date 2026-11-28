@@ -8,7 +8,6 @@
       "status": "confirmed",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e013",
         "e018",
         "e019",
         "e024"
@@ -24,16 +23,11 @@
         "e015",
         "e016",
         "e017",
-        "e028"
+        "e028",
+        "e013"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
-        {
-          "fact": "用户在即时通讯中告知同事旧手机电池老化严重，打算这几天换一台新手机自己用。",
-          "source_event_ids": [
-            "e013"
-          ]
-        },
         {
           "fact": "用户创建订单 SO20261214214801，购买星曜X7 Pro手机 12GB+256GB 曜夜黑 1台，金额4899元，订单状态为待支付。",
           "source_event_ids": [
@@ -88,6 +82,12 @@
           "fact": "用户下单后查看订单，关注订单已发货状态。",
           "source_event_ids": [
             "e028"
+          ]
+        },
+        {
+          "fact": "用户在即时通讯中告知同事旧手机电池老化严重，打算这几天换一台新手机自己用。",
+          "source_event_ids": [
+            "e013"
           ]
         }
       ],
@@ -176,7 +176,7 @@
     },
     {
       "event_id": "e013",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

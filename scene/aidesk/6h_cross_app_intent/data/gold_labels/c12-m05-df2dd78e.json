@@ -134,43 +134,6 @@
         "最终参会名单未明确"
       ],
       "conflicts": []
-    },
-    {
-      "intent_id": "i003",
-      "intent_name": "考虑12月28日前往郑州",
-      "category": "travel",
-      "purpose": "unknown",
-      "status": "considering",
-      "confidence_level": "medium",
-      "supporting_event_ids": [],
-      "related_interest_event_ids": [
-        "e002",
-        "e007"
-      ],
-      "contradicting_event_ids": [],
-      "confirmed_facts": [],
-      "inferred_facts": [
-        {
-          "fact": "用户可能正在考虑12月28日从上海前往郑州的行程",
-          "source_event_ids": [
-            "e002",
-            "e007"
-          ]
-        },
-        {
-          "fact": "用户在比较航班和火车两种交通方式",
-          "source_event_ids": [
-            "e002",
-            "e007"
-          ]
-        }
-      ],
-      "unknown_information": [
-        "出行目的未明确",
-        "是否最终预订未明确",
-        "同行人数和返程日期未明确"
-      ],
-      "conflicts": []
     }
   ],
   "event_labels": [
@@ -183,10 +146,8 @@
     },
     {
       "event_id": "e002",
-      "relation": "related_interest",
-      "intent_ids": [
-        "i003"
-      ]
+      "relation": "unrelated",
+      "intent_ids": []
     },
     {
       "event_id": "e003",
@@ -216,10 +177,8 @@
     },
     {
       "event_id": "e007",
-      "relation": "related_interest",
-      "intent_ids": [
-        "i003"
-      ]
+      "relation": "unrelated",
+      "intent_ids": []
     },
     {
       "event_id": "e008",
@@ -360,7 +319,9 @@
     }
   ],
   "unrelated_event_ids": [
+    "e002",
     "e006",
+    "e007",
     "e009",
     "e012",
     "e014",
@@ -375,8 +336,8 @@
     "e029"
   ],
   "global_observations": {
-    "intent_count": 3,
-    "unrelated_event_count": 13
+    "intent_count": 2,
+    "unrelated_event_count": 15
   },
   "sample_id": "c12-m05-df2dd78e"
 }

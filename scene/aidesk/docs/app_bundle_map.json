@@ -1,0 +1,229 @@
+{
+  "_doc": "角色 -> 鸿蒙 NEXT bundleName 映射草案。platform=HarmonyOS_NEXT。verified=true 表示包名经公开来源核实；verified=false 表示待核实，bundleName 留空（空串），不得用于生成/校验，需先补全。android_reference 仅为安卓 packageName 参考，严禁当作鸿蒙 bundleName 使用（鸿蒙 NEXT 与安卓包名大多不同）。special=no_native_harmonyos 表示该应用无原生鸿蒙版。本表用于替代 app_vocabulary.json 的通用角色名时保持『同一 App 多角色 + 事件内容与 App 能力一致』的防泄漏设计。",
+  "platform": "HarmonyOS_NEXT",
+  "status": "draft",
+  "status_legend": {
+    "verified_true": "包名已核实，可用",
+    "verified_false": "待核实，bundleName 留空，补全前禁用",
+    "android_reference": "仅安卓参考，非鸿蒙值",
+    "no_native_harmonyos": "无原生鸿蒙版，需卓易通跑安卓或换角色"
+  },
+  "sources": [
+    {"id": "huawei_official_icons", "url": "https://developer.huawei.com/consumer/cn/doc/content/icons_designguide_scope_thirdicons-0000002771946006"},
+    {"id": "huawei_forum_list", "url": "https://developer.huawei.com/consumer/cn/forum/topic/0208209208751176421"},
+    {"id": "mobiagent_harmony", "url": "https://gitcode.com/gh_mirrors/mo/MobiAgent/blob/main/prompts/planner_oneshot_harmony.md"},
+    {"id": "atomgit_lists", "url": "https://atomgit.com/search?q=wechat-miniprogram&type=issue"},
+    {"id": "harmony_deeplink", "url": "https://gitcode.com/harmony-hw-bj/HarmonyDeepLink"},
+    {"id": "weread_hmos", "url": "https://www.shuajizhijia.net/app/381763.html"},
+    {"id": "huawei_forum_getpkg", "url": "https://developer.huawei.com/consumer/cn/forum/topic/0202190028232966005"}
+  ],
+  "completion_paths": [
+    "华为官方主题图标必做应用列表（约93个，含官方+三方鸿蒙 bundleName）",
+    "真机 hdc shell bm dump -a 获取已安装应用真实包名"
+  ],
+  "roles": {
+    "flight_booking_app": {"apps": [
+      {"name": "携程旅行", "bundleName": "com.ctrip.harmonynext", "verified": true},
+      {"name": "航旅纵横", "bundleName": "com.umetrip.hm.app", "verified": true},
+      {"name": "飞猪旅行", "bundleName": "com.fliggy.hmos", "verified": true},
+      {"name": "同程旅行", "bundleName": "com.tongcheng.hmos", "verified": true},
+      {"name": "去哪儿旅行", "bundleName": "com.qunar.hos", "verified": true}
+    ]},
+    "rail_ticket_app": {"apps": [
+      {"name": "铁路12306", "bundleName": "com.chinarailway.ticketingHM", "verified": true},
+      {"name": "高铁管家", "bundleName": "com.suanya.harmonynext", "verified": true}
+    ]},
+    "hotel_app": {"apps": [
+      {"name": "携程旅行", "bundleName": "com.ctrip.harmonynext", "verified": true},
+      {"name": "飞猪旅行", "bundleName": "com.fliggy.hmos", "verified": true}
+    ]},
+    "travel_guide_app": {"apps": [
+      {"name": "小红书", "bundleName": "com.xingin.xhs_hos", "verified": true},
+      {"name": "携程旅行", "bundleName": "com.ctrip.harmonynext", "verified": true},
+      {"name": "马蜂窝", "bundleName": "", "verified": false, "android_reference": "com.mfw.roadbook", "note": "鸿蒙包名待核实"}
+    ]},
+    "car_rental_app": {"apps": [
+      {"name": "神州租车", "bundleName": "", "verified": false, "note": "已上架鸿蒙原生版，包名待核实"},
+      {"name": "一嗨租车", "bundleName": "", "verified": false, "note": "已上架鸿蒙原生版，包名待核实"}
+    ]},
+    "taxi_app": {"apps": [
+      {"name": "滴滴出行", "bundleName": "com.sdu.didi.hmos.psnger", "verified": true}
+    ]},
+    "parking_app": {"apps": [
+      {"name": "ETCP停车", "bundleName": "", "verified": false, "android_reference": "com.ETCPOwner.yc", "note": "鸿蒙包名待核实"},
+      {"name": "慧停车", "bundleName": "", "verified": false, "note": "已上架鸿蒙，包名待核实"}
+    ]},
+    "mail_app": {"apps": [
+      {"name": "QQ邮箱", "bundleName": "com.tencent.qqmail.hmos", "verified": true},
+      {"name": "电子邮件(系统)", "bundleName": "com.huawei.hmos.email", "verified": true}
+    ]},
+    "calendar_app": {"apps": [
+      {"name": "日历(系统)", "bundleName": "com.huawei.hmos.calendar", "verified": true}
+    ]},
+    "im_app": {"apps": [
+      {"name": "微信", "bundleName": "com.tencent.wechat", "verified": true},
+      {"name": "钉钉", "bundleName": "com.dingtalk.hmos", "verified": true},
+      {"name": "QQ", "bundleName": "", "verified": false, "android_reference": "com.tencent.mobileqq", "note": "鸿蒙包名待核实"}
+    ]},
+    "docs_app": {"apps": [
+      {"name": "WPS移动版", "bundleName": "cn.wps.mobileoffice.hap", "verified": true},
+      {"name": "钉钉", "bundleName": "com.dingtalk.hmos", "verified": true}
+    ]},
+    "contacts_app": {"apps": [
+      {"name": "联系人(系统)", "bundleName": "", "verified": false, "note": "候选 com.huawei.hmos.contacts，待核实"}
+    ]},
+    "meeting_app": {"apps": [
+      {"name": "腾讯会议", "bundleName": "com.tencent.meeting.app", "verified": true},
+      {"name": "畅连(系统)", "bundleName": "com.huawei.hmos.meetime", "verified": true}
+    ]},
+    "job_app": {"apps": [
+      {"name": "BOSS直聘", "bundleName": "", "verified": false, "android_reference": "com.hpbr.bosszhipin", "note": "已上架鸿蒙，包名待核实"},
+      {"name": "智联招聘", "bundleName": "", "verified": false, "note": "已上架鸿蒙，包名待核实"}
+    ]},
+    "shopping_app": {"apps": [
+      {"name": "淘宝", "bundleName": "com.taobao.taobao4hmos", "verified": true},
+      {"name": "京东", "bundleName": "com.jd.hm.mall", "verified": true},
+      {"name": "拼多多", "bundleName": "com.xunmeng.pinduoduo.hos", "verified": true},
+      {"name": "闲鱼", "bundleName": "com.taobao.idlefish4ohos", "verified": true},
+      {"name": "唯品会", "bundleName": "com.vip.hosapp", "verified": true},
+      {"name": "华为商城", "bundleName": "com.huawei.hmos.vmall", "verified": true}
+    ]},
+    "price_compare_app": {"apps": [
+      {"name": "什么值得买", "bundleName": "com.smzdm.client.hmos", "verified": true},
+      {"name": "慢慢买", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "payment_app": {"apps": [
+      {"name": "支付宝", "bundleName": "com.alipay.mobile.client", "verified": true},
+      {"name": "云闪付", "bundleName": "com.unionpay.hmos.wallet", "verified": true},
+      {"name": "华为钱包", "bundleName": "com.huawei.hmos.wallet", "verified": true}
+    ]},
+    "delivery_app": {"apps": [
+      {"name": "菜鸟", "bundleName": "", "verified": false, "android_reference": "com.cainiao.wireless", "note": "鸿蒙包名待核实"},
+      {"name": "快递100", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "restaurant_app": {"apps": [
+      {"name": "大众点评", "bundleName": "com.sankuai.dianping", "verified": true},
+      {"name": "美团", "bundleName": "com.sankuai.hmeituan", "verified": true}
+    ]},
+    "food_delivery_app": {"apps": [
+      {"name": "美团外卖", "bundleName": "com.meituan.takeaway", "verified": true},
+      {"name": "饿了么", "bundleName": "me.ele.eleme", "verified": true},
+      {"name": "美团", "bundleName": "com.sankuai.hmeituan", "verified": true}
+    ]},
+    "review_app": {"apps": [
+      {"name": "大众点评", "bundleName": "com.sankuai.dianping", "verified": true},
+      {"name": "小红书", "bundleName": "com.xingin.xhs_hos", "verified": true}
+    ]},
+    "health_app": {"apps": [
+      {"name": "运动健康(系统)", "bundleName": "com.huawei.hmos.health", "verified": true},
+      {"name": "丁香医生", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "hospital_app": {"apps": [
+      {"name": "微医", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"},
+      {"name": "平安好医生", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"},
+      {"name": "好大夫", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "clinic_app": {"apps": [
+      {"name": "诊所预约类", "bundleName": "", "verified": false, "note": "无明确候选，鸿蒙包名待核实"}
+    ]},
+    "pharmacy_app": {"apps": [
+      {"name": "叮当快药", "bundleName": "", "verified": false, "android_reference": "com.ddsy.songyao", "note": "鸿蒙包名待核实"},
+      {"name": "美团买药", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "learning_app": {"apps": [
+      {"name": "中国大学MOOC", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"},
+      {"name": "网易云课堂", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "exam_app": {"apps": [
+      {"name": "粉笔", "bundleName": "", "verified": false, "android_reference": "com.fenbi.android.servant", "note": "鸿蒙包名待核实"},
+      {"name": "华图", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "reader_app": {"apps": [
+      {"name": "华为阅读", "bundleName": "com.huawei.hmsapp.books", "verified": true},
+      {"name": "微信读书", "bundleName": "com.tencent.weread.hmos", "verified": true}
+    ]},
+    "video_app": {"apps": [
+      {"name": "抖音", "bundleName": "com.ss.hm.ugc.aweme", "verified": true},
+      {"name": "哔哩哔哩", "bundleName": "yylx.danmaku.bili", "verified": true},
+      {"name": "爱奇艺", "bundleName": "com.qiyi.video.hmy", "verified": true},
+      {"name": "腾讯视频", "bundleName": "com.tencent.videohm", "verified": true},
+      {"name": "华为视频", "bundleName": "com.huawei.hmsapp.himovie", "verified": true}
+    ]},
+    "music_app": {"apps": [
+      {"name": "华为音乐", "bundleName": "com.huawei.hmsapp.music", "verified": true},
+      {"name": "QQ音乐", "bundleName": "com.tencent.hm.qqmusic", "verified": true},
+      {"name": "网易云音乐", "bundleName": "", "verified": false, "android_reference": "com.netease.cloudmusic", "note": "鸿蒙包名待核实"}
+    ]},
+    "ticket_app": {"apps": [
+      {"name": "大麦", "bundleName": "cn.damai.hongmeng", "verified": true},
+      {"name": "猫眼", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"},
+      {"name": "淘票票", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "game_app": {"apps": [
+      {"name": "游戏中心(系统)", "bundleName": "com.huawei.hmsapp.gamecenter", "verified": true},
+      {"name": "和平精英", "bundleName": "com.tencent.tmgp.pubgmhd.hw", "verified": true},
+      {"name": "金铲铲之战", "bundleName": "com.tencent.jkchess.huawei", "verified": true}
+    ]},
+    "home_service_app": {"apps": [
+      {"name": "58同城", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"},
+      {"name": "天鹅到家", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "pet_app": {"apps": [
+      {"name": "宠物服务类", "bundleName": "", "verified": false, "note": "无明确候选，鸿蒙包名待核实"}
+    ]},
+    "furniture_app": {"apps": [
+      {"name": "宜家", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"},
+      {"name": "红星美凯龙", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "banking_app": {"apps": [
+      {"name": "云闪付", "bundleName": "com.unionpay.hmos.wallet", "verified": true},
+      {"name": "京东金融", "bundleName": "com.jd.jrapp.hongmeng", "verified": true},
+      {"name": "工商银行", "bundleName": "com.icbc.harmonyclient", "verified": true},
+      {"name": "建设银行", "bundleName": "", "verified": false, "note": "deeplink scheme=ccbapp，bundleName 待核实"}
+    ]},
+    "government_app": {"apps": [
+      {"name": "交管12123", "bundleName": "com.tmri.app.harmony12123", "verified": true},
+      {"name": "国家政务服务平台", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "tax_app": {"special": "no_native_harmonyos", "apps": [
+      {"name": "个人所得税", "bundleName": "", "verified": false, "android_reference": "cn.gov.tax.its", "note": "无原生鸿蒙版，需卓易通跑安卓；如用安卓包名须显式标注平台"}
+    ]},
+    "fitness_app": {"apps": [
+      {"name": "运动健康(系统)", "bundleName": "com.huawei.hmos.health", "verified": true},
+      {"name": "Keep", "bundleName": "", "verified": false, "android_reference": "com.gotokeep.keep", "note": "鸿蒙包名待核实"}
+    ]},
+    "sports_app": {"apps": [
+      {"name": "运动类", "bundleName": "", "verified": false, "note": "无明确候选，鸿蒙包名待核实"}
+    ]},
+    "venue_booking_app": {"apps": [
+      {"name": "场馆预订类", "bundleName": "", "verified": false, "note": "无明确候选，鸿蒙包名待核实"}
+    ]},
+    "map_app": {"apps": [
+      {"name": "高德地图", "bundleName": "com.amap.hmapp", "verified": true},
+      {"name": "百度地图", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "weather_app": {"apps": [
+      {"name": "华为天气", "bundleName": "com.huawei.hmsapp.totemweather", "verified": true},
+      {"name": "墨迹天气", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "news_app": {"apps": [
+      {"name": "今日头条", "bundleName": "com.ss.hm.article.news", "verified": true},
+      {"name": "腾讯新闻", "bundleName": "", "verified": false, "note": "鸿蒙包名待核实"}
+    ]},
+    "social_app": {"apps": [
+      {"name": "小红书", "bundleName": "com.xingin.xhs_hos", "verified": true},
+      {"name": "微博", "bundleName": "com.sina.weibo.stage", "verified": true},
+      {"name": "知乎", "bundleName": "com.zhihu.hmos", "verified": true}
+    ]},
+    "gallery_app": {"apps": [
+      {"name": "图库(系统)", "bundleName": "com.huawei.hmos.photos", "verified": true}
+    ]},
+    "settings_app": {"apps": [
+      {"name": "设置(系统)", "bundleName": "com.huawei.hmos.settings", "verified": true}
+    ]},
+    "commute_app": {"apps": [
+      {"name": "车来了", "bundleName": "", "verified": false, "note": "已上架鸿蒙，包名待核实"},
+      {"name": "掌上公交", "bundleName": "", "verified": false, "note": "已上架鸿蒙，包名待核实"}
+    ]}
+  }
+}

@@ -175,10 +175,10 @@
   },
   "elapsed_s": 211.71,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:32+08:00",
+    "note": "人工陪审通过：莫干山自驾confirmed，S=敲定消息/日历/租车下单/支付596，无修正"
   },
   "artefacts": {
     "scenario_spec": {
@@ -202,5 +202,5 @@
       "sha256": "4c533d4944bc58e3c03d329c35152142ffb2895486ac371f648cdcbde397ab1c"
     }
   },
-  "updated_at": "2026-11-27T11:45:43+08:00"
+  "updated_at": "2026-11-28T09:45:32+08:00"
 }

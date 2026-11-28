@@ -8,8 +8,6 @@
       "status": "confirmed",
       "confidence_level": "high",
       "supporting_event_ids": [
-        "e001",
-        "e003",
         "e005",
         "e012"
       ],
@@ -24,22 +22,12 @@
         "e023",
         "e026",
         "e029",
-        "e030"
+        "e030",
+        "e001",
+        "e003"
       ],
       "contradicting_event_ids": [],
       "confirmed_facts": [
-        {
-          "fact": "用户在 exam_app 查看的六级准考证载明：考试日期 12月19日、15:00 开考、考点为长安大学渭水校区考点、考场为修远教学楼302、座位18号，准考证号 2612****0835，表明考试报名与准考证已生效。",
-          "source_event_ids": [
-            "e001"
-          ]
-        },
-        {
-          "fact": "用户日历中已存在12月19日15:00-17:25“大学英语六级考试”日程，地点为长安大学渭水校区考点。",
-          "source_event_ids": [
-            "e003"
-          ]
-        },
         {
           "fact": "学校教务处发来考前通知，确认六级考试于12月19日15:00-17:25在长安大学渭水校区考点举行，并要求提前打印准考证、携带身份证入场。",
           "source_event_ids": [
@@ -89,6 +77,18 @@
           "source_event_ids": [
             "e029"
           ]
+        },
+        {
+          "fact": "用户在 exam_app 查看的六级准考证载明：考试日期 12月19日、15:00 开考、考点为长安大学渭水校区考点、考场为修远教学楼302、座位18号，准考证号 2612****0835，表明考试报名与准考证已生效。",
+          "source_event_ids": [
+            "e001"
+          ]
+        },
+        {
+          "fact": "用户日历中已存在12月19日15:00-17:25“大学英语六级考试”日程，地点为长安大学渭水校区考点。",
+          "source_event_ids": [
+            "e003"
+          ]
         }
       ],
       "unknown_information": [
@@ -105,7 +105,7 @@
   "event_labels": [
     {
       "event_id": "e001",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
@@ -117,7 +117,7 @@
     },
     {
       "event_id": "e003",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

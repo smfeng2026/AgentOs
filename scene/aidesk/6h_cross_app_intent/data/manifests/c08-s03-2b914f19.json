@@ -174,10 +174,10 @@
   },
   "elapsed_s": 365.8,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T22:27:58+08:00",
+    "note": "人工陪审通过+人工修正：删除e029泄漏字段query_purpose（model_inputs与internal_labels同步，镜像一致已校验）；6S核实，category=family正确；备注：日历参与人仅列8人中4人、内部time_profile不符（不影响标签）"
   },
   "artefacts": {
     "scenario_spec": {
@@ -201,5 +201,5 @@
       "sha256": "749bc75df645f54bc0d2344b43a08d4d30b9138fec235232ec6836b2ac3ed820"
     }
   },
-  "updated_at": "2026-11-27T12:03:13+08:00"
+  "updated_at": "2026-11-27T22:27:58+08:00"
 }

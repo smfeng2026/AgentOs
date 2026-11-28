@@ -178,10 +178,10 @@
   },
   "elapsed_s": 351.41,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-27T17:58:22+08:00",
+    "note": "人工陪审通过：口径A细化（本人敲定消息e007=S，邀约e001=i）；口径C（e023同品类弱关联=i，e021异品类=无关）；组成7/7/16在硬边界内接受；流程级待办：confirmed_facts仅引S导致观察事实被归inferred"
   },
   "artefacts": {
     "scenario_spec": {
@@ -205,5 +205,5 @@
       "sha256": "61e79c0e08758e1bcfbb1b8e5c9b4843ba9597af977179d7e2200b409f790190"
     }
   },
-  "updated_at": "2026-11-27T11:27:29+08:00"
+  "updated_at": "2026-11-27T17:58:22+08:00"
 }

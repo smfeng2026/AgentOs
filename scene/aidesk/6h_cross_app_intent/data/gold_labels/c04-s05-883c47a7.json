@@ -7,11 +7,7 @@
       "purpose": "socializing",
       "status": "considering",
       "confidence_level": "low",
-      "supporting_event_ids": [
-        "e002",
-        "e003",
-        "e004"
-      ],
+      "supporting_event_ids": [],
       "related_interest_event_ids": [
         "e007",
         "e008",
@@ -24,29 +20,13 @@
         "e020",
         "e021",
         "e023",
-        "e029"
+        "e029",
+        "e002",
+        "e003",
+        "e004"
       ],
       "contradicting_event_ids": [],
-      "confirmed_facts": [
-        {
-          "fact": "老同学阿凯发消息提议改天一起吃个饭",
-          "source_event_ids": [
-            "e002"
-          ]
-        },
-        {
-          "fact": "用户回复同意，表示最近都行、到时候约，但未给出具体时间",
-          "source_event_ids": [
-            "e003"
-          ]
-        },
-        {
-          "fact": "阿凯表示回头再定时间，双方始终未敲定日期",
-          "source_event_ids": [
-            "e004"
-          ]
-        }
-      ],
+      "confirmed_facts": [],
       "inferred_facts": [
         {
           "fact": "用户在餐厅App以“本帮菜/静安寺/朋友聚餐”搜索并浏览朋友聚餐推荐列表，筛选本帮菜、江浙菜",
@@ -89,6 +69,24 @@
           "source_event_ids": [
             "e023"
           ]
+        },
+        {
+          "fact": "老同学阿凯发消息提议改天一起吃个饭",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "用户回复同意，表示最近都行、到时候约，但未给出具体时间",
+          "source_event_ids": [
+            "e003"
+          ]
+        },
+        {
+          "fact": "阿凯表示回头再定时间，双方始终未敲定日期",
+          "source_event_ids": [
+            "e004"
+          ]
         }
       ],
       "unknown_information": [
@@ -109,21 +107,21 @@
     },
     {
       "event_id": "e002",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e003",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]
     },
     {
       "event_id": "e004",
-      "relation": "supporting",
+      "relation": "related_interest",
       "intent_ids": [
         "i001"
       ]

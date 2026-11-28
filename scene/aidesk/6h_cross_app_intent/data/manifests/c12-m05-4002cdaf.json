@@ -183,10 +183,10 @@
   },
   "elapsed_s": 344.26,
   "approval": {
-    "state": "pending",
-    "by": null,
-    "at": null,
-    "note": null
+    "state": "approved",
+    "by": "sumi",
+    "at": "2026-11-28T09:45:32+08:00",
+    "note": "人工陪审通过：D5双意图(成都游玩/评审会)分离干净，S全决定性，无修正"
   },
   "artefacts": {
     "scenario_spec": {
@@ -210,5 +210,5 @@
       "sha256": "b94ae9490469d83703f297c24be6f04f14dd0207510142fe6f9da340899389fb"
     }
   },
-  "updated_at": "2026-11-27T12:20:14+08:00"
+  "updated_at": "2026-11-28T09:45:32+08:00"
 }
