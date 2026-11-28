@@ -1,0 +1,13 @@
+# 消融实验：富 prompt（补全枚举 + 30 条全覆盖强约束 + 结构示例）
+# 数据集与 approved_all_v1 完全相同，唯一变量是 system prompt。
+dataset: approved_all_v1
+gold_files: [eval.jsonl]
+system_prompt_source: prompts/sft_system_rich.txt
+decoding:
+  max_new_tokens: 3000                 # 与基线一致；富 prompt 输出更长，1600 会截断
+  do_sample: false
+  repetition_penalty: 1.0
+repair:
+  max_retries: 1
+  retry_suffix: 你上一条输出不是合法 JSON。请只输出一个符合 system 提示结构的 JSON 对象，不要输出任何其他文本。
+match_threshold: 0.4

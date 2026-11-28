@@ -1,0 +1,8 @@
+{
+  "base_id": "mnn-pocket-0.3b",
+  "repo": "taobao-mnn/MNN-Pocket-0.3B",
+  "revision": "48fae9c0be6ec505e80f36f69b8ba21097f9f822",
+  "status": "downloaded",
+  "notes": "已验证（2026-11-28）：HF 仓库含 config.json + model.safetensors，transformers 可加载。INT4 为 QAT，能力基线用 BF16/FP16。",
+  "registered_at": "2026-11-28T14:13:36+08:00"
+}

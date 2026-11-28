@@ -1,0 +1,21 @@
+{
+  "name": "pilot_v1",
+  "source": "/Users/sumi/jobs/DevEcoStudioProjects/aios/scene/aidesk/6h_cross_app_intent/data/splits_pilot",
+  "copied_at": "2026-11-27T17:40:47+08:00",
+  "provenance": {
+    "builder_version": "1.1.0",
+    "generated_at": "2026-11-27T12:29:02+08:00",
+    "allow_unapproved": true,
+    "n_records": 48
+  },
+  "files": {
+    "test.jsonl": {
+      "sha256": "81f0b6d4dd2b60f84c3d630191b2d034e45782c2d6777e948b533cc8611ea32c",
+      "rows": 6
+    },
+    "challenge_test.jsonl": {
+      "sha256": "d2f9f9c118390accdaa69c545819689263d75636e11ee6026fa02dc91f07cece",
+      "rows": 6
+    }
+  }
+}

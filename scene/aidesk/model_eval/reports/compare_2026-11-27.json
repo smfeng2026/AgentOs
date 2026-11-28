@@ -1,0 +1,16 @@
+[
+  {
+    "run_id": "2026-11-27__qwen3-0.6b__official__float16__pilot_v1__full",
+    "artifact": "qwen3-0.6b__official",
+    "dataset": "pilot_v1",
+    "evaluated": true,
+    "n_evaluated": 12,
+    "format_valid": 1.0,
+    "intent_f1": 0.2308,
+    "intent_macro_f1": 0.0952,
+    "relation_macro_f1": 0.2434,
+    "purpose_acc": 0.0,
+    "purpose_over_inf": null,
+    "fact_grounding": 0.0
+  }
+]

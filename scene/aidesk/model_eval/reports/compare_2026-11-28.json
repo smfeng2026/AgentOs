@@ -1,0 +1,44 @@
+[
+  {
+    "run_id": "2026-11-28__qwen3-0.6b__official__float16__approved_all_v1__cap3k",
+    "artifact": "qwen3-0.6b__official",
+    "dataset": "approved_all_v1",
+    "evaluated": true,
+    "n_evaluated": 44,
+    "format_valid": 0.9167,
+    "intent_f1": 0.172,
+    "intent_macro_f1": 0.1089,
+    "relation_macro_f1": 0.2126,
+    "purpose_acc": 0.0,
+    "purpose_over_inf": 1.0,
+    "fact_grounding": 0.125
+  },
+  {
+    "run_id": "2026-11-28__lfm2.5-350m__official__float16__approved_all_v1",
+    "artifact": "lfm2.5-350m__official",
+    "dataset": "approved_all_v1",
+    "evaluated": true,
+    "n_evaluated": 45,
+    "format_valid": 0.9375,
+    "intent_f1": 0.0,
+    "intent_macro_f1": 0.0,
+    "relation_macro_f1": 0.1683,
+    "purpose_acc": null,
+    "purpose_over_inf": null,
+    "fact_grounding": null
+  },
+  {
+    "run_id": "2026-11-28__mnn-pocket-0.3b__official__float16__approved_all_v1",
+    "artifact": "mnn-pocket-0.3b__official",
+    "dataset": "approved_all_v1",
+    "evaluated": true,
+    "n_evaluated": 10,
+    "format_valid": 0.2083,
+    "intent_f1": 0.0,
+    "intent_macro_f1": 0.0,
+    "relation_macro_f1": 0.2009,
+    "purpose_acc": null,
+    "purpose_over_inf": null,
+    "fact_grounding": null
+  }
+]

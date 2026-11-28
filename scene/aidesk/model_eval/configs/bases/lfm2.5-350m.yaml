@@ -1,0 +1,9 @@
+base_id: lfm2.5-350m
+repo_id: LiquidAI/LFM2.5-350M
+store_dir: base/lfm2.5-350m
+trust_remote_code: false
+torch_dtype: bfloat16
+chat_template_kwargs: {}
+notes: >
+  混合卷积 + GQA。需要较新 transformers 的 LFM2 支持；安装依赖时验证算子与 chat template，
+  不兼容则记录阻塞项，不得静默换模型。

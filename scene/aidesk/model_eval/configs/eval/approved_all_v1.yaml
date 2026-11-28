@@ -1,0 +1,12 @@
+# 评测配置：approved_all_v1（48 条人工批准样本，审批人 sumi；见 datasets/approved_all_v1/SOURCE.md）
+dataset: approved_all_v1
+gold_files: [eval.jsonl]
+system_prompt_source: ../6h_cross_app_intent/prompts/sft_system.txt
+decoding:
+  max_new_tokens: 3000                 # 1600 会截断部分完整输出（实测发现），两侧统一提高
+  do_sample: false
+  repetition_penalty: 1.0
+repair:
+  max_retries: 1
+  retry_suffix: 你上一条输出不是合法 JSON。请只输出一个符合 system 提示结构的 JSON 对象，不要输出任何其他文本。
+match_threshold: 0.4

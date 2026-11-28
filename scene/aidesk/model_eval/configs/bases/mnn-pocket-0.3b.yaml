@@ -1,0 +1,10 @@
+# 基座加载配置 — 只描述「怎么加载」，权重本体在 model_store/base/<base_id>/
+base_id: mnn-pocket-0.3b
+repo_id: taobao-mnn/MNN-Pocket-0.3B
+store_dir: base/mnn-pocket-0.3b        # 相对 model_store
+trust_remote_code: false
+torch_dtype: bfloat16                  # 能力基线用 BF16；INT4 QAT 属部署评测
+chat_template_kwargs: {}
+notes: >
+  已验证（2026-11-28）：HF 仓库含 config.json + model.safetensors + chat_template.jinja，
+  transformers 可加载，阶段一走 HF runner。INT4 QAT 属部署评测（阶段三）。

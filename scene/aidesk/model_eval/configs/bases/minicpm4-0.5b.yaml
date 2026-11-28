@@ -1,0 +1,8 @@
+base_id: minicpm4-0.5b
+repo_id: openbmb/MiniCPM4-0.5B
+store_dir: base/minicpm4-0.5b
+trust_remote_code: true                # 官方要求；加载代码兼容性在依赖安装后验证
+torch_dtype: bfloat16
+chat_template_kwargs: {}
+notes: >
+  InfLLM v2 稀疏注意力主要面向长文本；本任务 ~2K token 输入未必体现其优势，按标准 GQA Transformer 对待。

@@ -1,0 +1,9 @@
+# 权重文件不入库；只保留注册元数据
+base/**
+!base/**/
+!base/*/upstream.json
+derived/**
+!derived/**/
+!derived/*/manifest.json
+.hf_cache/
+__pycache__/

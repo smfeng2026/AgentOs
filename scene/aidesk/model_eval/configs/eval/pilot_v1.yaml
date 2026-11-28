@@ -1,0 +1,13 @@
+# 评测配置：pilot_v1（12 条 test+challenge，标签尚未人工批准 —— 见 datasets/pilot_v1/SOURCE.md）
+dataset: pilot_v1
+gold_files: [test.jsonl, challenge_test.jsonl]
+# system prompt 复用 6h 的 SFT 模板（运行时计算 sha256 钉进 run.json）
+system_prompt_source: ../6h_cross_app_intent/prompts/sft_system.txt
+decoding:
+  max_new_tokens: 1600                 # gold 目标 p90 ≈ 1304 token，留余量
+  do_sample: false                     # 贪心，保证可复现
+  repetition_penalty: 1.0
+repair:
+  max_retries: 1                       # 输出非法 JSON 时追加提醒重试一次
+  retry_suffix: 你上一条输出不是合法 JSON。请只输出一个符合 system 提示结构的 JSON 对象，不要输出任何其他文本。
+match_threshold: 0.4                   # 与 6h 评测器默认一致；敏感性分析另跑

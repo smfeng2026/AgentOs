@@ -1,0 +1,9 @@
+base_id: qwen3-0.6b
+repo_id: Qwen/Qwen3-0.6B
+store_dir: base/qwen3-0.6b
+trust_remote_code: false
+torch_dtype: bfloat16
+chat_template_kwargs:
+  enable_thinking: false               # 主实验 non-thinking；thinking 模式另建 eval 配置做对照
+notes: >
+  8 KV Heads，KV Cache 开销相对高；能力评测与部署评测分开，见 README 阶段规划。

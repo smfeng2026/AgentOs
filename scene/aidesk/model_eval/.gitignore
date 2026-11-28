@@ -1,0 +1,6 @@
+.venv/
+.pip_cache/
+.env
+runs/
+__pycache__/
+*.pyc

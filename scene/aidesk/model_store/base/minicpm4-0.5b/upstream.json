@@ -1,0 +1,8 @@
+{
+  "base_id": "minicpm4-0.5b",
+  "repo": "openbmb/MiniCPM4-0.5B",
+  "revision": "5253c7fcc5e29e1cf3eacb59a58adf1ba4df8630",
+  "status": "downloaded",
+  "notes": "需要 trust_remote_code=True；加载代码兼容性在依赖安装后验证。",
+  "registered_at": "2026-11-28T14:12:29+08:00"
+}

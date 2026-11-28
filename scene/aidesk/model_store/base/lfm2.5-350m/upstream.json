@@ -1,0 +1,8 @@
+{
+  "base_id": "lfm2.5-350m",
+  "repo": "LiquidAI/LFM2.5-350M",
+  "revision": "9921cd4d82c0e3986887aa4b376f9446729ef8a3",
+  "status": "downloaded",
+  "notes": "混合卷积+GQA 架构；需要较新 transformers（或 Liquid 官方分支）支持，安装依赖时验证算子兼容性。",
+  "registered_at": "2026-11-28T14:09:37+08:00"
+}

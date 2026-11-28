@@ -1,0 +1,10 @@
+# 独立环境：python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+# ⚠ 安装前须经用户确认；骨架阶段 snapshot/list/evaluate/compare 不需要这些依赖。
+# 阶段一：服务端能力基线
+torch>=2.4
+transformers>=4.51        # Qwen3 enable_thinking 需要；LFM2.5 支持情况安装时验证，必要时升级或换 Liquid 分支
+accelerate>=0.30
+safetensors>=0.4
+huggingface_hub>=0.23
+peft>=0.11                # 加载 LoRA 适配器（阶段二）
+pyyaml>=6
