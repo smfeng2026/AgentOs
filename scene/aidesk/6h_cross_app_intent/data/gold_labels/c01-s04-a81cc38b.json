@@ -1,0 +1,320 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "广州客户拜访之行",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e002",
+        "e013",
+        "e014",
+        "e017",
+        "e018",
+        "e019",
+        "e024"
+      ],
+      "related_interest_event_ids": [
+        "e004",
+        "e005",
+        "e007",
+        "e009",
+        "e011",
+        "e012",
+        "e021",
+        "e026"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "客户方陈总监发来邮件，确认12月16日10:00在广州琶洲的公司会议室会面",
+          "source_event_ids": [
+            "e002"
+          ]
+        },
+        {
+          "fact": "已创建日程「客户拜访会议：陈总监」，时间为12月16日10:00-11:30，地点为广州市海珠区琶洲片区，参与人为客户方陈总监",
+          "source_event_ids": [
+            "e024"
+          ]
+        },
+        {
+          "fact": "已创建订单F20261207001，航段为杭州至广州CZ3503，出发日期12月15日，金额1280元，并已支付成功",
+          "source_event_ids": [
+            "e013",
+            "e014"
+          ]
+        },
+        {
+          "fact": "已下单琶洲会展中心亚朵酒店大床房，入住12月15日、退房12月17日，合计862元，并已支付成功",
+          "source_event_ids": [
+            "e017",
+            "e018"
+          ]
+        },
+        {
+          "fact": "酒店预订已收到确认通知，订单状态为已确认",
+          "source_event_ids": [
+            "e019"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "用户计划12月15日飞抵广州，参加次日10:00的客户会议",
+          "source_event_ids": [
+            "e004",
+            "e013",
+            "e024"
+          ]
+        },
+        {
+          "fact": "用户邀约同事李敏一同前往广州，对方表示需看项目排期后再定，尚未明确答复",
+          "source_event_ids": [
+            "e004",
+            "e005"
+          ]
+        },
+        {
+          "fact": "用户在琶洲片区关注商务宴请类餐厅，可能用于此次出差期间的客户接待",
+          "source_event_ids": [
+            "e009"
+          ]
+        },
+        {
+          "fact": "用户搜索了商务伴手礼礼盒，但是否购买及赠送对象不明",
+          "source_event_ids": [
+            "e021"
+          ]
+        },
+        {
+          "fact": "用户查询了广州12月15-17日的天气，以及从白云机场到琶洲片区的路线，属于出行前的后勤准备",
+          "source_event_ids": [
+            "e007",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户查看了杭州至广州12月15日的航班搜索结果与CZ3503航班详情，属于出行方案比选行为",
+          "source_event_ids": [
+            "e011",
+            "e012"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "是否需要为客户准备伴手礼及具体赠送对象",
+        "返程日期与返程交通是否已安排、是否改签至12月18日",
+        "同事李敏最终是否同行",
+        "商务宴请是否实际预订"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e004",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e005",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e006",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e007",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e010",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e011",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e014",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e018",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e021",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e024",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e025",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e026",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e028",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e029",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e030",
+      "relation": "unrelated",
+      "intent_ids": []
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e003",
+    "e006",
+    "e008",
+    "e010",
+    "e015",
+    "e016",
+    "e020",
+    "e022",
+    "e023",
+    "e025",
+    "e027",
+    "e028",
+    "e029",
+    "e030"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c01-s04-a81cc38b"
+}

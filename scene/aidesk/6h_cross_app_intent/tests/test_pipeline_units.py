@@ -1,7 +1,8 @@
 import unittest
+import copy
 
 import tests  # noqa: F401
-from src.orchestrator import build_model_input, resolve_window, make_sample_id
+from src.orchestrator import build_model_input, resolve_window, make_sample_id, _preset_agreement
 from src.validators import validate_generated, validate_final
 from src.taxonomy import Taxonomy
 from src.utils import load_yaml
@@ -37,7 +38,7 @@ class RenumberTest(unittest.TestCase):
         # mapping rewires generator ids to final ids
         first_final = mapping["e001"]
         self.assertIn(first_final, ids)
-        self.assertEqual(next(l for l in labeled if l["event_id"] == first_final)["generator_event_id"], "e001")
+        self.assertEqual(next(l for l in labeled if l["event_id"] == first_final)["generator_event_id"], "g001")
         # model input carries no label fields
         for e in model_input["events"]:
             self.assertEqual(set(e), {"event_id", "timestamp", "app", "action", "content"})
@@ -100,6 +101,17 @@ class ValidateGeneratedTest(unittest.TestCase):
         events[0]["intent_ids"] = ["i999"]
         errors = validate_generated({"events": events}, self.start, self.end, spec=self.spec)
         self.assertTrue(any("not defined in scenario spec" in e for e in errors))
+
+    def test_leak_field_scan(self):
+        events = _related()
+        events[0]["content"] = {"query_purpose": "出差穿衣参考"}
+        errors = validate_generated({"events": events}, self.start, self.end, spec=self.spec)
+        self.assertTrue(any("leak the label" in e for e in errors))
+        # natural payment purpose / cancel_reason are allowed
+        events[0]["content"] = {"purpose": "包间预订定金"}
+        events[1]["content"] = {"cancel_reason": "行程变更"}
+        errors = validate_generated({"events": events}, self.start, self.end, spec=self.spec)
+        self.assertFalse(any("leak the label" in e for e in errors))
 
 
 class ValidateFinalTest(unittest.TestCase):
@@ -176,6 +188,38 @@ class ValidateFinalTest(unittest.TestCase):
         res = self._check(gold)
         self.assertEqual(res["errors"], [])
         self.assertTrue(any("differs from target" in w for w in res["warnings"]))
+
+    def test_caliber_a_weak_action_in_supporting_warns(self):
+        self.model_input["events"][0]["action"] = "view_order"  # e001 is supporting
+        res = self._check()
+        self.assertEqual(res["errors"], [])
+        self.assertTrue(any("caliber A" in w for w in res["warnings"]))
+
+    def test_caliber_e_status_warns(self):
+        self.model_input["events"][0]["action"] = "pay"  # e001 supporting, fixture status=planned
+        res = self._check()
+        self.assertEqual(res["errors"], [])
+        self.assertTrue(any("caliber E" in w for w in res["warnings"]))
+
+    def test_caliber_d_hard_negative_warns(self):
+        labeled = [{"event_id": "e001", "origin": "noise", "hard_negative": True}]  # gold says supporting
+        res = validate_final(self.model_input, self.gold, self.taxonomy, labeled=labeled)
+        self.assertTrue(any("caliber D" in w for w in res["warnings"]))
+
+    def test_clean_gold_has_no_caliber_warnings(self):
+        res = self._check()
+        self.assertFalse(any("caliber" in w for w in res["warnings"]))
+
+
+class PresetAgreementTest(unittest.TestCase):
+    def test_agreement_fraction_and_none(self):
+        labeled = [{"event_id": "e001", "relation": "supporting"}, {"event_id": "e002", "relation": "unrelated"}]
+        blind = {"event_labels": [{"event_id": "e001", "relation": "supporting"}, {"event_id": "e002", "relation": "unrelated"}]}
+        self.assertEqual(_preset_agreement(labeled, blind), 1.0)
+        blind2 = {"event_labels": [{"event_id": "e001", "relation": "related_interest"}, {"event_id": "e002", "relation": "unrelated"}]}
+        self.assertEqual(_preset_agreement(labeled, blind2), 0.5)
+        self.assertIsNone(_preset_agreement([], blind))
+        self.assertIsNone(_preset_agreement(labeled, {}))
 
 
 if __name__ == "__main__":

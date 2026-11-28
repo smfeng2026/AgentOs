@@ -1,0 +1,860 @@
+{
+  "sample_id": "c01-s04-a81cc38b",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "修正盲标：删除由大连酒店浏览、攻略浏览和天气查询三个 hard_negative 噪声事件升格出的 i002，这些仅属孤立弱浏览，不能构成独立意图；e010/e023/e030 恢复为 unrelated。e011/e012 按口径 A 从 supporting 改为 related_interest。保留 i001，核心证据链为会议邮件 e002、机票下单支付 e013/e014、酒店下单支付及确认 e017/e018/e019、日历会议 e024，purpose=business、status=confirmed 有直接证据支持。最终 15 条相关、15 条无关。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "read_science",
+        "sys_storage",
+        "pay_card_bill",
+        "game_play",
+        "hn_hotel_other_city",
+        "fit_water",
+        "home_ac_cleaning_search",
+        "ent_ranking",
+        "food_grocery",
+        "hn_guide_other_city",
+        "news_read",
+        "tax_deduction_guide",
+        "music_play",
+        "mail_reply",
+        "hn_weather_other_city"
+      ],
+      "hard_negative_ids": [
+        "hn_hotel_other_city",
+        "hn_guide_other_city",
+        "hn_weather_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "12月16日广州琶洲客户会议出差",
+        "category": "travel",
+        "purpose": "business",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e002",
+          "e013",
+          "e014",
+          "e017",
+          "e018",
+          "e019",
+          "e024"
+        ],
+        "related_interest_event_ids": [
+          "e004",
+          "e005",
+          "e007",
+          "e009",
+          "e011",
+          "e012",
+          "e021",
+          "e026"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "客户方陈总监发来邮件，确认12月16日10:00在广州琶洲的公司会议室会面",
+            "source_event_ids": [
+              "e002"
+            ]
+          },
+          {
+            "fact": "已创建日程「客户拜访会议：陈总监」，时间为12月16日10:00-11:30，地点为广州市海珠区琶洲片区，参与人为客户方陈总监",
+            "source_event_ids": [
+              "e024"
+            ]
+          },
+          {
+            "fact": "已在机票预订平台创建订单F20261207001，航段为杭州至广州CZ3503，出发日期12月15日，金额1280元，此后支付成功",
+            "source_event_ids": [
+              "e013",
+              "e014"
+            ]
+          },
+          {
+            "fact": "已下单琶洲会展中心亚朵酒店大床房，入住12月15日、退房12月17日，合计862元，并支付成功",
+            "source_event_ids": [
+              "e017",
+              "e018"
+            ]
+          },
+          {
+            "fact": "酒店预订已收到确认通知，订单状态为已确认",
+            "source_event_ids": [
+              "e019"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "此次广州之行以客户拜访会议为核心，属于商务出差",
+            "source_event_ids": [
+              "e002",
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户计划12月15日飞抵广州，参加次日10:00的客户会议",
+            "source_event_ids": [
+              "e013",
+              "e014",
+              "e024"
+            ]
+          },
+          {
+            "fact": "用户邀约同事李敏一同前往，对方尚未给出明确答复，会看项目排期再定",
+            "source_event_ids": [
+              "e004",
+              "e005"
+            ]
+          },
+          {
+            "fact": "用户在琶洲片区关注商务宴请类餐厅，可能用于此次出差期间的商务接待",
+            "source_event_ids": [
+              "e009"
+            ]
+          },
+          {
+            "fact": "用户在筹备商务伴手礼（100-300元礼盒），可能与本次客户拜访有关",
+            "source_event_ids": [
+              "e021"
+            ]
+          },
+          {
+            "fact": "用户查询了广州12月15-17日的天气，以及从白云机场到琶洲片区的路线，属于出行前的后勤准备",
+            "source_event_ids": [
+              "e007",
+              "e026"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "返程日期与返程交通是否已安排",
+          "同事李敏最终是否同行",
+          "商务宴请是否实际预订",
+          "伴手礼是否已购买、对象是谁"
+        ],
+        "conflicts": []
+      },
+      {
+        "intent_id": "i002",
+        "intent_name": "大连出行兴趣（12月19日前后）",
+        "category": "travel",
+        "purpose": "unknown",
+        "status": "emerging",
+        "confidence_level": "low",
+        "supporting_event_ids": [],
+        "related_interest_event_ids": [
+          "e010",
+          "e023",
+          "e030"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [],
+        "inferred_facts": [
+          {
+            "fact": "用户浏览了大连12月19日入住的酒店详情",
+            "source_event_ids": [
+              "e010"
+            ]
+          },
+          {
+            "fact": "用户浏览了大连「小众咖啡馆地图」的旅行攻略",
+            "source_event_ids": [
+              "e023"
+            ]
+          },
+          {
+            "fact": "用户查询了大连的天气",
+            "source_event_ids": [
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "大连之行的目的（旅游、探亲或公务）",
+          "具体出行日期与停留时长",
+          "是否已有交通或住宿预订",
+          "是否只是内容浏览而非真实出行计划"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e003",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e004",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e005",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e006",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e007",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e014",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e018",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e021",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e025",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e026",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e028",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e029",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e030",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i002"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e003",
+      "e006",
+      "e008",
+      "e015",
+      "e016",
+      "e020",
+      "e022",
+      "e025",
+      "e027",
+      "e028",
+      "e029"
+    ],
+    "global_observations": {
+      "intent_count": 2,
+      "unrelated_event_count": 12
+    }
+  },
+  "review": {
+    "sample_id": "c01-s04-a81cc38b",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "hard_negative_promoted_to_intent",
+        "severity": "high",
+        "event_ids": [
+          "e010",
+          "e023",
+          "e030"
+        ],
+        "description": "盲标新增意图 i002「大连出行兴趣（12月19日前后）」，把三个预设为 origin=noise、hard_negative=true 的难负例事件（大连酒店详情浏览、大连小众咖啡馆攻略、大连天气）升格为意图。这违反口径 D（难负例不得升格为意图）。三事件均为单次浏览类弱行为，无下单、支付、确认、邀约或日历等任何承诺簇证据，支撑不了独立意图；而且“兴趣”命名本身就是在把浏览行为当成意图。规划中的意图只有 i001，盲标的意图数 2 与规划不符。",
+        "suggested_action": "删除 i002，把 e010、e023、e030 维持为 unrelated 的难负例（不得丢弃样本）；如果希望保留“弱兴趣”痕迹，只能在 global 备注里注明跨城浏览线索，不要新建意图，也不要给它们意图 ID。"
+      },
+      {
+        "issue_type": "violation_of_supporting_criteria",
+        "severity": "medium",
+        "event_ids": [
+          "e011",
+          "e012"
+        ],
+        "description": "预设内部标签把 e011（机票 search）与 e012（航班 view_detail）标为 supporting，违反口径 A：search/view_detail 属于弱证据，应为 related_interest。二者只是检索、比价环节的动作，既非本人敲定消息，也非外部确认通知或核心事件提醒。盲标已正确改为 related_interest，但预设标签与 related_event_budget（supporting=9）是按错误口径统计出来的，导致预算与实际合格支持事件（7 个）不一致。",
+        "suggested_action": "将 e011、e012 的预设 relation 修正为 related_interest，并把 supporting 预算从 9 调到 8（e017 含支付前的下单，可视作承诺簇）；重算 supporting/related_interest 计数后再入库。"
+      },
+      {
+        "issue_type": "weak_evidence_inferred_fact",
+        "severity": "low",
+        "event_ids": [
+          "e021"
+        ],
+        "description": "盲标 inferred_facts 中“用户正在筹备商务伴手礼（100-300 元礼盒）”只依据 e021 这一条商品搜索。该事项在场景规格里属于 unknown_information（是否需要为客户准备伴手礼），仅凭一次关键词搜索不该推断为“正在筹备”，虽然措辞加了“可能”，但仍偏向堆积证据。另注：e021 标为 related_interest 本身无误。",
+        "suggested_action": "把“可能有关”降级并改为只陈述观察到的事实（“用户搜索了商务伴手礼礼盒”）；保留在 unknown_information 中：“是否购买、送给谁”；不要把它写成确定倾向。"
+      },
+      {
+        "issue_type": "budget_consistency",
+        "severity": "low",
+        "event_ids": [
+          "e002",
+          "e013",
+          "e014",
+          "e017",
+          "e018",
+          "e019",
+          "e024"
+        ],
+        "description": "场景规格声明 supporting_event_count=9、related_interest_event_count=6，而盲标对 i001 只给出 7 个 supporting、8 个 related_interest。除 e011/e012 的口径修正外，两套计数口径没有统一说明；这是预设标签违规口径的直接后果，建议在交付前校准，避免下游把预算当真实性校验条件。",
+        "suggested_action": "以修正后的口径重算并通过 diff 核对：i001 supporting={e002,e013,e014,e017,e018,e019,e024}，related_interest={e004,e005,e007,e009,e011,e012,e021,e026}，contradicting 为空。"
+      }
+    ],
+    "summary": "核心事实链（会议邮件 e002 → 机票下单支付 e013/e014 → 酒店下单支付与确认 e017/e018/e019 → 日历会议 e024）完整且相互印证，purpose=business、status=confirmed 均有直接证据支持，无答案泄露，无时间线冲突，动作口径（search/view/detail→related_interest、外部确认→supporting、待支付后支付→confirmed）除 e011/e012 外基本正确。主要问题在于盲标把三个大连难负例（e010/e023/e030）升格为意图 i002，违反口径 D，属于高严重度口径违规，必须删除该意图并恢复为难负例；另有 e011/e012 预设标签违反口径 A、伴手礼推断越界、预算计数不一致等中等或轻微问题。修正后本样本可用。"
+  },
+  "adjudication": {
+    "sample_id": "c01-s04-a81cc38b",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "广州客户拜访之行",
+          "category": "travel",
+          "purpose": "business",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e002",
+            "e013",
+            "e014",
+            "e017",
+            "e018",
+            "e019",
+            "e024"
+          ],
+          "related_interest_event_ids": [
+            "e004",
+            "e005",
+            "e007",
+            "e009",
+            "e011",
+            "e012",
+            "e021",
+            "e026"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "客户方陈总监发来邮件，确认12月16日10:00在广州琶洲的公司会议室会面",
+              "source_event_ids": [
+                "e002"
+              ]
+            },
+            {
+              "fact": "已创建日程「客户拜访会议：陈总监」，时间为12月16日10:00-11:30，地点为广州市海珠区琶洲片区，参与人为客户方陈总监",
+              "source_event_ids": [
+                "e024"
+              ]
+            },
+            {
+              "fact": "已创建订单F20261207001，航段为杭州至广州CZ3503，出发日期12月15日，金额1280元，并已支付成功",
+              "source_event_ids": [
+                "e013",
+                "e014"
+              ]
+            },
+            {
+              "fact": "已下单琶洲会展中心亚朵酒店大床房，入住12月15日、退房12月17日，合计862元，并已支付成功",
+              "source_event_ids": [
+                "e017",
+                "e018"
+              ]
+            },
+            {
+              "fact": "酒店预订已收到确认通知，订单状态为已确认",
+              "source_event_ids": [
+                "e019"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "用户计划12月15日飞抵广州，参加次日10:00的客户会议",
+              "source_event_ids": [
+                "e004",
+                "e013",
+                "e024"
+              ]
+            },
+            {
+              "fact": "用户邀约同事李敏一同前往广州，对方表示需看项目排期后再定，尚未明确答复",
+              "source_event_ids": [
+                "e004",
+                "e005"
+              ]
+            },
+            {
+              "fact": "用户在琶洲片区关注商务宴请类餐厅，可能用于此次出差期间的客户接待",
+              "source_event_ids": [
+                "e009"
+              ]
+            },
+            {
+              "fact": "用户搜索了商务伴手礼礼盒，但是否购买及赠送对象不明",
+              "source_event_ids": [
+                "e021"
+              ]
+            },
+            {
+              "fact": "用户查询了广州12月15-17日的天气，以及从白云机场到琶洲片区的路线，属于出行前的后勤准备",
+              "source_event_ids": [
+                "e007",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户查看了杭州至广州12月15日的航班搜索结果与CZ3503航班详情，属于出行方案比选行为",
+              "source_event_ids": [
+                "e011",
+                "e012"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "是否需要为客户准备伴手礼及具体赠送对象",
+            "返程日期与返程交通是否已安排、是否改签至12月18日",
+            "同事李敏最终是否同行",
+            "商务宴请是否实际预订"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e003",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e004",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e005",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e006",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e007",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e010",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e011",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e014",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e018",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e021",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e024",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e025",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e026",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e028",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e029",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e030",
+          "relation": "unrelated",
+          "intent_ids": []
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e003",
+        "e006",
+        "e008",
+        "e010",
+        "e015",
+        "e016",
+        "e020",
+        "e022",
+        "e023",
+        "e025",
+        "e027",
+        "e028",
+        "e029",
+        "e030"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c01-s04-a81cc38b"
+    },
+    "rationale": "修正盲标：删除由大连酒店浏览、攻略浏览和天气查询三个 hard_negative 噪声事件升格出的 i002，这些仅属孤立弱浏览，不能构成独立意图；e010/e023/e030 恢复为 unrelated。e011/e012 按口径 A 从 supporting 改为 related_interest。保留 i001，核心证据链为会议邮件 e002、机票下单支付 e013/e014、酒店下单支付及确认 e017/e018/e019、日历会议 e024，purpose=business、status=confirmed 有直接证据支持。最终 15 条相关、15 条无关。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "business": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "travel": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 0.9,
+  "preset_relation_agreement": 0.833,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1855,
+      "completion_tokens": 1285,
+      "total_tokens": 3140,
+      "latency_s": 12.61,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1917,
+      "completion_tokens": 6128,
+      "total_tokens": 8045,
+      "latency_s": 46.2,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 4131,
+      "completion_tokens": 3122,
+      "total_tokens": 7253,
+      "latency_s": 16.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6551,
+      "completion_tokens": 3354,
+      "total_tokens": 9905,
+      "latency_s": 21.53,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11416,
+      "completion_tokens": 4175,
+      "total_tokens": 15591,
+      "latency_s": 22.48,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 119.3
+}

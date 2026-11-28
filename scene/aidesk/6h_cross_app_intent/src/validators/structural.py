@@ -22,6 +22,15 @@ MIN_EVENT_GAP_S = 60
 # of a field would leak the label (Chinese action = related, English action = noise).
 _SNAKE = re.compile(r"^[a-z][a-z0-9_]*$")
 
+# Natural business fields that legitimately mention purpose/reason. Any other content key mentioning
+# purpose/intent/goal is a non-natural field that leaks the label (e.g. weather query_purpose).
+_LEAK_FIELD_ALLOWED = {"purpose", "payment_purpose", "pay_purpose", "cancel_reason", "refund_reason", "reason"}
+_LEAK_FIELD_TOKENS = ("purpose", "intent", "goal")
+# Caliber A: these action types are weak evidence and must not be supporting.
+_WEAK_ACTION_PREFIXES = ("search", "browse", "view", "compare", "collect", "read", "watch", "check", "bookmark", "play")
+# Caliber E: these commit actions imply status=confirmed (not emerging/considering/planned).
+_STRONG_COMMIT_ACTIONS = {"pay", "book", "submit_registration"}
+
 
 def _as_list(value):
     return value if isinstance(value, list) else []
@@ -81,6 +90,10 @@ def validate_generated(generated, window_start, window_end, expected_related=15,
             bad_keys = [k for k in content if not (isinstance(k, str) and _SNAKE.match(k))]
             if bad_keys:
                 errors.append(f"{eid}: content keys must be snake_case English: {bad_keys[:4]}")
+            leak_keys = [k for k in content if isinstance(k, str)
+                         and any(tok in k for tok in _LEAK_FIELD_TOKENS) and k not in _LEAK_FIELD_ALLOWED]
+            if leak_keys:
+                errors.append(f"{eid}: non-natural purpose/intent field(s) leak the label: {leak_keys[:4]}")
         text = " ".join([str(e.get("app", "")), str(e.get("action", "")), _event_text(e)])
         for name in intent_names:
             if len(name) >= 2 and name in text:
@@ -103,7 +116,7 @@ def validate_generated(generated, window_start, window_end, expected_related=15,
 
 
 def validate_final(model_input, gold, taxonomy=None, expected_total=30, min_unrelated=10,
-                   max_unrelated=20, target_unrelated=15):
+                   max_unrelated=20, target_unrelated=15, labeled=None):
     errors, warnings = [], []
     events = _as_list(model_input.get("events"))
     event_ids = [e.get("event_id") for e in events if isinstance(e, dict)]
@@ -251,4 +264,23 @@ def validate_final(model_input, gold, taxonomy=None, expected_total=30, min_unre
         "statuses": dict(Counter(it.get("status") for it in intents)),
         "categories": dict(Counter(it.get("category") for it in intents)),
     }
+    # Caliber auto-scan (warnings only — heuristic, never block): A weak-in-S, E status, D hard-negative.
+    action_by_id = {e.get("event_id"): e.get("action") for e in events if isinstance(e, dict)}
+    for it in intents:
+        iid = it.get("intent_id")
+        s_set = rel_sets.get(iid, {}).get("supporting", set())
+        weak = [eid for eid in s_set if str(action_by_id.get(eid, "")).startswith(_WEAK_ACTION_PREFIXES)]
+        if weak:
+            warnings.append(f"{iid}: weak action(s) in supporting (caliber A): {sorted(weak)[:4]}")
+        if it.get("status") in ("emerging", "considering", "planned"):
+            strong = [eid for eid in s_set if action_by_id.get(eid) in _STRONG_COMMIT_ACTIONS]
+            if strong:
+                warnings.append(f"{iid}: status {it.get('status')} but supporting has commit action (caliber E): {sorted(strong)[:4]}")
+    if labeled:
+        gold_rel = {lab.get("event_id"): lab.get("relation") for lab in labels if isinstance(lab, dict)}
+        hn_related = [x.get("event_id") for x in labeled if isinstance(x, dict)
+                      and x.get("hard_negative") and x.get("origin") == "noise"
+                      and gold_rel.get(x.get("event_id")) != "unrelated"]
+        if hn_related:
+            warnings.append(f"hard-negative noise labeled non-unrelated (caliber D): {hn_related[:4]}")
     return {"errors": errors, "warnings": warnings, "stats": stats}

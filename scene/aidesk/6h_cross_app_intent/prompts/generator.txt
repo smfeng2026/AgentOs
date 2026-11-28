@@ -15,3 +15,6 @@ relation 只能是 supporting、related_interest、contradicting。
 8. 事件内容要像真实系统可观察到的行为：搜索条件、查看的对象、消息的主题、订单的状态、日历的标题与时间。
 9. intent_name 不得原样出现在任何事件里；不要让所有相关事件都堆叠同一个关键词。
 10. 所有相关事件合计恰好 15 条。如果输入带 regeneration_hint，必须针对该提示修正。
+11. 模糊邀约（「改天吃饭」「到时候约」「回头再定」）只能标 related_interest，不得标 supporting；supporting 必须有决定性证据（下单/支付/预订/确认/本人敲定）。
+12. 时间线必须可行：同一日期的行程事件之间不得矛盾（如到达时间晚于会议开始、出发时间晚于约定集合）；路线/交通事件的时刻需与会议/预订时间相容。
+13. content 字段名只用自然业务字段，禁止 query_purpose / user_intent / goal 等直接点明意图的非自然字段（支付 purpose、cancel_reason、refund_reason 等自然字段除外）。

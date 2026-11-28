@@ -1,0 +1,792 @@
+{
+  "sample_id": "c11-s06-4423c123",
+  "pipeline_version": "1.1.0",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "decision": "revise_label",
+  "flags": [],
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "adjudication",
+      "decision": "revise_label",
+      "requires_regeneration": false,
+      "rationale": "采纳审查报告的主要修正，形成最终标签。1) 状态：证据显示用户已取消租车并全额退款（e025/e026），且已创建并支付12月12日S503次怀密线车票（e028/e029，已支付），并在聊天中明确宣告改乘（e019）；按口径E『有支付/预订即confirmed，不论行程是否未来』，i001 status 由预设 planned 修正为 confirmed。2) 品类与目的：行程为北京望京至密云南山滑雪场的本地郊区出游与交通方式变更，全部证据（e003/e006/e023/e030）仅证明本地出行，无住宿/门票/异地往返等旅游证据，故 category 由 travel 回调为 local_transport、purpose 由 tourism 回调为 outing（与场景预设一致，纠正盲标升格）。3) 事件关系：按口径A/D6，search/view/view_order 类弱证据为 related_interest，故 e003、e023、e027、e020 标 related_interest；旧自驾方案证据（e003/e006/e010/e012）作为『被调整的旧计划历史』统一标 related_interest，真实冲突不存在，contradicting 计 0（纠正预设将 e003/e010 标 contradicting、将 e023/e027 标 supporting 的错误）；supporting 仅保留决定性证据：本人敲定宣告 e019、取消 e025、退款 e026、下单 e028、支付 e029、日历更新 e030，共6条。e019 以主句『我这就把租的车退了，改坐市郊铁路』为敲定宣告，判 supporting。4) e001/e002/e004/e005/e007/e008/e009/e011/e013/e015/e016/e017/e021/e022/e024 共15条噪声/hard_negative 均保持 unrelated，未升格为意图。5) 数据质量提示（不触发重生成）：e014 暴雪预警（12/6 发布、生效期12/11夜-12/12）与 e018 于12/6报道『因降雪封路』在时间真实性上被压缩，属生成层时间不自洽，但不影响事件对意图的支撑语义，故不判定为 regenerate，仅记录供后续数据清洗参考。",
+      "errors": [],
+      "warnings": [],
+      "noise_pool_ids": [
+        "venue_badminton_schedule",
+        "hn_guide_other_city",
+        "video_playlist",
+        "map_nearby",
+        "furniture_office_chair",
+        "hn_map_other_city",
+        "pharmacy_bandaid_search",
+        "home_ac_cleaning_search",
+        "pay_balance",
+        "food_grocery",
+        "hn_train_other_city",
+        "learn_video",
+        "read_science",
+        "photo_backup",
+        "contacts_search_repair"
+      ],
+      "hard_negative_ids": [
+        "hn_guide_other_city",
+        "hn_map_other_city",
+        "hn_train_other_city"
+      ]
+    }
+  ],
+  "blind_annotation": {
+    "intents": [
+      {
+        "intent_id": "i001",
+        "intent_name": "12月12日前往南山滑雪场的出行计划（租车改市郊铁路）",
+        "category": "travel",
+        "purpose": "tourism",
+        "status": "confirmed",
+        "confidence_level": "high",
+        "supporting_event_ids": [
+          "e019",
+          "e025",
+          "e026",
+          "e028",
+          "e029",
+          "e030"
+        ],
+        "related_interest_event_ids": [
+          "e003",
+          "e006",
+          "e010",
+          "e012",
+          "e014",
+          "e018",
+          "e020",
+          "e023",
+          "e027"
+        ],
+        "contradicting_event_ids": [],
+        "confirmed_facts": [
+          {
+            "fact": "用户已决定改乘市郊铁路怀密线，12月12日早上从北京北站出发前往密云，并告知小李查看同班车票。",
+            "source_event_ids": [
+              "e019"
+            ]
+          },
+          {
+            "fact": "原租车订单 CR1206-88231 已取消，退款568元已到账。",
+            "source_event_ids": [
+              "e025",
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户已创建并支付12月12日市郊铁路怀密线S503次（北京北站08:34—密云站09:52）二等座车票，金额12元。",
+            "source_event_ids": [
+              "e028",
+              "e029"
+            ]
+          },
+          {
+            "fact": "用户已将12月12日07:30的日历提醒更新为“北京北站乘怀密线S503”，备注到站后转公交至南山滑雪场。",
+            "source_event_ids": [
+              "e030"
+            ]
+          }
+        ],
+        "inferred_facts": [
+          {
+            "fact": "出行目的推断为滑雪休闲旅游：原计划驾车前往南山滑雪场，租车可选雪地胎，后改乘公共交通仍以南山滑雪场为目的地。",
+            "source_event_ids": [
+              "e003",
+              "e006",
+              "e023",
+              "e030"
+            ]
+          },
+          {
+            "fact": "原租车计划为12月12日09:00在望京旗舰店取丰田RAV4，12月13日18:00还车，已支付568元；后因暴雪预警和京承高速封闭取消并全额退款。",
+            "source_event_ids": [
+              "e010",
+              "e014",
+              "e018",
+              "e020",
+              "e025",
+              "e026"
+            ]
+          },
+          {
+            "fact": "用户曾查看驾车路线（87公里，约1小时45分）和公共交通路线（约2小时40分），最终选择公共交通。",
+            "source_event_ids": [
+              "e003",
+              "e019",
+              "e023",
+              "e030"
+            ]
+          }
+        ],
+        "unknown_information": [
+          "用户是否与小李同行，还是仅告知/邀请对方查看同班车票",
+          "12月12日具体滑雪安排、是否当天往返、返程交通及住宿安排",
+          "实际出行是否最终成行（当前仅完成预订/支付，出行日期在未来）",
+          "是否还有其他同行人"
+        ],
+        "conflicts": []
+      }
+    ],
+    "event_labels": [
+      {
+        "event_id": "e001",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e002",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e003",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e004",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e005",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e006",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e007",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e008",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e009",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e010",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e011",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e012",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e013",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e014",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e015",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e016",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e017",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e018",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e019",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e020",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e021",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e022",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e023",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e024",
+        "relation": "unrelated",
+        "intent_ids": []
+      },
+      {
+        "event_id": "e025",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e026",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e027",
+        "relation": "related_interest",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e028",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e029",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      },
+      {
+        "event_id": "e030",
+        "relation": "supporting",
+        "intent_ids": [
+          "i001"
+        ]
+      }
+    ],
+    "unrelated_event_ids": [
+      "e001",
+      "e002",
+      "e004",
+      "e005",
+      "e007",
+      "e008",
+      "e009",
+      "e011",
+      "e013",
+      "e015",
+      "e016",
+      "e017",
+      "e021",
+      "e022",
+      "e024"
+    ],
+    "global_observations": {
+      "intent_count": 1,
+      "unrelated_event_count": 15
+    }
+  },
+  "review": {
+    "sample_id": "c11-s06-4423c123",
+    "passed": false,
+    "issues": [
+      {
+        "issue_type": "intent_status_口径违规",
+        "severity": "high",
+        "event_ids": [
+          "e028",
+          "e029",
+          "e019",
+          "e025",
+          "e026"
+        ],
+        "description": "预设内部标签 i001 的 status=planned，但证据显示本人已退款取消租车（e025/e026）并已创建、已支付 12月12日 S503 市郊铁路车票（e028/e029，12元，已支付），且在聊天中明确宣告『这就把租的车退了，改坐市郊铁路』（e019）。按口径 E，有支付/预订/确认即应=confirmed，不论出行日期是否在未来。盲标判为 confirmed 是符合口径的，预设标签为口径违规。",
+        "suggested_action": "将 i001 status 由 planned 改为 confirmed（与盲标一致）；若数据集坚持 future=planned，需在标注规范中显式声明例外，但当前按口径 E 应判 confirmed。"
+      },
+      {
+        "issue_type": "purpose_category_证据不足",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e006",
+          "e023",
+          "e030"
+        ],
+        "description": "盲标把 purpose 由 outing 改为 tourism、category 由 local_transport 改为 travel，但全部证据只能证明『从望京前往密云南山滑雪场』这一本地郊区休闲出行及交通方式变更（所需证据 e003/e006/e023/e030 均为路线、车型、公交方案、日历备注），没有任何住宿预订、景区门票、异地往返或游览行程证据。口径要求 purpose=tourism 必须有直接证据，仅『目的地是滑雪场』不足以确认旅游目的。",
+        "suggested_action": "维持 purpose=outing、category=local_transport（或如需保守处理改为 unknown），不要仅凭滑雪场目的地升格为 tourism/travel；如确要 tourism，需补真实旅游证据（住宿、门票、游览安排）。"
+      },
+      {
+        "issue_type": "relation_contradicting滥用",
+        "severity": "medium",
+        "event_ids": [
+          "e003",
+          "e010"
+        ],
+        "description": "预设把 e003（驾车路线搜索）与 e010（租车支付568元）标为 contradicting，导致预设 contradicting 计数为2；盲标分别标为 related_interest，contradicting 为0。按口径 A，路线搜索属弱证据应为 related_interest；按口径 A/E/F，订单支付是『本人敲定』且被 scenario 列为必需证据（已支付后被取消的租车订单），应为 supporting，而非 related_interest 或 contradicting。原方案证据属于『被调整的旧计划』，与最终改乘并不构成真实冲突，不应计入 contradicting。",
+        "suggested_action": "e003 改为 related_interest；e010 改为 supporting；contradicting 计数归零，并同步修正 scenario 的 supporting/contradicting 预算说明。"
+      },
+      {
+        "issue_type": "supporting_弱证据误用",
+        "severity": "medium",
+        "event_ids": [
+          "e023",
+          "e027"
+        ],
+        "description": "预设把 e023（公共交通路线搜索）与 e027（市郊铁路车票搜索）标为 supporting。按口径 A，search / browse / compare 类均为弱证据，应为 related_interest；这两条本质是查询动作，真正的敲定证据是 e028/e029（下单+支付）与 e030（日历更新）。盲标对此二事件判 related_interest 是正确的。",
+        "suggested_action": "将 e023、e027 改为 related_interest，并在 supporting 清单中以 e028/e029/e030/e025/e026 为核心支撑，保持 supporting_event_count 与之一致。"
+      },
+      {
+        "issue_type": "timeline_implausible",
+        "severity": "medium",
+        "event_ids": [
+          "e014",
+          "e018"
+        ],
+        "description": "事件时间线存在自相矛盾：当前时间为 12月6日，e014 显示北京市气象台『今日15:30』发布的暴雪蓝色预警生效期为『12月11日夜间至12月12日白天』，蓝色预警提前约5天发布不符合预警时效惯例；e018 新闻发布于 12月6日15:50，却称『京承高速密云段因降雪双向封闭』，而降雪按 e014 尚未发生（12/11夜间才起）。封路触发与降雪时段冲突，属于不自然业务逻辑。",
+        "suggested_action": "重新生成或修正时间：把 e014/e018 的发生时间移到 12月11日晚—12月12日清晨（与生效期对齐），或将事件窗口整体置于 12月11日；不要补造事件，只调整时间与生效期的一致性。"
+      },
+      {
+        "issue_type": "relation_borderline",
+        "severity": "low",
+        "event_ids": [
+          "e019"
+        ],
+        "description": "e019 同时包含『我这就把租的车退了，改坐市郊铁路怀密线』（本人敲定声明）与『你也看看同班车的票』（发起邀约/协同沟通）。按口径 A，发起邀约、协同沟通应为 related_interest；但主句为本人决定宣告，且后续 e025/e029 已实际落实，判 supporting 尚可辩护。此处存在口径边界未统一的问题，盲标与预设虽一致，仍值得澄清。",
+        "suggested_action": "在标注规范中明确『本人决定宣告+顺带邀约』的消息归 supporting（以主句为准），或保守降为 related_interest；二者择一并全局统一，避免同类消息口径漂移。"
+      }
+    ],
+    "summary": "样本主体叙事（租车→暴雪/封路→退款→改乘怀密线→更新日历）结构完整、证据链闭合，hard_negative（e002/e008/e016）均正确保持 unrelated，未发现答案泄露或意图漏检/误拆。但存在一处 high 级口径违规：预设 status=planned 与已支付车票+已确认改乘的事实（口径 E 应 confirmed）冲突，故样本不通过。另有若干 medium 问题：盲标将 purpose 改为 tourism 缺乏直接旅游证据；预设把旧自驾方案证据误标 contradicting（应为 related_interest/supporting）、把两处搜索事件误标 supporting；以及暴雪预警提前5天发布与同日『因降雪封路』新闻构成时间线矛盾。建议按上述逐条修正标签，并重排 e014/e018 的时间线后重新送审。"
+  },
+  "adjudication": {
+    "sample_id": "c11-s06-4423c123",
+    "decision": "revise_label",
+    "gold_label": {
+      "intents": [
+        {
+          "intent_id": "i001",
+          "intent_name": "12月12日前往南山滑雪场的市郊出游（原租车改乘市郊铁路怀密线）",
+          "category": "local_transport",
+          "purpose": "outing",
+          "status": "confirmed",
+          "confidence_level": "high",
+          "supporting_event_ids": [
+            "e019",
+            "e025",
+            "e026",
+            "e028",
+            "e029",
+            "e030"
+          ],
+          "related_interest_event_ids": [
+            "e003",
+            "e006",
+            "e010",
+            "e012",
+            "e014",
+            "e018",
+            "e020",
+            "e023",
+            "e027"
+          ],
+          "contradicting_event_ids": [],
+          "confirmed_facts": [
+            {
+              "fact": "用户明确告知小李因京承高速封闭决定退掉租车、改乘市郊铁路怀密线，12月12日早上从北京北站出发，并让小李关注同班车票。",
+              "source_event_ids": [
+                "e019"
+              ]
+            },
+            {
+              "fact": "原租车订单 CR1206-88231 已取消，568元已全额退款到账。",
+              "source_event_ids": [
+                "e025",
+                "e026"
+              ]
+            },
+            {
+              "fact": "用户已创建并支付12月12日市郊铁路怀密线S503次（北京北站08:34—密云站09:52）二等座车票，金额12元。",
+              "source_event_ids": [
+                "e028",
+                "e029"
+              ]
+            },
+            {
+              "fact": "用户已将12月12日07:30的日历提醒由取车提醒更新为“北京北站乘怀密线S503”，备注到站后转公交至南山滑雪场。",
+              "source_event_ids": [
+                "e030"
+              ]
+            }
+          ],
+          "inferred_facts": [
+            {
+              "fact": "出行目的为前往密云南山滑雪场的休闲出游：先后查看驾车路线、可选雪地胎的车型、公共交通路线，日历备注目的地为南山滑雪场。",
+              "source_event_ids": [
+                "e003",
+                "e006",
+                "e023",
+                "e030"
+              ]
+            },
+            {
+              "fact": "原计划为12月12日09:00在望京旗舰店取丰田RAV4、12月13日18:00还车，已支付568元；后因暴雪预警与京承高速封闭取消并全额退款。",
+              "source_event_ids": [
+                "e010",
+                "e014",
+                "e018",
+                "e020"
+              ]
+            },
+            {
+              "fact": "用户比较过驾车（87公里约1小时45分）与公共交通（约2小时40分）两种方案，最终选择公共交通改乘市郊铁路。",
+              "source_event_ids": [
+                "e003",
+                "e023",
+                "e030"
+              ]
+            }
+          ],
+          "unknown_information": [
+            "同行朋友小李是否最终同行、是否也已改购同班车票",
+            "12月12日具体滑雪安排、是否当天往返、返程交通及住宿安排",
+            "是否需要租赁雪具",
+            "实际出行是否最终成行（当前仅完成预订与支付，出行日在未来）"
+          ],
+          "conflicts": []
+        }
+      ],
+      "event_labels": [
+        {
+          "event_id": "e001",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e002",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e003",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e004",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e005",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e006",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e007",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e008",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e009",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e010",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e011",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e012",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e013",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e014",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e015",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e016",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e017",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e018",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e019",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e020",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e021",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e022",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e023",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e024",
+          "relation": "unrelated",
+          "intent_ids": []
+        },
+        {
+          "event_id": "e025",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e026",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e027",
+          "relation": "related_interest",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e028",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e029",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        },
+        {
+          "event_id": "e030",
+          "relation": "supporting",
+          "intent_ids": [
+            "i001"
+          ]
+        }
+      ],
+      "unrelated_event_ids": [
+        "e001",
+        "e002",
+        "e004",
+        "e005",
+        "e007",
+        "e008",
+        "e009",
+        "e011",
+        "e013",
+        "e015",
+        "e016",
+        "e017",
+        "e021",
+        "e022",
+        "e024"
+      ],
+      "global_observations": {
+        "intent_count": 1,
+        "unrelated_event_count": 15
+      },
+      "sample_id": "c11-s06-4423c123"
+    },
+    "rationale": "采纳审查报告的主要修正，形成最终标签。1) 状态：证据显示用户已取消租车并全额退款（e025/e026），且已创建并支付12月12日S503次怀密线车票（e028/e029，已支付），并在聊天中明确宣告改乘（e019）；按口径E『有支付/预订即confirmed，不论行程是否未来』，i001 status 由预设 planned 修正为 confirmed。2) 品类与目的：行程为北京望京至密云南山滑雪场的本地郊区出游与交通方式变更，全部证据（e003/e006/e023/e030）仅证明本地出行，无住宿/门票/异地往返等旅游证据，故 category 由 travel 回调为 local_transport、purpose 由 tourism 回调为 outing（与场景预设一致，纠正盲标升格）。3) 事件关系：按口径A/D6，search/view/view_order 类弱证据为 related_interest，故 e003、e023、e027、e020 标 related_interest；旧自驾方案证据（e003/e006/e010/e012）作为『被调整的旧计划历史』统一标 related_interest，真实冲突不存在，contradicting 计 0（纠正预设将 e003/e010 标 contradicting、将 e023/e027 标 supporting 的错误）；supporting 仅保留决定性证据：本人敲定宣告 e019、取消 e025、退款 e026、下单 e028、支付 e029、日历更新 e030，共6条。e019 以主句『我这就把租的车退了，改坐市郊铁路』为敲定宣告，判 supporting。4) e001/e002/e004/e005/e007/e008/e009/e011/e013/e015/e016/e017/e021/e022/e024 共15条噪声/hard_negative 均保持 unrelated，未升格为意图。5) 数据质量提示（不触发重生成）：e014 暴雪预警（12/6 发布、生效期12/11夜-12/12）与 e018 于12/6报道『因降雪封路』在时间真实性上被压缩，属生成层时间不自洽，但不影响事件对意图的支撑语义，故不判定为 regenerate，仅记录供后续数据清洗参考。",
+    "requires_regeneration": false
+  },
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 6,
+      "related_interest": 9,
+      "contradicting": 0,
+      "purposes": {
+        "outing": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "local_transport": 1
+      }
+    }
+  },
+  "blind_relation_agreement": 1.0,
+  "preset_relation_agreement": 0.867,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1859,
+      "completion_tokens": 4206,
+      "total_tokens": 6065,
+      "latency_s": 60.01,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1981,
+      "completion_tokens": 11487,
+      "total_tokens": 13468,
+      "latency_s": 89.92,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 4571,
+      "completion_tokens": 10622,
+      "total_tokens": 15193,
+      "latency_s": 62.99,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6823,
+      "completion_tokens": 6446,
+      "total_tokens": 13269,
+      "latency_s": 40.33,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 12527,
+      "completion_tokens": 7643,
+      "total_tokens": 20170,
+      "latency_s": 45.1,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 298.37
+}

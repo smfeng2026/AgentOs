@@ -1,0 +1,207 @@
+{
+  "sample_id": "c01-s04-a81cc38b",
+  "pipeline_version": "1.1.0",
+  "created_at": "2026-11-28T12:31:57+08:00",
+  "task": {
+    "scenario_category": "travel",
+    "template_id": "C01-S04",
+    "subscenario": "商务出差",
+    "difficulty": "D2_multi_app_fusion",
+    "intent_count": 1,
+    "split": "unassigned",
+    "window_start": "2026-12-07T12:05:00+08:00",
+    "window_end": "2026-12-07T18:05:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "seed": 1860254619
+  },
+  "spec_summary": {
+    "title": "赴广州拜访客户的商务行程",
+    "intent_names": [
+      "广州客户拜访之行"
+    ],
+    "intent_categories": [
+      "travel"
+    ],
+    "key_entities": {
+      "home_city": "杭州",
+      "destinations": [
+        "广州"
+      ],
+      "products": [],
+      "people": [
+        "客户方陈总监",
+        "同事李敏"
+      ],
+      "dates": [
+        "12月15日",
+        "12月16日",
+        "12月17日"
+      ],
+      "other": [
+        "琶洲片区",
+        "白云机场"
+      ]
+    }
+  },
+  "composition": {
+    "total_events": 30,
+    "generator_related_events": 15,
+    "noise_events": 15,
+    "hard_negative_noise": 3,
+    "gold_intents": 1,
+    "gold_unrelated": 15,
+    "gold_supporting": 7,
+    "gold_related_interest": 8,
+    "gold_contradicting": 0,
+    "gold_purposes": {
+      "business": 1
+    },
+    "gold_statuses": {
+      "confirmed": 1
+    },
+    "gold_categories": {
+      "travel": 1
+    }
+  },
+  "noise": {
+    "pool_version": "2026-11-27.2",
+    "pool_ids": [
+      "read_science",
+      "sys_storage",
+      "pay_card_bill",
+      "game_play",
+      "hn_hotel_other_city",
+      "fit_water",
+      "home_ac_cleaning_search",
+      "ent_ranking",
+      "food_grocery",
+      "hn_guide_other_city",
+      "news_read",
+      "tax_deduction_guide",
+      "music_play",
+      "mail_reply",
+      "hn_weather_other_city"
+    ]
+  },
+  "provenance": {
+    "generator_model": "zhipu/glm-5.4",
+    "judge_model": "deepseek-v4.1-flash",
+    "endpoint_host": "st8tp3ajl0df3n8b8l8qu.apigateway-cn-beijing.volceapi.com",
+    "prompt_sha256": {
+      "planner": "8aec608de0391a13726bf5670360bd6f3b425a550e7fefee178743fb51f8f44b",
+      "generator": "a742759c1a9a9e02c400e368c66ad2bca386e91875ca623446c97bc8606f14d4",
+      "annotator": "36036c8da4f0fa524dbc9d9908f8b9d2e025377baac495aa255e70c1865ade9a",
+      "reviewer": "911c635bac06f832129994da799b31c8c201302412803f6c271aa86ad4c30db6",
+      "adjudicator": "aa4f8170572fcf0c0ee7dcdc5a93fa79c1ce39710cb41bfbb7f2b3aeedf1b843"
+    },
+    "taxonomy_sha256": "38d8594cb6b18472e72cb971c51f79489ebfe15229dcc55dd6d762c7ac9d762c"
+  },
+  "decision": "revise_label",
+  "status": "HUMAN_APPROVAL_PENDING",
+  "flags": [
+    "blind_intent_count_mismatch"
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "intents": 1,
+      "unrelated": 15,
+      "supporting": 7,
+      "related_interest": 8,
+      "contradicting": 0,
+      "purposes": {
+        "business": 1
+      },
+      "statuses": {
+        "confirmed": 1
+      },
+      "categories": {
+        "travel": 1
+      }
+    }
+  },
+  "attempts": 1,
+  "usage": {
+    "planner": {
+      "calls": 1,
+      "prompt_tokens": 1855,
+      "completion_tokens": 1285,
+      "total_tokens": 3140,
+      "latency_s": 12.61,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "generator": {
+      "calls": 1,
+      "prompt_tokens": 1917,
+      "completion_tokens": 6128,
+      "total_tokens": 8045,
+      "latency_s": 46.2,
+      "models": [
+        "glm-5.4"
+      ]
+    },
+    "annotator": {
+      "calls": 1,
+      "prompt_tokens": 4131,
+      "completion_tokens": 3122,
+      "total_tokens": 7253,
+      "latency_s": 16.47,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "reviewer": {
+      "calls": 1,
+      "prompt_tokens": 6551,
+      "completion_tokens": 3354,
+      "total_tokens": 9905,
+      "latency_s": 21.53,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    },
+    "adjudicator": {
+      "calls": 1,
+      "prompt_tokens": 11416,
+      "completion_tokens": 4175,
+      "total_tokens": 15591,
+      "latency_s": 22.48,
+      "models": [
+        "deepseek-v4-1-flash-261017"
+      ]
+    }
+  },
+  "elapsed_s": 119.3,
+  "approval": {
+    "state": "pending",
+    "by": null,
+    "at": null,
+    "note": null
+  },
+  "artefacts": {
+    "scenario_spec": {
+      "path": "data/scenario_specs/c01-s04-a81cc38b.json",
+      "sha256": "9424ff8641fc8f92e74dfe70be10567160656ef5f8d9a5195a962c4396c2eb83"
+    },
+    "internal_labels": {
+      "path": "data/internal_labels/c01-s04-a81cc38b.json",
+      "sha256": "7ca860aec65ac1a39471d769687b9c776e3aba673be702e61b12d394c1697140"
+    },
+    "model_input": {
+      "path": "data/model_inputs/c01-s04-a81cc38b.json",
+      "sha256": "ff8b20114ed966794f6d1a51fce3b5181d466bed7d39c6e0d47a591a909ca2a1"
+    },
+    "gold_label": {
+      "path": "data/gold_labels/c01-s04-a81cc38b.json",
+      "sha256": "4874b4d47ae8f6676c5d7c47506837b876b9fe99a63a33e0687736731009cf6b"
+    },
+    "audit_report": {
+      "path": "data/audit_reports/c01-s04-a81cc38b.json",
+      "sha256": "7f2b11be301ee0a26e1561da1ce67e444fce67a180809a4e4b07042aa542b0a5"
+    }
+  },
+  "updated_at": "2026-11-28T12:31:57+08:00"
+}

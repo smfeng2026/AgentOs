@@ -1,0 +1,63 @@
+{
+  "title": "雪天改乘：取消租车换市郊铁路去雪场",
+  "scenario_category": "local_transport",
+  "subscenario": "行程变化",
+  "template_id": "C11-S06",
+  "difficulty": "D6_conflict_state_change",
+  "key_entities": {
+    "home_city": "北京",
+    "destinations": [
+      "密云",
+      "南山滑雪场"
+    ],
+    "products": [
+      "紧凑型SUV两日租车订单",
+      "市郊铁路怀密线车票"
+    ],
+    "people": [
+      "同行朋友小李"
+    ],
+    "dates": [
+      "12月12日",
+      "12月13日"
+    ],
+    "other": [
+      "暴雪蓝色预警",
+      "京承高速封闭"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "周末雪场出游改乘市郊铁路",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "planned",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付后被取消的12月12日起两日租车订单及退款到账记录",
+        "已预订的12月12日去密云的市郊铁路车票",
+        "地图应用中先后出现的驾车路线与公共交通路线搜索"
+      ],
+      "optional_evidence": [
+        "日历中取车提醒被更新为出发提醒",
+        "与同行朋友商议换交通方式的聊天消息"
+      ],
+      "unknown_information": [
+        "同行朋友是否也已改购车票",
+        "是否需要在雪场租赁雪具"
+      ],
+      "supporting_event_count": 8,
+      "related_interest_event_count": 5,
+      "contradicting_event_count": 2
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 8,
+    "related_interest": 5,
+    "contradicting": 2
+  },
+  "time_profile": "窗口前半段（约14:00-15:20）出现原方案强证据：路线搜索、车型详情、租车下单支付、创建取车日历提醒；中段（15:45-16:40）出现转折线索：暴雪预警、高速封闭新闻、与朋友商议、查看订单；最后两小时集中出现反向证据与变更证据：取消订单、退款到账、搜索并预订市郊铁路车票、更新日历提醒",
+  "variant_note": "与同模板其他样本的差异：被取消的是本地租车而非火车票或酒店；出行本身未取消，而是交通方式从自驾变为市郊铁路，最终状态保持 planned 而非 cancelled；转折由天气应用预警与新闻应用路况信息触发而非行程冲突；证据横跨租车、地图、支付、日历、天气、新闻、聊天、铁路共8类应用",
+  "scenario_id": "c11-s06-4423c123"
+}

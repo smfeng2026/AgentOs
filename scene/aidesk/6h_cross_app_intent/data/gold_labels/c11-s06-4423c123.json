@@ -1,0 +1,299 @@
+{
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "12月12日前往南山滑雪场的市郊出游（原租车改乘市郊铁路怀密线）",
+      "category": "local_transport",
+      "purpose": "outing",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "supporting_event_ids": [
+        "e019",
+        "e025",
+        "e026",
+        "e028",
+        "e029",
+        "e030"
+      ],
+      "related_interest_event_ids": [
+        "e003",
+        "e006",
+        "e010",
+        "e012",
+        "e014",
+        "e018",
+        "e020",
+        "e023",
+        "e027"
+      ],
+      "contradicting_event_ids": [],
+      "confirmed_facts": [
+        {
+          "fact": "用户明确告知小李因京承高速封闭决定退掉租车、改乘市郊铁路怀密线，12月12日早上从北京北站出发，并让小李关注同班车票。",
+          "source_event_ids": [
+            "e019"
+          ]
+        },
+        {
+          "fact": "原租车订单 CR1206-88231 已取消，568元已全额退款到账。",
+          "source_event_ids": [
+            "e025",
+            "e026"
+          ]
+        },
+        {
+          "fact": "用户已创建并支付12月12日市郊铁路怀密线S503次（北京北站08:34—密云站09:52）二等座车票，金额12元。",
+          "source_event_ids": [
+            "e028",
+            "e029"
+          ]
+        },
+        {
+          "fact": "用户已将12月12日07:30的日历提醒由取车提醒更新为“北京北站乘怀密线S503”，备注到站后转公交至南山滑雪场。",
+          "source_event_ids": [
+            "e030"
+          ]
+        }
+      ],
+      "inferred_facts": [
+        {
+          "fact": "出行目的为前往密云南山滑雪场的休闲出游：先后查看驾车路线、可选雪地胎的车型、公共交通路线，日历备注目的地为南山滑雪场。",
+          "source_event_ids": [
+            "e003",
+            "e006",
+            "e023",
+            "e030"
+          ]
+        },
+        {
+          "fact": "原计划为12月12日09:00在望京旗舰店取丰田RAV4、12月13日18:00还车，已支付568元；后因暴雪预警与京承高速封闭取消并全额退款。",
+          "source_event_ids": [
+            "e010",
+            "e014",
+            "e018",
+            "e020"
+          ]
+        },
+        {
+          "fact": "用户比较过驾车（87公里约1小时45分）与公共交通（约2小时40分）两种方案，最终选择公共交通改乘市郊铁路。",
+          "source_event_ids": [
+            "e003",
+            "e023",
+            "e030"
+          ]
+        }
+      ],
+      "unknown_information": [
+        "同行朋友小李是否最终同行、是否也已改购同班车票",
+        "12月12日具体滑雪安排、是否当天往返、返程交通及住宿安排",
+        "是否需要租赁雪具",
+        "实际出行是否最终成行（当前仅完成预订与支付，出行日在未来）"
+      ],
+      "conflicts": []
+    }
+  ],
+  "event_labels": [
+    {
+      "event_id": "e001",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e002",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e003",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e005",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e006",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e007",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e008",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e009",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e010",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e011",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e012",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e013",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e014",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e015",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e016",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e017",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e018",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e019",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e020",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e021",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e022",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e023",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e024",
+      "relation": "unrelated",
+      "intent_ids": []
+    },
+    {
+      "event_id": "e025",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e026",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e027",
+      "relation": "related_interest",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e028",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e029",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    },
+    {
+      "event_id": "e030",
+      "relation": "supporting",
+      "intent_ids": [
+        "i001"
+      ]
+    }
+  ],
+  "unrelated_event_ids": [
+    "e001",
+    "e002",
+    "e004",
+    "e005",
+    "e007",
+    "e008",
+    "e009",
+    "e011",
+    "e013",
+    "e015",
+    "e016",
+    "e017",
+    "e021",
+    "e022",
+    "e024"
+  ],
+  "global_observations": {
+    "intent_count": 1,
+    "unrelated_event_count": 15
+  },
+  "sample_id": "c11-s06-4423c123"
+}

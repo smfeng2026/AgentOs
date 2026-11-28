@@ -1,0 +1,61 @@
+{
+  "title": "赴广州拜访客户的商务行程",
+  "scenario_category": "travel",
+  "subscenario": "商务出差",
+  "template_id": "C01-S04",
+  "difficulty": "D2_multi_app_fusion",
+  "key_entities": {
+    "home_city": "杭州",
+    "destinations": [
+      "广州"
+    ],
+    "products": [],
+    "people": [
+      "客户方陈总监",
+      "同事李敏"
+    ],
+    "dates": [
+      "12月15日",
+      "12月16日",
+      "12月17日"
+    ],
+    "other": [
+      "琶洲片区",
+      "白云机场"
+    ]
+  },
+  "intents": [
+    {
+      "intent_id": "i001",
+      "intent_name": "广州客户拜访之行",
+      "category": "travel",
+      "purpose": "business",
+      "status": "confirmed",
+      "confidence_level": "high",
+      "required_evidence": [
+        "已支付的杭州至广州机票订单",
+        "已确认的广州酒店预订",
+        "日历中12月16日上午的客户会议日程"
+      ],
+      "optional_evidence": [
+        "与同事确认同行安排的即时消息",
+        "白云机场到琶洲片区的路线查询"
+      ],
+      "unknown_information": [
+        "是否需要为客户准备伴手礼",
+        "返程是否改签至12月18日"
+      ],
+      "supporting_event_count": 9,
+      "related_interest_event_count": 6,
+      "contradicting_event_count": 0
+    }
+  ],
+  "related_event_budget": {
+    "supporting": 9,
+    "related_interest": 6,
+    "contradicting": 0
+  },
+  "time_profile": "前两小时以邮件收到客户会议通知和同事沟通为主，中段（约第3小时）出现机票搜索、下单与支付，第4小时完成酒店预订并收到确认，最后一小时创建日历会议日程并查询机场路线；决定性证据集中在窗口中后段，需要融合邮件、支付、日历三类App才能确认目的",
+  "variant_note": "与同模板其他样本相比：城市对为杭州-广州，行程为三天（12月15日至17日）；证据顺序为邮件先行、机票支付在前、酒店确认在后；App组合为mail_app+flight_booking_app+payment_app+hotel_app+calendar_app+im_app，其中calendar_app与mail_app分别承担日程确认与会议通知角色，未使用ticket_app或rail_ticket_app；同行人信息仅在即时消息中弱体现，保留一定不确定性",
+  "scenario_id": "c01-s04-a81cc38b"
+}

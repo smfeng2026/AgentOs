@@ -39,6 +39,13 @@ def app_vocabulary():
     return _APP_VOCAB
 
 
+def _gen_namespace(source_id):
+    """Prefix generator ids (g###) so they cannot be confused with final chronological event ids (e###)."""
+    if isinstance(source_id, str) and source_id.startswith("e"):
+        return "g" + source_id[1:]
+    return source_id
+
+
 def build_model_input(sample_id, window_start, window_end, related_events, noise_events,
                       task="cross_app_intent_reasoning"):
     """Merge related + noise events, sort by time, renumber e001..eNN chronologically.
@@ -71,7 +78,7 @@ def build_model_input(sample_id, window_start, window_end, related_events, noise
         labeled.append({
             "event_id": new_id,
             "origin": e["_kind"],
-            "generator_event_id": e["_source_id"] if e["_kind"] == "related" else None,
+            "generator_event_id": _gen_namespace(e["_source_id"]) if e["_kind"] == "related" else None,
             "pool_id": e["_source_id"] if e["_kind"] == "noise" else None,
             "hard_negative": bool(e.get("hard_negative", False)),
             "timestamp": e["timestamp"],
@@ -139,7 +146,18 @@ def _relation_agreement(blind, gold):
     return round(same / len(gold_labels), 3)
 
 
-def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None, template=None):
+def _preset_agreement(labeled, blind):
+    """Relation agreement between the generator preset labels and the blind annotation (reviewer-skip gate)."""
+    blind_labels = {x.get("event_id"): x.get("relation") for x in (blind or {}).get("event_labels", [])
+                    if isinstance(x, dict)} if isinstance(blind, dict) else {}
+    preset = [x for x in (labeled or []) if isinstance(x, dict)]
+    if not preset or not blind_labels:
+        return None
+    same = sum(1 for x in preset if blind_labels.get(x.get("event_id")) == x.get("relation"))
+    return round(same / len(preset), 3)
+
+
+def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None, template=None, annotator_llm=None):
     t_start = time.time()
     sample_id = sample_id or make_sample_id(task)
     seed = task.get("seed")
@@ -161,7 +179,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
     agents = {
         "planner": PlannerAgent(gen_llm, recorders["planner"]),
         "generator": GeneratorAgent(gen_llm, recorders["generator"]),
-        "annotator": AnnotatorAgent(judge_llm, recorders["annotator"]),
+        "annotator": AnnotatorAgent(annotator_llm or judge_llm, recorders["annotator"]),
         "reviewer": ReviewerAgent(judge_llm, recorders["reviewer"]),
         "adjudicator": AdjudicatorAgent(judge_llm, recorders["adjudicator"]),
     }
@@ -237,7 +255,21 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         model_input, labeled, _ = build_model_input(sample_id, window_start, window_end, gen["events"], noise)
 
         blind = agents["annotator"].run(model_input, taxonomy_brief)
-        review = agents["reviewer"].run(spec, labeled, blind)
+        # Cost saving: skip the adversarial reviewer when the blind annotation already agrees with the
+        # generator preset (high relation agreement + same intent count). The adjudicator still runs always.
+        skip_threshold = float(cfg.get("review_skip_threshold", 0.9))
+        preset_agreement = _preset_agreement(labeled, blind)
+        blind_intent_n = len(blind.get("intents", []) or []) if isinstance(blind, dict) else 0
+        skip_reviewer = (
+            bool(cfg.get("review_skip_enabled", True))
+            and preset_agreement is not None and preset_agreement >= skip_threshold
+            and blind_intent_n == len(spec_intents)
+        )
+        if skip_reviewer:
+            review = {"sample_id": sample_id, "passed": True, "issues": [], "skipped": True,
+                      "summary": f"reviewer skipped: preset-blind agreement {preset_agreement} >= {skip_threshold}"}
+        else:
+            review = agents["reviewer"].run(spec, labeled, blind)
         adjudication = agents["adjudicator"].run(spec, labeled, model_input, blind, review, taxonomy_brief)
         gold = adjudication.get("gold_label") if isinstance(adjudication, dict) else None
         if not isinstance(gold, dict):
@@ -246,6 +278,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         validation = validate_final(
             model_input, gold, taxonomy, expected_total=total_events,
             min_unrelated=min_unrelated, max_unrelated=max_unrelated, target_unrelated=target_unrelated,
+            labeled=labeled,
         )
         decision = adjudication.get("decision") if isinstance(adjudication, dict) else None
         stage = "adjudication"
@@ -288,6 +321,8 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         severities = [i.get("severity") for i in review.get("issues", []) if isinstance(i, dict)]
         if "critical" in severities:
             flags.append("reviewer_critical_issue")
+    if isinstance(review, dict) and review.get("skipped"):
+        flags.append("reviewer_skipped")
 
     internal_labels = {
         "sample_id": sample_id,
@@ -306,6 +341,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         "adjudication": adjudication,
         "validation": validation,
         "blind_relation_agreement": agreement,
+        "preset_relation_agreement": preset_agreement,
         "usage": _summarise_usage(recorders),
         "elapsed_s": round(time.time() - t_start, 2),
     }

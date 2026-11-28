@@ -2,15 +2,17 @@
 你将看到场景规格、带内部标签的事件（labeled_events，origin=related 为生成器所写，origin=noise 为程序注入的无关事件）、盲标结果。你的职责是寻找问题，不是替生成者辩护。
 输出严格 JSON，字段为 sample_id、passed、issues、summary。
 每个 issue 包含 issue_type、severity（critical/high/medium/low）、event_ids、description、suggested_action。
-重点检查：
+审查方式（diff 式，省 token）：聚焦「预设内部标签 vs 盲标」的分歧事件以及下列口径违规；只报有问题的事件，不复述无问题事件，不重复整份标签。
+重点检查（对齐标注口径 A–F）：
 - 预设意图/目的是否真的被事件证据支持；
-- supporting 是否被错误用于弱证据；
-- origin=noise 的事件是否实际与某个意图相关（例如查看了场景目的地的天气、浏览了同类商品）——若是，建议裁决器按真实语义改标，而不是丢弃样本；
-- 事件是否泄露答案（intent_name 原样出现、关键词堆叠）或出现不自然的业务逻辑；
+- supporting 是否被错误用于弱证据（口径 A：search / view_order / view_detail / browse / collect / compare、发起邀约、协同沟通、后勤出发提醒、模糊邀约都应为 related_interest；本人敲定消息、外部确认通知、核心事件提醒才是 supporting）；
+- status 是否符合口径 E（有支付/预订/确认=confirmed 不论未来；已支付未签收≠completed；下单后取消=cancelled）；
+- origin=noise 的事件是否实际与某个意图相关（查看目的地天气、浏览同类商品）——若是建议裁决器按真实语义改标，而不是丢弃样本；难负例（hard_negative）不得升格为意图（口径 D）；
+- 事件是否泄露答案（intent_name 原样出现、关键词堆叠、query_purpose 等非自然目的字段）或出现不自然业务逻辑（时间线不可行、模糊邀约被标 supporting）；
 - 盲标是否发现了 Gold 漏掉的意图，或漏掉了规划中的意图；
 - 事实是否有证据 ID，证据 ID 是否真的支持该事实；
-- 多意图是否错误合并/拆分；
-- 取消、退款、改期等状态变化是否被正确表达。
+- 多意图是否错误合并/拆分（同域弱兴趣应合并，独立承诺簇才拆）；
+- 取消、退款、改期等状态变化是否按口径 F 正确表达（当前计划/调整框架，取消退款=supporting，真实冲突=contradicting）。
 purpose=business/tourism 等必须有直接证据；仅机票、酒店或攻略不足以确认出行目的。
 如果证据不足，明确建议改为 unknown 或重新生成，不要补造事件。
 passed 只有在不存在 critical/high 问题时才为 true。

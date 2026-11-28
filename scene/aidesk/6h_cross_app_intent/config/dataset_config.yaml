@@ -8,6 +8,11 @@ min_unrelated_events: 10    # hard bounds: outside → NEEDS_HUMAN_REVIEW
 max_unrelated_events: 20
 max_regeneration_attempts: 2
 human_review_required: true
+# Reviewer cost saving: skip the adversarial reviewer when blind annotation agrees with the generator
+# preset (relation agreement >= threshold AND same intent count). Adjudicator always runs. Skipped
+# samples carry the reviewer_skipped flag for spot-check. Set review_skip_enabled: false to disable.
+review_skip_enabled: true
+review_skip_threshold: 0.9
 window_day_jitter: 21        # random day offset (0..N) per sample unless the window is fixed
 # Per-sample window start hours (local time) when jittering
 window_start_hours: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]

@@ -1,0 +1,349 @@
+{
+  "sample_id": "c01-s04-a81cc38b",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-07T12:05:00+08:00",
+    "end": "2026-12-07T18:05:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-07T12:09:35+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "古生物新发现"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-07T12:18:00+08:00",
+      "app": "mail_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "客户方陈总监",
+        "subject": "12月16日上午会面安排确认",
+        "meeting_time": "12月16日 10:00",
+        "location": "广州琶洲·公司会议室",
+        "mail_type": "会议通知"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-07T12:21:24+08:00",
+      "app": "settings_app",
+      "action": "clear_app_cache",
+      "content": {
+        "freed_mb": 320
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-07T12:31:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "receiver": "同事李敏",
+        "message_content": "16号上午要去琶洲见陈总监，我打算订15号的航班过去，你要不要一起？",
+        "chat_type": "单聊"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-07T12:39:00+08:00",
+      "app": "im_app",
+      "action": "receive_message",
+      "content": {
+        "sender": "同事李敏",
+        "message_content": "我先看下手头项目排期，能走开的话就和你15号同一班过去",
+        "chat_type": "单聊"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-07T12:57:25+08:00",
+      "app": "payment_app",
+      "action": "view_credit_card_bill",
+      "content": {
+        "month": "上月"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-07T13:05:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "city": "广州",
+        "date_range": "12月15日-12月17日",
+        "weather": "多云转小雨",
+        "temperature": "15℃~22℃"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-07T13:06:30+08:00",
+      "app": "game_app",
+      "action": "play_game",
+      "content": {
+        "game_type": "模拟经营",
+        "duration_min": 15
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-07T13:36:00+08:00",
+      "app": "restaurant_app",
+      "action": "browse_content",
+      "content": {
+        "city": "广州",
+        "area": "琶洲片区",
+        "category": "商务宴请",
+        "per_capita": "200元-400元"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-07T13:48:15+08:00",
+      "app": "hotel_app",
+      "action": "view_hotel_detail",
+      "content": {
+        "city": "大连",
+        "check_in": "12月19日"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-07T14:12:00+08:00",
+      "app": "flight_booking_app",
+      "action": "search",
+      "content": {
+        "departure_city": "杭州",
+        "arrival_city": "广州",
+        "departure_date": "12月15日",
+        "cabin_class": "经济舱",
+        "passenger_count": 1
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-07T14:31:00+08:00",
+      "app": "flight_booking_app",
+      "action": "view_detail",
+      "content": {
+        "flight_no": "CZ3503",
+        "departure_airport": "杭州萧山国际机场",
+        "arrival_airport": "广州白云国际机场",
+        "departure_time": "12月15日 08:30",
+        "arrival_time": "12月15日 10:50",
+        "price": 1280
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-07T14:47:00+08:00",
+      "app": "flight_booking_app",
+      "action": "create_order",
+      "content": {
+        "order_no": "F20261207001",
+        "flight_no": "CZ3503",
+        "route": "杭州-广州",
+        "departure_date": "12月15日",
+        "passenger_count": 1,
+        "total_price": 1280,
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-07T14:49:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "航班预订平台",
+        "amount": 1280,
+        "payment_method": "银行卡",
+        "related_order": "CZ3503 杭州-广州机票",
+        "payment_status": "支付成功"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-07T14:53:05+08:00",
+      "app": "health_app",
+      "action": "log_water_intake",
+      "content": {
+        "cups": 6
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-07T15:03:29+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-07T15:26:00+08:00",
+      "app": "hotel_app",
+      "action": "book",
+      "content": {
+        "hotel_name": "琶洲会展中心亚朵酒店",
+        "location": "广州琶洲片区",
+        "checkin_date": "12月15日",
+        "checkout_date": "12月17日",
+        "room_type": "大床房",
+        "night_count": 2,
+        "total_price": 862,
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-07T15:28:00+08:00",
+      "app": "payment_app",
+      "action": "pay",
+      "content": {
+        "merchant": "琶洲会展中心亚朵酒店",
+        "amount": 862,
+        "payment_method": "银行卡",
+        "related_order": "12月15日-12月17日 大床房2晚",
+        "payment_status": "支付成功"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-07T15:57:00+08:00",
+      "app": "hotel_app",
+      "action": "receive_message",
+      "content": {
+        "message_type": "预订确认通知",
+        "hotel_name": "琶洲会展中心亚朵酒店",
+        "checkin_date": "12月15日",
+        "checkout_date": "12月17日",
+        "order_status": "已确认"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-07T16:20:53+08:00",
+      "app": "video_app",
+      "action": "view_movie_ranking",
+      "content": {
+        "period": "本周"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-07T16:37:00+08:00",
+      "app": "shopping_app",
+      "action": "search",
+      "content": {
+        "keyword": "商务伴手礼礼盒",
+        "price_range": "100元-300元",
+        "sort": "销量优先"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-07T16:39:04+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "水果"
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-07T16:45:02+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "大连",
+        "topic": "小众咖啡馆地图"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-07T17:16:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "title": "客户拜访会议：陈总监",
+        "start_time": "12月16日 10:00",
+        "end_time": "12月16日 11:30",
+        "location": "广州市海珠区琶洲片区",
+        "participants": [
+          "客户方陈总监"
+        ],
+        "reminder": "提前30分钟"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-07T17:29:10+08:00",
+      "app": "news_app",
+      "action": "read_article",
+      "content": {
+        "title": "新能源车市场观察",
+        "source": "财经早报"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-07T17:42:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "origin": "广州白云国际机场",
+        "destination": "琶洲片区",
+        "travel_date": "12月15日",
+        "preferred_mode": "地铁",
+        "estimated_duration": "约55分钟"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-07T17:46:33+08:00",
+      "app": "tax_app",
+      "action": "view_detail",
+      "content": {
+        "item": "个税专项附加扣除填报指南"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-07T17:48:11+08:00",
+      "app": "music_app",
+      "action": "play_music",
+      "content": {
+        "genre": "轻音乐"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-07T17:51:19+08:00",
+      "app": "mail_app",
+      "action": "reply_email",
+      "content": {
+        "to": "行政部",
+        "topic": "会议室投影仪报修"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-07T17:53:19+08:00",
+      "app": "weather_app",
+      "action": "view_weather",
+      "content": {
+        "city": "大连"
+      }
+    }
+  ]
+}

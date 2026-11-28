@@ -1,0 +1,374 @@
+{
+  "sample_id": "c11-s06-4423c123",
+  "task": "cross_app_intent_reasoning",
+  "window": {
+    "start": "2026-12-06T13:05:00+08:00",
+    "end": "2026-12-06T19:05:00+08:00",
+    "duration_hours": 6.0
+  },
+  "history_intents": [],
+  "events": [
+    {
+      "event_id": "e001",
+      "timestamp": "2026-12-06T13:29:32+08:00",
+      "app": "venue_booking_app",
+      "action": "view_court_schedule",
+      "content": {
+        "venue": "家附近羽毛球馆",
+        "date": "本周六"
+      }
+    },
+    {
+      "event_id": "e002",
+      "timestamp": "2026-12-06T14:01:11+08:00",
+      "app": "travel_guide_app",
+      "action": "browse_guide",
+      "content": {
+        "city": "温州",
+        "topic": "三日游路线"
+      }
+    },
+    {
+      "event_id": "e003",
+      "timestamp": "2026-12-06T14:10:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure_point": "朝阳区望京",
+        "destination": "南山滑雪场",
+        "route_type": "驾车",
+        "main_road": "京承高速",
+        "distance": "87公里",
+        "estimated_duration": "1小时45分",
+        "travel_date": "12月12日"
+      }
+    },
+    {
+      "event_id": "e004",
+      "timestamp": "2026-12-06T14:17:45+08:00",
+      "app": "video_app",
+      "action": "view_playlist",
+      "content": {
+        "name": "雨夜爵士"
+      }
+    },
+    {
+      "event_id": "e005",
+      "timestamp": "2026-12-06T14:24:34+08:00",
+      "app": "map_app",
+      "action": "search_nearby",
+      "content": {
+        "poi_type": "打印店"
+      }
+    },
+    {
+      "event_id": "e006",
+      "timestamp": "2026-12-06T14:32:00+08:00",
+      "app": "car_rental_app",
+      "action": "view_detail",
+      "content": {
+        "car_model": "紧凑型SUV 丰田RAV4",
+        "seat_count": "5座",
+        "transmission": "自动挡",
+        "daily_price": "284元每天",
+        "pickup_store": "望京旗舰店",
+        "snow_tire_note": "可选配雪地胎"
+      }
+    },
+    {
+      "event_id": "e007",
+      "timestamp": "2026-12-06T14:46:58+08:00",
+      "app": "furniture_app",
+      "action": "browse_content",
+      "content": {
+        "category": "办公椅",
+        "sort": "最新"
+      }
+    },
+    {
+      "event_id": "e008",
+      "timestamp": "2026-12-06T14:51:37+08:00",
+      "app": "map_app",
+      "action": "search_place",
+      "content": {
+        "city": "洛阳",
+        "query": "火车站停车场"
+      }
+    },
+    {
+      "event_id": "e009",
+      "timestamp": "2026-12-06T14:56:30+08:00",
+      "app": "pharmacy_app",
+      "action": "search",
+      "content": {
+        "keyword": "创可贴",
+        "sort": "销量"
+      }
+    },
+    {
+      "event_id": "e010",
+      "timestamp": "2026-12-06T14:58:00+08:00",
+      "app": "car_rental_app",
+      "action": "pay",
+      "content": {
+        "order_id": "CR1206-88231",
+        "car_model": "紧凑型SUV 丰田RAV4",
+        "pickup_date": "12月12日 09:00",
+        "return_date": "12月13日 18:00",
+        "rental_days": "2天",
+        "pickup_store": "望京旗舰店",
+        "amount": "568元",
+        "payment_method": "支付宝",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e011",
+      "timestamp": "2026-12-06T15:07:46+08:00",
+      "app": "home_service_app",
+      "action": "search",
+      "content": {
+        "service": "空调清洗",
+        "time": "下月"
+      }
+    },
+    {
+      "event_id": "e012",
+      "timestamp": "2026-12-06T15:16:00+08:00",
+      "app": "calendar_app",
+      "action": "create_event",
+      "content": {
+        "event_title": "取车提醒:望京旗舰店取SUV",
+        "event_time": "12月12日 08:30",
+        "location": "望京旗舰店",
+        "reminder": "提前30分钟",
+        "note": "带驾驶证取车,随后前往密云南山滑雪场"
+      }
+    },
+    {
+      "event_id": "e013",
+      "timestamp": "2026-12-06T15:35:49+08:00",
+      "app": "payment_app",
+      "action": "check_balance",
+      "content": {
+        "detail": "常规使用记录"
+      }
+    },
+    {
+      "event_id": "e014",
+      "timestamp": "2026-12-06T15:50:00+08:00",
+      "app": "weather_app",
+      "action": "view_detail",
+      "content": {
+        "city": "北京",
+        "warning_type": "暴雪蓝色预警",
+        "issuing_authority": "北京市气象台",
+        "issue_time": "今日15:30",
+        "effective_period": "12月11日夜间至12月12日白天",
+        "expected_snowfall": "累计降雪量4至6毫米",
+        "warning_content": "道路结冰风险高,建议减少驾车出行"
+      }
+    },
+    {
+      "event_id": "e015",
+      "timestamp": "2026-12-06T15:53:17+08:00",
+      "app": "food_delivery_app",
+      "action": "search_grocery",
+      "content": {
+        "keyword": "生抽"
+      }
+    },
+    {
+      "event_id": "e016",
+      "timestamp": "2026-12-06T15:56:09+08:00",
+      "app": "rail_ticket_app",
+      "action": "search_train_ticket",
+      "content": {
+        "departure": "北京",
+        "arrival": "厦门",
+        "date": "01月10日"
+      }
+    },
+    {
+      "event_id": "e017",
+      "timestamp": "2026-12-06T16:00:17+08:00",
+      "app": "video_app",
+      "action": "watch_video",
+      "content": {
+        "title": "天文科普短片",
+        "duration_min": 6
+      }
+    },
+    {
+      "event_id": "e018",
+      "timestamp": "2026-12-06T16:06:00+08:00",
+      "app": "news_app",
+      "action": "browse_content",
+      "content": {
+        "title": "京承高速密云段因降雪双向封闭,周末出行请提前规划",
+        "category": "交通",
+        "publish_time": "今日15:50",
+        "summary": "受强降雪影响,京承高速太屯至密云段双向封闭,恢复时间待定,建议前往密云方向的市民选择公共交通"
+      }
+    },
+    {
+      "event_id": "e019",
+      "timestamp": "2026-12-06T16:22:00+08:00",
+      "app": "im_app",
+      "action": "send_message",
+      "content": {
+        "chat_with": "小李",
+        "message_type": "文字",
+        "message_content": "12号京承高速封了,开车去南山太悬。我这就把租的车退了,改坐市郊铁路怀密线去密云,12号早上北京北站出发,你也看看同班车的票"
+      }
+    },
+    {
+      "event_id": "e020",
+      "timestamp": "2026-12-06T16:38:00+08:00",
+      "app": "car_rental_app",
+      "action": "view_order",
+      "content": {
+        "order_id": "CR1206-88231",
+        "car_model": "紧凑型SUV 丰田RAV4",
+        "pickup_date": "12月12日 09:00",
+        "return_date": "12月13日 18:00",
+        "order_status": "已支付",
+        "paid_amount": "568元",
+        "cancel_policy": "取车前可免费取消,全额退款"
+      }
+    },
+    {
+      "event_id": "e021",
+      "timestamp": "2026-12-06T16:46:12+08:00",
+      "app": "reader_app",
+      "action": "read_article",
+      "content": {
+        "topic": "古生物新发现"
+      }
+    },
+    {
+      "event_id": "e022",
+      "timestamp": "2026-12-06T16:53:10+08:00",
+      "app": "gallery_app",
+      "action": "backup_photos",
+      "content": {
+        "count": 128
+      }
+    },
+    {
+      "event_id": "e023",
+      "timestamp": "2026-12-06T17:10:00+08:00",
+      "app": "map_app",
+      "action": "search_route",
+      "content": {
+        "departure_point": "朝阳区望京",
+        "destination": "南山滑雪场",
+        "route_type": "公共交通",
+        "main_segment": "北京北站乘市郊铁路怀密线至密云站",
+        "transfer_segment": "密云站换乘公交至南山滑雪场",
+        "estimated_duration": "2小时40分",
+        "travel_date": "12月12日"
+      }
+    },
+    {
+      "event_id": "e024",
+      "timestamp": "2026-12-06T17:17:12+08:00",
+      "app": "contacts_app",
+      "action": "search",
+      "content": {
+        "keyword": "维修师傅"
+      }
+    },
+    {
+      "event_id": "e025",
+      "timestamp": "2026-12-06T17:26:00+08:00",
+      "app": "car_rental_app",
+      "action": "cancel",
+      "content": {
+        "order_id": "CR1206-88231",
+        "car_model": "紧凑型SUV 丰田RAV4",
+        "pickup_date": "12月12日",
+        "cancel_reason": "暴雪预警京承高速封闭,改乘市郊铁路出行",
+        "refund_amount": "568元",
+        "order_status": "已取消"
+      }
+    },
+    {
+      "event_id": "e026",
+      "timestamp": "2026-12-06T17:45:00+08:00",
+      "app": "payment_app",
+      "action": "refund",
+      "content": {
+        "order_type": "租车订单",
+        "order_id": "CR1206-88231",
+        "merchant": "望京旗舰店",
+        "refund_amount": "568元",
+        "refund_method": "原路退回",
+        "refund_account": "招商银行尾号6688",
+        "refund_status": "已到账"
+      }
+    },
+    {
+      "event_id": "e027",
+      "timestamp": "2026-12-06T18:01:00+08:00",
+      "app": "rail_ticket_app",
+      "action": "search",
+      "content": {
+        "departure_station": "北京北站",
+        "arrival_station": "密云站",
+        "travel_date": "12月12日",
+        "line_name": "市郊铁路怀密线",
+        "passenger_count": "1人",
+        "sort_by": "早班优先"
+      }
+    },
+    {
+      "event_id": "e028",
+      "timestamp": "2026-12-06T18:11:00+08:00",
+      "app": "rail_ticket_app",
+      "action": "create_order",
+      "content": {
+        "order_id": "RT1206-30917",
+        "train_no": "S503",
+        "line_name": "市郊铁路怀密线",
+        "departure_station": "北京北站",
+        "arrival_station": "密云站",
+        "departure_time": "12月12日 08:34",
+        "arrival_time": "12月12日 09:52",
+        "seat_type": "二等座",
+        "ticket_type": "成人票",
+        "ticket_price": "12元",
+        "order_status": "待支付"
+      }
+    },
+    {
+      "event_id": "e029",
+      "timestamp": "2026-12-06T18:19:00+08:00",
+      "app": "rail_ticket_app",
+      "action": "pay",
+      "content": {
+        "order_id": "RT1206-30917",
+        "train_no": "S503",
+        "line_name": "市郊铁路怀密线",
+        "travel_date": "12月12日",
+        "amount": "12元",
+        "payment_method": "支付宝",
+        "order_status": "已支付"
+      }
+    },
+    {
+      "event_id": "e030",
+      "timestamp": "2026-12-06T18:37:00+08:00",
+      "app": "calendar_app",
+      "action": "update_event",
+      "content": {
+        "event_title_before": "取车提醒:望京旗舰店取SUV",
+        "event_title_after": "出发提醒:北京北站乘怀密线S503",
+        "event_time": "12月12日 07:30",
+        "location": "北京北站",
+        "reminder": "提前1小时",
+        "note": "租车已退,改乘市郊铁路去密云,到站后转公交至南山滑雪场"
+      }
+    }
+  ]
+}

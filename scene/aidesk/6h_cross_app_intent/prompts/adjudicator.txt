@@ -35,8 +35,11 @@ gold_label 结构：
 7. 15 条相关 / 15 条无关是目标配比，不是硬约束。origin=noise 的事件若在语义上确实与某个意图相关，按真实语义标注它（relation 可改为 supporting / related_interest / contradicting），并把实际的 unrelated_event_count 写入 global_observations。绝不能为凑数把相关事件伪标成 unrelated，或反过来。
 8. 不要根据事件编号、位置或 App 名称推断标签，只依据事件内容与业务语义。
 9. decision 取值：accept = 标签可直接采用；revise_label = 你已修正标签，gold_label 为修正后的版本；regenerate = 事件本身无法支持场景，需要重新生成（在 rationale 中说明原因）；reject = 场景不合适。
-10. supporting 只用于决定性证据（订单、支付、预订确认、出票、已创建/已确认日程、明确的确认或拒绝消息、已完成报名）；search / view / browse / collect / compare 类动作是 related_interest；cancel / refund / 改期的极性见第 12 条。
+10. supporting 只用于决定性证据：订单创建、支付成功、预订确认、出票、已创建/已确认日程、对方明确确认或拒绝消息、已完成报名、本人明确敲定消息（如「那就定周六18:00」「车我订好了，8点出发」）、外部确认通知（银行消费提醒、发货通知、预约成功通知）、核心承诺事件本身的提醒（会前提醒、体检空腹提醒）。以下一律 related_interest：search / view_detail / view_order / view_schedule / browse / collect / compare（view_order 即使内容显示已支付/已出库，仍按动作类型判 i）；发起邀约与征询（「周六有空吗」「请确认时间地点」）；协同沟通（分工、材料审阅、行程商量）；辅助后勤提醒（出发提醒、路程提醒）；模糊邀约（「改天吃饭」「到时候约」「回头再定时间」，无具体承诺，supporting 可为空）。cancel / refund / 改期的极性见第 12 条。
 11. 独立意图必须拥有自己独立的证据（不是另一个意图证据的子集，也不是另一个意图的目的）。盲标把"商务出差"拆成 travel + work 两个意图时，应合并为一个意图。
-12. 取消 / 退款 / 改期事件的极性取决于意图的最终状态：意图最终状态是 cancelled 时，这些事件确立了最终状态，标 supporting；意图仍在推进（planned / considering / confirmed）时，标 contradicting。同一数据集内必须保持一致。
-13. 单次孤立的弱信号不足以成立独立意图；只有弱信号时 purpose 应为 unknown、status 为 emerging，盲标若据此拆出多个意图或推断出 purpose，应合并并回调。
+12. 状态变化（D6）统一以「当前计划 / 调整 / 被取消的计划」为意图框架，不要用「原计划」框架。取消 / 退款 / 标记取消 / 改期确立事件标 supporting（它们是状态变化的决定性证据）。原计划证据（原订单、原购票、原碰头约定）：意图 cancelled 时标 related_interest（历史）；意图为「方式调整」且仍在推进时标 contradicting（旧方案反证）或 related_interest（历史），同一批样本保持一致。真实冲突证据（如官方取消公告 vs 群传「照常举行」）标 contradicting。禁止把意图定为「原观演/原出行」而将取消退款标 contradicting、原购票标 supporting。
+13. 单次孤立的弱信号不足以成立独立意图；只有弱信号时 purpose 应为 unknown、status 为 emerging，盲标若据此拆出多个意图或推断出 purpose，应合并并回调。程序注入噪声（origin=noise）尤其是难负例（hard_negative=true，如异地机票/异类商品）不得升格为意图；同域弱内容兴趣合并为一个「内容关注」意图，不按主题拆分，只有独立承诺证据簇才拆独立意图。
 14. 只能输出 JSON，不要输出分析过程。
+15. status 判据（口径 E）：emerging=仅兴趣（浏览/搜索/收藏）；considering=权衡无承诺（含模糊邀约）；planned=有安排无强承诺；confirmed=有支付/预订/对方确认等强承诺（不论行程是否未来）；completed=实际发生（签收/使用/到场）；cancelled=已取消。已支付未签收=confirmed 而非 completed；预约成功通知=confirmed；下单支付后取消退款=cancelled 而非 considering。
+16. 歧义噪声（口径 B）：疑似相关但缺地点/实体关联的事件保持 unrelated，把歧义写入 unknown_information，不凭怀疑标 related_interest。
+17. 品类弱关联（口径 C）：同品类弱关联（同品类+同区域+时间邻近）标 related_interest；仅区域相同但异品类的浏览标 unrelated。

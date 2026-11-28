@@ -80,6 +80,8 @@ def cmd_generate(args):
         raise SystemExit("no tasks (check --tasks-file entries)")
     gen_llm = OpenAICompatibleClient.from_env("LLM")
     judge_llm = OpenAICompatibleClient.from_env("LLM_JUDGE")
+    # Optional cheaper annotator model (judge tiering). Falls back to judge_llm when LLM_ANNOTATOR_MODEL unset.
+    annotator_llm = OpenAICompatibleClient.from_env("LLM_ANNOTATOR") if os.getenv("LLM_ANNOTATOR_MODEL") else None
     print(json.dumps({"event": "start", "n_tasks": len(tasks), "workers": args.workers,
                       "generator_model": gen_llm.model, "judge_model": judge_llm.model,
                       "endpoint": gen_llm.host, "noise_pool": pool.get("version")}, ensure_ascii=False), flush=True)
@@ -89,7 +91,7 @@ def cmd_generate(args):
         for task in tasks:
             try:
                 r = run_one(gen_llm, judge_llm, task, cfg, taxonomy, pool,
-                            template=templates.get(task.get("template_id")))
+                            template=templates.get(task.get("template_id")), annotator_llm=annotator_llm)
             except Exception as exc:  # noqa: BLE001
                 failed.append({"task": task, "error": str(exc)[:300]})
                 print(json.dumps({"event": "failed", "error": str(exc)[:300]}, ensure_ascii=False), flush=True)
@@ -99,7 +101,7 @@ def cmd_generate(args):
     else:
         with ThreadPoolExecutor(max_workers=args.workers) as ex:
             futures = {ex.submit(run_one, gen_llm, judge_llm, task, cfg, taxonomy, pool,
-                                 None, templates.get(task.get("template_id"))): task for task in tasks}
+                                 None, templates.get(task.get("template_id")), annotator_llm=annotator_llm): task for task in tasks}
             for fut in as_completed(futures):
                 task = futures[fut]
                 try:
