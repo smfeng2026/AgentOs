@@ -41,6 +41,8 @@ def set_approval(sample_id, state, by, note=None):
     if state not in APPROVAL_STATES:
         raise ValueError(f"approval state must be one of {APPROVAL_STATES}")
     data = load_manifest(sample_id)
+    if state == "approved" and data.get("run_state") == "failed":
+        raise ValueError("a failed pipeline run cannot be approved; regenerate it with generate --resume")
     data["approval"] = {"state": state, "by": by, "at": now_iso(), "note": note}
     write_manifest(data)
     append_jsonl("logs/approval_logs.jsonl", {

@@ -4,7 +4,8 @@ import unittest
 import tests  # noqa: F401
 from tests.helpers import DataTestCase, make_sample, persist, sid
 from src import dataset_builder, manifest as manifest_store
-from src.utils import load_jsonl, load_json
+from src.utils import load_jsonl, load_json, load_yaml
+from src.taxonomy import Taxonomy
 
 TEMPLATES = {"C01-S04": "travel", "C01-S05": "travel", "C02-S01": "work", "C02-S02": "work", "C03-S01": "shopping",
              "C03-S02": "shopping", "C04-S01": "social_dining", "C05-S01": "health_service", "C06-S01": "learning",
@@ -109,6 +110,39 @@ class ExportFormatTest(DataTestCase):
         self.assertEqual(test[0]["meta"]["template_id"], "C12-M02")
         self.assertTrue((tests.TEST_ROOT / "data/splits_fmt/DATASET_REPORT.md").exists())
         self.assertTrue((tests.TEST_ROOT / "data/splits_fmt/split_manifest.json").exists())
+    def test_fixed_plan_does_not_reallocate_existing_groups(self):
+        persist(make_sample(sid("fixed-a"), template_id="C01-S04", category="travel", entities=("甲",)))
+        cfg = load_yaml("config/dataset_config.yaml")
+        taxonomy = Taxonomy.load()
+        templates = {t["template_id"]: t for t in load_json("config/templates.json")["templates"]}
+        records, _ = dataset_builder.load_records(cfg, taxonomy)
+        first = dataset_builder.assign_splits(records, templates, cfg)["group_split"]
+        persist(make_sample(sid("fixed-b"), template_id="C02-S01", category="work", entities=("乙",)))
+        persist(make_sample(sid("fixed-c"), template_id="C03-S01", category="shopping", entities=("丙",)))
+        records, _ = dataset_builder.load_records(cfg, taxonomy)
+        second = dataset_builder.assign_splits(records, templates, cfg)["group_split"]
+        self.assertEqual(first["C01-S04"], second["C01-S04"])
+        self.assertEqual(second["C01-S04"], load_json("config/split_plan.json")["assignments"]["C01-S04"])
+
+    def test_entity_link_across_fixed_splits_is_an_error(self):
+        plan = load_json("config/split_plan.json")["assignments"]
+        self.assertNotEqual(plan["C12-M01"], plan["C12-M02"])
+        persist(make_sample(sid("fixed-x"), template_id="C12-M01", category="travel", entities=("相同目的地",)))
+        persist(make_sample(sid("fixed-y"), template_id="C12-M02", category="travel", entities=("相同目的地",)))
+        cfg = load_yaml("config/dataset_config.yaml")
+        records, _ = dataset_builder.load_records(cfg, Taxonomy.load())
+        templates = {t["template_id"]: t for t in load_json("config/templates.json")["templates"]}
+        result = dataset_builder.assign_splits(records, templates, cfg)
+        self.assertTrue(any("crosses planned splits" in e for e in result["errors"]))
+
+    def test_release_enforces_coverage_and_sft_uses_shared_policy(self):
+        persist(make_sample(sid("release-small"), template_id="C01-S04", category="travel", entities=("丁",)))
+        with self.assertRaises(SystemExit):
+            dataset_builder.build(out_dir="data/splits_release", release=True)
+        summary = dataset_builder.build(out_dir="data/splits_release", release=True, force=True, include_meta=True)
+        self.assertTrue(summary["coverage"]["errors"])
+        train = load_jsonl("data/splits_release/train.jsonl")
+        self.assertIn("D6 状态变化的唯一口径", train[0]["messages"][0]["content"])
 
 
 if __name__ == "__main__":

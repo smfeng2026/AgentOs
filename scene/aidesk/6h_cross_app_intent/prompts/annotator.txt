@@ -36,8 +36,8 @@
 9. 对每个 event_id 恰好输出一条 event_label。
 10. supporting 只用于决定性证据：订单创建、支付成功、预订确认、出票、已创建/已确认的日程、对方明确确认或拒绝消息、已完成的报名、本人明确敲定消息（如「那就定周六18:00」「车我订好了」）、外部确认通知（银行消费提醒、发货通知、预约成功通知）、核心承诺事件本身的提醒（会前提醒、体检空腹提醒）。以下一律 related_interest：search / view_detail / view_order / view_schedule / browse_content / collect / compare（view_order 即使内容显示已支付/已出库仍按动作判 i）；发起邀约与征询；协同沟通（分工、材料审阅、行程商量）；辅助后勤提醒（出发提醒、路程提醒）；模糊邀约（「改天吃饭」「到时候约」「回头再定」，无具体承诺，supporting 可空）。cancel / refund / 改期类动作的极性见第 12 条。
 11. 意图粒度：独立意图必须拥有自己独立的证据（不是另一个意图证据的子集，也不是另一个意图的目的）。"商务出差"是一个 travel 意图，其中的客户会议不另立为 work 意图；只有拥有独立证据簇的目标才算第二个意图。同域弱内容兴趣合并为一个「内容关注」意图，不按主题拆分。
-12. 状态变化（D6）统一以「当前计划 / 调整 / 被取消的计划」为意图框架，不要用「原计划」框架。取消 / 退款 / 标记取消 / 改期确立事件标 supporting（状态变化的决定性证据）。原计划证据（原订单、原购票、原碰头约定）：意图 cancelled 时标 related_interest（历史）；意图为「方式调整」且仍在推进时标 contradicting（旧方案反证）或 related_interest（历史）。真实冲突证据（官方取消公告 vs 群传「照常举行」）标 contradicting。
-13. 单次孤立的弱信号（一条搜索、一条浏览）不足以成立独立意图，也不是 purpose 的依据；只有弱信号时 purpose 填 unknown、status 填 emerging。程序注入噪声尤其是难负例（异地机票/异类商品）不得升格为意图。
+12. 状态变化（D6）统一以「当前计划 / 调整 / 被取消的计划」为意图框架，不要用「原计划」框架。取消 / 退款 / 标记取消 / 改期确立事件标 supporting（状态变化的决定性证据）。完全取消时，原计划证据（原订单、原购票、原碰头约定）标 related_interest（历史）；方式或日期调整且仍推进时，被替换的旧方案统一标 contradicting。真实冲突证据（官方取消公告 vs 群传「照常举行」）标 contradicting。详细优先级以追加的统一标注规范为准。
+13. 单次孤立的弱信号（一条搜索、一条浏览）不足以成立独立意图，也不是 purpose 的依据；只有弱信号时 purpose 填 unknown、status 填 emerging。背景噪声尤其是难负例（异地机票/异类商品）不得升格为意图。
 14. status 判据（口径 E）：emerging=仅兴趣；considering=权衡无承诺（含模糊邀约）；planned=有安排无强承诺；confirmed=有支付/预订/对方确认等强承诺（不论行程是否未来）；completed=实际发生（签收/使用/到场）；cancelled=已取消。已支付未签收=confirmed 而非 completed；预约成功通知=confirmed；下单支付后取消退款=cancelled 而非 considering。
 15. 歧义噪声（口径 B）：疑似相关但缺地点/实体关联的事件保持 unrelated，把歧义写入 unknown_information，不凭怀疑标 related_interest。
 16. 品类弱关联（口径 C）：同品类弱关联（同品类+同区域+时间邻近）标 related_interest；仅区域相同但异品类的浏览标 unrelated。

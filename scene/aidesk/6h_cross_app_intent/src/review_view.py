@@ -99,7 +99,8 @@ def _content_text(content):
 def pending_sample_ids(limit=None):
     ids = []
     for m in manifest_store.list_manifests():
-        if (m.get("approval") or {}).get("state", "pending") == "pending" and m.get("artefacts", {}).get("gold_label"):
+        if (m.get("approval") or {}).get("state", "pending") == "pending" and m.get("run_state") != "failed" \
+                and m.get("artefacts", {}).get("gold_label"):
             ids.append(m["sample_id"])
     ids.sort()
     return ids[:limit] if limit else ids

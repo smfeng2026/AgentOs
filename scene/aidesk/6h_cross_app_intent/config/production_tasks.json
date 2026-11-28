@@ -1,0 +1,312 @@
+[
+  {
+    "_doc": "Production plan: all 74 templates x 24 = 1776 total; fixed plan gives 1248 train before rejects. One train template per single-intent category is overridden to D4. Use generate --resume --run-id production-v1."
+  },
+  {
+    "template_id": "C01-S01",
+    "count": 24
+  },
+  {
+    "template_id": "C01-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C01-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C01-S04",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C01-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C01-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C02-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C02-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C02-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C02-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C02-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C02-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C03-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C03-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C03-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C03-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C03-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C03-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C04-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C04-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C04-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C04-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C04-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C04-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C05-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C05-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C05-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C05-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C05-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C05-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C06-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C06-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C06-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C06-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C06-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C06-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C07-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C07-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C07-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C07-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C07-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C07-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C08-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C08-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C08-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C08-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C08-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C08-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C09-S01",
+    "count": 24
+  },
+  {
+    "template_id": "C09-S02",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C09-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C09-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C09-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C09-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C10-S01",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C10-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C10-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C10-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C10-S05",
+    "count": 24
+  },
+  {
+    "template_id": "C10-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C11-S01",
+    "count": 24
+  },
+  {
+    "template_id": "C11-S02",
+    "count": 24
+  },
+  {
+    "template_id": "C11-S03",
+    "count": 24
+  },
+  {
+    "template_id": "C11-S04",
+    "count": 24
+  },
+  {
+    "template_id": "C11-S05",
+    "count": 24,
+    "difficulty": "D4_noise_interference"
+  },
+  {
+    "template_id": "C11-S06",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M01",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M02",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M03",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M04",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M05",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M06",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M07",
+    "count": 24
+  },
+  {
+    "template_id": "C12-M08",
+    "count": 24
+  }
+]

@@ -9,4 +9,6 @@ if __name__ == "__main__":
         "--start", "2026-12-01T08:00:00+08:00",
         "--jitter-window",
         "--workers", "4",
+        "--run-id", "pilot-aligned-v1",
+        "--resume",
     ], check=False)

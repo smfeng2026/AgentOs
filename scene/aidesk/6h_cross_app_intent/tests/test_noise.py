@@ -2,7 +2,8 @@ import random
 import unittest
 
 import tests  # noqa: F401
-from src.noise import load_pool, sample_noise, assign_noise_timestamps, hard_negative_fraction_for
+from src.noise import (load_pool, sample_noise, assign_noise_timestamps, hard_negative_fraction_for,
+                       prepare_generated_noise)
 from src.utils import parse_time
 
 
@@ -69,6 +70,52 @@ class NoiseSamplerTest(unittest.TestCase):
 
     def test_difficulty_map(self):
         self.assertGreater(hard_negative_fraction_for("D4_noise_interference"), hard_negative_fraction_for("D1_single_strong_evidence"))
+
+
+class GeneratedNoiseAlignmentTest(unittest.TestCase):
+    def _related(self):
+        return [{"event_id": f"e{i:03d}", "app": "hotel_app", "action": "search",
+                 "content": {"city": f"目标城市{i}", "query": "包含具体条件的酒店搜索记录"}}
+                for i in range(1, 16)]
+
+    def _noise(self):
+        related = self._related()
+        events = []
+        for i, counterpart in enumerate(related, 1):
+            paired = i <= 9
+            events.append({
+                "event_id": f"n{i:03d}",
+                "app": counterpart["app"] if paired else "news_app",
+                "action": counterpart["action"] if paired else "read_article",
+                "content": ({"city": f"日常地点{i}", "query": "与目标完全无关的周边生活搜索记录"} if paired
+                            else {"title": f"普通公共新闻标题{i}", "topic": "无关公共资讯"}),
+                "hard_negative": paired,
+                "surface_match_event_id": counterpart["event_id"] if paired else None,
+            })
+        return events
+
+    def test_valid_surface_aligned_noise(self):
+        related = self._related()
+        noise, report = prepare_generated_noise({"noise_events": self._noise()}, related, 15,
+                                                {"min_paired_fraction": 0.6})
+        self.assertEqual(report["errors"], [])
+        self.assertEqual(report["stats"]["paired"], 9)
+        self.assertEqual(report["stats"]["paired_fraction"], 0.6)
+        self.assertEqual(noise[0]["pool_id"], "generated:n001")
+        self.assertNotIn("relation", noise[0])
+        self.assertNotIn("timestamp", noise[0])
+
+    def test_mismatched_pair_and_short_noise_are_rejected(self):
+        related = self._related()
+        raw = self._noise()
+        raw[0]["app"] = "map_app"
+        for event in raw:
+            event["content"] = {"x": "短"}
+        _, report = prepare_generated_noise({"noise_events": raw}, related, 15,
+                                            {"min_paired_fraction": 0.6})
+        joined = "\n".join(report["errors"])
+        self.assertIn("must share app/action/content keys", joined)
+        self.assertIn("median content length ratio", joined)
 
 
 if __name__ == "__main__":

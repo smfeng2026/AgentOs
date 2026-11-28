@@ -1,6 +1,7 @@
 import time
 
 from src.utils import read_text, env
+from src.labeling_policy import labeling_policy
 
 
 class BaseAgent:
@@ -10,7 +11,7 @@ class BaseAgent:
 
     def __init__(self, llm, recorder=None):
         self.llm = llm
-        self.prompt = read_text(self.prompt_file)
+        self.prompt = read_text(self.prompt_file).rstrip() + "\n\n" + labeling_policy()
         # Every LLM call appends {model, tokens, latency_s}; the orchestrator aggregates per agent.
         self.recorder = recorder if recorder is not None else []
         # Optional per-agent reasoning budget: LLM_<NAME>_THINKING (enabled|disabled|low|high|max).

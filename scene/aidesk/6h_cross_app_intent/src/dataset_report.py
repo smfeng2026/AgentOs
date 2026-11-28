@@ -17,17 +17,18 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from src import manifest as manifest_store
-from src.utils import (ROOT, load_json, load_yaml, save_json, write_jsonl, compact_json, now_iso, estimate_tokens,
-                       read_text)
+from src.utils import (ROOT, load_json, load_yaml, save_json, write_jsonl, compact_json, canonical_json, now_iso,
+                       estimate_tokens)
 from src.evaluator import evaluate, RELATIONS
+from src.labeling_policy import sft_system_prompt
 
-REPORT_VERSION = "1.1.0"
+REPORT_VERSION = "1.2.0"
 
 
 def _load_sample(m):
     paths = {k: v.get("path") for k, v in (m.get("artefacts") or {}).items()}
     try:
-        return {
+        sample = {
             "manifest": m,
             "model_input": load_json(paths["model_input"]),
             "gold": load_json(paths["gold_label"]),
@@ -35,6 +36,9 @@ def _load_sample(m):
             "audit": load_json(paths["audit_report"]),
             "spec": load_json(paths["scenario_spec"]) if paths.get("scenario_spec") else {},
         }
+        if not isinstance(sample["model_input"], dict) or not isinstance(sample["gold"], dict):
+            return None
+        return sample
     except Exception:  # noqa: BLE001
         return None
 
@@ -198,12 +202,23 @@ def build_report():
 
     # ---- noise pool quality
     pool_ids, hard_per_sample, relabel_by_pool = Counter(), Counter(), Counter()
+    signatures = {"noise": Counter(), "related": Counter()}
+    surface_paired, surface_length_ratio = [], []
     noise_total = noise_relabeled = 0
     for s in samples:
+        alignment = ((s["manifest"].get("noise") or {}).get("surface_alignment") or {})
+        if alignment.get("paired_fraction") is not None:
+            surface_paired.append(alignment["paired_fraction"])
+        if alignment.get("median_length_ratio") is not None:
+            surface_length_ratio.append(alignment["median_length_ratio"])
         gold_rel = {x.get("event_id"): x.get("relation") for x in s["gold"].get("event_labels", []) or [] if isinstance(x, dict)}
         hard = 0
         for ev in s["internal"].get("events", []):
-            if ev.get("origin") != "noise":
+            origin = ev.get("origin")
+            if origin in signatures:
+                signatures[origin][canonical_json({"app": ev.get("app"), "action": ev.get("action"),
+                                                   "content": ev.get("content")})] += 1
+            if origin != "noise":
                 continue
             noise_total += 1
             pool_ids[ev.get("pool_id")] += 1
@@ -219,10 +234,15 @@ def build_report():
         "top_pool_ids": dict(pool_ids.most_common(15)),
         "distinct_pool_ids_used": len(pool_ids),
         "hard_negatives_per_sample": dict(sorted(hard_per_sample.items())),
+        "exact_surface_unique": {origin: len(counts) for origin, counts in signatures.items()},
+        "exact_surface_events_in_duplicate_groups": {
+            origin: sum(n for n in counts.values() if n > 1) for origin, counts in signatures.items()},
+        "surface_paired_fraction_mean": round(statistics.fmean(surface_paired), 4) if surface_paired else None,
+        "surface_median_length_ratio_mean": round(statistics.fmean(surface_length_ratio), 4) if surface_length_ratio else None,
     }
 
     # ---- length
-    system_prompt = read_text("prompts/sft_system.txt")
+    system_prompt = sft_system_prompt()
     in_tok = [estimate_tokens(system_prompt) + estimate_tokens(compact_json(s["model_input"])) for s in samples]
     out_tok = [estimate_tokens(compact_json({k: v for k, v in s["gold"].items() if k != "sample_id"})) for s in samples]
     report["length"] = {"est_tokens_input": {"p50": _pct(in_tok, .5), "p90": _pct(in_tok, .9), "max": max(in_tok)},
@@ -358,7 +378,9 @@ def render_markdown(r, title="Dataset / pilot report"):
     L += ["", "## 噪声池", "",
           f"- 版本 {nz['pool_versions']}；使用到的噪声模板 {nz['distinct_pool_ids_used']} 种；每样本难负例数 {nz['hard_negatives_per_sample']}",
           f"- **噪声被裁决器改标为相关：{nz['noise_relabel_rate']}**（{nz['relabeled_by_pool_id']}）",
-          f"- Top 噪声模板：{nz['top_pool_ids']}", ""]
+          f"- Top 噪声模板：{nz['top_pool_ids']}",
+          f"- 精确表面内容 unique（related/noise）：{nz['exact_surface_unique']}；重复组内事件：{nz['exact_surface_events_in_duplicate_groups']}",
+          f"- 表面对齐：平均配对率 {nz['surface_paired_fraction_mean']}；平均长度比 {nz['surface_median_length_ratio_mean']}", ""]
     ln = r["length"]
     L += ["## 长度（估算 token）", "",
           f"- 输入 p50/p90/max：{ln['est_tokens_input']['p50']} / {ln['est_tokens_input']['p90']} / {ln['est_tokens_input']['max']}",

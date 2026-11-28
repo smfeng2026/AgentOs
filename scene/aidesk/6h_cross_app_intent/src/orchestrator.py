@@ -1,14 +1,10 @@
-"""Pipeline orchestrator (V1.1).
+"""Pipeline orchestrator (V1.2).
 
-Planner → Generator → validate → noise injection → renumber events → blind Annotator → Reviewer
-→ Adjudicator → validate Gold Label → write artefacts + manifest.
+Planner → Generator (related + surface-aligned noise) → validate → renumber events → blind Annotator
+→ Reviewer → Adjudicator → validate Gold Label → write artefacts + manifest.
 
-V1.1 changes vs the MVP:
-- event_ids are renumbered by time after merging related + noise events (no id→label leak),
-- noise comes from a seeded, category-aware pool with hard negatives (no fixed 15 strings),
-- 15 unrelated is a target, not a hard constraint (adjudicator may relabel noise by real semantics),
-- bounded regeneration loop with per-attempt audit trail,
-- per-sample manifest (provenance, status, split, approval) + usage/timing per agent.
+V1.2 adds generated surface-aligned noise, stable task identities/resume metadata, a shared labelling
+policy hash, and durable failed-run artefacts. Legacy seeded-pool noise remains available via config.
 """
 import random
 import time
@@ -22,10 +18,10 @@ from src.agents import (
 from src.validators import validate_generated, validate_final
 from src.dataset_writer import write_sample
 from src import manifest as manifest_store
-from src.noise import sample_noise, assign_noise_timestamps, hard_negative_fraction_for
+from src.noise import sample_noise, assign_noise_timestamps, prepare_generated_noise
 from src.utils import (ROOT, parse_time, now_iso, sha256_file, append_jsonl, stable_hash, load_json)
 
-PIPELINE_VERSION = "1.1.0"
+PIPELINE_VERSION = "1.2.0"
 AGENT_NAMES = ("planner", "generator", "annotator", "reviewer", "adjudicator")
 PROMPT_FILES = {name: f"prompts/{name}.txt" for name in AGENT_NAMES}
 DEFAULT_WINDOW_START_HOURS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
@@ -81,6 +77,7 @@ def build_model_input(sample_id, window_start, window_end, related_events, noise
             "generator_event_id": _gen_namespace(e["_source_id"]) if e["_kind"] == "related" else None,
             "pool_id": e["_source_id"] if e["_kind"] == "noise" else None,
             "hard_negative": bool(e.get("hard_negative", False)),
+            "surface_match_generator_event_id": e.get("surface_match_event_id") if e["_kind"] == "noise" else None,
             "timestamp": e["timestamp"],
             "app": e["app"],
             "action": e["action"],
@@ -88,6 +85,9 @@ def build_model_input(sample_id, window_start, window_end, related_events, noise
             "relation": e.get("relation") if e["_kind"] == "related" else "unrelated",
             "intent_ids": list(e.get("intent_ids") or []) if e["_kind"] == "related" else [],
         })
+    for item in labeled:
+        if item["origin"] == "noise":
+            item["surface_match_event_id"] = id_mapping.get(item.get("surface_match_generator_event_id"))
     hours = (end - start).total_seconds() / 3600
     model_input = {
         "sample_id": sample_id,
@@ -101,7 +101,10 @@ def build_model_input(sample_id, window_start, window_end, related_events, noise
 
 def make_sample_id(task):
     base = str(task.get("template_id") or task.get("scenario_category") or "sample").lower()
-    return f"{base}-{uuid.uuid4().hex[:8]}"
+    # CLI-expanded tasks carry a stable instance id, making --resume idempotent. Direct callers that
+    # do not provide one retain the old random-id behaviour.
+    suffix = str(task["task_instance_id"])[:8] if task.get("task_instance_id") else uuid.uuid4().hex[:8]
+    return f"{base}-{suffix}"
 
 
 def resolve_window(task, cfg, rng):
@@ -174,6 +177,8 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
     max_unrelated = int(cfg.get("max_unrelated_events", 20))
     max_regen = int(cfg.get("max_regeneration_attempts", 2))
     difficulty = task.get("difficulty") or "D2_multi_app_fusion"
+    noise_generation_cfg = cfg.get("noise_generation") or {}
+    noise_mode = noise_generation_cfg.get("mode", "generated_aligned")
 
     recorders = {name: [] for name in AGENT_NAMES}
     agents = {
@@ -204,9 +209,13 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
 
     attempts, hint = [], None
     spec = gen = model_input = labeled = blind = review = adjudication = gold = None
+    noise, preset_agreement, surface_alignment = [], None, None
     validation = {"errors": ["pipeline did not reach adjudication"], "warnings": [], "stats": {}}
     stage, decision = None, None
     for attempt in range(1 + max_regen):
+        # Never let artefacts from a previous adjudication attempt leak into a later failed generation.
+        gen = model_input = labeled = blind = review = adjudication = gold = None
+        noise, preset_agreement, surface_alignment = [], None, None
         plan_payload = dict(planner_payload)
         if hint:
             plan_payload["regeneration_hint"] = hint
@@ -227,29 +236,42 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
             "dates_must_be_after": window_end,
             "app_vocabulary": vocabulary,
             "related_event_count": related_target,
+            "noise_event_count": noise_count,
+            "noise_generation": noise_generation_cfg,
             "attempt": attempt,
             "regeneration_hint": hint,
             "label_taxonomy": taxonomy_brief,
         })
         gen_errors = validate_generated(gen, window_start, window_end, expected_related=related_target,
                                         spec=spec, app_vocabulary=set(vocabulary))
+        if not gen_errors:
+            key_entities = spec.get("key_entities") if isinstance(spec.get("key_entities"), dict) else {}
+            if noise_mode == "generated_aligned":
+                noise, surface_alignment = prepare_generated_noise(
+                    gen, gen["events"], noise_count, noise_generation_cfg, app_vocabulary=vocabulary)
+                gen_errors.extend(surface_alignment["errors"])
+            elif noise_mode == "pool":
+                noise_context = {
+                    "home_city": key_entities.get("home_city"),
+                    "other_date": (parse_time(window_end) + timedelta(days=rng.choice([12, 20, 26, 35]))).strftime("%m月%d日"),
+                }
+                noise = sample_noise(
+                    noise_pool, noise_count, rng, intent_categories, key_entities,
+                    difficulty=difficulty, context=noise_context,
+                )
+            else:
+                gen_errors.append(f"unknown noise_generation.mode {noise_mode!r}")
         if gen_errors:
-            attempts.append({"attempt": attempt, "stage": "generation", "errors": gen_errors})
+            attempt_info = {"attempt": attempt, "stage": "generation", "errors": gen_errors}
+            if surface_alignment:
+                attempt_info["surface_alignment"] = surface_alignment["stats"]
+            attempts.append(attempt_info)
             stage, decision = "generation", "generation_failed"
             if attempt < max_regen:
-                hint = "上一版事件未通过结构校验，请修正：" + "; ".join(gen_errors[:6])
+                hint = "上一版事件未通过结构或表面对齐校验，请修正：" + "; ".join(gen_errors[:6])
                 continue
             break
 
-        key_entities = spec.get("key_entities") if isinstance(spec.get("key_entities"), dict) else {}
-        noise_context = {
-            "home_city": key_entities.get("home_city"),
-            "other_date": (parse_time(window_end) + timedelta(days=rng.choice([12, 20, 26, 35]))).strftime("%m月%d日"),
-        }
-        noise = sample_noise(
-            noise_pool, noise_count, rng, intent_categories, key_entities,
-            difficulty=difficulty, context=noise_context,
-        )
         noise = assign_noise_timestamps(noise, rng, window_start, window_end,
                                         [e["timestamp"] for e in gen["events"]])
         model_input, labeled, _ = build_model_input(sample_id, window_start, window_end, gen["events"], noise)
@@ -292,6 +314,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
             "warnings": validation["warnings"],
             "noise_pool_ids": [e.get("pool_id") for e in noise],
             "hard_negative_ids": [e.get("pool_id") for e in noise if e.get("hard_negative")],
+            "surface_alignment": (surface_alignment or {}).get("stats"),
         })
         if decision == "regenerate" and attempt < max_regen:
             hint = (attempts[-1]["rationale"] or "regenerate") if isinstance(attempts[-1]["rationale"], str) \
@@ -306,6 +329,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
     else:
         status = "HUMAN_APPROVAL_PENDING" if not validation["errors"] and decision in ("accept", "revise_label") \
             else "NEEDS_HUMAN_REVIEW"
+    run_state = "failed" if stage in (None, "generation") else "completed"
 
     stats = validation.get("stats", {})
     flags = []
@@ -333,6 +357,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         "sample_id": sample_id,
         "pipeline_version": PIPELINE_VERSION,
         "status": status,
+        "run_state": run_state,
         "decision": decision,
         "flags": flags,
         "attempts": attempts,
@@ -340,6 +365,7 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         "review": review,
         "adjudication": adjudication,
         "validation": validation,
+        "surface_alignment": surface_alignment,
         "blind_relation_agreement": agreement,
         "preset_relation_agreement": preset_agreement,
         "usage": _summarise_usage(recorders),
@@ -353,6 +379,8 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
         "created_at": now_iso(),
         "task": {
             "scenario_category": task["scenario_category"],
+            "task_instance_id": task.get("task_instance_id"),
+            "run_id": task.get("run_id"),
             "template_id": task.get("template_id"),
             "subscenario": task.get("subscenario"),
             "difficulty": difficulty,
@@ -377,18 +405,22 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
             **({"gold_" + k: v for k, v in stats.items()} if stats else {}),
         },
         "noise": {
-            "pool_version": noise_pool.get("version"),
+            "mode": noise_mode,
+            "pool_version": ("generated_aligned:v1" if noise_mode == "generated_aligned" else noise_pool.get("version")),
             "pool_ids": attempts[-1].get("noise_pool_ids", []) if attempts and stage != "generation" else [],
+            "surface_alignment": (surface_alignment or {}).get("stats"),
         },
         "provenance": {
             "generator_model": gen_llm.model,
             "judge_model": judge_llm.model,
             "endpoint_host": gen_llm.host,
             "prompt_sha256": {name: sha256_file(ROOT / path) for name, path in PROMPT_FILES.items()},
+            "labeling_policy_sha256": sha256_file(ROOT / "prompts/labeling_policy.txt"),
             "taxonomy_sha256": sha256_file(ROOT / taxonomy.path) if taxonomy is not None and taxonomy.path else None,
         },
         "decision": decision,
         "status": status,
+        "run_state": run_state,
         "flags": flags,
         "validation": validation,
         "attempts": len(attempts),
@@ -399,13 +431,14 @@ def run_one(gen_llm, judge_llm, task, cfg, taxonomy, noise_pool, sample_id=None,
     }
     manifest_store.write_manifest(manifest)
     append_jsonl("logs/generation_logs.jsonl", {
-        "sample_id": sample_id, "status": status, "decision": decision, "flags": flags,
+        "sample_id": sample_id, "status": status, "run_state": run_state, "decision": decision, "flags": flags,
         "category": task["scenario_category"], "template_id": task.get("template_id"),
         "attempts": len(attempts), "elapsed_s": audit["elapsed_s"], "at": manifest["created_at"],
     })
     return {
         "sample_id": sample_id,
         "status": status,
+        "run_state": run_state,
         "decision": decision,
         "flags": flags,
         "errors": validation["errors"],

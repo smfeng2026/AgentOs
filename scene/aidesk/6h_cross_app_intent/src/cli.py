@@ -20,7 +20,7 @@ from dotenv_loader import load_dotenv
 from src.llm_client import OpenAICompatibleClient
 from src.orchestrator import run_one
 from src import manifest as manifest_store
-from src.utils import load_yaml, load_json, now_iso, save_json
+from src.utils import load_yaml, load_json, now_iso, save_json, stable_hash
 from src.taxonomy import Taxonomy
 from src.noise import load_pool
 
@@ -45,6 +45,19 @@ def _base_task(args, template=None):
     }
 
 
+def _with_task_ids(tasks, args):
+    """Stable identity independent of task-file ordering; run_id allows intentional new batches."""
+    occurrences = Counter()
+    run_id = getattr(args, "run_id", None) or "default"
+    for task in tasks:
+        fingerprint = stable_hash(task, 16)
+        occurrences[fingerprint] += 1
+        task["run_id"] = run_id
+        task["task_instance_id"] = stable_hash({"run_id": run_id, "task": task,
+                                                 "occurrence": occurrences[fingerprint]}, 16)
+    return tasks
+
+
 def expand_tasks(args, templates):
     tasks = []
     if args.tasks_file:
@@ -58,13 +71,13 @@ def expand_tasks(args, templates):
                     if entry.get(key):
                         task[key] = entry[key]
                 tasks.append(task)
-        return tasks
+        return _with_task_ids(tasks, args)
     template = templates.get(args.template_id) if args.template_id else None
     if args.template_id and template is None:
         raise SystemExit(f"unknown template_id {args.template_id}")
     for _ in range(args.count):
         tasks.append(_base_task(args, template))
-    return tasks
+    return _with_task_ids(tasks, args)
 
 
 def cmd_generate(args):
@@ -78,11 +91,40 @@ def cmd_generate(args):
     tasks = expand_tasks(args, templates)
     if not tasks:
         raise SystemExit("no tasks (check --tasks-file entries)")
+    n_requested = len(tasks)
+    existing = manifest_store.list_manifests()
+    by_instance = {(m.get("task") or {}).get("task_instance_id"): m for m in existing
+                   if (m.get("task") or {}).get("task_instance_id")}
+    if args.resume:
+        pending = []
+        skipped_completed = []
+        for task in tasks:
+            previous = by_instance.get(task["task_instance_id"])
+            completed = previous and (previous.get("run_state") == "completed" or
+                                      (previous.get("run_state") is None and previous.get("status") == "HUMAN_APPROVAL_PENDING"))
+            if completed:
+                skipped_completed.append(previous["sample_id"])
+            else:
+                pending.append(task)
+        tasks = pending
+    else:
+        collisions = [by_instance[t["task_instance_id"]]["sample_id"] for t in tasks if t["task_instance_id"] in by_instance]
+        if collisions:
+            raise SystemExit(f"{len(collisions)} task instances already exist; use --resume or a new --run-id")
+        skipped_completed = []
+    if not tasks:
+        summary = {"event": "summary", "n_tasks": n_requested, "n_ok": 0, "n_failed": 0,
+                   "n_skipped_completed": len(skipped_completed), "status": {}, "decision": {}, "flags": {},
+                   "avg_attempts": 0, "elapsed_s_total": 0, "failed": []}
+        print(json.dumps(summary, ensure_ascii=False))
+        return 0
     gen_llm = OpenAICompatibleClient.from_env("LLM")
     judge_llm = OpenAICompatibleClient.from_env("LLM_JUDGE")
     # Optional cheaper annotator model (judge tiering). Falls back to judge_llm when LLM_ANNOTATOR_MODEL unset.
     annotator_llm = OpenAICompatibleClient.from_env("LLM_ANNOTATOR") if os.getenv("LLM_ANNOTATOR_MODEL") else None
-    print(json.dumps({"event": "start", "n_tasks": len(tasks), "workers": args.workers,
+    print(json.dumps({"event": "start", "n_tasks": len(tasks), "n_requested": n_requested,
+                      "n_skipped_completed": len(skipped_completed), "run_id": args.run_id,
+                      "workers": args.workers,
                       "generator_model": gen_llm.model, "judge_model": judge_llm.model,
                       "endpoint": gen_llm.host, "noise_pool": pool.get("version")}, ensure_ascii=False), flush=True)
 
@@ -115,7 +157,8 @@ def cmd_generate(args):
                 print(json.dumps(r, ensure_ascii=False), flush=True)
 
     summary = {
-        "event": "summary", "n_tasks": len(tasks), "n_ok": len(results), "n_failed": len(failed),
+        "event": "summary", "n_tasks": len(tasks), "n_requested": n_requested,
+        "n_skipped_completed": len(skipped_completed), "n_ok": len(results), "n_failed": len(failed),
         "status": dict(Counter(r["status"] for r in results)),
         "decision": dict(Counter(str(r["decision"]) for r in results)),
         "flags": dict(Counter(f for r in results for f in r["flags"])),
@@ -137,8 +180,21 @@ def cmd_approval(args, state):
 
 def cmd_build(args):
     from src import dataset_builder
-    summary = dataset_builder.build(args.out, args.allow_unapproved, args.include_meta, args.force)
+    summary = dataset_builder.build(args.out, args.allow_unapproved, args.include_meta, args.force, args.release)
     print(dataset_builder.render_markdown(summary))
+    return 0
+
+
+def cmd_plan_splits(args):
+    from src.split_plan import write_plan
+    from pathlib import Path
+    from src.utils import ROOT
+    path = Path(args.out) if Path(args.out).is_absolute() else ROOT / args.out
+    if path.exists() and not args.force:
+        raise SystemExit(f"split plan already exists: {args.out}; use --force only before a new dataset version")
+    plan = write_plan(args.out, list(load_templates().values()), load_yaml("config/dataset_config.yaml"))
+    print(json.dumps({"out": args.out, "version": plan["version"], "groups": len(plan["assignments"])},
+                     ensure_ascii=False))
     return 0
 
 
@@ -179,6 +235,8 @@ def main(argv=None):
     g.add_argument("--fixed-window", action="store_true", help="use the same window for every sample (no jitter)")
     g.add_argument("--jitter-window", action="store_true", help="jitter even when --start is given")
     g.add_argument("--workers", type=int, default=1)
+    g.add_argument("--run-id", default="default", help="stable batch namespace; use a new value for an intentional new run")
+    g.add_argument("--resume", action="store_true", help="skip completed task instances and retry failed ones")
     g.set_defaults(func=cmd_generate)
 
     for name, state in (("approve", "approved"), ("reject", "rejected")):
@@ -193,7 +251,13 @@ def main(argv=None):
     b.add_argument("--allow-unapproved", action="store_true")
     b.add_argument("--include-meta", action="store_true")
     b.add_argument("--force", action="store_true")
+    b.add_argument("--release", action="store_true", help="enforce coverage quotas and shortcut-audit gates")
     b.set_defaults(func=cmd_build)
+
+    sp = sub.add_parser("plan-splits", help="write a fixed split plan for every registered template")
+    sp.add_argument("--out", default="config/split_plan.json")
+    sp.add_argument("--force", action="store_true", help="replace an existing plan (new dataset versions only)")
+    sp.set_defaults(func=cmd_plan_splits)
 
     e = sub.add_parser("evaluate", help="evaluate predictions against test JSONL")
     e.add_argument("--gold", nargs="+", default=["data/splits/test.jsonl", "data/splits/challenge_test.jsonl"])

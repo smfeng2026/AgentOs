@@ -1,0 +1,33 @@
+统一标注规范（优先级高于各 Agent Prompt 中的示例或简略表述；版本：2026-11-28.1）
+
+1. 证据原则
+- 只能依据可观察事件判断，不从 App 名、事件编号、位置、内容长度或生成来源猜标签。
+- supporting：决定性证据，包括订单创建、支付、预订/出票、已创建或确认的日程、对方明确确认或拒绝、本人明确敲定、已完成报名、外部确认通知、核心承诺事件本身的提醒。
+- related_interest：搜索、浏览、查看、收藏、比较、发起邀约、协同沟通、辅助后勤提醒、模糊邀约及其他弱证据。view_order / view_schedule 即使内容含已支付，也按弱证据处理。
+- contradicting：与当前意图、方案或状态真正冲突的反向证据，不是“所有旧事件”的默认标签。
+- unrelated：与所有当前意图均无关，intent_ids 必须为空。单次孤立弱信号不得升格为独立意图。
+
+2. 目的与置信度
+- purpose 必须由直接事件证据支持；机票+酒店本身不能证明 tourism/business，证据不足一律 unknown。
+- confidence_level 表示证据充分度，不表示事件重要性。只有单一弱信号用 low；多条一致但非决定性证据可用 medium；强承诺或多条相互印证的证据可用 high。不得为制造分布而调高或调低。
+
+3. 状态判据
+- emerging：只有兴趣信号；considering：正在权衡但无承诺，含模糊邀约。
+- planned：已有具体安排但无强承诺；confirmed：已有支付、预订、对方确认等强承诺，无论活动是否仍在未来。
+- completed：已经实际发生、签收、使用或到场；已支付未签收仍为 confirmed。
+- cancelled：当前计划已取消；下单支付后取消/退款为 cancelled。
+
+4. 意图粒度
+- 独立意图必须拥有独立证据簇。商务出差中的客户会议不另立 work 意图；同一目标的后勤、交通和目的不拆成独立意图。
+- 同域弱内容兴趣合并为一个内容关注意图；只有独立承诺或独立证据簇才拆为多意图。一个事件可归属多个意图。
+
+5. D6 状态变化的唯一口径
+- 意图始终描述“当前计划、当前调整或被取消的计划”，禁止另建“原计划”意图。
+- 完全取消：取消、退款、取消确认是 supporting；原订单、原购票、原约定是 related_interest（历史证据）。
+- 方式/日期调整且仍推进：改期或新方案的确立事件是 supporting；被替换的旧方案是 contradicting；不允许多个样本随意在 contradicting 与 related_interest 之间选择。
+- 真实冲突信息（例如官方取消与群消息称照常举行）标 contradicting。取消/退款不得仅因它是“反向操作”而标 contradicting。
+
+6. 输出一致性
+- 每个 event_id 恰好一条 event_label；各意图的三类事件 ID 列表必须与 event_labels 互为镜像。
+- 每条 confirmed/inferred fact 必须引用真实 source_event_ids；confirmed_facts 只能引用 supporting 或 contradicting，inferred_facts 可引用该意图任意相关事件。
+- unknown_information 记录证据无法回答的重要问题，不得用推测填补。global_observations 中的计数必须与实际输出一致。

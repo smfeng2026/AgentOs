@@ -23,3 +23,42 @@ split_ratios:
   test: 0.20
 # Samples in the test split with these difficulties go to challenge_test instead
 challenge_difficulties: [D3_weak_evidence, D5_multi_intent, D6_conflict_state_change]
+
+# generated_aligned: the Generator emits semantically unrelated, surface-matched events in the
+# same call as related events. pool: legacy deterministic seed-pool injection (smoke/compat only).
+noise_generation:
+  mode: generated_aligned
+  min_paired_fraction: 0.60       # noise with a real related counterpart sharing app/action/content keys
+  min_median_length_ratio: 0.65   # median noise/related content JSON length
+  max_median_length_ratio: 1.60
+
+# Freeze template-group assignments before production. New entity links crossing planned splits are errors.
+split_plan:
+  path: config/split_plan.json
+  required: true
+
+# Reported by every build; enforced only by `build --release`.
+shortcut_audit:
+  min_majority_lift: 0.05       # avoid flagging a majority-class artefact as a shortcut
+  thresholds:
+    content_length: 0.70
+    action: 0.80
+    app_action: 0.85
+    content_keys: 0.85
+    event_position: 0.70
+    time_bucket: 0.70
+
+# Initial, configurable release quotas for train=1200. They are intentionally explicit rather than
+# hidden in code; adjust them only alongside a reviewed dataset-design decision.
+release:
+  min_train_samples: 1200
+  min_validation_samples: 80
+  min_test_samples: 120             # test + challenge_test
+  min_train_templates: 45
+  required_train_difficulties: [D1_single_strong_evidence, D2_multi_app_fusion, D3_weak_evidence,
+                                D4_noise_interference, D5_multi_intent, D6_conflict_state_change]
+  min_train_multi_intent_samples: 60
+  min_train_unknown_purpose: 30
+  min_train_relation_counts: {supporting: 100, related_interest: 100, contradicting: 30}
+  min_train_status_counts: {planned: 20, completed: 10, considering: 20}
+  min_train_confidence_counts: {medium: 20}

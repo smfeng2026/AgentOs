@@ -3,24 +3,28 @@
 Steps:
 1. scan manifests → keep approval.state == "approved" (unless --allow-unapproved, flagged loudly),
 2. pair model_inputs / gold_labels by sample_id, re-run validate_final (invalid → skipped, reported),
-3. split by *template group* (never by sample): whole groups go to one split. Groups that share a
-   strong entity (destination / product) are merged into one component first, so an entity cannot
-   appear in both train and test. Ratios from config; test-split samples with a challenge difficulty
-   go to challenge_test,
+3. split by *template group* using the versioned fixed split plan. Groups sharing a strong entity
+   (destination / product) are connected; a connection across planned splits is an error rather than a
+   silent reassignment. Test-split samples with a challenge difficulty go to challenge_test,
 4. export SFT `messages` JSONL (train/validation) and test JSONL (model_input + gold + meta),
-5. leakage report: group overlap, exact/near-duplicate inputs, entity overlap, app coverage.
+5. report leakage, release coverage quotas and surface-only related/unrelated shortcut probes;
+   `build --release` turns quota/probe failures into hard errors.
 """
 import argparse
 from collections import Counter, defaultdict
 from pathlib import Path
 
 from src import manifest as manifest_store
-from src.utils import (ROOT, load_json, load_yaml, load_jsonl, write_jsonl, save_json, compact_json,
-                       canonical_json, stable_hash, now_iso, estimate_tokens, read_text, flatten_entities)
+from src.utils import (ROOT, load_json, load_yaml, write_jsonl, save_json, compact_json,
+                       canonical_json, stable_hash, now_iso, estimate_tokens)
 from src.validators import validate_final
 from src.taxonomy import Taxonomy
+from src.split_plan import load_plan
+from src.labeling_policy import sft_system_prompt
+from src.release_checks import coverage_report
+from src.shortcut_audit import audit_records
 
-BUILDER_VERSION = "1.1.0"
+BUILDER_VERSION = "1.2.0"
 SPLITS = ("train", "validation", "test", "challenge_test")
 STRONG_ENTITY_KEYS = ("destinations", "products")   # entity pools used for isolation (people/dates are too generic)
 TARGET_KEY_ORDER = ("intents", "event_labels", "unrelated_event_ids", "global_observations")
@@ -60,6 +64,9 @@ def load_records(cfg, taxonomy, allow_unapproved=False, require_approval=True):
         approval = (m.get("approval") or {}).get("state", "pending")
         if require_approval and approval != "approved" and not allow_unapproved:
             skipped.append({"sample_id": sid, "reason": "not_approved", "detail": approval})
+            continue
+        if m.get("run_state") == "failed" or m.get("status") == "NEEDS_HUMAN_REVIEW":
+            skipped.append({"sample_id": sid, "reason": "pipeline_not_ready", "detail": m.get("status")})
             continue
         paths = {k: v.get("path") for k, v in (m.get("artefacts") or {}).items()}
         try:
@@ -172,7 +179,14 @@ def allocate_components(comps_by_category, ratios):
 def assign_splits(records, templates, cfg):
     ratios = cfg.get("split_ratios", {"train": 0.7, "validation": 0.1, "test": 0.2})
     challenge_difficulties = set(cfg.get("challenge_difficulties", []))
-    errors, warnings = [], []
+    errors, warnings, release_errors = [], [], []
+    plan_cfg = cfg.get("split_plan") or {}
+    try:
+        plan = load_plan(cfg)
+    except (FileNotFoundError, ValueError) as exc:
+        plan = None
+        errors.append(str(exc) if isinstance(exc, ValueError) else f"required split plan missing: {plan_cfg.get('path')}")
+    planned_splits = (plan or {}).get("assignments", {})
 
     for r in records:
         r["group_key"] = group_key(r)
@@ -205,14 +219,30 @@ def assign_splits(records, templates, cfg):
                 errors.append(f"conflicting explicit splits in component {root}: {comp_explicit[root]} vs {exp}")
             comp_explicit[root] = exp
 
-    # Auto allocation per category, by component (ordered deterministically).
-    comps_by_category = defaultdict(list)
+    # A fixed plan is authoritative for existing groups. Explicit task splits remain useful for tests and
+    # overrides, but a disagreement is always reported and blocks --release.
+    comp_split = {}
+    auto_by_category = defaultdict(list)
     for root, groups in components.items():
         cat = next((r["category"] for r in records if comp_of_group[r["group_key"]] == root), "unknown")
-        comps_by_category[cat].append(root)
-    comp_split = dict(comp_explicit)
-    auto_by_category = {cat: [r for r in roots if r not in comp_explicit] for cat, roots in comps_by_category.items()}
-    auto_by_category = {cat: roots for cat, roots in auto_by_category.items() if roots}
+        planned = {planned_splits[g] for g in groups if g in planned_splits}
+        missing = [g for g in groups if g not in planned_splits]
+        if planned_splits and missing:
+            message = f"component {root} has groups missing from split plan: {sorted(missing)}"
+            (errors if plan_cfg.get("required", True) else warnings).append(message)
+        if len(planned) > 1:
+            errors.append(f"strong-entity component {root} crosses planned splits: {sorted(planned)}")
+        explicit = comp_explicit.get(root)
+        planned_split = sorted(planned)[0] if planned else None
+        if explicit and planned_split and explicit != planned_split:
+            message = f"explicit split {explicit} conflicts with planned split {planned_split} for {root}"
+            warnings.append(message)
+            release_errors.append(message)
+        chosen = explicit or planned_split
+        if chosen:
+            comp_split[root] = chosen
+        else:
+            auto_by_category[cat].append(root)
     comp_split.update(allocate_components(auto_by_category, ratios))
     group_split = {g: comp_split[root] for g, root in comp_of_group.items()}
 
@@ -235,7 +265,9 @@ def assign_splits(records, templates, cfg):
         if len(s - {"test", "challenge_test"}) > 0 and holdout:
             errors.append(f"group {g} appears in train/validation and test: {sorted(s)}")
     return {"group_split": group_split, "components": {k: sorted(v) for k, v in components.items()},
-            "errors": errors, "warnings": warnings}
+            "split_plan": {"path": plan_cfg.get("path"), "version": (plan or {}).get("version"),
+                           "fixed_groups": len(planned_splits)},
+            "errors": errors, "warnings": warnings, "release_errors": release_errors}
 
 
 # ---- 5: leakage checks -----------------------------------------------------------------------------
@@ -372,7 +404,7 @@ def dataset_stats(records):
     relations, purposes, statuses, confidences, categories = Counter(), Counter(), Counter(), Counter(), Counter()
     intents_per_sample, unrelated_counts = Counter(), Counter()
     in_len, out_len, in_tok, out_tok = [], [], [], []
-    system_prompt = read_text("prompts/sft_system.txt")
+    system_prompt = sft_system_prompt()
     for r in records:
         by_split_cat[r["split"]][r["category"]] += 1
         by_split_diff[r["split"]][str(r.get("difficulty"))] += 1
@@ -413,22 +445,30 @@ def dataset_stats(records):
     }
 
 
-def build(out_dir="data/splits", allow_unapproved=False, include_meta=False, force=False):
+def build(out_dir="data/splits", allow_unapproved=False, include_meta=False, force=False, release=False):
     cfg = load_yaml("config/dataset_config.yaml")
     taxonomy = Taxonomy.load()
     templates = {t["template_id"]: t for t in load_json("config/templates.json")["templates"]}
+    if release and allow_unapproved:
+        raise SystemExit("--release cannot be combined with --allow-unapproved")
     records, skipped = load_records(cfg, taxonomy, allow_unapproved=allow_unapproved)
     out_root = Path(out_dir) if Path(out_dir).is_absolute() else ROOT / out_dir
     summary = {"builder_version": BUILDER_VERSION, "generated_at": now_iso(), "allow_unapproved": allow_unapproved,
-               "n_records": len(records), "skipped": skipped}
+               "release": release, "n_records": len(records), "skipped": skipped}
     if not records:
+        if release:
+            summary["release_errors"] = ["release requires at least one approved, valid sample"]
         out_root.mkdir(parents=True, exist_ok=True)
         save_json(f"{out_root}/split_manifest.json", summary)
+        if summary.get("release_errors") and not force:
+            raise SystemExit("Release checks failed: no usable records")
         return summary
     split_info = assign_splits(records, templates, cfg)
     leak = leakage_report(records)
     stats = dataset_stats(records)
-    system_prompt = read_text("prompts/sft_system.txt")
+    coverage = coverage_report(records, cfg)
+    shortcuts = audit_records(records, cfg)
+    system_prompt = sft_system_prompt()
 
     out_root.mkdir(parents=True, exist_ok=True)
     files = {}
@@ -445,13 +485,16 @@ def build(out_dir="data/splits", allow_unapproved=False, include_meta=False, for
                                    "difficulty": r.get("difficulty")} for r in records}
     summary.update({
         "files": files, "assignment": assignment, "split_info": split_info, "leakage": leak, "stats": stats,
+        "coverage": coverage, "shortcut_audit": shortcuts,
         "unapproved_included": sum(1 for r in records if r.get("approval") != "approved"),
     })
     save_json(f"{out_root}/split_manifest.json", summary)
     (out_root / "DATASET_REPORT.md").write_text(render_markdown(summary), encoding="utf-8")
     hard_errors = split_info["errors"] + leak["errors"]
+    if release:
+        hard_errors += split_info.get("release_errors", []) + coverage["errors"] + shortcuts["errors"]
     if hard_errors and not force:
-        raise SystemExit("Split/leakage errors detected (see split_manifest.json). Re-run with --force to keep the files.")
+        raise SystemExit("Build/release errors detected (see split_manifest.json). Re-run with --force only for diagnosis.")
     return summary
 
 
@@ -498,6 +541,30 @@ def render_markdown(summary):
     info = leak.get("info", {})
     lines += ["", f"- 仅在测试集出现的 App：{info.get('apps_only_in_holdout')}",
               f"- 仅在训练集出现的 App：{info.get('apps_only_in_train')}", ""]
+    split_info = summary.get("split_info", {})
+    if split_info.get("errors") or split_info.get("warnings"):
+        lines += ["### 固定切分计划"]
+        for message in split_info.get("errors", []):
+            lines.append(f"- ❌ {message}")
+        for message in split_info.get("warnings", []):
+            lines.append(f"- ⚠️ {message}")
+    coverage = summary.get("coverage")
+    if coverage:
+        lines += ["", "## Release 覆盖配额", "", f"- 训练指标：{coverage['metrics']}"]
+        for error in coverage["errors"]:
+            lines.append(f"- {'❌' if summary.get('release') else '⚠️'} {error}")
+    shortcuts = summary.get("shortcut_audit")
+    if shortcuts:
+        lines += ["", "## 表面捷径审计（相关/无关二分类）", "",
+                  "| Probe | Accuracy | Balanced Acc | Majority | Train / Test |", "|---|---|---|---|---|"]
+        for name, metric in shortcuts.get("probes", {}).items():
+            fmt = lambda x: "—" if x is None else f"{x:.3f}"
+            lines.append(f"| {name} | {fmt(metric.get('accuracy'))} | {fmt(metric.get('balanced_accuracy'))} | "
+                         f"{fmt(metric.get('majority_accuracy'))} | {metric.get('n_train')} / {metric.get('n_eval')} |")
+        for error in shortcuts.get("errors", []):
+            lines.append(f"- {'❌' if summary.get('release') else '⚠️'} {error}")
+        for warning in shortcuts.get("warnings", []):
+            lines.append(f"- ⚠️ {warning}")
     return "\n".join(lines)
 
 
@@ -507,8 +574,9 @@ def main(argv=None):
     parser.add_argument("--allow-unapproved", action="store_true")
     parser.add_argument("--include-meta", action="store_true")
     parser.add_argument("--force", action="store_true", help="keep files even when leakage errors are found")
+    parser.add_argument("--release", action="store_true", help="enforce train coverage and shortcut-audit release gates")
     args = parser.parse_args(argv)
-    summary = build(args.out, args.allow_unapproved, args.include_meta, args.force)
+    summary = build(args.out, args.allow_unapproved, args.include_meta, args.force, args.release)
     print(render_markdown(summary))
     return 0
 
