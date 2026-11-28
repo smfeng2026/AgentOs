@@ -483,8 +483,9 @@ def render_markdown(result, title="Evaluation report"):
         v = o["event_to_intent"][r]
         lines.append(f"| {r} | {v['precision']:.3f} | {v['recall']:.3f} | {v['f1']:.3f} |")
     lines += [f"- 证据集合 Jaccard 均值：{o['event_to_intent']['evidence_jaccard_mean']}", ""]
+    pa = o.get("purpose_accuracy")
     lines += ["## 目的判断（匹配对）", "",
-              f"- Purpose Accuracy：{o['purpose_accuracy']:.3f}；Macro-F1：{o.get('purpose_macro_f1')}",
+              f"- Purpose Accuracy：{'—' if pa is None else format(pa, '.3f')}；Macro-F1：{o.get('purpose_macro_f1')}",
               f"- **Purpose Over-inference Rate**（Gold=unknown 被判成具体目的）：{o.get('purpose_over_inference_rate')}（unknown 支持数 {o.get('purpose_unknown_support')}）",
               f"- Purpose Under-inference Rate（Gold 已知被判成 unknown）：{o.get('purpose_under_inference_rate')}", "",
               "## 事实与证据", "",
